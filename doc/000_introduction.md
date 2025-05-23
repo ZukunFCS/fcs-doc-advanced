@@ -14,9 +14,8 @@ As of now, this document contains three sections.
 
 1. Challenging scenarios
 2. Pipeline comparison
-3. Profile Requirements
 
 
 
 ### Got questions?
-Ping us here.
+Ping us [here](https://github.com/ZukunFCS/fcs-support/issues).
