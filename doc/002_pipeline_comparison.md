@@ -10,7 +10,9 @@ This page shows the results of processing by different pipelines.
     - **Yes** : We recommend **"Rich"** to you
     - **No** :  We recommend **"RP"** to you
 
+![](./assets/benchmark_pipeline.jpg)
 
+<!-- https://docs.google.com/presentation/d/1G5nimISmlF6UtnMI47KA63R9ldipeWlUf_yNKQ12EC4/edit?usp=sharing -->
 
 ### Background
 We provide several processing pipeline to track the facial expression.
@@ -25,7 +27,7 @@ We provide several processing pipeline to track the facial expression.
 
 3. RP
 
-    This aims to reduce the amount of profile required per video. It is robust against positional changes sucha as camera misalignment.
+    This aims to reduce the amount of profile required per video. It is robust against positional changes such as camera misalignment.
 
 By choosing the pipeline that best suits your situation, you can more easily achieve your goals of reducing your workload and improving quality.
 
