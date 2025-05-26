@@ -31,7 +31,7 @@ def build_doc(version, language, tag=None, ):
 
 # to separate a single local build from all builds we have a flag, see conf.py
 os.environ["build_all_docs"] = str(True)
-os.environ["pages_root"] = "https://zukunfcs.github.io/fcs-doc" 
+os.environ["pages_root"] = "https://zukunfcs.github.io/fcs-doc-advanced" 
 
 # manually the master branch build in the current supported languages
 if Path("./pages").exists():
