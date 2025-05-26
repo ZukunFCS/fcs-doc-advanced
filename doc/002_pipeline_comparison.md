@@ -25,7 +25,7 @@ We provide several processing pipeline to track the facial expression.
 
 3. RP
 
-    This aims to reduce the amount of profile required per video.
+    This aims to reduce the amount of profile required per video. It is robust against positional changes sucha as camera misalignment.
 
 By choosing the pipeline that best suits your situation, you can more easily achieve your goals of reducing your workload and improving quality.
 
@@ -45,13 +45,11 @@ We show the results of processing by different pipelines on 4 scenarios.
 4. Another Actor \
     Process videos of another actor using only the 50 ROM profiles.
 
-If you add a number of profiles from within the video, "Rich" will produce ideal animation results. However, when there are not enough profiles, "Rich" tends to produce less-than-ideal animation results. In this case, "Robust" and "RP" will produce better results. 
+If you add a number of profiles from within the video, "Rich" will produce ideal animation results. \
+However, when there are not enough profiles from within the video, "Rich" tends to produce less-than-ideal animation results. In this case, "Robust" and "RP" will produce better results. \
+When there are a small number of profiles, "Robust" is the best option. As the number of profiles increases, "Rich" and "RP"" become more effective. "Rich" is preferable when there are a number sufficient of profiles, although "RP" is often superior when there are positional changes between the camera and actors.\
+Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting "Robust".
 
-Additionally, when processing the videos of another actor, you can make the animation result less likely to break down by selecting "Robust".
-
-<!-- In this show case, we selected and rigged 50 profiles from the ROM video. Then, using only the 50 ROM profiles, we generate the results in Baseline. The occluded region tends to produce less-than-ideal animation results. \
-This can be mitigated by adding profiles from within the video. We showcase how the performance improves when you add a number of profiles. We can see that the quality of the animation tends to improve. \
-Additionally, we showcase the results of processing these videos using only the profiles from within them (i.e., no ROM profiles). -->
 
 ### Gallery
 <details>
