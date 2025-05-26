@@ -1,0 +1,30 @@
+name: update PO files
+
+on: 
+  workflow_dispatch:
+  
+permissions:
+  contents: write
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          pip install sphinx sphinx_rtd_theme myst_parser sphinx-intl
+      - name: Sphinx build
+        run: |
+          cd doc
+          make gettext
+          sphinx-intl update -p _build/gettext -l en
+          sphinx-intl update -p _build/gettext -l jp
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add **/*.po
+          git commit -m "Update PO files"
+          git push origin master
