@@ -86,12 +86,12 @@ if build_all_docs and build_all_docs == 'True':
         'versions' : [],
     }
 
-    with open("versions.yaml", "r") as yaml_file:
-        docs = yaml.safe_load(yaml_file)
+    # with open("versions.yaml", "r") as yaml_file:
+    #     docs = yaml.safe_load(yaml_file)
 
-    for language in docs[current_version].get('languages', []):
-        html_context['languages'].append([language, pages_root+'/'+current_version+'/'+language])        
-    # html_context['versions'].append(['latest', pages_root + '/latest/en'])
-    for _version, details in docs.items():
-        html_context['versions'].append([_version, pages_root+'/'+_version+'/'+current_language])
+    # for language in docs[current_version].get('languages', []):
+    #     html_context['languages'].append([language, pages_root+'/'+current_version+'/'+language])        
+    # # html_context['versions'].append(['latest', pages_root + '/latest/en'])
+    # for _version, details in docs.items():
+    #     html_context['versions'].append([_version, pages_root+'/'+_version+'/'+current_language])
         
