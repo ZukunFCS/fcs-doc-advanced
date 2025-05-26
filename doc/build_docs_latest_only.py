@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 from shutil import rmtree, move
 
-# a single build step, which keeps conf.py and versions.yaml at the main branch
+# a single build step, which keeps conf.py and versions.yaml at the master branch
 # in generall we use environment variables to pass values to conf.py, see below
 # and runs the build as we did locally
 def build_doc(version, language, tag=None, ):
@@ -23,14 +23,14 @@ def build_doc(version, language, tag=None, ):
 os.environ["build_all_docs"] = str(True)
 os.environ["pages_root"] = "https://zukunfcs.github.io/fcs-doc-advanced" 
 
-# manually the main branch build in the current supported languages
+# manually the master branch build in the current supported languages
 if Path("./pages").exists():
     rmtree(Path("./pages"))
 if Path("./_build").exists():
     rmtree(Path("./_build"))
 
-build_doc("latest", "jp", "main")
-build_doc("latest", "en", "main")
+build_doc("latest", "jp", "master")
+build_doc("latest", "en", "master")
 
 build_dir = Path("./_build")
 rmtree(build_dir)
