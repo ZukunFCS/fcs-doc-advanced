@@ -31,3 +31,10 @@ if Path("./_build").exists():
 
 build_doc("latest", "jp", "main")
 build_doc("latest", "en", "main")
+
+build_dir = Path("./_build")
+rmtree(build_dir)
+build_dir.mkdir(exist_ok=True, parents=True)
+subprocess.run("mv ./pages _build/html", shell=True)
+subprocess.run("cp ../src/index.html _build/html/index.html", shell=True)
+subprocess.run("git checkout master", shell=True)
