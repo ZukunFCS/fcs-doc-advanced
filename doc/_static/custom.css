@@ -2,3 +2,7 @@
 table.list-table > tbody > tr:last-child > td {
     border-bottom: none;
 }
+
+.wy-nav-content {
+    max-width: none;
+}
