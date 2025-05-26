@@ -23,7 +23,7 @@ jobs:
         run: |
           cd doc
           mkdir _build
-          python3 build_docs.py
+          python3 build_docs_latest_only.py
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
