@@ -11,5 +11,4 @@ FCS Doc Advanced
    
    000_introduction.md
    001_preliminary.md
-   experiments/001_challenging_scenarios.md
-   experiments/002_pipeline_comparison.md
+   experiments/index
