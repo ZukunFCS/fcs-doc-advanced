@@ -31,11 +31,10 @@ We currently offer three pipelines, _Rich_, _Robust_ and _RP_. _Rich_ is the def
     
     This is significant more adoptive to head rotation but less accurate. It is designed to work better when the number of profiles is extremely small (<10). Additionally, **while unsupported officially**, this pipeline would function better than the other two if the actor changes (the session contains footage of multiple actors).
 
-
-In Zukun we interally use _Rich_ for the majority of our client works. 
-
-
 By choosing the pipeline that best suits your situation, you can more easily achieve your goals of reducing your workload and improving quality.
+
+Note that there you can change the pipeline anytime during the project. You will only have to check the **reprocess** box when processing the video, feel free to try the pipelines and see what works the best for you. 
+
 
 <!-- If our tracking is not working as well as it does, even though a large number of profiles are retargeted, changing the processing pipeline may improve the tracking results. This measure is effective for videos captured in a different environment than the profiles, and for videos of the long period capture that HMC is repeatedly attached and detached. \
 (Still the most effective way to improve the animation quality of a particular video is to add more profiles from within the video itself.) -->
@@ -59,7 +58,7 @@ To demonstrate the strength of different pipelines, we prepare 4 scenarios that 
 
 4. Another Actor \
     Process videos of another actor using only the 50 ROM profiles. \
-    This is **not** a supported use-case but we still provide a reference in case you are curious. 
+    This scenario simulate when the person that you created the profiles for is a different one than the one that you would like to process videos of (due to actor change etc.). This is **not** a supported use-case but we still provide a reference in case you are curious. 
 
 
 
@@ -74,7 +73,7 @@ To demonstrate the strength of different pipelines, we prepare 4 scenarios that 
 | <video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |
 
 </details>
-
+<br>
 <details>
   <summary >Baseline + Video Profile 10</summary>
 
@@ -85,7 +84,7 @@ To demonstrate the strength of different pipelines, we prepare 4 scenarios that 
 | <video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |
 
 </details>
-
+<br>
 <details>
   <summary >Video Profile 10 Only</summary>
 
@@ -96,7 +95,7 @@ To demonstrate the strength of different pipelines, we prepare 4 scenarios that 
 | <video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |<video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video> |
 
 </details>
-
+<br>
 <details>
   <summary >Another Actor</summary>
 
@@ -109,7 +108,10 @@ To demonstrate the strength of different pipelines, we prepare 4 scenarios that 
 
 
 ### Conclusion
-If you add a number of profiles from within the video, "Rich" will produce ideal animation results. \
-However, when there are not enough profiles from within the video, "Rich" tends to produce less-than-ideal animation results. In this case, "Robust" and "RP" will produce better results. \
-When there are a small number of profiles, "Robust" is the best option. As the number of profiles increases, "Rich" and "RP"" become more effective. "Rich" is preferable when there are a number sufficient of profiles, although "RP" is often superior when there are positional changes between the camera and actors.\
-Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting "Robust".
+If you can afford to create a number of profiles from within the video that you are trying to process, or create a large amount of profiles across many videos (i.e., multiple days of filming), _Rich_ tends to produce the best animation results amoung the three pipelines.  
+
+However, if you are unable (due to time constraint or otherwise) to create profiles from within the video that you want to process, _Robust_ and _RP_ will produce better results. 
+
+When there are a small number of profiles (>10), _Robust_ is often the best option. As the number of profiles increases, _Rich_ and _RP_ become more effective. 
+
+Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting _Robust_.
