@@ -1,33 +1,32 @@
 # Pipeline Comparison
-This page shows the results of processing by different pipelines.
+FCS comes packaged with multiple algorithms (**pipelines**) for processing footages. 
 
+Each of the pipelines are designed with different usage scenarios in mind. Here is a flowchat to help you determine which you should use. 
 
-### TL;DR
-1. Do you value reducing your workload more than improving quality? \
-    - **Yes** : We recommend **"Robust"** to you
-    - **No** :  Go to next question.
-2. Can you add enough profiles from each video?
-    - **Yes** : We recommend **"Rich"** to you
-    - **No** :  We recommend **"RP"** to you
-
-![](./assets/benchmark_pipeline.jpg)
+### Just tell me which pipeline I should use.
+![](../assets/benchmark_pipeline.svg)
 
 <!-- https://docs.google.com/presentation/d/1G5nimISmlF6UtnMI47KA63R9ldipeWlUf_yNKQ12EC4/edit?usp=sharing -->
 
 ### Background
-We provide several processing pipeline to track the facial expression.
+For those who want more information about the pipelines:
+We currently offer three pipelines, _Rich_, _Robust_ and _RP_. _Rich_ is the default pipeline up until FCS 25.04, and in the upcoming 25.07 the default will become RP. 
 
 1. Rich
- 
-    This tracks subtle movement better when provided with large amount of profile but less robust to occlusions and rotations. It is more suitable for Head Mount Camera (HMC) and Studio-use.
+
+    This pipeline tends to be able to reproduce subtle movement in the character better when provided with large amount of profile (>100) and is generally your best pick for your effort if you work on a large scale projects (full length movies, game) and requires high quality animation. 
+
+3. RP
+
+    The RP pipeline functions as a less-effort-intensive alternative of Rich, by making it more robust to camera shift. 
 
 2. Robust
     
     This is more adoptive to head rotation but less accurate. It is designed to work better when the number of profiles is small (<20). It can be used with either a head-mounted or fixed camera. Additionally, quality degradation is small even when actors changes.
 
-3. RP
 
-    This aims to reduce the amount of profile required per video. It is robust against positional changes such as camera misalignment.
+In Zukun we interally use _Rich_ for the majority of our client works. 
+
 
 By choosing the pipeline that best suits your situation, you can more easily achieve your goals of reducing your workload and improving quality.
 
