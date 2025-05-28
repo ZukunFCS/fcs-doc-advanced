@@ -1,10 +1,12 @@
 # Preliminary
-This section documents some of the high level concepts and assumptions that we made when during the development of this piece of software. 
+This self-contained section explains some of the high level concepts and assumptions of FCS. We reference these concepts later on this site. 
 
 ## General Workflow
-FCS semi-automatically creates facial animation from footage for any rig by allowing the user to provide pairwise reference of facial expression of the actor and the character in the form of [Profiles](#Profiles). 
+Following similar software, FCS semi-automatically creates facial animation from footage for any rig by allowing the user to provide pairwise reference of facial expression of the actor and the character in the form of [Profiles](#profiles). 
 
+After creating enough profiles, FCS automatically establishes a relationship between the facial expression of the actor and that of the character. This is often an iterative process that rely on the user to provide more and more profiles to increase the accuracy of the prediction. 
 
+In general, accuracy of the animation would tend to worsen when drastic movement is involved, camera blur etc. In this case we recommend adding frames that failed to produce accurate result as profile and reprocess. 
 
 
 ## Profiles
