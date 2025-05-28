@@ -7,11 +7,12 @@ FCS Doc Advanced
 
 .. toctree::
    :maxdepth: 2
-   :caption: コンテンツ:
+   :caption: Contents:
    
    000_introduction.md
-   001_challenging_scenarios.md
-   002_pipeline_comparison.md
+   001_preliminary.md
+   002_challenging_scenarios.md
+   003_pipeline_comparison.md
 ..    013_install_fcs.md
 ..    003_overview.md
 ..    004_launch.md
