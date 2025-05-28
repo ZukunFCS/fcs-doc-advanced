@@ -6,8 +6,8 @@ FCS Doc Advanced
 ===================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: Contents
    
    000_introduction.md
    001_preliminary.md

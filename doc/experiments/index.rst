@@ -1,5 +1,5 @@
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Experiments
 
    001_challenging_scenarios.md
