@@ -8,7 +8,7 @@ import yaml
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'FCS Manual'
+project = 'FCS Doc Advanced'
 copyright = 'TOEI Zukun'
 author = 'Zukun'
 

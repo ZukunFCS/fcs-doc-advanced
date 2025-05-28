@@ -1,3 +1,6 @@
+Experiments
+===================================
+
 .. toctree::
    :maxdepth: 1
    :caption: Experiments
