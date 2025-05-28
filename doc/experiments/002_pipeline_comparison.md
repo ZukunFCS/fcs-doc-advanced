@@ -3,26 +3,33 @@ FCS comes packaged with multiple algorithms (**pipelines**) for processing foota
 
 Each of the pipelines are designed with different usage scenarios in mind. Here is a flowchat to help you determine which you should use. 
 
+## Table of Contents
+
+1. [Just tell me which pipeline I should use](#just-tell-me-which-pipeline-i-should-use)
+2. [Pipeline](#pipeline)
+3. [Experiment Scenarios](#experiment-scenarios)
+4. [Gallery](#gallery)
+5. [Conclusion](#conclusion)
 ### Just tell me which pipeline I should use.
 ![](../assets/benchmark_pipeline.svg)
 
 <!-- https://docs.google.com/presentation/d/1G5nimISmlF6UtnMI47KA63R9ldipeWlUf_yNKQ12EC4/edit?usp=sharing -->
 
-### Background
+### Pipeline
 For those who want more information about the pipelines:
-We currently offer three pipelines, _Rich_, _Robust_ and _RP_. _Rich_ is the default pipeline up until FCS 25.04, and in the upcoming 25.07 the default will become RP. 
+We currently offer three pipelines, _Rich_, _Robust_ and _RP_. _Rich_ is the default pipeline up until FCS 25.04, and starting with FCS 25.07 the default is RP. 
 
-1. Rich
+1. _Rich_
 
     This pipeline tends to be able to reproduce subtle movement in the character better when provided with large amount of profile (>100) and is generally your best pick for your effort if you work on a large scale projects (full length movies, game) and requires high quality animation. 
 
-3. RP
+3. _RP_
 
-    The RP pipeline functions as a less-effort-intensive alternative of Rich, by making it more robust to camera shift. 
+    The RP pipeline functions as a less-effort-intensive alternative of Rich, by making it more robust to camera shift; thus, reducing the amount of profiles required. In exchange it tends to capture less subtle facial movement. 
 
-2. Robust
+2. _Robust_
     
-    This is more adoptive to head rotation but less accurate. It is designed to work better when the number of profiles is small (<20). It can be used with either a head-mounted or fixed camera. Additionally, quality degradation is small even when actors changes.
+    This is significant more adoptive to head rotation but less accurate. It is designed to work better when the number of profiles is extremely small (<10). Additionally, **while unsupported officially**, this pipeline would function better than the other two if the actor changes (the session contains footage of multiple actors).
 
 
 In Zukun we interally use _Rich_ for the majority of our client works. 
@@ -34,27 +41,31 @@ By choosing the pipeline that best suits your situation, you can more easily ach
 (Still the most effective way to improve the animation quality of a particular video is to add more profiles from within the video itself.) -->
 
 
-### Scenario Detail
-We show the results of processing by different pipelines on 4 scenarios.
+### Experiment scenarios
+To demonstrate the strength of different pipelines, we prepare 4 scenarios that reassemble potential ways to create profiles using FCS. 
 
-1. Only ROM 50 \
-    Process videos using only the 50 ROM profiles picked up from ROM video. 
-2. ROM 50 + Video Profile 10 \
-    Process videos using the 50 ROM profiles and the 10 profiles picked up from within the video.
-3. Only Video Profile 10 \
-    Process videos using only the 10 profiles picked up from within the video.
+
+1. Baseline Only \
+    Process videos using only the 50 baseline ROM profiles. \
+    This scenario recreates the standard procedure of creating facial animation with minimal effort. 
+
+2. Baseline + Video Profile 10 \
+    Process videos using the 50 ROM profiles and the 10 profiles picked up from within the video.  \
+    This scenario shows how the animation quality tends to improve by adding more profiles from the video. 
+
+3. Video Profile 10 Only \
+    Process videos using only the 10 profiles picked up from within the video. \
+    This scenario shows the performance of the pipelines if you skip creating the baseline ROM profiles. 
+
 4. Another Actor \
-    Process videos of another actor using only the 50 ROM profiles.
+    Process videos of another actor using only the 50 ROM profiles. \
+    This is **not** a supported use-case but we still provide a reference in case you are curious. 
 
-If you add a number of profiles from within the video, "Rich" will produce ideal animation results. \
-However, when there are not enough profiles from within the video, "Rich" tends to produce less-than-ideal animation results. In this case, "Robust" and "RP" will produce better results. \
-When there are a small number of profiles, "Robust" is the best option. As the number of profiles increases, "Rich" and "RP"" become more effective. "Rich" is preferable when there are a number sufficient of profiles, although "RP" is often superior when there are positional changes between the camera and actors.\
-Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting "Robust".
 
 
 ### Gallery
 <details>
-  <summary >Only ROM 50</summary>
+  <summary >Baseline Only</summary>
 
   | Performance Video | Rich | Robust | RP |
 | --------- | --------- | --------- | --------- |
@@ -65,7 +76,7 @@ Also, when processing the videos of another actor, you can make the animation re
 </details>
 
 <details>
-  <summary >ROM 50 + Video Profile 10</summary>
+  <summary >Baseline + Video Profile 10</summary>
 
   | Performance Video | Rich | Robust | RP |
 | --------- | --------- | --------- | --------- |
@@ -76,7 +87,7 @@ Also, when processing the videos of another actor, you can make the animation re
 </details>
 
 <details>
-  <summary >Only Video Profile 10</summary>
+  <summary >Video Profile 10 Only</summary>
 
   | Performace Video | Rich | Robust | RP |
 | --------- | --------- | --------- | --------- |
@@ -97,3 +108,8 @@ Also, when processing the videos of another actor, you can make the animation re
 </details>
 
 
+### Conclusion
+If you add a number of profiles from within the video, "Rich" will produce ideal animation results. \
+However, when there are not enough profiles from within the video, "Rich" tends to produce less-than-ideal animation results. In this case, "Robust" and "RP" will produce better results. \
+When there are a small number of profiles, "Robust" is the best option. As the number of profiles increases, "Rich" and "RP"" become more effective. "Rich" is preferable when there are a number sufficient of profiles, although "RP" is often superior when there are positional changes between the camera and actors.\
+Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting "Robust".
