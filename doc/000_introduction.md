@@ -4,7 +4,7 @@ We will be editing this as new features get released.
 
 ### What is FCS and what does it do for me?
 FCS is a piece of software for facial animator to create facial animation for their own rig given video footage of actor (usually of a head mounted-camera).
-If you wish to learn how to use FCS, we have a separate full length online manual in English and Japanese [here](https://zukunfcs.github.io/fcs-doc).
+If you wish to learn how to use FCS, we have a separate full length online manual in English and Japanese [here](https://zukunfcs.github.io/fcs-doc). This page is, however, currently only available in English. 
 
 ### Who is this page for?
 This page is for (potential) users who are evaluating FCS or are looking for hints to elevate their animation speed and quality. 
