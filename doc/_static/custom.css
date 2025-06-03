@@ -1,11 +1,20 @@
-#custom-version-switcher ul {
-    margin: 0;
+/* Simple forced dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #121212;
+      color: #eee;
+    }
+  
+    .wy-nav-side, .wy-side-nav-search, .wy-menu, .wy-menu-vertical {
+      background: #1f1f1f !important;
+    }
+  
+    .wy-nav-content {
+      background: #121212 !important;
+    }
+  
+    a {
+      color: #4ea8de;
+    }
   }
   
-#custom-version-switcher a {
-    text-decoration: none;
-}
-
-#custom-version-switcher a:hover {
-    text-decoration: underline;
-}
