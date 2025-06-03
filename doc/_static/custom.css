@@ -1,8 +1,11 @@
-/* Remove bottom border from the last row of list-table */
-table.list-table > tbody > tr:last-child > td {
-    border-bottom: none;
+#custom-version-switcher ul {
+    margin: 0;
+  }
+  
+#custom-version-switcher a {
+    text-decoration: none;
 }
 
-.wy-nav-content {
-    max-width: none;
+#custom-version-switcher a:hover {
+    text-decoration: underline;
 }
