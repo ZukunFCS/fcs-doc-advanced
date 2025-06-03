@@ -1,0 +1,29 @@
+{% extends "!footer.html" %}
+
+{% block extra_footer %}
+<div id="custom-version-switcher" style="padding-top: 1rem;">
+  <div style="font-size: 0.9em;">
+    Version: {{ current_version }} | Language: {{ current_language }}
+  </div>
+  <div style="margin-top: 0.5rem;">
+    {% if versions|length >= 1 %}
+    <strong>Versions:</strong>
+    <ul style="list-style-type: none; padding-left: 0;">
+      {% for the_version, url in versions %}
+      <li><a href="{{ url }}/index.html">{{ the_version }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% if languages|length >= 1 %}
+  <div>
+    <strong>Languages:</strong>
+    <ul style="list-style-type: none; padding-left: 0;">
+      {% for the_language, url in languages %}
+      <li><a href="{{ url }}/index.html">{{ the_language }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
