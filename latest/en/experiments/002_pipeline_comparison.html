@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline Comparison &mdash; FCS Doc Advanced latest documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c6e86fd7"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Challenging scenarions" href="001_challenging_scenarios.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../000_introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">What is FCS and what does it do for me?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#who-is-this-page-for">Who is this page for?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../001_preliminary.html">Preliminary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#general-workflow">General Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#profiles">Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#baseline-profiles">Baseline profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Experiments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001_challenging_scenarios.html">Challenging scenarions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#scenario-detail">Scenario Detail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pipeline Comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-of-contents">Table of Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#just-tell-me-which-pipeline-i-should-use">Just tell me which pipeline I should use.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipeline">Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#experiment-scenarios">Experiment scenarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gallery">Gallery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Experiments</a></li>
+      <li class="breadcrumb-item active">Pipeline Comparison</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/experiments/002_pipeline_comparison.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pipeline-comparison">
+<h1>Pipeline Comparison<a class="headerlink" href="#pipeline-comparison" title="Link to this heading"></a></h1>
+<p>FCS comes packaged with multiple algorithms (<strong>pipelines</strong>) for processing footages.</p>
+<p>Each of the pipelines are designed with different usage scenarios in mind. Here is a flowchat to help you determine which you should use.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#just-tell-me-which-pipeline-i-should-use"><span class="xref myst">Just tell me which pipeline I should use</span></a></p></li>
+<li><p><a class="reference internal" href="#pipeline"><span class="xref myst">Pipeline</span></a></p></li>
+<li><p><a class="reference internal" href="#experiment-scenarios"><span class="xref myst">Experiment Scenarios</span></a></p></li>
+<li><p><a class="reference internal" href="#gallery"><span class="xref myst">Gallery</span></a></p></li>
+<li><p><a class="reference internal" href="#conclusion"><span class="xref myst">Conclusion</span></a></p></li>
+</ol>
+<section id="just-tell-me-which-pipeline-i-should-use">
+<h3>Just tell me which pipeline I should use.<a class="headerlink" href="#just-tell-me-which-pipeline-i-should-use" title="Link to this heading"></a></h3>
+<p><img alt="" src="../_images/benchmark_pipeline.svg" /></p>
+<!-- https://docs.google.com/presentation/d/1G5nimISmlF6UtnMI47KA63R9ldipeWlUf_yNKQ12EC4/edit?usp=sharing -->
+</section>
+<section id="pipeline">
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Link to this heading"></a></h3>
+<p>For those who want more information about the pipelines:
+We currently offer three pipelines, <em>Rich</em>, <em>Robust</em> and <em>RP</em>. <em>Rich</em> is the default pipeline up until FCS 25.04, and starting with FCS 25.07 the default is RP.</p>
+<ol class="arabic">
+<li><p><em>Rich</em></p>
+<p>This pipeline tends to be able to reproduce subtle movement in the character better when provided with large amount of profile (&gt;100) and is generally your best pick for your effort if you work on a large scale projects (full length movies, game) and requires high quality animation.</p>
+</li>
+<li><p><em>RP</em></p>
+<p>The RP pipeline functions as a less-effort-intensive alternative of Rich, by making it more robust to camera shift; thus, reducing the amount of profiles required. In exchange it tends to capture less subtle facial movement.</p>
+</li>
+<li><p><em>Robust</em></p>
+<p>This is significant more adoptive to head rotation but less accurate. It is designed to work better when the number of profiles is extremely small (&lt;10). Additionally, <strong>while unsupported officially</strong>, this pipeline would function better than the other two if the actor changes (the session contains footage of multiple actors).</p>
+</li>
+</ol>
+<p>By choosing the pipeline that best suits your situation, you can more easily achieve your goals of reducing your workload and improving quality.</p>
+<p>Note that there you can change the pipeline anytime during the project. You will only have to check the <strong>reprocess</strong> box when processing the video, feel free to try the pipelines and see what works the best for you.</p>
+<!-- If our tracking is not working as well as it does, even though a large number of profiles are retargeted, changing the processing pipeline may improve the tracking results. This measure is effective for videos captured in a different environment than the profiles, and for videos of the long period capture that HMC is repeatedly attached and detached. \
+(Still the most effective way to improve the animation quality of a particular video is to add more profiles from within the video itself.) -->
+</section>
+<section id="experiment-scenarios">
+<h3>Experiment scenarios<a class="headerlink" href="#experiment-scenarios" title="Link to this heading"></a></h3>
+<p>To demonstrate the strength of different pipelines, we prepare 4 scenarios that reassemble potential ways to create profiles using FCS.</p>
+<ol class="arabic simple">
+<li><p>Baseline Only <br />
+Process videos using only the 50 baseline ROM profiles. <br />
+This scenario recreates the standard procedure of creating facial animation with minimal effort.</p></li>
+<li><p>Baseline + Video Profile 10 <br />
+Process videos using the 50 ROM profiles and the 10 profiles picked up from within the video.  <br />
+This scenario shows how the animation quality tends to improve by adding more profiles from the video.</p></li>
+<li><p>Video Profile 10 Only <br />
+Process videos using only the 10 profiles picked up from within the video. <br />
+This scenario shows the performance of the pipelines if you skip creating the baseline ROM profiles.</p></li>
+<li><p>Another Actor <br />
+Process videos of another actor using only the 50 ROM profiles. <br />
+This scenario simulate when the person that you created the profiles for is a different one than the one that you would like to process videos of (due to actor change etc.). This is <strong>not</strong> a supported use-case but we still provide a reference in case you are curious.</p></li>
+</ol>
+</section>
+<section id="gallery">
+<h3>Gallery<a class="headerlink" href="#gallery" title="Link to this heading"></a></h3>
+<details>
+  <summary >Baseline Only</summary>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Performance Video</p></th>
+<th class="head"><p>Rich</p></th>
+<th class="head"><p>Robust</p></th>
+<th class="head"><p>RP</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br>
+<details>
+  <summary >Baseline + Video Profile 10</summary>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Performance Video</p></th>
+<th class="head"><p>Rich</p></th>
+<th class="head"><p>Robust</p></th>
+<th class="head"><p>RP</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br>
+<details>
+  <summary >Video Profile 10 Only</summary>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Performace Video</p></th>
+<th class="head"><p>Rich</p></th>
+<th class="head"><p>Robust</p></th>
+<th class="head"><p>RP</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/Video_45_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/Video_facepaint_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br>
+<details>
+  <summary >Another Actor</summary>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Performance Video</p></th>
+<th class="head"><p>Rich</p></th>
+<th class="head"><p>Robust</p></th>
+<th class="head"><p>RP</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/other_actor_set/01_joy_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Rich/01_joy_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Robust/01_joy_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/RP/01_joy_sample.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/other_actor_set/02_sadness_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Rich/02_sadness_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Robust/02_sadness_sample.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/RP/02_sadness_sample.mp4" type="video/mp4"></video></p></td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h3>
+<p>If you can afford to create a number of profiles from within the video that you are trying to process, or create a large amount of profiles across many videos (i.e., multiple days of filming), <em>Rich</em> tends to produce the best animation results amoung the three pipelines.</p>
+<p>However, if you are unable (due to time constraint or otherwise) to create profiles from within the video that you want to process, <em>Robust</em> and <em>RP</em> will produce better results.</p>
+<p>When there are a small number of profiles (&gt;10), <em>Robust</em> is often the best option. As the number of profiles increases, <em>Rich</em> and <em>RP</em> become more effective.</p>
+<p>Also, when processing the videos of another actor, you can make the animation result less likely to break down by selecting <em>Robust</em>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="001_challenging_scenarios.html" class="btn btn-neutral float-left" title="Challenging scenarions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: latest Lang: en
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/latest/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/latest/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/latest/en/index.html">latest</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
