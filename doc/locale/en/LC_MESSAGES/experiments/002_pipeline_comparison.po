@@ -1,0 +1,499 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-03 19:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../experiments/002_pipeline_comparison.md:1
+msgid "Pipeline Comparison"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:2
+msgid ""
+"FCS comes packaged with multiple algorithms (**pipelines**) for "
+"processing footages."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:4
+msgid ""
+"Each of the pipelines are designed with different usage scenarios in "
+"mind. Here is a flowchat to help you determine which you should use."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:6
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:8
+msgid ""
+"[Just tell me which pipeline I should use](#just-tell-me-which-pipeline-i"
+"-should-use)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:9
+msgid "[Pipeline](#pipeline)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:10
+msgid "[Experiment Scenarios](#experiment-scenarios)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:11
+msgid "[Gallery](#gallery)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:12
+msgid "[Conclusion](#conclusion)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:13
+msgid "Just tell me which pipeline I should use."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:14
+msgid "![](../assets/benchmark_pipeline.svg)"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:18
+msgid "Pipeline"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:19
+msgid ""
+"For those who want more information about the pipelines: We currently "
+"offer three pipelines, _Rich_, _Robust_ and _RP_. _Rich_ is the default "
+"pipeline up until FCS 25.04, and starting with FCS 25.07 the default is "
+"RP."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:22
+msgid "_Rich_"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:24
+msgid ""
+"This pipeline tends to be able to reproduce subtle movement in the "
+"character better when provided with large amount of profile (>100) and is"
+" generally your best pick for your effort if you work on a large scale "
+"projects (full length movies, game) and requires high quality animation."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:26
+msgid "_RP_"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:28
+msgid ""
+"The RP pipeline functions as a less-effort-intensive alternative of Rich,"
+" by making it more robust to camera shift; thus, reducing the amount of "
+"profiles required. In exchange it tends to capture less subtle facial "
+"movement."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:30
+msgid "_Robust_"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:32
+msgid ""
+"This is significant more adoptive to head rotation but less accurate. It "
+"is designed to work better when the number of profiles is extremely small"
+" (<10). Additionally, **while unsupported officially**, this pipeline "
+"would function better than the other two if the actor changes (the "
+"session contains footage of multiple actors)."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:34
+msgid ""
+"By choosing the pipeline that best suits your situation, you can more "
+"easily achieve your goals of reducing your workload and improving "
+"quality."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:36
+msgid ""
+"Note that there you can change the pipeline anytime during the project. "
+"You will only have to check the **reprocess** box when processing the "
+"video, feel free to try the pipelines and see what works the best for "
+"you."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:43
+msgid "Experiment scenarios"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:44
+msgid ""
+"To demonstrate the strength of different pipelines, we prepare 4 "
+"scenarios that reassemble potential ways to create profiles using FCS."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:47
+msgid ""
+"Baseline Only \\  Process videos using only the 50 baseline ROM profiles."
+" \\  This scenario recreates the standard procedure of creating facial "
+"animation with minimal effort."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:51
+msgid ""
+"Baseline + Video Profile 10 \\  Process videos using the 50 ROM profiles "
+"and the 10 profiles picked up from within the video.  \\  This scenario "
+"shows how the animation quality tends to improve by adding more profiles "
+"from the video."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:55
+msgid ""
+"Video Profile 10 Only \\  Process videos using only the 10 profiles "
+"picked up from within the video. \\  This scenario shows the performance "
+"of the pipelines if you skip creating the baseline ROM profiles."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:59
+msgid ""
+"Another Actor \\  Process videos of another actor using only the 50 ROM "
+"profiles. \\  This scenario simulate when the person that you created the"
+" profiles for is a different one than the one that you would like to "
+"process videos of (due to actor change etc.). This is **not** a supported"
+" use-case but we still provide a reference in case you are curious."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:65
+msgid "Gallery"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid "Performance Video"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid "Rich"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid "Robust"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid "RP"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/pipeline_comparison_set/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Rich/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/Robust/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/baseline/RP/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Rich/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/Robust/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/p_10/RP/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid "Performace Video"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/down_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/Video_45_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Rich/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/Robust/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/v_10/RP/Video_facepaint_normal_t01.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/other_actor_set/01_joy_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Rich/01_joy_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Robust/01_joy_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/RP/01_joy_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/common/other_actor_set/02_sadness_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Rich/02_sadness_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/Robust/02_sadness_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md
+msgid ""
+"<video height=\"300\" controls><source "
+"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/other_actor/RP/02_sadness_sample.mp4\""
+" type=\"video/mp4\"></video>"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:110
+msgid "Conclusion"
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:111
+msgid ""
+"If you can afford to create a number of profiles from within the video "
+"that you are trying to process, or create a large amount of profiles "
+"across many videos (i.e., multiple days of filming), _Rich_ tends to "
+"produce the best animation results amoung the three pipelines."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:113
+msgid ""
+"However, if you are unable (due to time constraint or otherwise) to "
+"create profiles from within the video that you want to process, _Robust_ "
+"and _RP_ will produce better results."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:115
+msgid ""
+"When there are a small number of profiles (>10), _Robust_ is often the "
+"best option. As the number of profiles increases, _Rich_ and _RP_ become "
+"more effective."
+msgstr ""
+
+#: ../../experiments/002_pipeline_comparison.md:117
+msgid ""
+"Also, when processing the videos of another actor, you can make the "
+"animation result less likely to break down by selecting _Robust_."
+msgstr ""
+

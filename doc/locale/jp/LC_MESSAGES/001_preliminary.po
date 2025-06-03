@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-03 19:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: jp\n"
+"Language-Team: jp <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../001_preliminary.md:1
+msgid "Preliminary"
+msgstr ""
+
+#: ../../001_preliminary.md:2
+msgid ""
+"This self-contained section explains some of the high level concepts and "
+"assumptions of FCS. We reference these concepts later on this site."
+msgstr ""
+
+#: ../../001_preliminary.md:4
+msgid "General Workflow"
+msgstr ""
+
+#: ../../001_preliminary.md:5
+msgid ""
+"Following similar software, FCS semi-automatically creates facial "
+"animation from footage for any rig by allowing the user to provide "
+"pairwise reference of facial expression of the actor and the character in"
+" the form of [Profiles](#profiles)."
+msgstr ""
+
+#: ../../001_preliminary.md:7
+msgid ""
+"After creating enough profiles, FCS automatically establishes a "
+"relationship between the facial expression of the actor and that of the "
+"character. This is often an iterative process that rely on the user to "
+"provide more and more profiles to increase the accuracy of the "
+"prediction."
+msgstr ""
+
+#: ../../001_preliminary.md:9
+msgid ""
+"In general, accuracy of the animation would tend to worsen when drastic "
+"movement is involved, camera blur etc. In this case we recommend adding "
+"frames that failed to produce the desired result as profile, manually "
+"correct the rig parameters and reprocess."
+msgstr ""
+
+#: ../../001_preliminary.md:12
+msgid "Profiles"
+msgstr ""
+
+#: ../../001_preliminary.md:13
+msgid ""
+"Profile refers to a paired data of a single image of an actor, and the "
+"corresponding character, rigged to express the same facial expression as "
+"the actor in the image. This is created using FCS by selecting particular"
+" frame from a video, and rigging the character in Maya."
+msgstr ""
+
+#: ../../001_preliminary.md:15
+msgid ""
+"[Learn about how to create profiles in FCS...](https://zukunfcs.github.io"
+"/fcs-doc/latest/en/008_profile.html)"
+msgstr ""
+
+#: ../../001_preliminary.md:17
+msgid "ROM"
+msgstr ""
+
+#: ../../001_preliminary.md:18
+msgid ""
+"As a general rule of thumb, we recommend filming a Range of Motion (ROM) "
+"video prior to the actual filming. A ROM video should cover a wide range "
+"of facial expression that the actor can do. It is not strictly necessary "
+"but we find that using a ROM video in production often leads to time "
+"saving, especially when the amount of footage that has to be processed is"
+" large. The time saving would be less significant if you are processing "
+"only a small amount of footage."
+msgstr ""
+
+#: ../../001_preliminary.md:21
+msgid "Baseline profiles"
+msgstr ""
+
+#: ../../001_preliminary.md:22
+msgid ""
+"With your purchase of FCS comes with a PDF containing approximately 50 "
+"facial expressions that you can use for the ROM video, it is meant for "
+"guidance but you can always use your own ROM facial expressions.  We "
+"refer to profiles with the facial expression in the PDF the baseline "
+"profiles collectively, and often use them as a benchmarking baseline."
+msgstr ""
+

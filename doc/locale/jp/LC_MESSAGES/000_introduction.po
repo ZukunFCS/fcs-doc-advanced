@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-03 19:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: jp\n"
+"Language-Team: jp <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../000_introduction.md:1
+msgid "Introduction"
+msgstr ""
+
+#: ../../000_introduction.md:2
+msgid ""
+"This website hosts more advanced topics for FCS, including more detailed "
+"explanation of new features, benchmark result and more.   We will be "
+"editing this as new features get released."
+msgstr ""
+
+#: ../../000_introduction.md:5
+msgid "What is FCS and what does it do for me?"
+msgstr ""
+
+#: ../../000_introduction.md:6
+msgid ""
+"FCS is a piece of software for facial animator to create facial animation"
+" for their own rig given video footage of actor (usually of a head "
+"mounted-camera). If you wish to learn how to use FCS, we have a separate "
+"full length online manual in English and Japanese "
+"[here](https://zukunfcs.github.io/fcs-doc). This page is, however, "
+"currently only available in English."
+msgstr ""
+
+#: ../../000_introduction.md:9
+msgid "Who is this page for?"
+msgstr ""
+
+#: ../../000_introduction.md:10
+msgid ""
+"This page is for (potential) users who are evaluating FCS or are looking "
+"for hints to elevate their animation speed and quality.  Here we provide "
+"you an easier way to understand the quality of animation that they can "
+"and cannot expect from FCS, and the associated effort (artist time) "
+"required to achieve the level of quality you require. Evaluating a new "
+"piece of software takes time, and we are here to make it slightly easier."
+msgstr ""
+
