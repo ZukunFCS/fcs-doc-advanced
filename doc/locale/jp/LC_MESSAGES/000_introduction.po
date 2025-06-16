@@ -45,7 +45,7 @@ msgid ""
 "[here](https://zukunfcs.github.io/fcs-doc). This page is, however, "
 "currently only available in English."
 msgstr ""
-"FCSはアクターの表情動画(主にHMCを使用したもの)からフェイシャルアニメーションを生成するソフトウェアです。<br>"
+"FCSはアクターの表情動画(主にHMCを使用したもの)からフェイシャルアニメーションを生成するソフトウェアです。（このとき使用するリグは問いません）<br>"
 "FCSの詳細や使用方法について知りたい方は[こちら](https://zukunfcs.github.io/fcs-doc/latest/jp/index.html)のマニュアルをご確認ください。"
 
 
