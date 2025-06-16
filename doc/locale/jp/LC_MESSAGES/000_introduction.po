@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../000_introduction.md:1
 msgid "Introduction"
-msgstr ""
+msgstr "Introduction"
 
 #: ../../000_introduction.md:2
 msgid ""
@@ -29,10 +29,12 @@ msgid ""
 "explanation of new features, benchmark result and more.   We will be "
 "editing this as new features get released."
 msgstr ""
+"ここでは、新機能についての詳細説明・ベンチマーク結果など、FCSのより詳しいトピックを掲載しています。"
+"FCSに新しい機能が搭載されるとこのサイトも更新されます。"
 
 #: ../../000_introduction.md:5
 msgid "What is FCS and what does it do for me?"
-msgstr ""
+msgstr "FCSとは？"
 
 #: ../../000_introduction.md:6
 msgid ""
@@ -43,10 +45,13 @@ msgid ""
 "[here](https://zukunfcs.github.io/fcs-doc). This page is, however, "
 "currently only available in English."
 msgstr ""
+"FCSはアクターの表情動画(主にHMCを使用したもの)からフェイシャルアニメーションを生成するソフトウェアです。<br>"
+"FCSの詳細や使用方法について知りたい方は[こちら](https://zukunfcs.github.io/fcs-doc/latest/jp/index.html)のマニュアルをご確認ください。"
+
 
 #: ../../000_introduction.md:9
 msgid "Who is this page for?"
-msgstr ""
+msgstr "このサイトについて"
 
 #: ../../000_introduction.md:10
 msgid ""
@@ -57,4 +62,7 @@ msgid ""
 "required to achieve the level of quality you require. Evaluating a new "
 "piece of software takes time, and we are here to make it slightly easier."
 msgstr ""
+"このサイトではFCSを購入検討中の方、作業効率やクオリティを上げたいFCSユーザーに向けて、FCSで解析可能・困難な動画とそのアニメーション、"
+"また、クオリティの高いアニメーションを生成するために必要な作業・工数削減方法などについて紹介いたします。<br>"
+"FCSを使用いただく中でクオリティ・工数の不安や課題解決のお役に立てれば幸いです。"
 
