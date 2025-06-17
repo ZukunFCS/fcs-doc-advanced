@@ -21,17 +21,18 @@ msgstr ""
 
 #: ../../001_preliminary.md:1
 msgid "Preliminary"
-msgstr ""
+msgstr "Preliminary-予備知識"
 
 #: ../../001_preliminary.md:2
 msgid ""
 "This self-contained section explains some of the high level concepts and "
 "assumptions of FCS. We reference these concepts later on this site."
 msgstr ""
+"この項目では、FCSの想定されるワークフローやサイト内で使用されるFCSの予備知識などについて説明します。"
 
 #: ../../001_preliminary.md:4
 msgid "General Workflow"
-msgstr ""
+msgstr "FCSの一般的なワークフロー"
 
 #: ../../001_preliminary.md:5
 msgid ""
@@ -40,6 +41,8 @@ msgid ""
 "pairwise reference of facial expression of the actor and the character in"
 " the form of [Profiles](#profiles)."
 msgstr ""
+"他の同様のソフトウェアに倣い、FCSではアクターの表情と対応するキャラクターの表情ペアを[プロファイル](#profiles)として登録・参照し、"
+"リグは問わず、フェイシャルアニメーションを半自動的に生成します。"
 
 #: ../../001_preliminary.md:7
 msgid ""
@@ -49,6 +52,8 @@ msgid ""
 "provide more and more profiles to increase the accuracy of the "
 "prediction."
 msgstr ""
+"十分なプロファイルを作成すると、自動的にアクターの表情とキャラクターの表情の間に関係性が構築されます。<br>"
+"基本的により多くのプロファイルを登録することで解析の精度を高めることが可能です。"
 
 #: ../../001_preliminary.md:9
 msgid ""
@@ -57,10 +62,12 @@ msgid ""
 "frames that failed to produce the desired result as profile, manually "
 "correct the rig parameters and reprocess."
 msgstr ""
+"急激な動きなどでカメラがブレてしまう(画角が変わる)と、アニメーションの精度が低くなる傾向があります。"
+"その場合、精度の低いフレームをプロファイルとして追加することでリグのパラメータを手動で修正し、再処理することをお勧めします。"
 
 #: ../../001_preliminary.md:12
 msgid "Profiles"
-msgstr ""
+msgstr "Profiles（プロファイル）"
 
 #: ../../001_preliminary.md:13
 msgid ""
@@ -69,16 +76,18 @@ msgid ""
 "the actor in the image. This is created using FCS by selecting particular"
 " frame from a video, and rigging the character in Maya."
 msgstr ""
+"プロファイルとは、アクターの1枚の画像とそれと同じ表情になるように調整されたキャラクターのペアデータのことを指します。<br>"
+"これはFCSで動画から特定のフレームを選択しMayaでキャラクターのリターゲットを行うことで作成されます。"
 
 #: ../../001_preliminary.md:15
 msgid ""
 "[Learn about how to create profiles in FCS...](https://zukunfcs.github.io"
 "/fcs-doc/latest/en/008_profile.html)"
-msgstr ""
+msgstr "[FCSのプロファイル作成方法についてはこちらをご覧ください。](https://zukunfcs.github.io/fcs-doc/latest/jp/008_profile.html)"
 
 #: ../../001_preliminary.md:17
 msgid "ROM"
-msgstr ""
+msgstr "ROM"
 
 #: ../../001_preliminary.md:18
 msgid ""
@@ -90,10 +99,14 @@ msgid ""
 " large. The time saving would be less significant if you are processing "
 "only a small amount of footage."
 msgstr ""
+"FCSでの作業において、キャプチャー撮影時にアクターがしうる幅広い表情の可動範囲(ROMビデオ)を収録することをお勧めします。<br>"
+"必須ではありませんが、処理映像の量が多い場合、ROMビデオを使用することで"
+"演技のビデオからリターゲットするより基本的な表情を網羅しやすく、時間短縮につながります。"
+"但し、処理するデータが少ない場合はそこまで時間短縮にならない可能性がございます。"
 
 #: ../../001_preliminary.md:21
 msgid "Baseline profiles"
-msgstr ""
+msgstr "Baseline profiles（ベースライン プロファイル）"
 
 #: ../../001_preliminary.md:22
 msgid ""
@@ -103,4 +116,8 @@ msgid ""
 "refer to profiles with the facial expression in the PDF the baseline "
 "profiles collectively, and often use them as a benchmarking baseline."
 msgstr ""
+"FCSをご購入いただくと、ツークン研究所がフェイシャルキャプチャー撮影で実際に使用している、"
+"ROM用の約50種類の表情を収録したPDFをお渡ししています。"
+"参考資料としてご使用いただけますと幸いです<br>"
+"PDFに記載されている表情を含むプロファイルを総称してベースラインプロファイルと呼び、ベンチマークの基準として使用することがあります。"
 
