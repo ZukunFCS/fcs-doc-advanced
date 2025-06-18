@@ -28,7 +28,7 @@ msgid ""
 "FCS comes packaged with multiple algorithms (**pipelines**) for "
 "processing footages."
 msgstr ""
-FCSにはビデオを処理するための複数のアルゴリズム (**パイプライン**) がパッケージ化されています。"
+"FCSにはビデオを処理するための複数のアルゴリズム (**パイプライン**) がパッケージ化されています。"
 
 #: ../../experiments/002_pipeline_comparison.md:4
 msgid ""
@@ -47,15 +47,16 @@ msgid ""
 "[Just tell me which pipeline I should use](#just-tell-me-which-pipeline-i"
 "-should-use)"
 msgstr ""
-"[どのパイプラインを使用すべきか　フローチャート]（#どのパイプラインを使用すべきか-フローチャート）"
+"[どのパイプラインを使用すべきか　フローチャート]（#just-tell-me-which-pipeline-i"
+"-should-use）"
 
 #: ../../experiments/002_pipeline_comparison.md:9
 msgid "[Pipeline](#pipeline)"
-msgstr "[Pipeline 一覧](#Pipeline-一覧)"
+msgstr "[Pipeline 一覧](#pipeline))"
 
 #: ../../experiments/002_pipeline_comparison.md:10
 msgid "[Experiment Scenarios](#experiment-scenarios)"
-msgstr "[検証詳細](#検証詳細)"
+msgstr "[検証詳細](#experiment-scenarios)"
 
 #: ../../experiments/002_pipeline_comparison.md:11
 msgid "[Gallery](#gallery)"
@@ -63,7 +64,7 @@ msgstr "[Gallery](#gallery)"
 
 #: ../../experiments/002_pipeline_comparison.md:12
 msgid "[Conclusion](#conclusion)"
-msgstr "まとめ(#まとめ)"
+msgstr "[まとめ](#conclusion)"
 
 #: ../../experiments/002_pipeline_comparison.md:13
 msgid "Just tell me which pipeline I should use."
