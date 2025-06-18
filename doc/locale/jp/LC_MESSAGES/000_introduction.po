@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../000_introduction.md:1
 msgid "Introduction"
-msgstr "Introduction"
+msgstr "はじめに"
 
 #: ../../000_introduction.md:2
 msgid ""
