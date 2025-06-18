@@ -21,17 +21,17 @@ msgstr ""
 
 #: ../../experiments/001_challenging_scenarios.md:1
 msgid "Challenging scenarions"
-msgstr ""
+msgstr "困難な条件下での検証"
 
 #: ../../experiments/001_challenging_scenarios.md:2
 msgid ""
 "This page shows the results of challenging scenarios, such as processing "
 "heavily occluded videos."
-msgstr ""
+msgstr "このページでは、ひげやその他外的要因によって大きく遮られたビデオの処理など、困難な状況の解析結果を掲載しています。"
 
 #: ../../experiments/001_challenging_scenarios.md:4
 msgid "Background"
-msgstr ""
+msgstr "背景"
 
 #: ../../experiments/001_challenging_scenarios.md:5
 msgid ""
@@ -43,10 +43,14 @@ msgid ""
 "improve the animation quality of a particular video is to add more "
 "profiles from within the video itself."
 msgstr ""
+"大きく遮られたビデオを処理する場合、FCSのトラッキング機能は通常時ほどうまく機能しません。<br>"
+"これは私たちが積極的に研究に取り組んでいる分野ですが、Galleryにプロファイルを追加するだけで、"
+"出力するアニメーションのクオリティを上げることができ、ビデオ自体からプロファイルを追加することで、"
+"最も効果的に特定のビデオ（遮蔽物が入ってしまったビデオなど）のアニメーションクオリティを上げることが可能です。"
 
 #: ../../experiments/001_challenging_scenarios.md:7
 msgid "Scenario Detail"
-msgstr ""
+msgstr 検証内容について""
 
 #: ../../experiments/001_challenging_scenarios.md:8
 msgid ""
@@ -59,6 +63,15 @@ msgid ""
 "\\ Additionally, we showcase the results of processing these videos using"
 " only the profiles from within them (i.e., no ROM profiles)."
 msgstr ""
+"このショーケースでは、ROMビデオから50個のプロファイルを選択してリターゲットを行いました。<br>"
+"50個のROMプロファイルのみを使用して、ベースラインでアニメーションを出力します。"
+"※Baseline（ROM 50Profilesのみ）<br>"
+"遮蔽物によって遮られた範囲はアニメーションが破綻する可能性が高くなっています。<br>"
+"この破綻は該当のビデオ内からプロファイルを追加することで軽減できます。<br>"
+"プロファイルを追加するとパフォーマンスが向上し、アニメーションのクオリティが上がる傾向が見られます。<br>"
+"(50+2 Profiles、50+5 Profiles、50+10 Profiles：それぞれベースラインに加えて該当のビデオから2個、5個、10個プロファイルを追加した結果）<br>"
+"さらに、ビデオ内のプロファイルのみを使用して（つまり、ROMプロファイルなしで）処理した結果を掲載しています。"
+"※0+10 Profiles（ROMなしで該当ビデオから10個プロファイルを追加したもの）"
 
 #: ../../experiments/001_challenging_scenarios.md:12
 msgid "Gallery"
@@ -70,7 +83,7 @@ msgstr ""
 
 #: ../../experiments/001_challenging_scenarios.md
 msgid "Baseline (50+0 Profiles)"
-msgstr ""
+msgstr Baselin（ROM 50Profilesのみ）"
 
 #: ../../experiments/001_challenging_scenarios.md
 msgid "50+2 Profiles"
