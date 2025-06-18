@@ -21,49 +21,53 @@ msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md:1
 msgid "Pipeline Comparison"
-msgstr ""
+msgstr "パイプラインの比較"
 
 #: ../../experiments/002_pipeline_comparison.md:2
 msgid ""
 "FCS comes packaged with multiple algorithms (**pipelines**) for "
 "processing footages."
 msgstr ""
+FCSにはビデオを処理するための複数のアルゴリズム (**パイプライン**) がパッケージ化されています。"
 
 #: ../../experiments/002_pipeline_comparison.md:4
 msgid ""
 "Each of the pipelines are designed with different usage scenarios in "
 "mind. Here is a flowchat to help you determine which you should use."
 msgstr ""
+"各パイプラインは、さまざまな異なる使用状況を想定し設計されています。"
+"どのパイプラインを使用すべきかの判断材料として、下記のフローチャートをご使用ください"
 
 #: ../../experiments/002_pipeline_comparison.md:6
 msgid "Table of Contents"
-msgstr ""
+msgstr "目次"
 
 #: ../../experiments/002_pipeline_comparison.md:8
 msgid ""
 "[Just tell me which pipeline I should use](#just-tell-me-which-pipeline-i"
 "-should-use)"
 msgstr ""
+"[どのパイプラインを使用すべきか　フローチャート]（#どのパイプラインを使用すべきか-フローチャート）"
 
 #: ../../experiments/002_pipeline_comparison.md:9
 msgid "[Pipeline](#pipeline)"
-msgstr ""
+msgstr "[Pipeline 一覧](#Pipeline-一覧)"
 
 #: ../../experiments/002_pipeline_comparison.md:10
 msgid "[Experiment Scenarios](#experiment-scenarios)"
-msgstr ""
+msgstr "[検証詳細](#検証詳細)"
 
 #: ../../experiments/002_pipeline_comparison.md:11
 msgid "[Gallery](#gallery)"
-msgstr ""
+msgstr "[Gallery](#gallery)"
 
 #: ../../experiments/002_pipeline_comparison.md:12
 msgid "[Conclusion](#conclusion)"
-msgstr ""
+msgstr "まとめ(#まとめ)"
 
 #: ../../experiments/002_pipeline_comparison.md:13
 msgid "Just tell me which pipeline I should use."
-msgstr ""
+msgstr "どのパイプラインを使用すべきか フローチャート"
 
 #: ../../experiments/002_pipeline_comparison.md:14
 msgid "![](../assets/benchmark_pipeline.svg)"
@@ -71,7 +75,7 @@ msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md:18
 msgid "Pipeline"
-msgstr ""
+msgstr "Pipeline 一覧"
 
 #: ../../experiments/002_pipeline_comparison.md:19
 msgid ""
@@ -135,7 +139,7 @@ msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md:43
 msgid "Experiment scenarios"
-msgstr ""
+msgstr "検証詳細"
 
 #: ../../experiments/002_pipeline_comparison.md:44
 msgid ""
@@ -466,7 +470,7 @@ msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md:110
 msgid "Conclusion"
-msgstr ""
+msgstr "まとめ"
 
 #: ../../experiments/002_pipeline_comparison.md:111
 msgid ""
