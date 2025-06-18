@@ -64,7 +64,7 @@ msgstr "[Gallery](#gallery)"
 
 #: ../../experiments/002_pipeline_comparison.md:12
 msgid "[Conclusion](#conclusion)"
-msgstr "[まとめ](#conclusion)"
+msgstr "[結論](#conclusion)"
 
 #: ../../experiments/002_pipeline_comparison.md:13
 msgid "Just tell me which pipeline I should use."
@@ -85,7 +85,7 @@ msgid ""
 "pipeline up until FCS 25.04, and starting with FCS 25.07 the default is "
 "RP."
 msgstr ""
-"パイプラインについて詳細を知りたい方へ："
+"パイプラインについて詳細を知りたい方へ<br>"
 "現在、Rich、Robust、RPの3つのパイプラインを提供しています。<br><br>"
 "FCS 25.04まではRichが、FCS 25.07からはRPがデフォルトのパイプラインとなっています。"
 
@@ -101,7 +101,7 @@ msgid ""
 "projects (full length movies, game) and requires high quality animation."
 msgstr ""
 "このパイプラインは、大量のプロファイル（100個以上）を登録すると、"
-"キャラクターの微細な動きをよりよく再現できる傾向があります。<br>"
+"キャラクターの微細な動きがよりよく反映される傾向があります。<br>"
 "通常、大規模なプロジェクト（長編映画、ゲーム）で、ハイクオリティなアニメーションが必要な場合には、"
 "最適な選択肢となります。"
 
@@ -117,7 +117,7 @@ msgid ""
 "movement."
 msgstr ""
 "RPパイプラインは、カメラや画角のズレに対する安定性を高めることでRichのより手間のかからない代替手段として機能します。<br>"
-"これにより必要なプロファイル数を減らすことができますが、その代わりに、微細な顔の動きを捉えにくくなります。"
+"これにより必要なプロファイル数を減らすことができますが、その代わりに、微細な顔の動きが反映されにくくなります。"
 
 #: ../../experiments/002_pipeline_comparison.md:30
 msgid "_Robust_"
@@ -131,7 +131,7 @@ msgid ""
 "would function better than the other two if the actor changes (the "
 "session contains footage of multiple actors)."
 msgstr ""
-"このパイプラインは頭​​部の回転へ（横を向いてしまった場合など）の適応性が高くなりますが、アニメーションの精度は低くなります。<br>"
+"このパイプラインは頭​​部の回転（横を向いてしまった場合など）への適応性が高くなりますが、アニメーションの精度は低くなります。<br>"
 "プロファイル数がとても少ない場合（10未満）により効果的に機能するように設計されています。<br>"
 "また、公式にはサポートされていませんが、"
 "アクターが交代する場合（1つのセッションに複数アクターの映像が含まれている場合）、このパイプラインは他の2つよりも優れた性能を発揮します。"
@@ -162,6 +162,7 @@ msgid ""
 "To demonstrate the strength of different pipelines, we prepare 4 "
 "scenarios that reassemble potential ways to create profiles using FCS."
 msgstr ""
+"さまざまなパイプラインの特長を示すために、FCSを使用してプロファイルを作成する際に想定される4つの条件・状況で検証しました。"
 
 #: ../../experiments/002_pipeline_comparison.md:47
 msgid ""
@@ -169,6 +170,9 @@ msgid ""
 " \\  This scenario recreates the standard procedure of creating facial "
 "animation with minimal effort."
 msgstr ""
+"Baselineのみ<br>"
+"50個のベースラインROMプロファイルのみを使用してビデオを処理しています。<br>"
+"こちらは最小限の労力でフェイシャルアニメーションを出力する標準的な手順となっております。"
 
 #: ../../experiments/002_pipeline_comparison.md:51
 msgid ""
@@ -176,7 +180,9 @@ msgid ""
 "and the 10 profiles picked up from within the video.  \\  This scenario "
 "shows how the animation quality tends to improve by adding more profiles "
 "from the video."
-msgstr ""
+msgstr "Baseline + Video Profile（10 Profile）<br>"
+"50個のROMプロファイルとビデオ内から抽出した10個のプロファイルを使用してビデオを処理します。<br>"
+"この項目では解析するビデオからプロファイルを追加することでアニメーションの品質がどのように向上するかを確認できます。"
 
 #: ../../experiments/002_pipeline_comparison.md:55
 msgid ""
@@ -184,6 +190,9 @@ msgid ""
 "picked up from within the video. \\  This scenario shows the performance "
 "of the pipelines if you skip creating the baseline ROM profiles."
 msgstr ""
+"Video Profileのみ（10 Profile）<br>"
+"ビデオ内から抽出した10個のプロファイルのみを使用してビデオを処理します。<br>"
+"この項目ではベースラインROMプロファイルの作成をスキップした場合の各パイプラインのアニメーションクオリティを確認できます。"
 
 #: ../../experiments/002_pipeline_comparison.md:59
 msgid ""
@@ -193,6 +202,10 @@ msgid ""
 "process videos of (due to actor change etc.). This is **not** a supported"
 " use-case but we still provide a reference in case you are curious."
 msgstr ""
+"他のアクターでの検証<br>"
+"50個のROMプロファイルのみを使用し、別のアクターの動画を処理します。<br>"
+"この項目では、プロファイルに登録した人物が、処理する動画の人物と異なる場合（アクターの変更などにより）をシミュレーションしています。<br>"
+"こちらはサポートされていないケースとなっておりますので、参考程度にご覧ください。"
 
 #: ../../experiments/002_pipeline_comparison.md:65
 msgid "Gallery"
@@ -486,7 +499,7 @@ msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md:110
 msgid "Conclusion"
-msgstr "まとめ"
+msgstr "結論"
 
 #: ../../experiments/002_pipeline_comparison.md:111
 msgid ""
@@ -495,6 +508,8 @@ msgid ""
 "across many videos (i.e., multiple days of filming), _Rich_ tends to "
 "produce the best animation results amoung the three pipelines."
 msgstr ""
+"処理しようとしているビデオ内から多くのプロファイルを作成できる、または多数のビデオ (複数日の撮影など) にわたって大量のプロファイルを作成できる場合、"
+"3 つのパイプラインの中で Rich を使用すると最も優れたアニメーションが出力できる傾向があります。"
 
 #: ../../experiments/002_pipeline_comparison.md:113
 msgid ""
@@ -502,6 +517,7 @@ msgid ""
 "create profiles from within the video that you want to process, _Robust_ "
 "and _RP_ will produce better results."
 msgstr ""
+"ただし、処理するビデオ内からプロファイルを作成できない場合（時間的制約などにより）、Robust と RP を使用するとより良い結果が得られます。"
 
 #: ../../experiments/002_pipeline_comparison.md:115
 msgid ""
@@ -509,10 +525,12 @@ msgid ""
 "best option. As the number of profiles increases, _Rich_ and _RP_ become "
 "more effective."
 msgstr ""
+"プロファイル数が少ない場合（10未満）、多くの場合はRobustが最適な選択肢となります。<br>"
+"プロファイル数が増えるにつれて、RichとRPがより効果的になります。"
 
 #: ../../experiments/002_pipeline_comparison.md:117
 msgid ""
 "Also, when processing the videos of another actor, you can make the "
 "animation result less likely to break down by selecting _Robust_."
-msgstr ""
+msgstr "また、他のアクターの動画を処理する場合には、「Robust」を選択することで他2つと比べてアニメーションが破綻しにくくなります。"
 
