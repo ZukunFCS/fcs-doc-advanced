@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../experiments/001_challenging_scenarios.md:1
 msgid "Challenging scenarions"
-msgstr "困難な条件下での検証"
+msgstr "Challenging scenarions"
 
 #: ../../experiments/001_challenging_scenarios.md:2
 msgid ""
