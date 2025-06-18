@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../001_preliminary.md:1
 msgid "Preliminary"
-msgstr "Preliminary-予備知識"
+msgstr "予備知識"
 
 #: ../../001_preliminary.md:2
 msgid ""
