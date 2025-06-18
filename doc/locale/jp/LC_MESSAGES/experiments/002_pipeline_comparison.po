@@ -47,12 +47,12 @@ msgid ""
 "[Just tell me which pipeline I should use](#just-tell-me-which-pipeline-i"
 "-should-use)"
 msgstr ""
-"[どのパイプラインを使用すべきか　フローチャート]（#just-tell-me-which-pipeline-i"
-"-should-use）"
+"[どのパイプラインを使用すべきか　フローチャート](#just-tell-me-which-pipeline-i"
+"-should-use)"
 
 #: ../../experiments/002_pipeline_comparison.md:9
 msgid "[Pipeline](#pipeline)"
-msgstr "[Pipeline 一覧](#pipeline))"
+msgstr "[Pipeline 一覧](#pipeline)"
 
 #: ../../experiments/002_pipeline_comparison.md:10
 msgid "[Experiment Scenarios](#experiment-scenarios)"
@@ -85,10 +85,13 @@ msgid ""
 "pipeline up until FCS 25.04, and starting with FCS 25.07 the default is "
 "RP."
 msgstr ""
+"パイプラインについて詳細を知りたい方へ："
+"現在、Rich、Robust、RPの3つのパイプラインを提供しています。<br><br>"
+"FCS 25.04まではRichが、FCS 25.07からはRPがデフォルトのパイプラインとなっています。"
 
 #: ../../experiments/002_pipeline_comparison.md:22
 msgid "_Rich_"
-msgstr ""
+msgstr "_Rich_"
 
 #: ../../experiments/002_pipeline_comparison.md:24
 msgid ""
@@ -97,10 +100,14 @@ msgid ""
 " generally your best pick for your effort if you work on a large scale "
 "projects (full length movies, game) and requires high quality animation."
 msgstr ""
+"このパイプラインは、大量のプロファイル（100個以上）を登録すると、"
+"キャラクターの微細な動きをよりよく再現できる傾向があります。<br>"
+"通常、大規模なプロジェクト（長編映画、ゲーム）で、ハイクオリティなアニメーションが必要な場合には、"
+"最適な選択肢となります。"
 
 #: ../../experiments/002_pipeline_comparison.md:26
 msgid "_RP_"
-msgstr ""
+msgstr "_RP_"
 
 #: ../../experiments/002_pipeline_comparison.md:28
 msgid ""
@@ -109,10 +116,12 @@ msgid ""
 "profiles required. In exchange it tends to capture less subtle facial "
 "movement."
 msgstr ""
+"RPパイプラインは、カメラや画角のズレに対する安定性を高めることでRichのより手間のかからない代替手段として機能します。<br>"
+"これにより必要なプロファイル数を減らすことができますが、その代わりに、微細な顔の動きを捉えにくくなります。"
 
 #: ../../experiments/002_pipeline_comparison.md:30
 msgid "_Robust_"
-msgstr ""
+msgstr "_Robust_"
 
 #: ../../experiments/002_pipeline_comparison.md:32
 msgid ""
@@ -122,13 +131,17 @@ msgid ""
 "would function better than the other two if the actor changes (the "
 "session contains footage of multiple actors)."
 msgstr ""
+"このパイプラインは頭​​部の回転へ（横を向いてしまった場合など）の適応性が高くなりますが、アニメーションの精度は低くなります。<br>"
+"プロファイル数がとても少ない場合（10未満）により効果的に機能するように設計されています。<br>"
+"また、公式にはサポートされていませんが、"
+"アクターが交代する場合（1つのセッションに複数アクターの映像が含まれている場合）、このパイプラインは他の2つよりも優れた性能を発揮します。"
 
 #: ../../experiments/002_pipeline_comparison.md:34
 msgid ""
 "By choosing the pipeline that best suits your situation, you can more "
 "easily achieve your goals of reducing your workload and improving "
 "quality."
-msgstr ""
+msgstr "状況に応じた最適なパイプラインを選択することで、作業負荷の軽減とクオリティの向上を図ることができます。"
 
 #: ../../experiments/002_pipeline_comparison.md:36
 msgid ""
@@ -137,6 +150,8 @@ msgid ""
 "video, feel free to try the pipelines and see what works the best for "
 "you."
 msgstr ""
+"プロジェクトの進行中にいつでもパイプラインを変更できます。<br>"
+"ビデオを処理する際に『**reprocess**』にチェックを入れるだけで確認できますので、ぜひ様々なパイプラインを試してみて、最適なものを見つけてください。"
 
 #: ../../experiments/002_pipeline_comparison.md:43
 msgid "Experiment scenarios"
