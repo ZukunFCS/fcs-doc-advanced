@@ -72,7 +72,7 @@ msgstr "どのパイプラインを使用すべきか フローチャート"
 
 #: ../../experiments/002_pipeline_comparison.md:14
 msgid "![](../assets/benchmark_pipeline.svg)"
-msgstr ""
+msgstr "![](../assets/benchmark_pipeline_Japanese.svg)"
 
 #: ../../experiments/002_pipeline_comparison.md:18
 msgid "Pipeline"
