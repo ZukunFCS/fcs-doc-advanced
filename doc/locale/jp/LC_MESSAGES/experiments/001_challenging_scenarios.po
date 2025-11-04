@@ -76,15 +76,15 @@ msgstr ""
 
 #: ../../experiments/001_challenging_scenarios.md:12
 msgid "Gallery"
-msgstr ""
+msgstr "動画ギャラリー"
 
 #: ../../experiments/001_challenging_scenarios.md
 msgid "Performance Video"
-msgstr ""
+msgstr "演技動画"
 
 #: ../../experiments/001_challenging_scenarios.md
 msgid "Baseline (50+0 Profiles)"
-msgstr Baselin（ROM 50Profilesのみ）"
+msgstr "Baseline（ROM 50Profilesのみ）"
 
 #: ../../experiments/001_challenging_scenarios.md
 msgid "50+2 Profiles"

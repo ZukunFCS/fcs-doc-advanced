@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-03 19:13+0900\n"
+"POT-Creation-Date: 2025-10-31 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: ../../001_preliminary.md:15
 msgid ""
 "[Learn about how to create profiles in FCS...](https://zukunfcs.github.io"
-"/fcs-doc/latest/en/008_profile.html)"
+"/fcs-doc/25.10/en/008_profile.html)"
 msgstr ""
 
 #: ../../001_preliminary.md:17
@@ -104,4 +104,10 @@ msgid ""
 "refer to profiles with the facial expression in the PDF the baseline "
 "profiles collectively, and often use them as a benchmarking baseline."
 msgstr ""
+
+#~ msgid ""
+#~ "[Learn about how to create profiles "
+#~ "in FCS...](https://zukunfcs.github.io/fcs-"
+#~ "doc/latest/en/008_profile.html)"
+#~ msgstr ""
 

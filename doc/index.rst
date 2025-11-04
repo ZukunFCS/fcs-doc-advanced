@@ -11,4 +11,5 @@ FCS Doc Advanced
    
    000_introduction.md
    001_preliminary.md
+   002_processing.md
    experiments/index.md

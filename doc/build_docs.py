@@ -31,7 +31,7 @@ def build_doc(version, language, tag=None, ):
 
 # to separate a single local build from all builds we have a flag, see conf.py
 os.environ["build_all_docs"] = str(True)
-os.environ["pages_root"] = "https://zukunfcs.github.io/fcs-doc-advanced" 
+os.environ["pages_root"] = "https://ryota-nakajima-toei.github.io/fcs-doc-advanced" 
 
 # manually the master branch build in the current supported languages
 if Path("./pages").exists():
@@ -39,14 +39,14 @@ if Path("./pages").exists():
 if Path("./_build").exists():
     rmtree(Path("./_build"))
 
-build_doc("latest", "jp", "master")
-build_doc("latest", "en", "master")
+# build_doc("latest", "jp", "master")
+# build_doc("latest", "en", "master")
 
-# # reading the yaml file
+# reading the yaml file
 with open("versions.yaml", "r") as yaml_file:
 	docs = yaml.safe_load(yaml_file)
 
-# # and looping over all values to call our build with version, language and its tag
+# and looping over all values to call our build with version, language and its tag
 for version, details in docs.items():
 	tag = details.get('tag', '')
 	for language in details.get('languages', []): 
@@ -61,3 +61,7 @@ build_dir.mkdir(exist_ok=True, parents=True)
 subprocess.run("mv ./pages _build/html", shell=True)
 subprocess.run("cp ../src/index.html _build/html/index.html", shell=True)
 subprocess.run("git checkout master", shell=True)
+legacy_paths = [Path('_build/html/latest/jp'), Path('_build/html/latest/en')]
+for path in legacy_paths:
+	path.mkdir(exist_ok=True, parents=True)
+	subprocess.run(f"cp ../src/legacy_index.html {path}/index.html", shell=True)
