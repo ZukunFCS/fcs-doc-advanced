@@ -1,5 +1,10 @@
-"latest":
-  tag: 'latest'  
+"25.10":
+  tag: '25.10'  
+  languages: 
+    - "jp"
+    - "en"
+"25.07":
+  tag: '25.07'  
   languages: 
     - "jp"
     - "en"

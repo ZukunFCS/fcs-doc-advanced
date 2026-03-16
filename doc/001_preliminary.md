@@ -12,7 +12,7 @@ In general, accuracy of the animation would tend to worsen when drastic movement
 ## Profiles
 Profile refers to a paired data of a single image of an actor, and the corresponding character, rigged to express the same facial expression as the actor in the image. This is created using FCS by selecting particular frame from a video, and rigging the character in Maya. 
 
-[Learn about how to create profiles in FCS...](https://zukunfcs.github.io/fcs-doc/latest/en/008_profile.html)
+[Learn about how to create profiles in FCS...](https://zukunfcs.github.io/fcs-doc/25.10/en/008_profile.html)
 
 ## ROM
 As a general rule of thumb, we recommend filming a Range of Motion (ROM) video prior to the actual filming. A ROM video should cover a wide range of facial expression that the actor can do. It is not strictly necessary but we find that using a ROM video in production often leads to time saving, especially when the amount of footage that has to be processed is large. The time saving would be less significant if you are processing only a small amount of footage. 

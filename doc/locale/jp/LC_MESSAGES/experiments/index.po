@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../../experiments/index.rst:2 ../../experiments/index.rst:5
 msgid "Experiments"
-msgstr ""
+msgstr "検証"
 
 #: ../../experiments/index.rst:3
 msgid ""
 "This section contains various experiments conducted to evaluate the "
 "performance of the system under different conditions and configurations."
 msgstr ""
-
+"この項目では、FCSの性能を評価するために行われたさまざまな設定や条件下での検証・結果について説明します。"
