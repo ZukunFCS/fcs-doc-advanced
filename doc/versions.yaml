@@ -1,3 +1,4 @@
+# First entry = "latest" version used for root redirect and legacy paths
 "25.10":
   tag: '25.10'  
   languages: 
