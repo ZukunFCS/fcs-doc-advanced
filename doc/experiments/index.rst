@@ -8,4 +8,5 @@ This section contains various experiments conducted to evaluate the performance 
 
    001_challenging_scenarios.md
    002_pipeline_comparison.md
-   .. 003_vs_previous.md
+   003_pipeline_comparison_quantitative.md
+   004_qualitative_analysis.md
