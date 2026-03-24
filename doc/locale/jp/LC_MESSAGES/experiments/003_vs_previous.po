@@ -53,154 +53,154 @@ msgstr ""
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/Rich/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/baseline/RP/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/Rich/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/rom_plus_10/RP/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/down_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/down_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/Video_45_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/Video_45_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/Rich/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/Video_facepaint_normal_t01_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/only_video_10/RP/Video_facepaint_normal_t01_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/Rich/01_joy_sample_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/Rich/01_joy_sample_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/RP/01_joy_sample_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/RP/01_joy_sample_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/Rich/02_sadness_sample_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/Rich/02_sadness_sample_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
 #: ../../experiments/003_vs_previous.md
 msgid ""
 "<video height=\"300\" controls><source "
-"src=\"https://github.com/ZukunFCS/artifacts/raw/refs/heads/master/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/RP/02_sadness_sample_combined.mp4\""
+"src=\"https://zukunfcs.github.io/artifacts/benchmarks/pipeline_comparison/25.10vs25.07/another_actor/RP/02_sadness_sample_combined.mp4\""
 " type=\"video/mp4\"></video>"
 msgstr ""
 
