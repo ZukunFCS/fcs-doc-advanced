@@ -4,7 +4,7 @@ Across 1000 blinded animator comparisons, RP++, Rich++, and Robust++ show consis
 
 ## Background
 
-In 25.10 we released a couple new pipelines (the ones with `++' suffix) . For those who are interested, we switched to a new facial tracking backend, which provides much stabler and accurate results compared to our previous backend, especially on close-up images (e.g. from a head-mounted camera). We ironed out some bugs in the pipeline in 26.04, and properly tested whether and how the new tracking pipeline outperform the old ones, and we would love to share it with you if you were interested.
+In 25.10 we released a couple new pipelines (the ones with `++' suffix). For those who are interested, we switched to a new facial tracking backend, which provides much stabler and accurate results compared to our previous backend, especially on close-up images (e.g. from a head-mounted camera). We ironed out some bugs in the pipeline in 26.04, and properly tested whether and how the new tracking pipeline outperform the old ones, and we would love to share it with you if you were interested.
 
 In this page we refer to retarget profiles as individual image of the actor and the corresponding character, rigged to express the same facial expression as the actor in the image.
 

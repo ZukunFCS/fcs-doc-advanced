@@ -21,7 +21,7 @@ suppress_warnings = ["myst.header"]
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', ]
+extensions = ['myst_parser', 'sphinx_last_updated_by_git']
 myst_enable_extensions = ["dollarmath"]
 if build_pdf:
     extensions.append('rst2pdf.pdfbuilder')
@@ -46,6 +46,7 @@ html_theme_options = {
     "style_nav_header_background": "#2980B9",  # Customize color
 }
 
+html_last_updated_fmt = '%B %d, %Y'
 html_static_path = ['_static']
 
 # -- Options for PDF output -------------------------------------------------

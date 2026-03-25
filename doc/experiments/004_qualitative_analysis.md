@@ -1,9 +1,8 @@
 # Qualitative Analysis for Effort vs Quality
 
-A critical production decision that many of us face is the trade-off between effort and quality. 
-How much time should I spend on creating profiles to achieve the desired animation quality? At what point should I stop creating profiles and start manually tweaking my animation in Maya?
-In the previous page [Pipeline Comparison++ (Quantitative)](003_pipeline_comparison_quantitative.md), we observe a saturation effect when the profile count is around 100.
-Beyond that, the quality of the animation does not improve significantly. This matches our observation in real production settings. 
+A critical production decision that many of us face is the trade-off between effort and quality.   
+How much time should I spend on creating profiles to achieve the desired animation quality? At what point should I stop creating profiles and start manually tweaking my animation in Maya?  
+In the previous page [Pipeline Comparison++ (Quantitative)](003_pipeline_comparison_quantitative.md), we observe a saturation effect at around 100. Beyond that, the quality of the animation does not improve significantly. This matches our observation in real production settings. 
 In this page, we will explore this trade-off in a more visual manner.
 We process the same video using a different number of profiles, and visualize the animation quality and the effort (number of profiles) required to achieve it.
 
