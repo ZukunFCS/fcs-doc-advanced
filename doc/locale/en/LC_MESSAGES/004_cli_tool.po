@@ -1,0 +1,1625 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 20:20+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../004_cli_tool.md:1
+msgid "CLI Tool"
+msgstr ""
+
+#: ../../004_cli_tool.md:3
+msgid ""
+"FCS CLI tool provides a script-based interface for automating facial "
+"capture and animation processing workflows. It allows you to load "
+"sessions, modify session properties, process videos, and upload "
+"animations to Maya—all through a simple YAML script format."
+msgstr ""
+
+#: ../../004_cli_tool.md:5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../004_cli_tool.md:7
+msgid "[Installation](#installation)"
+msgstr ""
+
+#: ../../004_cli_tool.md:8
+msgid "[Quick Start](#quick-start)"
+msgstr ""
+
+#: ../../004_cli_tool.md:9
+msgid "[Script Format](#script-format)"
+msgstr ""
+
+#: ../../004_cli_tool.md:10
+msgid "[Validation Strictness](#validation-strictness)"
+msgstr ""
+
+#: ../../004_cli_tool.md:11
+msgid "[Profiles](#profiles)"
+msgstr ""
+
+#: ../../004_cli_tool.md:12
+msgid "[Execution Model](#execution-model)"
+msgstr ""
+
+#: ../../004_cli_tool.md:13
+msgid "[Commands](#commands)"
+msgstr ""
+
+#: ../../004_cli_tool.md:14
+msgid "[Step Types](#step-types)"
+msgstr ""
+
+#: ../../004_cli_tool.md:15
+msgid "[Examples](#examples)"
+msgstr ""
+
+#: ../../004_cli_tool.md:16
+msgid "[Logging](#logging)"
+msgstr ""
+
+#: ../../004_cli_tool.md:17
+msgid "[Error Handling](#error-handling)"
+msgstr ""
+
+#: ../../004_cli_tool.md:18
+msgid "[Maya Integration](#maya-integration)"
+msgstr ""
+
+#: ../../004_cli_tool.md:19
+msgid "[Troubleshooting](#troubleshooting)"
+msgstr ""
+
+#: ../../004_cli_tool.md:21
+msgid "Installation"
+msgstr ""
+
+#: ../../004_cli_tool.md:23
+msgid ""
+"The CLI tool is part of the FCS (Facial Capture System) package starting "
+"from FCS 26.04.  It is automatically installed when you install FCS."
+msgstr ""
+
+#: ../../004_cli_tool.md:26
+msgid "Quick Start"
+msgstr ""
+
+#: ../../004_cli_tool.md:28
+msgid "Create a YAML script file (e.g., `my_script.yaml`):"
+msgstr ""
+
+#: ../../004_cli_tool.md:55
+msgid "Run the script:"
+msgstr ""
+
+#: ../../004_cli_tool.md:61
+msgid "Script Format"
+msgstr ""
+
+#: ../../004_cli_tool.md:63
+msgid "Top-Level Structure"
+msgstr ""
+
+#: ../../004_cli_tool.md:65
+msgid "Every script must have three required sections:"
+msgstr ""
+
+#: ../../004_cli_tool.md:75
+msgid "Version"
+msgstr ""
+
+#: ../../004_cli_tool.md:77
+msgid ""
+"Currently, only version `1` is supported. This field ensures forward "
+"compatibility as the script format evolves."
+msgstr ""
+
+#: ../../004_cli_tool.md:79
+msgid "Context"
+msgstr ""
+
+#: ../../004_cli_tool.md:81
+msgid ""
+"The `context` section defines the session file to load at the start of "
+"script execution."
+msgstr ""
+
+#: ../../004_cli_tool.md:83
+msgid ""
+"**`session`** (required, string): Path to the FCS session YAML file. Must"
+" point to a file named exactly `fcs_session.yaml`; any other filename "
+"will fail validation."
+msgstr ""
+
+#: ../../004_cli_tool.md:84
+msgid ""
+"**`wait_seconds_after_scene_open`** (optional, float): Global sleep time "
+"in seconds to wait after a Maya scene is opened. This applies to all "
+"scene opening operations in the script, including when scenes are opened "
+"via `reopen_maya_scene` in `process` steps or when Maya launches with a "
+"scene. Default: `0.0` (no wait)"
+msgstr ""
+
+#: ../../004_cli_tool.md:85
+msgid ""
+"**`fisheye`** (optional, bool): Enable or disable fisheye correction for "
+"video processing. If provided, overrides the UI setting. Default: `true`"
+msgstr ""
+
+#: ../../004_cli_tool.md:86
+msgid ""
+"**`pipeline`** (optional, string): Processing pipeline to use for video "
+"processing. Must be one of: `\"Rich\"`, `\"Robust\"`, `\"RP\"`, "
+"`\"RP++\"`, `\"Robust++\"`, `\"Rich++\"`. If provided, overrides the UI "
+"setting. Default: `\"RP++\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md:87
+msgid ""
+"**`denoising`** (optional, string): Path to a denoising/smoothing profile"
+" file, or a filename to load from the smoothing presets directory. If "
+"it's a full path, it must exist. If it's just a filename (not a full "
+"path), it will be loaded from "
+"`FCS_TMP_DIR/smoothing_presets/filename.yaml`. If provided, loads the "
+"profile before processing. Default: No Smoothing"
+msgstr ""
+
+#: ../../004_cli_tool.md:88
+msgid ""
+"**`command_port`** (optional, integer): Maya commandPort number to use "
+"for all Maya operations in the script. Must be an integer between 1 and "
+"65535. If provided, recreates the connection with the specified port and "
+"uses it for all Maya preflight checks and uploads. Default: 42069."
+msgstr ""
+
+#: ../../004_cli_tool.md:89
+msgid ""
+"**`initial_scene_open`** (optional, bool): If `true` (the default), "
+"automatically opens the Maya scene once after data validation and before "
+"running all steps. The scene is opened only once at the start of script "
+"execution (after the preflight check), not before each step. If `false`, "
+"skips the initial scene opening. Default: `true` (scene will be opened "
+"automatically if `maya_scene` and `maya_base` are set in the session)."
+msgstr ""
+
+#: ../../004_cli_tool.md:90
+msgid ""
+"**`rename_controllers`** (optional, mapping): Modify controller names by "
+"prepending or removing a prefix. This is applied once after the session "
+"is loaded, before any steps execute. Useful for adapting controller names"
+" to match Maya scene naming conventions."
+msgstr ""
+
+#: ../../004_cli_tool.md:91
+msgid ""
+"`prefix` (required, string): The prefix to prepend or remove from all "
+"controller names"
+msgstr ""
+
+#: ../../004_cli_tool.md:92
+msgid ""
+"`action` (optional, string): Operation to perform - `\"prepend\"` "
+"(default) or `\"remove\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md:93
+msgid ""
+"**`playblast`** (optional, mapping): Override playblast settings for all "
+"process steps that export playblast. If not set, application settings are"
+" used."
+msgstr ""
+
+#: ../../004_cli_tool.md:94
+msgid "`camera` (optional, string): Maya camera name (e.g. `\"persp\"`)."
+msgstr ""
+
+#: ../../004_cli_tool.md:95
+msgid "`width` (optional, integer): Output width in pixels."
+msgstr ""
+
+#: ../../004_cli_tool.md:96
+msgid "`height` (optional, integer): Output height in pixels."
+msgstr ""
+
+#: ../../004_cli_tool.md:97
+msgid ""
+"`percent` (optional, integer): Resolution percent (e.g. 100, must be "
+"1–100)."
+msgstr ""
+
+#: ../../004_cli_tool.md:98
+msgid ""
+"`quality` (optional, integer): Playblast quality (e.g. 100, must be "
+"1–100)."
+msgstr ""
+
+#: ../../004_cli_tool.md:99
+msgid ""
+"**`profiles`** (optional, list): Rules to enable/disable ROM profiles in "
+"the loaded session before any steps run. See [Profiles](#profiles) for "
+"full details."
+msgstr ""
+
+#: ../../004_cli_tool.md:101
+msgid "Steps"
+msgstr ""
+
+#: ../../004_cli_tool.md:103
+msgid ""
+"Steps are executed sequentially in the order they appear. Each step must "
+"be a single-key mapping with one of these keys:"
+msgstr ""
+
+#: ../../004_cli_tool.md:104
+msgid "`process` - Process a video and optionally upload to Maya"
+msgstr ""
+
+#: ../../004_cli_tool.md:105
+msgid "`sleep` - Pause script execution for a specified duration"
+msgstr ""
+
+#: ../../004_cli_tool.md:107
+msgid "Validation Strictness"
+msgstr ""
+
+#: ../../004_cli_tool.md:109
+msgid ""
+"Script validation follows a **strict schema contract**. The validator "
+"rejects any deviation from the defined schema:"
+msgstr ""
+
+#: ../../004_cli_tool.md:111
+msgid ""
+"**Unknown top-level fields → error**: Only `version`, `context`, and "
+"`steps` are allowed at the top level. Any other field will cause "
+"validation to fail."
+msgstr ""
+
+#: ../../004_cli_tool.md:113
+msgid ""
+"**Unknown context fields → error**: Only the documented context fields "
+"are allowed. Unknown fields in the `context` section will cause "
+"validation to fail."
+msgstr ""
+
+#: ../../004_cli_tool.md:115
+msgid ""
+"**Unknown step types → error**: Only `process` and `sleep` are valid step"
+" types. Any other step type will cause validation to fail."
+msgstr ""
+
+#: ../../004_cli_tool.md:117
+msgid ""
+"**Unknown step fields → error**: Each step type has a defined set of "
+"allowed fields. Any field not explicitly documented for that step type "
+"will cause validation to fail."
+msgstr ""
+
+#: ../../004_cli_tool.md:119
+msgid ""
+"**Extra keys in nested structures → error**: Nested structures (like "
+"`upload` in `process` steps, or `overrides`) only accept their documented"
+" fields. Unknown keys will cause validation to fail."
+msgstr ""
+
+#: ../../004_cli_tool.md:121
+msgid ""
+"**Order matters**: Steps are executed sequentially in the exact order "
+"they appear in the `steps` list. The execution order is significant and "
+"cannot be changed."
+msgstr ""
+
+#: ../../004_cli_tool.md:123
+msgid "**Examples of validation failures:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:168
+msgid "Profiles"
+msgstr ""
+
+#: ../../004_cli_tool.md:170
+msgid ""
+"The `profiles` context field lets you enable or disable profiles in the "
+"session before any steps run. Rules are applied sequentially — later "
+"rules override earlier ones for the profiles they match."
+msgstr ""
+
+#: ../../004_cli_tool.md:172
+msgid "Each rule has three fields:"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Field"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Required"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Values"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Description"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`match`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "yes"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`\"all\"` or a list of criteria"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Which profiles to target"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`select`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`\"all\"`, `\"none\"`, or integer ≥ 1"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "What to do with matched profiles"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`condition`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "no"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`AND` (default) or `OR`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "How to combine multiple criteria"
+msgstr ""
+
+#: ../../004_cli_tool.md:180
+msgid "**`match` criteria** — each item in the list is a single-key mapping:"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Key"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Matches when…"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`video: \"<stem>\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Profile's source video filename (without extension) equals value"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`not_video: \"<stem>\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Profile has no source video, or its stem differs from value"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`user_tag: \"<tag>\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Profile has this user tag"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`no_user_tag: \"<tag>\"`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Profile does NOT have this user tag"
+msgstr ""
+
+#: ../../004_cli_tool.md:189
+msgid "**`select` values:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:191
+msgid "`\"all\"` — enable all matched profiles"
+msgstr ""
+
+#: ../../004_cli_tool.md:192
+msgid "`\"none\"` — disable all matched profiles"
+msgstr ""
+
+#: ../../004_cli_tool.md:193
+msgid ""
+"integer N — randomly enable N of the matched profiles (error if fewer "
+"than N matched)"
+msgstr ""
+
+#: ../../004_cli_tool.md:195 ../../004_cli_tool.md:276
+msgid "**Examples:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:223
+msgid ""
+"**Note**: `match` must be a YAML list (using `-` items). A plain mapping "
+"is rejected to prevent YAML's silent duplicate-key merging (e.g. two "
+"`video:` keys would collapse into one)."
+msgstr ""
+
+#: ../../004_cli_tool.md:225
+msgid "Execution Model"
+msgstr ""
+
+#: ../../004_cli_tool.md:227
+msgid ""
+"Understanding how scripts execute helps you write effective automation "
+"workflows. The FCS CLI follows a predictable execution model:"
+msgstr ""
+
+#: ../../004_cli_tool.md:229
+msgid "Execution Lifecycle"
+msgstr ""
+
+#: ../../004_cli_tool.md:231
+msgid ""
+"**Script Initialization**: The script is loaded and validated against the"
+" schema. Any schema error exits immediately with code 1 before any "
+"session or Maya operations occur."
+msgstr ""
+
+#: ../../004_cli_tool.md:233
+msgid ""
+"**License Check**: License is checked out/validated. Failure exits with "
+"code 3."
+msgstr ""
+
+#: ../../004_cli_tool.md:235
+msgid ""
+"**Session Loading**: The session file specified in `context.session` is "
+"loaded once. The session remains in memory throughout execution."
+msgstr ""
+
+#: ../../004_cli_tool.md:237
+msgid ""
+"**Controller Renaming**: If `rename_controllers` is specified, controller"
+" name prefixes are prepended or removed once before any steps run."
+msgstr ""
+
+#: ../../004_cli_tool.md:239
+msgid ""
+"**Profile Selection**: If `profiles` is specified, the rules are applied "
+"sequentially to set each ROM profile's enabled state."
+msgstr ""
+
+#: ../../004_cli_tool.md:241
+msgid ""
+"**Affogato Initialization**: A connection to Maya's commandPort is "
+"established."
+msgstr ""
+
+#: ../../004_cli_tool.md:243
+msgid ""
+"**Maya Preflight**: Maya reachability is verified. Failure exits with "
+"code 2 — no steps execute."
+msgstr ""
+
+#: ../../004_cli_tool.md:245
+msgid ""
+"**Initial Scene Opening**: If `initial_scene_open` is `true` (the "
+"default) and the session has `maya_scene` and `maya_base` configured, the"
+" Maya scene is opened once before any steps run. Failures are non-fatal "
+"(logged as warnings). The script waits for "
+"`wait_seconds_after_scene_open` seconds after opening."
+msgstr ""
+
+#: ../../004_cli_tool.md:247
+msgid ""
+"**Step Execution**: Steps execute sequentially in the order they appear. "
+"The license is re-checked before each step after the first. There is no "
+"rollback, branching, or parallelism."
+msgstr ""
+
+#: ../../004_cli_tool.md:249
+msgid "Context and Overrides"
+msgstr ""
+
+#: ../../004_cli_tool.md:251
+msgid ""
+"**Context Fields**: All fields defined in the `context` section apply "
+"globally to all steps unless explicitly overridden. This includes "
+"settings like `fisheye`, `pipeline`, `denoising`, `command_port`, and "
+"`playblast`."
+msgstr ""
+
+#: ../../004_cli_tool.md:253
+msgid ""
+"**Step Overrides**: The `overrides` section in a `process` step applies "
+"only for the duration of that specific step. After the step completes, "
+"the global context values are restored. This allows you to temporarily "
+"change settings (like `command_port`, `maya_scene`, or `maya_base`) for "
+"individual processing operations."
+msgstr ""
+
+#: ../../004_cli_tool.md:255
+msgid "Execution Guarantees"
+msgstr ""
+
+#: ../../004_cli_tool.md:256
+msgid "**Sequential Execution**: Steps always execute one at a time, in order"
+msgstr ""
+
+#: ../../004_cli_tool.md:257
+msgid ""
+"**No Rollback**: If a step fails, execution stops; previous steps are not"
+" undone"
+msgstr ""
+
+#: ../../004_cli_tool.md:258
+msgid "**No Branching**: Conditional logic or loops are not supported"
+msgstr ""
+
+#: ../../004_cli_tool.md:259
+msgid "**No Parallelism**: Multiple steps cannot run simultaneously"
+msgstr ""
+
+#: ../../004_cli_tool.md:260
+msgid ""
+"**Session Persistence**: The session remains in memory throughout "
+"execution; changes are not persisted to disk"
+msgstr ""
+
+#: ../../004_cli_tool.md:262
+msgid "Commands"
+msgstr ""
+
+#: ../../004_cli_tool.md:264
+msgid "Run Script"
+msgstr ""
+
+#: ../../004_cli_tool.md:266
+msgid "Execute a YAML script:"
+msgstr ""
+
+#: ../../004_cli_tool.md:272
+msgid "**Options:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:273
+msgid "`--file`, `-f`: Path to the YAML script file (required)"
+msgstr ""
+
+#: ../../004_cli_tool.md:274
+msgid "`--dry-run`: Validate the script without executing it"
+msgstr ""
+
+#: ../../004_cli_tool.md:286
+msgid "Step Types"
+msgstr ""
+
+#: ../../004_cli_tool.md:288
+msgid "`process` Step"
+msgstr ""
+
+#: ../../004_cli_tool.md:290
+msgid "Processes a single video file and optionally uploads results to Maya."
+msgstr ""
+
+#: ../../004_cli_tool.md:292 ../../004_cli_tool.md:406
+msgid "**Format:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:315 ../../004_cli_tool.md:412
+msgid "**Fields:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:317
+msgid "**`video`** (required, string): Path to the video file to process"
+msgstr ""
+
+#: ../../004_cli_tool.md:318
+msgid "**`upload`** (optional, mapping): Upload options to Maya"
+msgstr ""
+
+#: ../../004_cli_tool.md:319
+msgid "`animation` (bool): Upload animation curves"
+msgstr ""
+
+#: ../../004_cli_tool.md:320
+msgid "`audio` (bool): Upload audio track"
+msgstr ""
+
+#: ../../004_cli_tool.md:321
+msgid "`frames` (bool): Upload video frames as image sequence"
+msgstr ""
+
+#: ../../004_cli_tool.md:322
+msgid ""
+"`lm_frames` (bool): Upload landmark-annotated frames. **Not supported "
+"with `++` pipelines** (`RP++`, `Rich++`, `Robust++`); raises "
+"`LM_FRAMES_UNSUPPORTED_PIPELINE` if used with one."
+msgstr ""
+
+#: ../../004_cli_tool.md:323
+msgid "**`export`** (optional, mapping): Export options after processing"
+msgstr ""
+
+#: ../../004_cli_tool.md:324
+msgid "`scene` (bool): Export Maya scene file"
+msgstr ""
+
+#: ../../004_cli_tool.md:325
+msgid "`playblast` (bool): Export playblast video"
+msgstr ""
+
+#: ../../004_cli_tool.md:326
+msgid ""
+"**`force_reprocess`** (optional, bool): Force reprocessing even if cache "
+"exists. Default: `true`"
+msgstr ""
+
+#: ../../004_cli_tool.md:327
+msgid ""
+"**`time_offset_frames`** (optional, integer): Frame offset for animation "
+"upload. Default: `0`, must be >= 0."
+msgstr ""
+
+#: ../../004_cli_tool.md:328
+msgid ""
+"**`reopen_maya_scene`** (optional, bool): Controls whether the Maya scene"
+" is reopened before processing:"
+msgstr ""
+
+#: ../../004_cli_tool.md:329
+msgid "`true` — always reopen, regardless of overrides or upload flags"
+msgstr ""
+
+#: ../../004_cli_tool.md:330
+msgid "`false` — never reopen (explicit opt-out)"
+msgstr ""
+
+#: ../../004_cli_tool.md:331
+msgid ""
+"omitted — **auto**: reopen only when any override (`command_port`, "
+"`maya_scene`, or `maya_base`) is present AND at least one `upload.*` flag"
+" is `true`"
+msgstr ""
+
+#: ../../004_cli_tool.md:332
+msgid ""
+"Positive values: Animation starts at the `time_offset_frames`th frame on "
+"Maya"
+msgstr ""
+
+#: ../../004_cli_tool.md:333
+msgid "Zero: No offset"
+msgstr ""
+
+#: ../../004_cli_tool.md:334
+msgid ""
+"**`overrides`** (optional, mapping): Override values for this specific "
+"process step"
+msgstr ""
+
+#: ../../004_cli_tool.md:335
+msgid ""
+"`command_port` (optional, integer): Maya commandPort number to use for "
+"this step. Must be an integer between 1 and 65535. If provided, recreates"
+" the connection with the specified port for this step only, overriding "
+"the port from `context.command_port` or application settings. A preflight"
+" check is performed after to ensure Maya is reachable."
+msgstr ""
+
+#: ../../004_cli_tool.md:336
+msgid ""
+"`maya_scene` (optional, string): Path to Maya scene file to use for this "
+"step. Overrides the session's `maya_scene` when `reopen_maya_scene` is "
+"`true`."
+msgstr ""
+
+#: ../../004_cli_tool.md:337
+msgid ""
+"`maya_base` (optional, string): Path to Maya workspace base directory to "
+"use for this step. Overrides the session's `maya_base` when "
+"`reopen_maya_scene` is `true`."
+msgstr ""
+
+#: ../../004_cli_tool.md:338
+msgid ""
+"`out_scene_path` (optional, string): Path to save Maya scene file (must "
+"have `.ma` or `.mb` extension). If not provided when `export.scene` is "
+"`true`, a warning is logged and the scene is **not saved**."
+msgstr ""
+
+#: ../../004_cli_tool.md:339
+msgid ""
+"`out_playblast_path` (optional, string): Path to save playblast video, "
+"**without a file extension** (`.mp4` is appended automatically). If not "
+"provided when `export.playblast` is `true`, a default path is derived "
+"from the session's output folder and app settings."
+msgstr ""
+
+#: ../../004_cli_tool.md:341
+msgid ""
+"**Note**: The process step always recreates the Affogato connection with "
+"the effective port (override or context) and performs a preflight check "
+"before processing. When `reopen_maya_scene` is omitted and overrides are "
+"present, the scene is reopened automatically (see `reopen_maya_scene` "
+"above)."
+msgstr ""
+
+#: ../../004_cli_tool.md:344
+msgid ""
+"**Internal Maya Workflow**   When any upload.* option is enabled in a "
+"process step, the CLI performs the following operations in Maya via "
+"commandPort, in strict sequence:"
+msgstr ""
+
+#: ../../004_cli_tool.md:346
+msgid "Scene timing setup"
+msgstr ""
+
+#: ../../004_cli_tool.md:347
+msgid "Set the Maya scene FPS to match the input video."
+msgstr ""
+
+#: ../../004_cli_tool.md:348
+msgid "Set the scene playback range to match the total frame count of the video."
+msgstr ""
+
+#: ../../004_cli_tool.md:349
+msgid "Audio setup (if `upload.audio = true`)"
+msgstr ""
+
+#: ../../004_cli_tool.md:350
+msgid "Import the audio track from the input video."
+msgstr ""
+
+#: ../../004_cli_tool.md:351
+msgid "Attach the audio to the Maya timeline."
+msgstr ""
+
+#: ../../004_cli_tool.md:352
+msgid ""
+"Reference frame setup (if `upload.frames = true` or `upload.lm_frames = "
+"true`)"
+msgstr ""
+
+#: ../../004_cli_tool.md:353
+msgid "Extract video frames as an image sequence."
+msgstr ""
+
+#: ../../004_cli_tool.md:354
+msgid ""
+"Create or update an imagePlane using: raw frames if upload.frames = true "
+"landmark-annotated frames if upload.lm_frames = true"
+msgstr ""
+
+#: ../../004_cli_tool.md:358
+msgid "Animation reset"
+msgstr ""
+
+#: ../../004_cli_tool.md:359
+msgid ""
+"Remove all existing animation keyframes for every controller defined in "
+"the session."
+msgstr ""
+
+#: ../../004_cli_tool.md:360
+msgid ""
+"This guarantees deterministic uploads and prevents keyframe accumulation "
+"across runs."
+msgstr ""
+
+#: ../../004_cli_tool.md:362
+msgid "Animation upload"
+msgstr ""
+
+#: ../../004_cli_tool.md:363
+msgid "Apply newly computed animation curves to all session controllers."
+msgstr ""
+
+#: ../../004_cli_tool.md:364
+msgid ""
+"If time_offset_frames > 0, all keyframes are shifted forward by the "
+"specified number of frames prior to insertion."
+msgstr ""
+
+#: ../../004_cli_tool.md:366
+msgid "Output saving"
+msgstr ""
+
+#: ../../004_cli_tool.md:367
+msgid "Save the playblast video (if export.playblast = true)."
+msgstr ""
+
+#: ../../004_cli_tool.md:368
+msgid "Save the Maya scene file (if export.scene = true)."
+msgstr ""
+
+#: ../../004_cli_tool.md:371
+msgid "Notes"
+msgstr ""
+
+#: ../../004_cli_tool.md:373
+msgid ""
+"All operations are executed atomically per process step; partial uploads "
+"are not supported."
+msgstr ""
+
+#: ../../004_cli_tool.md:375
+msgid ""
+"If reopen_maya_scene = true, the Maya scene is reopened before this "
+"workflow begins."
+msgstr ""
+
+#: ../../004_cli_tool.md:377
+msgid ""
+"Controller matching is name-based. Controllers that cannot be resolved "
+"will silently receive no animation; no rollback is performed."
+msgstr ""
+
+#: ../../004_cli_tool.md:379
+msgid ""
+"This workflow is executed only when at least one upload.* option is "
+"enabled. Processing without uploads does not modify the Maya scene."
+msgstr ""
+
+#: ../../004_cli_tool.md:381 ../../004_cli_tool.md:416
+msgid "**Example:**"
+msgstr ""
+
+#: ../../004_cli_tool.md:402
+msgid "`sleep` Step"
+msgstr ""
+
+#: ../../004_cli_tool.md:404
+msgid ""
+"Pauses script execution for a specified duration. Useful for waiting "
+"between operations or allowing external processes to complete."
+msgstr ""
+
+#: ../../004_cli_tool.md:414
+msgid ""
+"**`seconds`** (required, float): Number of seconds to pause execution. "
+"Must be a non-negative number."
+msgstr ""
+
+#: ../../004_cli_tool.md:425
+msgid "Examples"
+msgstr ""
+
+#: ../../004_cli_tool.md:427
+msgid "Example 1: Basic Processing"
+msgstr ""
+
+#: ../../004_cli_tool.md:429
+msgid "Process a video and upload animation to Maya:"
+msgstr ""
+
+#: ../../004_cli_tool.md:444
+msgid "Example 2: Multiple Videos with Scene Changes"
+msgstr ""
+
+#: ../../004_cli_tool.md:446
+msgid ""
+"Process multiple videos, changing Maya scene between them. Because "
+"`maya_scene` is overridden and `upload.animation` is true, the scene is "
+"reopened automatically:"
+msgstr ""
+
+#: ../../004_cli_tool.md:471
+msgid "Example 3: Animation with Time Offset"
+msgstr ""
+
+#: ../../004_cli_tool.md:473
+msgid "Upload animations with different time offsets:"
+msgstr ""
+
+#: ../../004_cli_tool.md:495
+msgid "Example 4: Controller Prefix Management"
+msgstr ""
+
+#: ../../004_cli_tool.md:497 ../../004_cli_tool.md:785
+msgid "Add controller prefix in context before processing:"
+msgstr ""
+
+#: ../../004_cli_tool.md:515
+msgid "Example 5: Full Processing Pipeline"
+msgstr ""
+
+#: ../../004_cli_tool.md:517
+msgid ""
+"Complete workflow with all features. Note: `lm_frames` requires a "
+"non-`++` pipeline (e.g. `Rich`, `Robust`, `RP`), so the context sets "
+"`pipeline: \"Rich\"`:"
+msgstr ""
+
+#: ../../004_cli_tool.md:551
+msgid "Example 6: Skip Initial Scene Opening"
+msgstr ""
+
+#: ../../004_cli_tool.md:553
+msgid ""
+"Disable the automatic scene open at startup, then explicitly reopen per-"
+"step:"
+msgstr ""
+
+#: ../../004_cli_tool.md:570
+msgid "Example 7: Profile Selection"
+msgstr ""
+
+#: ../../004_cli_tool.md:572
+msgid "Disable all profiles then randomly enable 10 from a specific video:"
+msgstr ""
+
+#: ../../004_cli_tool.md:593
+msgid "Logging"
+msgstr ""
+
+#: ../../004_cli_tool.md:595
+msgid ""
+"When a script is executed (not in `--dry-run` mode), the CLI "
+"automatically creates a log file next to the script at "
+"`<script_name>.log`. For example, running `my_script.yaml` produces "
+"`my_script.log` in the same directory."
+msgstr ""
+
+#: ../../004_cli_tool.md:597
+msgid "**Log level**: INFO and above (INFO, WARNING, ERROR)"
+msgstr ""
+
+#: ../../004_cli_tool.md:598
+msgid "**Encoding**: UTF-8"
+msgstr ""
+
+#: ../../004_cli_tool.md:599
+msgid ""
+"**Lifecycle**: The log file is created when execution begins and the log "
+"sink is removed when execution completes (regardless of success or "
+"failure). If the log file already exists, it is overwritten."
+msgstr ""
+
+#: ../../004_cli_tool.md:601
+msgid ""
+"This log file captures the same structured messages shown in the console "
+"output, providing a persistent record of script execution for debugging "
+"and auditing."
+msgstr ""
+
+#: ../../004_cli_tool.md:603
+msgid "Error Handling"
+msgstr ""
+
+#: ../../004_cli_tool.md:605
+msgid "Error Codes"
+msgstr ""
+
+#: ../../004_cli_tool.md:607
+msgid "The CLI uses structured error codes for programmatic error handling:"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Code"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`SESSION_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Session file does not exist"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`SESSION_INVALID`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Session file is invalid or corrupted"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`SESSION_LOAD_ERROR`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Error loading session (generic load failure)"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`NO_SESSION_LOADED`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Attempted operation without loading a session"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MISSING_RENAME_CONTROLLERS_PREFIX`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Missing prefix in `rename_controllers` context field"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`INVALID_RENAME_CONTROLLERS_PREFIX`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Invalid prefix value in `rename_controllers` context field"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`INVALID_RENAME_CONTROLLERS_ACTION`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid ""
+"Invalid action in `rename_controllers` context field (must be \"prepend\""
+" or \"remove\")"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`PROFILES_INSUFFICIENT_MATCH`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`select: N` specified but fewer than N profiles matched the rule"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`VIDEO_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Video file does not exist"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_NOT_REACHABLE`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Maya commandPort is not reachable"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_SCENE_NOT_SET`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Maya scene path not set in session or overrides"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_SCENE_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Maya scene file does not exist"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_SCENE_OPEN_ERROR`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Failed to open Maya scene (raised when `reopen_maya_scene` is `true`)"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_BASE_NOT_SET`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Maya base path not set in session"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`MAYA_BASE_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Maya base folder does not exist"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`PIPELINE_ERROR`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Video processing pipeline failed (train/predict failure)"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`ANIMATION_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Animation cache file not found after processing"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`LM_FRAMES_UNSUPPORTED_PIPELINE`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`lm_frames` upload requested with a `++` pipeline (not supported)"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`DENOISING_PROFILE_NOT_FOUND`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Denoising profile file not found at specified path"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`DENOISING_PROFILE_LOAD_ERROR`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Failed to load denoising profile file"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`OUTPUT_DIR_NOT_CREATED`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Failed to create required output directory"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`OUTPUT_FILE_NOT_CREATED`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "Expected output file(s) were not created after processing"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid "`PLAYBLAST_PATH_HAS_SUFFIX`"
+msgstr ""
+
+#: ../../004_cli_tool.md
+msgid ""
+"`out_playblast_path` was provided with a file extension (`.mp4` is "
+"appended automatically)"
+msgstr ""
+
+#: ../../004_cli_tool.md:635
+msgid "Execution Behavior"
+msgstr ""
+
+#: ../../004_cli_tool.md:637
+msgid ""
+"**Validation Errors**: Script validation fails before any steps are "
+"executed (exit code 1)"
+msgstr ""
+
+#: ../../004_cli_tool.md:638
+msgid ""
+"**Maya Errors**: Maya-related failures (not reachable, scene open "
+"failure, etc.) exit with code 2"
+msgstr ""
+
+#: ../../004_cli_tool.md:639
+msgid "**Execution Errors**: Script stops at the first failed step (exit code 3)"
+msgstr ""
+
+#: ../../004_cli_tool.md:641
+msgid "Exit Codes"
+msgstr ""
+
+#: ../../004_cli_tool.md:643
+msgid "`0`: Success"
+msgstr ""
+
+#: ../../004_cli_tool.md:644
+msgid ""
+"`1`: Validation error (script schema validation, missing fields, invalid "
+"values)"
+msgstr ""
+
+#: ../../004_cli_tool.md:645
+msgid ""
+"`2`: Maya related error (Maya not reachable, scene open failure, Maya "
+"configuration issues)"
+msgstr ""
+
+#: ../../004_cli_tool.md:646
+msgid ""
+"`3`: Execution failure (license check failed, session load error, "
+"pipeline error, step execution failure)"
+msgstr ""
+
+#: ../../004_cli_tool.md:648
+msgid "Maya Integration"
+msgstr ""
+
+#: ../../004_cli_tool.md:650
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../004_cli_tool.md:652
+msgid "**Maya must be running** with commandPort enabled"
+msgstr ""
+
+#: ../../004_cli_tool.md:653
+msgid ""
+"**CommandPort** must be open (typically port 42069, or as specified in "
+"the script's `context.command_port`)"
+msgstr ""
+
+#: ../../004_cli_tool.md:655
+msgid "Maya Preflight and Scene Opening"
+msgstr ""
+
+#: ../../004_cli_tool.md:657
+msgid "Before executing any steps, the CLI performs a preflight check:"
+msgstr ""
+
+#: ../../004_cli_tool.md:659
+msgid "Tests Maya commandPort connectivity"
+msgstr ""
+
+#: ../../004_cli_tool.md:660
+msgid "If Maya is not reachable:"
+msgstr ""
+
+#: ../../004_cli_tool.md:661
+msgid "Logs error: `MAYA_NOT_REACHABLE`"
+msgstr ""
+
+#: ../../004_cli_tool.md:662
+msgid "Exits with code 2"
+msgstr ""
+
+#: ../../004_cli_tool.md:663
+msgid "No steps are executed"
+msgstr ""
+
+#: ../../004_cli_tool.md:664
+msgid "If Maya is reachable and `initial_scene_open` is `true` (the default):"
+msgstr ""
+
+#: ../../004_cli_tool.md:665
+msgid ""
+"Automatically opens the Maya scene specified in the session (`maya_scene`"
+" and `maya_base`)"
+msgstr ""
+
+#: ../../004_cli_tool.md:666
+msgid "Waits for `wait_seconds_after_scene_open` seconds if configured"
+msgstr ""
+
+#: ../../004_cli_tool.md:667
+msgid "This ensures the scene is ready before processing begins"
+msgstr ""
+
+#: ../../004_cli_tool.md:669
+msgid "Upload Options"
+msgstr ""
+
+#: ../../004_cli_tool.md:671
+msgid "When processing videos, you can upload:"
+msgstr ""
+
+#: ../../004_cli_tool.md:673
+msgid "**Animation**: Facial animation curves (blendshapes, controllers)"
+msgstr ""
+
+#: ../../004_cli_tool.md:674
+msgid "**Audio**: Audio track from video"
+msgstr ""
+
+#: ../../004_cli_tool.md:675
+msgid "**Frames**: Video frames as image sequence for reference"
+msgstr ""
+
+#: ../../004_cli_tool.md:676
+msgid "**LM Frames**: Landmark-annotated frames for visualization"
+msgstr ""
+
+#: ../../004_cli_tool.md:678
+msgid "Scene Management"
+msgstr ""
+
+#: ../../004_cli_tool.md:680
+msgid ""
+"**`reopen_maya_scene`**: Controls when the Maya scene is reopened before "
+"a process step. `true` = always, `false` = never, omitted = auto (when "
+"any override is present and at least one upload flag is true). When "
+"reopening, override values for `maya_scene`/`maya_base` take precedence "
+"over session values."
+msgstr ""
+
+#: ../../004_cli_tool.md:681
+msgid ""
+"**`overrides.out_scene_path`**: Saves the Maya scene to a specific path "
+"after processing"
+msgstr ""
+
+#: ../../004_cli_tool.md:682
+msgid ""
+"**`overrides.out_playblast_path`**: Saves a playblast video to a specific"
+" path after processing"
+msgstr ""
+
+#: ../../004_cli_tool.md:683
+msgid ""
+"Scene paths are resolved from the session's `maya_base` and `maya_scene` "
+"properties"
+msgstr ""
+
+#: ../../004_cli_tool.md:684
+msgid ""
+"**Process Step Preflight**: Before each process step, a connection is "
+"recreated with the effective port (from override or context), and a "
+"preflight check is performed to ensure Maya is reachable"
+msgstr ""
+
+#: ../../004_cli_tool.md:686
+msgid "Time Offset"
+msgstr ""
+
+#: ../../004_cli_tool.md:688
+msgid ""
+"The `time_offset_frames` parameter allows you to control where animation "
+"starts on the Maya timeline:"
+msgstr ""
+
+#: ../../004_cli_tool.md:690
+msgid ""
+"**Positive offset**: Animation starts later (e.g., `100` starts at frame "
+"100)"
+msgstr ""
+
+#: ../../004_cli_tool.md:691
+msgid "**Zero**: Animation starts at the default position (typically frame 0)"
+msgstr ""
+
+#: ../../004_cli_tool.md:692
+msgid "**Note**: Only non-negative values (>= 0) are allowed"
+msgstr ""
+
+#: ../../004_cli_tool.md:694
+msgid "This is useful for:"
+msgstr ""
+
+#: ../../004_cli_tool.md:695
+msgid "Combining multiple takes in a single timeline"
+msgstr ""
+
+#: ../../004_cli_tool.md:696
+msgid "Aligning animation with existing keyframes"
+msgstr ""
+
+#: ../../004_cli_tool.md:697
+msgid "Creating animation sequences with gaps"
+msgstr ""
+
+#: ../../004_cli_tool.md:699
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../004_cli_tool.md:701
+msgid "Script Validation Fails"
+msgstr ""
+
+#: ../../004_cli_tool.md:703
+msgid "**Problem**: Script fails validation with error about structure or types."
+msgstr ""
+
+#: ../../004_cli_tool.md:705 ../../004_cli_tool.md:716
+#: ../../004_cli_tool.md:726 ../../004_cli_tool.md:736
+msgid "**Solutions**:"
+msgstr ""
+
+#: ../../004_cli_tool.md:706
+msgid "Ensure `version: 1` is present and exactly `1`"
+msgstr ""
+
+#: ../../004_cli_tool.md:707
+msgid "Check that `context.session` is a non-empty string"
+msgstr ""
+
+#: ../../004_cli_tool.md:708
+msgid "Verify `steps` is a non-empty list"
+msgstr ""
+
+#: ../../004_cli_tool.md:709
+msgid "Ensure each step has exactly one key (`process` or `sleep`)"
+msgstr ""
+
+#: ../../004_cli_tool.md:710
+msgid "Check field types match the schema (strings, booleans, integers)"
+msgstr ""
+
+#: ../../004_cli_tool.md:712
+msgid "Maya Not Reachable"
+msgstr ""
+
+#: ../../004_cli_tool.md:714
+msgid "**Problem**: Script exits with `MAYA_NOT_REACHABLE` error."
+msgstr ""
+
+#: ../../004_cli_tool.md:717
+msgid "Ensure Maya is running"
+msgstr ""
+
+#: ../../004_cli_tool.md:718
+msgid ""
+"Verify commandPort is open: In Maya, run `cmds.commandPort(n=':42069', "
+"stp='python')` (or use the port specified in `context.command_port` if "
+"provided)"
+msgstr ""
+
+#: ../../004_cli_tool.md:719
+msgid "Verify firewall/network settings allow localhost connections"
+msgstr ""
+
+#: ../../004_cli_tool.md:720
+msgid ""
+"If using a custom `command_port` in context, ensure Maya's commandPort "
+"matches the specified port number"
+msgstr ""
+
+#: ../../004_cli_tool.md:722
+msgid "Video Processing Fails"
+msgstr ""
+
+#: ../../004_cli_tool.md:724
+msgid "**Problem**: `PIPELINE_ERROR` during video processing."
+msgstr ""
+
+#: ../../004_cli_tool.md:727
+msgid "Verify video file exists and is readable"
+msgstr ""
+
+#: ../../004_cli_tool.md:728
+msgid "Check session has valid solver configuration"
+msgstr ""
+
+#: ../../004_cli_tool.md:729
+msgid "Ensure sufficient disk space for cache"
+msgstr ""
+
+#: ../../004_cli_tool.md:730
+msgid "Review logs for detailed error messages"
+msgstr ""
+
+#: ../../004_cli_tool.md:732
+msgid "Animation Not Uploading"
+msgstr ""
+
+#: ../../004_cli_tool.md:734
+msgid ""
+"**Problem**: Animation upload appears to succeed but nothing appears in "
+"Maya."
+msgstr ""
+
+#: ../../004_cli_tool.md:737
+msgid "Verify Maya scene has the correct character rig loaded"
+msgstr ""
+
+#: ../../004_cli_tool.md:738
+msgid "Check controller names match between session and Maya scene"
+msgstr ""
+
+#: ../../004_cli_tool.md:739
+msgid "Ensure animation layer exists in Maya (default: \"BaseAnimation\")"
+msgstr ""
+
+#: ../../004_cli_tool.md:740
+msgid "Review Maya script editor for Python errors"
+msgstr ""
+
+#: ../../004_cli_tool.md:742
+msgid "Best Practices"
+msgstr ""
+
+#: ../../004_cli_tool.md:744
+msgid ""
+"**Always validate first**: Use `--dry-run` to validate scripts before "
+"execution"
+msgstr ""
+
+#: ../../004_cli_tool.md:745
+msgid "**Use explicit paths**: Prefer absolute paths for reliability"
+msgstr ""
+
+#: ../../004_cli_tool.md:746
+msgid ""
+"**Test incrementally**: Start with simple scripts, add complexity "
+"gradually"
+msgstr ""
+
+#: ../../004_cli_tool.md:747
+msgid ""
+"**Check Maya connection**: Ensure Maya is running before processing with "
+"upload"
+msgstr ""
+
+#: ../../004_cli_tool.md:748
+msgid "**Use time offsets carefully**: Verify frame ranges to avoid overlaps"
+msgstr ""
+
+#: ../../004_cli_tool.md:749
+msgid ""
+"**Version control scripts**: Keep scripts in version control for "
+"repeatability"
+msgstr ""
+
+#: ../../004_cli_tool.md:751
+msgid "Advanced Usage"
+msgstr ""
+
+#: ../../004_cli_tool.md:753
+msgid "Batch Processing"
+msgstr ""
+
+#: ../../004_cli_tool.md:755
+msgid "Process multiple videos in sequence:"
+msgstr ""
+
+#: ../../004_cli_tool.md:783
+msgid "Controller Prefix Management"
+msgstr ""
+
+#: ../../004_cli_tool.md:803
+msgid "Conditional Scene Switching"
+msgstr ""
+
+#: ../../004_cli_tool.md:805
+msgid ""
+"Change Maya scene per step. Scene is reopened automatically because "
+"`maya_scene` is overridden and upload is requested:"
+msgstr ""
+
+#: ../../004_cli_tool.md:829
+msgid "Support"
+msgstr ""
+
+#: ../../004_cli_tool.md:831
+msgid ""
+"For issues, questions, or feature requests, please refer to the main FCS "
+"documentation or contact the development team."
+msgstr ""
+

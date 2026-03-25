@@ -1,0 +1,1719 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 20:20+0900\n"
+"PO-Revision-Date: 2025-01-01 00:00+0900\n"
+"Last-Translator: \n"
+"Language-Team: jp <LL@li.org>\n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: merge_po.py\n"
+
+#: ../../004_cli_tool.md:1
+msgid "CLI Tool"
+msgstr "CLI ツール"
+
+#: ../../004_cli_tool.md:3
+msgid ""
+"FCS CLI tool provides a script-based interface for automating facial capture"
+" and animation processing workflows. It allows you to load sessions, modify "
+"session properties, process videos, and upload animations to Maya—all "
+"through a simple YAML script format."
+msgstr ""
+"FCS CLI "
+"ツールは、フェイシャルキャプチャとアニメーション処理のワークフローを自動化するためのスクリプトベースのインターフェースを提供します。YAML "
+"スクリプト形式で、セッションの読み込み、セッション設定の変更、動画の処理、Maya へのアニメーションのアップロードを実行できます。"
+
+#: ../../004_cli_tool.md:5
+msgid "Table of Contents"
+msgstr "目次"
+
+#: ../../004_cli_tool.md:7
+msgid "[Installation](#installation)"
+msgstr "[インストール](#インストール)"
+
+#: ../../004_cli_tool.md:8
+msgid "[Quick Start](#quick-start)"
+msgstr "[クイックスタート](#クイックスタート)"
+
+#: ../../004_cli_tool.md:9
+msgid "[Script Format](#script-format)"
+msgstr "[スクリプト形式](#スクリプト形式)"
+
+#: ../../004_cli_tool.md:10
+msgid "[Validation Strictness](#validation-strictness)"
+msgstr "[検証の厳格さ](#検証の厳格さ)"
+
+#: ../../004_cli_tool.md:11
+msgid "[Profiles](#profiles)"
+msgstr "[プロファイル](#プロファイル)"
+
+#: ../../004_cli_tool.md:12
+msgid "[Execution Model](#execution-model)"
+msgstr "[実行モデル](#実行モデル)"
+
+#: ../../004_cli_tool.md:13
+msgid "[Commands](#commands)"
+msgstr "[コマンド](#コマンド)"
+
+#: ../../004_cli_tool.md:14
+msgid "[Step Types](#step-types)"
+msgstr "[ステップタイプ](#ステップタイプ)"
+
+#: ../../004_cli_tool.md:15
+msgid "[Examples](#examples)"
+msgstr "[例](#例)"
+
+#: ../../004_cli_tool.md:16
+msgid "[Logging](#logging)"
+msgstr "[ログ](#ログ)"
+
+#: ../../004_cli_tool.md:17
+msgid "[Error Handling](#error-handling)"
+msgstr "[エラー処理](#エラー処理)"
+
+#: ../../004_cli_tool.md:18
+msgid "[Maya Integration](#maya-integration)"
+msgstr "[Maya 連携](#maya-連携)"
+
+#: ../../004_cli_tool.md:19
+msgid "[Troubleshooting](#troubleshooting)"
+msgstr "[トラブルシューティング](#トラブルシューティング)"
+
+#: ../../004_cli_tool.md:21
+msgid "Installation"
+msgstr "インストール"
+
+#: ../../004_cli_tool.md:23
+msgid ""
+"The CLI tool is part of the FCS (Facial Capture System) package starting "
+"from FCS 26.04.  It is automatically installed when you install FCS."
+msgstr ""
+"CLI ツールは FCS（Facial Capture System）パッケージに含まれています。FCS "
+"環境のセットアップと依存関係のインストールが完了していることを確認してください。"
+
+#: ../../004_cli_tool.md:26
+msgid "Quick Start"
+msgstr "クイックスタート"
+
+#: ../../004_cli_tool.md:28
+msgid "Create a YAML script file (e.g., `my_script.yaml`):"
+msgstr "YAML スクリプトファイル（例：`my_script.yaml`）を作成します："
+
+#: ../../004_cli_tool.md:55
+msgid "Run the script:"
+msgstr "スクリプトを実行します："
+
+#: ../../004_cli_tool.md:61
+msgid "Script Format"
+msgstr "スクリプト形式"
+
+#: ../../004_cli_tool.md:63
+msgid "Top-Level Structure"
+msgstr "トップレベル構造"
+
+#: ../../004_cli_tool.md:65
+msgid "Every script must have three required sections:"
+msgstr "すべてのスクリプトには、次の3つの必須セクションが必要です："
+
+#: ../../004_cli_tool.md:75
+msgid "Version"
+msgstr "バージョン"
+
+#: ../../004_cli_tool.md:77
+msgid ""
+"Currently, only version `1` is supported. This field ensures forward "
+"compatibility as the script format evolves."
+msgstr "現在サポートされているのはバージョン `1` のみです。このフィールドは、スクリプト形式の進化に伴う前方互換性を確保します。"
+
+#: ../../004_cli_tool.md:79
+msgid "Context"
+msgstr "コンテキスト"
+
+#: ../../004_cli_tool.md:81
+msgid ""
+"The `context` section defines the session file to load at the start of "
+"script execution."
+msgstr "`context` セクションでは、スクリプト実行開始時に読み込むセッションファイルを定義します。"
+
+#: ../../004_cli_tool.md:83
+msgid ""
+"**`session`** (required, string): Path to the FCS session YAML file. Must "
+"point to a file named exactly `fcs_session.yaml`; any other filename will "
+"fail validation."
+msgstr ""
+"**`session`**（必須、文字列）：FCS セッション YAML ファイルへのパス。ファイル名は `fcs_session.yaml` "
+"でなければならず、他のファイル名では検証が失敗します。"
+
+#: ../../004_cli_tool.md:84
+msgid ""
+"**`wait_seconds_after_scene_open`** (optional, float): Global sleep time in "
+"seconds to wait after a Maya scene is opened. This applies to all scene "
+"opening operations in the script, including when scenes are opened via "
+"`reopen_maya_scene` in `process` steps or when Maya launches with a scene. "
+"Default: `0.0` (no wait)"
+msgstr ""
+"**`wait_seconds_after_scene_open`**（任意、float）：Maya "
+"シーンを開いた後に待機するグローバルな秒数。スクリプト内のすべてのシーンオープン操作（`process` ステップの "
+"`reopen_maya_scene` や Maya 起動時のシーンを含む）に適用されます。デフォルト：`0.0`（待機なし）"
+
+#: ../../004_cli_tool.md:85
+msgid ""
+"**`fisheye`** (optional, bool): Enable or disable fisheye correction for "
+"video processing. If provided, overrides the UI setting. Default: `true`"
+msgstr ""
+"**`fisheye`**（任意、bool）：動画処理の魚眼補正の有効/無効。指定した場合は UI 設定を上書き。デフォルト：`true`。"
+
+#: ../../004_cli_tool.md:86
+msgid ""
+"**`pipeline`** (optional, string): Processing pipeline to use for video "
+"processing. Must be one of: `\"Rich\"`, `\"Robust\"`, `\"RP\"`, `\"RP++\"`, "
+"`\"Robust++\"`, `\"Rich++\"`. If provided, overrides the UI setting. "
+"Default: `\"RP++\"`"
+msgstr ""
+"**`pipeline`**（任意、文字列）：動画処理に使用するパイプライン。次のいずれか：`\"Rich\"`、`\"Robust\"`、`\"RP\"`、`\"RP++\"`、`\"Robust++\"`、`\"Rich++\"`。指定した場合は"
+" UI 設定を上書き。デフォルト：`\"RP++\"`。"
+
+#: ../../004_cli_tool.md:87
+msgid ""
+"**`denoising`** (optional, string): Path to a denoising/smoothing profile "
+"file, or a filename to load from the smoothing presets directory. If it's a "
+"full path, it must exist. If it's just a filename (not a full path), it will"
+" be loaded from `FCS_TMP_DIR/smoothing_presets/filename.yaml`. If provided, "
+"loads the profile before processing. Default: No Smoothing"
+msgstr ""
+"**`denoising`**（任意、文字列）：ノイズ除去/スムージングプロファイルファイルへのパス、またはスムージングプリセットディレクトリから読み込むファイル名。フルパスの場合は存在する必要があります。ファイル名のみ（フルパスでない）の場合は"
+" `FCS_TMP_DIR/smoothing_presets/filename.yaml` "
+"から読み込まれます。指定した場合は処理前にプロファイルを読み込み。デフォルト：スムージングなし。"
+
+#: ../../004_cli_tool.md:88
+msgid ""
+"**`command_port`** (optional, integer): Maya commandPort number to use for "
+"all Maya operations in the script. Must be an integer between 1 and 65535. "
+"If provided, recreates the connection with the specified port and uses it "
+"for all Maya preflight checks and uploads. Default: 42069."
+msgstr ""
+"**`command_port`**（任意、整数）：スクリプト内の全 Maya 操作で使用する Maya commandPort 番号。1 ～ "
+"65535 の整数である必要があります。指定した場合は指定ポートで接続を再作成し、すべての Maya "
+"プリフライトチェックとアップロードに使用します。デフォルト：42069。"
+
+#: ../../004_cli_tool.md:89
+msgid ""
+"**`initial_scene_open`** (optional, bool): If `true` (the default), "
+"automatically opens the Maya scene once after data validation and before "
+"running all steps. The scene is opened only once at the start of script "
+"execution (after the preflight check), not before each step. If `false`, "
+"skips the initial scene opening. Default: `true` (scene will be opened "
+"automatically if `maya_scene` and `maya_base` are set in the session)."
+msgstr ""
+"**`initial_scene_open`**（任意、bool）：`true`（デフォルト）の場合、データ検証後、全ステップ実行前に Maya "
+"シーンを1回自動的に開きます。シーンはスクリプト実行開始時（プリフライトチェック後）に1回だけ開かれ、各ステップの前には開かれません。`false` "
+"の場合は初期シーンオープンをスキップします。デフォルト：`true`（セッションに `maya_scene` と `maya_base` "
+"が設定されている場合に自動でシーンを開く）"
+
+#: ../../004_cli_tool.md:90
+msgid ""
+"**`rename_controllers`** (optional, mapping): Modify controller names by "
+"prepending or removing a prefix. This is applied once after the session is "
+"loaded, before any steps execute. Useful for adapting controller names to "
+"match Maya scene naming conventions."
+msgstr ""
+"**`rename_controllers`**（任意、マッピング）：プレフィックスを付加または削除してコントローラ名を変更。セッション読み込み後、いずれのステップが実行される前に1回適用されます。Maya"
+" シーンの命名規則に合わせてコントローラ名を調整する際に便利です。"
+
+#: ../../004_cli_tool.md:91
+msgid ""
+"`prefix` (required, string): The prefix to prepend or remove from all "
+"controller names"
+msgstr "`prefix`（必須、文字列）：すべてのコントローラ名に付加または削除するプレフィックス"
+
+#: ../../004_cli_tool.md:92
+msgid ""
+"`action` (optional, string): Operation to perform - `\"prepend\"` (default) "
+"or `\"remove\"`"
+msgstr "`action`（任意、文字列）：実行する操作 — `\"prepend\"`（デフォルト）または `\"remove\"`"
+
+#: ../../004_cli_tool.md:93
+msgid ""
+"**`playblast`** (optional, mapping): Override playblast settings for all "
+"process steps that export playblast. If not set, application settings are "
+"used."
+msgstr ""
+"**`playblast`**（任意、マッピング）：プレイブラストをエクスポートする process "
+"ステップで、プレイブラスト設定をアプリ設定の上書きとして適用します。指定しない場合はアプリ設定を使用します。"
+
+#: ../../004_cli_tool.md:94
+msgid "`camera` (optional, string): Maya camera name (e.g. `\"persp\"`)."
+msgstr "`camera`（任意、文字列）：Maya カメラ名（例：`\"persp\"`）。"
+
+#: ../../004_cli_tool.md:95
+msgid "`width` (optional, integer): Output width in pixels."
+msgstr "`width`（任意、整数）：出力幅（ピクセル）。"
+
+#: ../../004_cli_tool.md:96
+msgid "`height` (optional, integer): Output height in pixels."
+msgstr "`height`（任意、整数）：出力高さ（ピクセル）。"
+
+#: ../../004_cli_tool.md:97
+msgid ""
+"`percent` (optional, integer): Resolution percent (e.g. 100, must be 1–100)."
+msgstr "`percent`（任意、整数）：解像度パーセント（例：100、1～100）。"
+
+#: ../../004_cli_tool.md:98
+msgid ""
+"`quality` (optional, integer): Playblast quality (e.g. 100, must be 1–100)."
+msgstr "`quality`（任意、整数）：プレイブラスト品質（例：100、1～100）。"
+
+#: ../../004_cli_tool.md:99
+msgid ""
+"**`profiles`** (optional, list): Rules to enable/disable ROM profiles in the"
+" loaded session before any steps run. See [Profiles](#profiles) for full "
+"details."
+msgstr ""
+"**`profiles`**（任意、リスト）：ステップ実行前に、読み込んだセッションの ROM "
+"プロファイルの有効/無効を設定するルール。詳細は[プロファイル](#プロファイル)を参照。"
+
+#: ../../004_cli_tool.md:101
+msgid "Steps"
+msgstr "ステップ"
+
+#: ../../004_cli_tool.md:103
+msgid ""
+"Steps are executed sequentially in the order they appear. Each step must be "
+"a single-key mapping with one of these keys:"
+msgstr "ステップは記述順に順次実行されます。各ステップは次のいずれかのキーを持つ単一キーのマッピングである必要があります："
+
+#: ../../004_cli_tool.md:104
+msgid "`process` - Process a video and optionally upload to Maya"
+msgstr "`process` — 動画を処理し、必要に応じて Maya にアップロード"
+
+#: ../../004_cli_tool.md:105
+msgid "`sleep` - Pause script execution for a specified duration"
+msgstr "`sleep` — 指定時間だけスクリプト実行を一時停止"
+
+#: ../../004_cli_tool.md:107
+msgid "Validation Strictness"
+msgstr "検証の厳格さ"
+
+#: ../../004_cli_tool.md:109
+msgid ""
+"Script validation follows a **strict schema contract**. The validator "
+"rejects any deviation from the defined schema:"
+msgstr "スクリプト検証は**厳格なスキーマ契約**に従います。定義されたスキーマからの逸脱はすべて検証で拒否されます："
+
+#: ../../004_cli_tool.md:111
+msgid ""
+"**Unknown top-level fields → error**: Only `version`, `context`, and `steps`"
+" are allowed at the top level. Any other field will cause validation to "
+"fail."
+msgstr ""
+"**未知のトップレベルフィールド → エラー**：トップレベルで許可されるのは `version`、`context`、`steps` "
+"のみ。他のフィールドがあると検証が失敗します。"
+
+#: ../../004_cli_tool.md:113
+msgid ""
+"**Unknown context fields → error**: Only the documented context fields are "
+"allowed. Unknown fields in the `context` section will cause validation to "
+"fail."
+msgstr ""
+"**未知の context フィールド → エラー**：文書化された context フィールドのみが許可されます。`context` "
+"セクションの未知のフィールドがあると検証が失敗します。"
+
+#: ../../004_cli_tool.md:115
+msgid ""
+"**Unknown step types → error**: Only `process` and `sleep` are valid step "
+"types. Any other step type will cause validation to fail."
+msgstr ""
+"**未知のステップタイプ → エラー**：有効なステップタイプは `process` と `sleep` "
+"のみ。他のステップタイプがあると検証が失敗します。"
+
+#: ../../004_cli_tool.md:117
+msgid ""
+"**Unknown step fields → error**: Each step type has a defined set of allowed"
+" fields. Any field not explicitly documented for that step type will cause "
+"validation to fail."
+msgstr ""
+"**未知のステップフィールド → "
+"エラー**：各ステップタイプには許可されるフィールドの定義セットがあります。そのステップタイプで文書化されていないフィールドがあると検証が失敗します。"
+
+#: ../../004_cli_tool.md:119
+msgid ""
+"**Extra keys in nested structures → error**: Nested structures (like "
+"`upload` in `process` steps, or `overrides`) only accept their documented "
+"fields. Unknown keys will cause validation to fail."
+msgstr ""
+"**ネスト構造の余分なキー → エラー**：ネスト構造（`process` ステップの `upload` や `overrides` "
+"など）は文書化されたフィールドのみを受け付けます。未知のキーがあると検証が失敗します。"
+
+#: ../../004_cli_tool.md:121
+msgid ""
+"**Order matters**: Steps are executed sequentially in the exact order they "
+"appear in the `steps` list. The execution order is significant and cannot be"
+" changed."
+msgstr "**順序が重要**：ステップは `steps` リストに出現する正確な順序で順次実行されます。実行順序は意味を持ち、変更できません。"
+
+#: ../../004_cli_tool.md:123
+msgid "**Examples of validation failures:**"
+msgstr "**検証失敗の例：**"
+
+#: ../../004_cli_tool.md:168
+msgid "Profiles"
+msgstr "プロファイル"
+
+#: ../../004_cli_tool.md:170
+msgid ""
+"The `profiles` context field lets you enable or disable profiles in the "
+"session before any steps run. Rules are applied sequentially — later rules "
+"override earlier ones for the profiles they match."
+msgstr ""
+"`profiles` コンテキストフィールドを使用すると、ステップ実行前にセッション内の "
+"プロファイルの有効/無効を設定できます。ルールは順次適用され、後のルールがマッチしたプロファイルについて先のルールを上書きします。"
+
+#: ../../004_cli_tool.md:172
+msgid "Each rule has three fields:"
+msgstr "各ルールには3つのフィールドがあります："
+
+#: ../../004_cli_tool.md:0
+msgid "Field"
+msgstr "フィールド"
+
+#: ../../004_cli_tool.md:0
+msgid "Required"
+msgstr "必須"
+
+#: ../../004_cli_tool.md:0
+msgid "Values"
+msgstr "値"
+
+#: ../../004_cli_tool.md:0
+msgid "Description"
+msgstr "説明"
+
+#: ../../004_cli_tool.md:0
+msgid "`match`"
+msgstr "`match`"
+
+#: ../../004_cli_tool.md:0
+msgid "yes"
+msgstr "はい"
+
+#: ../../004_cli_tool.md:0
+msgid "`\"all\"` or a list of criteria"
+msgstr "`\"all\"` またはクライテリアのリスト"
+
+#: ../../004_cli_tool.md:0
+msgid "Which profiles to target"
+msgstr "対象とするプロファイル"
+
+#: ../../004_cli_tool.md:0
+msgid "`select`"
+msgstr "`select`"
+
+#: ../../004_cli_tool.md:0
+msgid "`\"all\"`, `\"none\"`, or integer ≥ 1"
+msgstr "`\"all\"`、`\"none\"`、または 1 以上の整数"
+
+#: ../../004_cli_tool.md:0
+msgid "What to do with matched profiles"
+msgstr "マッチしたプロファイルに対する操作"
+
+#: ../../004_cli_tool.md:0
+msgid "`condition`"
+msgstr "`condition`"
+
+#: ../../004_cli_tool.md:0
+msgid "no"
+msgstr "いいえ"
+
+#: ../../004_cli_tool.md:0
+msgid "`AND` (default) or `OR`"
+msgstr "`AND`（デフォルト）または `OR`"
+
+#: ../../004_cli_tool.md:0
+msgid "How to combine multiple criteria"
+msgstr "複数クライテリアの結合方法"
+
+#: ../../004_cli_tool.md:180
+msgid "**`match` criteria** — each item in the list is a single-key mapping:"
+msgstr "**`match` クライテリア** — リスト内の各項目は単一キーのマッピングです："
+
+#: ../../004_cli_tool.md:0
+msgid "Key"
+msgstr "キー"
+
+#: ../../004_cli_tool.md:0
+msgid "Matches when…"
+msgstr "マッチ条件"
+
+#: ../../004_cli_tool.md:0
+msgid "`video: \"<stem>\"`"
+msgstr "`video: \"<stem>\"`"
+
+#: ../../004_cli_tool.md:0
+msgid "Profile's source video filename (without extension) equals value"
+msgstr "プロファイルのソース動画ファイル名（拡張子なし）が値と一致"
+
+#: ../../004_cli_tool.md:0
+msgid "`not_video: \"<stem>\"`"
+msgstr "`not_video: \"<stem>\"`"
+
+#: ../../004_cli_tool.md:0
+msgid "Profile has no source video, or its stem differs from value"
+msgstr "プロファイルにソース動画がない、またはステムが値と異なる"
+
+#: ../../004_cli_tool.md:0
+msgid "`user_tag: \"<tag>\"`"
+msgstr "`user_tag: \"<tag>\"`"
+
+#: ../../004_cli_tool.md:0
+msgid "Profile has this user tag"
+msgstr "プロファイルにこのユーザータグがある"
+
+#: ../../004_cli_tool.md:0
+msgid "`no_user_tag: \"<tag>\"`"
+msgstr "`no_user_tag: \"<tag>\"`"
+
+#: ../../004_cli_tool.md:0
+msgid "Profile does NOT have this user tag"
+msgstr "プロファイルにこのユーザータグがない"
+
+#: ../../004_cli_tool.md:189
+msgid "**`select` values:**"
+msgstr "**`select` の値：**"
+
+#: ../../004_cli_tool.md:191
+msgid "`\"all\"` — enable all matched profiles"
+msgstr "`\"all\"` — マッチしたすべてのプロファイルを有効化"
+
+#: ../../004_cli_tool.md:192
+msgid "`\"none\"` — disable all matched profiles"
+msgstr "`\"none\"` — マッチしたすべてのプロファイルを無効化"
+
+#: ../../004_cli_tool.md:193
+msgid ""
+"integer N — randomly enable N of the matched profiles (error if fewer than N"
+" matched)"
+msgstr "整数 N — マッチしたプロファイルからランダムに N 個を有効化（N 未満のマッチではエラー）"
+
+#: ../../004_cli_tool.md:195 ../../004_cli_tool.md:276
+msgid "**Examples:**"
+msgstr "**例：**"
+
+#: ../../004_cli_tool.md:223
+msgid ""
+"**Note**: `match` must be a YAML list (using `-` items). A plain mapping is "
+"rejected to prevent YAML's silent duplicate-key merging (e.g. two `video:` "
+"keys would collapse into one)."
+msgstr ""
+"**注意**：`match` は YAML リスト（`-` 項目）である必要があります。プレーンなマッピングは YAML "
+"のサイレントな重複キーマージを防ぐため拒否されます（例：2つの `video:` キーは1つに統合されてしまう）。"
+
+#: ../../004_cli_tool.md:225
+msgid "Execution Model"
+msgstr "実行モデル"
+
+#: ../../004_cli_tool.md:227
+msgid ""
+"Understanding how scripts execute helps you write effective automation "
+"workflows. The FCS CLI follows a predictable execution model:"
+msgstr "スクリプトの実行の仕組みを理解すると、効果的な自動化ワークフローを記述できます。FCS CLI は予測可能な実行モデルに従います。"
+
+#: ../../004_cli_tool.md:229
+msgid "Execution Lifecycle"
+msgstr "実行ライフサイクル"
+
+#: ../../004_cli_tool.md:231
+msgid ""
+"**Script Initialization**: The script is loaded and validated against the "
+"schema. Any schema error exits immediately with code 1 before any session or"
+" Maya operations occur."
+msgstr ""
+"**スクリプト初期化**：スクリプトを読み込み、スキーマに対して検証します。スキーマエラーがあればコード 1 で即座に終了し、セッションや Maya "
+"の操作は一切行われません。"
+
+#: ../../004_cli_tool.md:233
+msgid ""
+"**License Check**: License is checked out/validated. Failure exits with code"
+" 3."
+msgstr "**ライセンスチェック**：ライセンスのチェックアウト/検証を行います。失敗するとコード 3 で終了します。"
+
+#: ../../004_cli_tool.md:235
+msgid ""
+"**Session Loading**: The session file specified in `context.session` is "
+"loaded once. The session remains in memory throughout execution."
+msgstr ""
+"**セッション読み込み**：`context.session` "
+"で指定されたセッションファイルが1回読み込まれます。セッションは実行中メモリに保持されます。"
+
+#: ../../004_cli_tool.md:237
+msgid ""
+"**Controller Renaming**: If `rename_controllers` is specified, controller "
+"name prefixes are prepended or removed once before any steps run."
+msgstr ""
+"**コントローラリネーム**：`rename_controllers` "
+"が指定されている場合、ステップ実行前にコントローラ名のプレフィックスの付加または削除が1回適用されます。"
+
+#: ../../004_cli_tool.md:239
+msgid ""
+"**Profile Selection**: If `profiles` is specified, the rules are applied "
+"sequentially to set each ROM profile's enabled state."
+msgstr ""
+"**プロファイル選択**：`profiles` が指定されている場合、ルールが順次適用され、各 ROM プロファイルの有効状態が設定されます。"
+
+#: ../../004_cli_tool.md:241
+msgid ""
+"**Affogato Initialization**: A connection to Maya's commandPort is "
+"established."
+msgstr "**Affogato 初期化**：Maya の commandPort への接続を確立します。"
+
+#: ../../004_cli_tool.md:243
+msgid ""
+"**Maya Preflight**: Maya reachability is verified. Failure exits with code 2"
+" — no steps execute."
+msgstr "**Maya プリフライト**：Maya の到達可能性を検証します。失敗するとコード 2 で終了し、ステップは実行されません。"
+
+#: ../../004_cli_tool.md:245
+msgid ""
+"**Initial Scene Opening**: If `initial_scene_open` is `true` (the default) "
+"and the session has `maya_scene` and `maya_base` configured, the Maya scene "
+"is opened once before any steps run. Failures are non-fatal (logged as "
+"warnings). The script waits for `wait_seconds_after_scene_open` seconds "
+"after opening."
+msgstr ""
+"**初期シーンオープン**：`initial_scene_open` が `true`（デフォルト）で、セッションに `maya_scene` と "
+"`maya_base` が設定されている場合、ステップ実行前に Maya "
+"シーンが1回開かれます。失敗は非致命的（警告としてログ）です。`wait_seconds_after_scene_open` 秒待機します。"
+
+#: ../../004_cli_tool.md:247
+msgid ""
+"**Step Execution**: Steps execute sequentially in the order they appear. The"
+" license is re-checked before each step after the first. There is no "
+"rollback, branching, or parallelism."
+msgstr ""
+"**ステップ実行**：ステップは出現順に順次実行されます。最初のステップ以降、各ステップの前にライセンスが再チェックされます。ロールバック、分岐、並列実行はありません。"
+
+#: ../../004_cli_tool.md:249
+msgid "Context and Overrides"
+msgstr "コンテキストとオーバーライド"
+
+#: ../../004_cli_tool.md:251
+msgid ""
+"**Context Fields**: All fields defined in the `context` section apply "
+"globally to all steps unless explicitly overridden. This includes settings "
+"like `fisheye`, `pipeline`, `denoising`, `command_port`, and `playblast`."
+msgstr ""
+"**コンテキストフィールド**：`context` "
+"セクションで定義されたすべてのフィールドは、明示的にオーバーライドされない限り、すべてのステップにグローバルに適用されます。これには "
+"`fisheye`、`pipeline`、`denoising`、`command_port`、`playblast` などの設定が含まれます。"
+
+#: ../../004_cli_tool.md:253
+msgid ""
+"**Step Overrides**: The `overrides` section in a `process` step applies only"
+" for the duration of that specific step. After the step completes, the "
+"global context values are restored. This allows you to temporarily change "
+"settings (like `command_port`, `maya_scene`, or `maya_base`) for individual "
+"processing operations."
+msgstr ""
+"**ステップオーバーライド**：`process` ステップの `overrides` "
+"セクションは、その特定のステップの期間中のみ適用されます。ステップ完了後、グローバルコンテキストの値が復元されます。個々の処理操作で設定（`command_port`、`maya_scene`、`maya_base`"
+" など）を一時的に変更できます。"
+
+#: ../../004_cli_tool.md:255
+msgid "Execution Guarantees"
+msgstr "実行の保証"
+
+#: ../../004_cli_tool.md:256
+msgid "**Sequential Execution**: Steps always execute one at a time, in order"
+msgstr "**順次実行**：ステップは常に1つずつ、順序どおりに実行されます"
+
+#: ../../004_cli_tool.md:257
+msgid ""
+"**No Rollback**: If a step fails, execution stops; previous steps are not "
+"undone"
+msgstr "**ロールバックなし**：ステップが失敗した場合、実行は停止し、前のステップは元に戻されません"
+
+#: ../../004_cli_tool.md:258
+msgid "**No Branching**: Conditional logic or loops are not supported"
+msgstr "**分岐なし**：条件分岐やループはサポートされません"
+
+#: ../../004_cli_tool.md:259
+msgid "**No Parallelism**: Multiple steps cannot run simultaneously"
+msgstr "**並列実行なし**：複数のステップを同時に実行することはできません"
+
+#: ../../004_cli_tool.md:260
+msgid ""
+"**Session Persistence**: The session remains in memory throughout execution;"
+" changes are not persisted to disk"
+msgstr "**セッション永続化**：セッションは実行中メモリに保持され、ディスクには保存されません"
+
+#: ../../004_cli_tool.md:262
+msgid "Commands"
+msgstr "コマンド"
+
+#: ../../004_cli_tool.md:264
+msgid "Run Script"
+msgstr "スクリプト実行"
+
+#: ../../004_cli_tool.md:266
+msgid "Execute a YAML script:"
+msgstr "YAML スクリプトを実行します："
+
+#: ../../004_cli_tool.md:272
+msgid "**Options:**"
+msgstr "**オプション：**"
+
+#: ../../004_cli_tool.md:273
+msgid "`--file`, `-f`: Path to the YAML script file (required)"
+msgstr "`--file`、`-f`：YAML スクリプトファイルへのパス（必須）"
+
+#: ../../004_cli_tool.md:274
+msgid "`--dry-run`: Validate the script without executing it"
+msgstr "`--dry-run`：実行せずにスクリプトを検証する"
+
+#: ../../004_cli_tool.md:286
+msgid "Step Types"
+msgstr "ステップタイプ"
+
+#: ../../004_cli_tool.md:288
+msgid "`process` Step"
+msgstr "`process` ステップ"
+
+#: ../../004_cli_tool.md:290
+msgid "Processes a single video file and optionally uploads results to Maya."
+msgstr "単一の動画ファイルを処理し、必要に応じて結果を Maya にアップロードします。"
+
+#: ../../004_cli_tool.md:292 ../../004_cli_tool.md:406
+msgid "**Format:**"
+msgstr "**形式：**"
+
+#: ../../004_cli_tool.md:315 ../../004_cli_tool.md:412
+msgid "**Fields:**"
+msgstr "**フィールド：**"
+
+#: ../../004_cli_tool.md:317
+msgid "**`video`** (required, string): Path to the video file to process"
+msgstr "**`video`**（必須、文字列）：処理する動画ファイルへのパス"
+
+#: ../../004_cli_tool.md:318
+msgid "**`upload`** (optional, mapping): Upload options to Maya"
+msgstr "**`upload`**（任意、マッピング）：Maya へのアップロードオプション"
+
+#: ../../004_cli_tool.md:319
+msgid "`animation` (bool): Upload animation curves"
+msgstr "`animation`（bool）：アニメーションカーブをアップロード"
+
+#: ../../004_cli_tool.md:320
+msgid "`audio` (bool): Upload audio track"
+msgstr "`audio`（bool）：動画からオーディオトラックをアップロード"
+
+#: ../../004_cli_tool.md:321
+msgid "`frames` (bool): Upload video frames as image sequence"
+msgstr "`frames`（bool）：動画フレームを画像シーケンスとしてアップロード"
+
+#: ../../004_cli_tool.md:322
+msgid ""
+"`lm_frames` (bool): Upload landmark-annotated frames. **Not supported with "
+"`++` pipelines** (`RP++`, `Rich++`, `Robust++`); raises "
+"`LM_FRAMES_UNSUPPORTED_PIPELINE` if used with one."
+msgstr ""
+"`lm_frames`（bool）：ランドマーク付きフレームをアップロード。**`++` "
+"パイプライン**（`RP++`、`Rich++`、`Robust++`）**では使用不可**。使用すると "
+"`LM_FRAMES_UNSUPPORTED_PIPELINE` エラーが発生します。"
+
+#: ../../004_cli_tool.md:323
+msgid "**`export`** (optional, mapping): Export options after processing"
+msgstr "**`export`**（任意、マッピング）：処理後のエクスポートオプション"
+
+#: ../../004_cli_tool.md:324
+msgid "`scene` (bool): Export Maya scene file"
+msgstr "`scene`（bool）：Maya シーンファイルをエクスポート"
+
+#: ../../004_cli_tool.md:325
+msgid "`playblast` (bool): Export playblast video"
+msgstr "`playblast`（bool）：プレイブラスト動画をエクスポート"
+
+#: ../../004_cli_tool.md:326
+msgid ""
+"**`force_reprocess`** (optional, bool): Force reprocessing even if cache "
+"exists. Default: `true`"
+msgstr "**`force_reprocess`**（任意、bool）：キャッシュがあっても強制的に再処理。デフォルト：`true`"
+
+#: ../../004_cli_tool.md:327
+msgid ""
+"**`time_offset_frames`** (optional, integer): Frame offset for animation "
+"upload. Default: `0`, must be >= 0."
+msgstr ""
+"**`time_offset_frames`**（任意、整数）：アニメーションアップロードのフレームオフセット。デフォルト：`0`、0 "
+"以上である必要あり。"
+
+#: ../../004_cli_tool.md:328
+msgid ""
+"**`reopen_maya_scene`** (optional, bool): Controls whether the Maya scene is"
+" reopened before processing:"
+msgstr "**`reopen_maya_scene`**（任意、bool）：処理前に Maya シーンを再オープンするかを制御："
+
+#: ../../004_cli_tool.md:329
+msgid "`true` — always reopen, regardless of overrides or upload flags"
+msgstr "`true` — オーバーライドやアップロードフラグに関係なく、常に再オープン"
+
+#: ../../004_cli_tool.md:330
+msgid "`false` — never reopen (explicit opt-out)"
+msgstr "`false` — 再オープンしない（明示的なオプトアウト）"
+
+#: ../../004_cli_tool.md:331
+msgid ""
+"omitted — **auto**: reopen only when any override (`command_port`, "
+"`maya_scene`, or `maya_base`) is present AND at least one `upload.*` flag is"
+" `true`"
+msgstr ""
+"省略 — "
+"**自動**：いずれかのオーバーライド（`command_port`、`maya_scene`、`maya_base`）が存在し、かつ少なくとも1つの "
+"`upload.*` フラグが `true` の場合にのみ再オープン"
+
+#: ../../004_cli_tool.md:332
+msgid ""
+"Positive values: Animation starts at the `time_offset_frames`th frame on "
+"Maya"
+msgstr "正の値：Maya タイムラインの `time_offset_frames` フレーム目にアニメーションが開始する"
+
+#: ../../004_cli_tool.md:333
+msgid "Zero: No offset"
+msgstr "ゼロ：オフセットなし"
+
+#: ../../004_cli_tool.md:334
+msgid ""
+"**`overrides`** (optional, mapping): Override values for this specific "
+"process step"
+msgstr "**`overrides`**（任意、マッピング）：この process ステップ専用のオーバーライド値"
+
+#: ../../004_cli_tool.md:335
+msgid ""
+"`command_port` (optional, integer): Maya commandPort number to use for this "
+"step. Must be an integer between 1 and 65535. If provided, recreates the "
+"connection with the specified port for this step only, overriding the port "
+"from `context.command_port` or application settings. A preflight check is "
+"performed after to ensure Maya is reachable."
+msgstr ""
+"`command_port`（任意、整数）：このステップで使用する Maya commandPort 番号。1 ～ 65535 "
+"の整数。指定した場合、このステップのみ指定ポートで接続を再作成し、`context.command_port` "
+"またはアプリケーション設定のポートを上書きします。再作成後にプリフライトチェックを実行し、Maya に到達可能か確認します。"
+
+#: ../../004_cli_tool.md:336
+msgid ""
+"`maya_scene` (optional, string): Path to Maya scene file to use for this "
+"step. Overrides the session's `maya_scene` when `reopen_maya_scene` is "
+"`true`."
+msgstr ""
+"`maya_scene`（任意、文字列）：このステップで使用する Maya シーンファイルへのパス。`reopen_maya_scene` が "
+"`true` のときにセッションの `maya_scene` を上書きします。"
+
+#: ../../004_cli_tool.md:337
+msgid ""
+"`maya_base` (optional, string): Path to Maya workspace base directory to use"
+" for this step. Overrides the session's `maya_base` when `reopen_maya_scene`"
+" is `true`."
+msgstr ""
+"`maya_base`（任意、文字列）：このステップで使用する Maya "
+"ワークスペースベースディレクトリへのパス。`reopen_maya_scene` が `true` のときにセッションの `maya_base` "
+"を上書きします。"
+
+#: ../../004_cli_tool.md:338
+msgid ""
+"`out_scene_path` (optional, string): Path to save Maya scene file (must have"
+" `.ma` or `.mb` extension). If not provided when `export.scene` is `true`, a"
+" warning is logged and the scene is **not saved**."
+msgstr ""
+"`out_scene_path`（任意、文字列）：処理後に Maya シーンファイルを保存するパス（`.ma` または `.mb` "
+"拡張子が必要）。`export.scene` が `true` の場合に指定しないと、警告がログされ**シーンは保存されません**。"
+
+#: ../../004_cli_tool.md:339
+msgid ""
+"`out_playblast_path` (optional, string): Path to save playblast video, "
+"**without a file extension** (`.mp4` is appended automatically). If not "
+"provided when `export.playblast` is `true`, a default path is derived from "
+"the session's output folder and app settings."
+msgstr ""
+"`out_playblast_path`（任意、文字列）：プレイブラスト動画を保存するパス。**ファイル拡張子なし**で指定する必要があります（`.mp4`"
+" が自動的に付加されます）。`export.playblast` が `true` "
+"の場合に指定しないと、セッションの出力フォルダとアプリ設定からデフォルトパスが生成されます。"
+
+#: ../../004_cli_tool.md:341
+msgid ""
+"**Note**: The process step always recreates the Affogato connection with the"
+" effective port (override or context) and performs a preflight check before "
+"processing. When `reopen_maya_scene` is omitted and overrides are present, "
+"the scene is reopened automatically (see `reopen_maya_scene` above)."
+msgstr ""
+"**重要**：process ステップでは常に適切なポート（オーバーライドまたはコンテキストから）で Affogato "
+"接続を再作成し、処理前にプリフライトチェックを実行します。`reopen_maya_scene` "
+"が省略されオーバーライドが存在する場合、上記の自動ルールに従いシーンが再オープンされます（`reopen_maya_scene` 参照）。"
+
+#: ../../004_cli_tool.md:344
+msgid ""
+"**Internal Maya Workflow**   When any upload.* option is enabled in a "
+"process step, the CLI performs the following operations in Maya via "
+"commandPort, in strict sequence:"
+msgstr ""
+"**Maya 内部ワークフロー**   process ステップでいずれかの `upload.*` オプションが有効な場合、CLI は "
+"commandPort 経由で Maya 内で以下の操作を厳密な順序で実行します。"
+
+#: ../../004_cli_tool.md:346
+msgid "Scene timing setup"
+msgstr "シーンタイミングの設定"
+
+#: ../../004_cli_tool.md:347
+msgid "Set the Maya scene FPS to match the input video."
+msgstr "Maya シーンの FPS を入力動画に合わせて設定する。"
+
+#: ../../004_cli_tool.md:348
+msgid ""
+"Set the scene playback range to match the total frame count of the video."
+msgstr "シーンの再生範囲を動画の総フレーム数に合わせて設定する。"
+
+#: ../../004_cli_tool.md:349
+msgid "Audio setup (if `upload.audio = true`)"
+msgstr "オーディオの設定（`upload.audio = true` の場合）"
+
+#: ../../004_cli_tool.md:350
+msgid "Import the audio track from the input video."
+msgstr "入力動画からオーディオトラックをインポートする。"
+
+#: ../../004_cli_tool.md:351
+msgid "Attach the audio to the Maya timeline."
+msgstr "オーディオを Maya タイムラインにアタッチする。"
+
+#: ../../004_cli_tool.md:352
+msgid ""
+"Reference frame setup (if `upload.frames = true` or `upload.lm_frames = "
+"true`)"
+msgstr "参照フレームの設定（`upload.frames = true` または `upload.lm_frames = true` の場合）"
+
+#: ../../004_cli_tool.md:353
+msgid "Extract video frames as an image sequence."
+msgstr "動画フレームを画像シーケンスとして抽出する。"
+
+#: ../../004_cli_tool.md:354
+msgid ""
+"Create or update an imagePlane using: raw frames if upload.frames = true "
+"landmark-annotated frames if upload.lm_frames = true"
+msgstr "以下を使用して imagePlane を作成または更新する："
+
+#: ../../004_cli_tool.md:358
+msgid "Animation reset"
+msgstr "`upload.frames = true` の場合は生フレーム"
+
+#: ../../004_cli_tool.md:359
+msgid ""
+"Remove all existing animation keyframes for every controller defined in the "
+"session."
+msgstr "`upload.lm_frames = true` の場合はランドマーク付きフレーム"
+
+#: ../../004_cli_tool.md:360
+msgid ""
+"This guarantees deterministic uploads and prevents keyframe accumulation "
+"across runs."
+msgstr "アニメーションのリセット"
+
+#: ../../004_cli_tool.md:362
+msgid "Animation upload"
+msgstr "セッションで定義されたすべてのコントローラの既存アニメーションキーフレームを削除する。"
+
+#: ../../004_cli_tool.md:363
+msgid "Apply newly computed animation curves to all session controllers."
+msgstr "これによりアップロードが決定的になり、複数回の実行でキーフレームが蓄積しないようにする。"
+
+#: ../../004_cli_tool.md:364
+msgid ""
+"If time_offset_frames > 0, all keyframes are shifted forward by the "
+"specified number of frames prior to insertion."
+msgstr "アニメーションのアップロード"
+
+#: ../../004_cli_tool.md:366
+msgid "Output saving"
+msgstr "新しく計算されたアニメーションカーブをすべてのセッションコントローラに適用する。"
+
+#: ../../004_cli_tool.md:367
+msgid "Save the playblast video (if export.playblast = true)."
+msgstr "`time_offset_frames > 0` の場合、挿入前にすべてのキーフレームが指定フレーム数だけ前方にシフトされる。"
+
+#: ../../004_cli_tool.md:368
+msgid "Save the Maya scene file (if export.scene = true)."
+msgstr "出力の保存"
+
+#: ../../004_cli_tool.md:371
+msgid "Notes"
+msgstr "プレイブラスト動画を保存する（`export.playblast = true` の場合）。"
+
+#: ../../004_cli_tool.md:373
+msgid ""
+"All operations are executed atomically per process step; partial uploads are"
+" not supported."
+msgstr "Maya シーンファイルを保存する（`export.scene = true` の場合）。"
+
+#: ../../004_cli_tool.md:375
+msgid ""
+"If reopen_maya_scene = true, the Maya scene is reopened before this workflow"
+" begins."
+msgstr "注意"
+
+#: ../../004_cli_tool.md:377
+msgid ""
+"Controller matching is name-based. Controllers that cannot be resolved will "
+"silently receive no animation; no rollback is performed."
+msgstr "すべての操作は process ステップごとにアトミックに実行され、部分的なアップロードはサポートされません。"
+
+#: ../../004_cli_tool.md:379
+msgid ""
+"This workflow is executed only when at least one upload.* option is enabled."
+" Processing without uploads does not modify the Maya scene."
+msgstr "`reopen_maya_scene = true` の場合、このワークフロー開始前に Maya シーンが再オープンされます。"
+
+#: ../../004_cli_tool.md:381 ../../004_cli_tool.md:416
+msgid "**Example:**"
+msgstr "コントローラのマッチングは名前ベースです。解決できないコントローラにはアニメーションは適用されず、ロールバックは行われません。"
+
+#: ../../004_cli_tool.md:402
+msgid "`sleep` Step"
+msgstr ""
+"少なくとも 1 つの `upload.*` オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya "
+"シーンは変更されません。"
+
+#: ../../004_cli_tool.md:404
+msgid ""
+"Pauses script execution for a specified duration. Useful for waiting between"
+" operations or allowing external processes to complete."
+msgstr "`sleep` ステップ"
+
+#: ../../004_cli_tool.md:414
+msgid ""
+"**`seconds`** (required, float): Number of seconds to pause execution. Must "
+"be a non-negative number."
+msgstr "**`seconds`**（必須、float）：実行を一時停止する秒数。0 以上の数である必要があります。"
+
+#: ../../004_cli_tool.md:425
+msgid "Examples"
+msgstr "例"
+
+#: ../../004_cli_tool.md:427
+msgid "Example 1: Basic Processing"
+msgstr "例 1：基本的な処理"
+
+#: ../../004_cli_tool.md:429
+msgid "Process a video and upload animation to Maya:"
+msgstr "動画を処理して Maya にアニメーションをアップロードする："
+
+#: ../../004_cli_tool.md:444
+msgid "Example 2: Multiple Videos with Scene Changes"
+msgstr "例 2：シーン切り替えを伴う複数動画"
+
+#: ../../004_cli_tool.md:446
+msgid ""
+"Process multiple videos, changing Maya scene between them. Because "
+"`maya_scene` is overridden and `upload.animation` is true, the scene is "
+"reopened automatically:"
+msgstr "複数動画を処理し、動画ごとに Maya シーンを切り替える："
+
+#: ../../004_cli_tool.md:471
+msgid "Example 3: Animation with Time Offset"
+msgstr "例 3：タイムオフセット付きアニメーション"
+
+#: ../../004_cli_tool.md:473
+msgid "Upload animations with different time offsets:"
+msgstr "異なるタイムオフセットでアニメーションをアップロードする："
+
+#: ../../004_cli_tool.md:495
+msgid "Example 4: Controller Prefix Management"
+msgstr "例 4：コントローラプレフィックス管理"
+
+#: ../../004_cli_tool.md:497 ../../004_cli_tool.md:785
+msgid "Add controller prefix in context before processing:"
+msgstr "処理前にコンテキストでコントローラプレフィックスを追加する："
+
+#: ../../004_cli_tool.md:515
+msgid "Example 5: Full Processing Pipeline"
+msgstr "例 5：フル処理パイプライン"
+
+#: ../../004_cli_tool.md:517
+msgid ""
+"Complete workflow with all features. Note: `lm_frames` requires a non-`++` "
+"pipeline (e.g. `Rich`, `Robust`, `RP`), so the context sets `pipeline: "
+"\"Rich\"`:"
+msgstr ""
+"すべての機能を使った完全なワークフロー。注意：`lm_frames` は非 `++` "
+"パイプライン（例：`Rich`、`Robust`、`RP`）が必要なため、コンテキストで `pipeline: \"Rich\"` を設定しています："
+
+#: ../../004_cli_tool.md:551
+msgid "Example 6: Skip Initial Scene Opening"
+msgstr "例 6：シーンオープンのスキップ"
+
+#: ../../004_cli_tool.md:553
+msgid ""
+"Disable the automatic scene open at startup, then explicitly reopen per-"
+"step:"
+msgstr "自動シーンオープンをスキップし、シーンを開くタイミングを手動で制御する："
+
+#: ../../004_cli_tool.md:570
+msgid "Example 7: Profile Selection"
+msgstr "例 7：プロファイル選択"
+
+#: ../../004_cli_tool.md:572
+msgid "Disable all profiles then randomly enable 10 from a specific video:"
+msgstr "すべてのプロファイルを無効化してから、特定の動画から10個をランダムに有効化する："
+
+#: ../../004_cli_tool.md:593
+msgid "Logging"
+msgstr "ログ"
+
+#: ../../004_cli_tool.md:595
+msgid ""
+"When a script is executed (not in `--dry-run` mode), the CLI automatically "
+"creates a log file next to the script at `<script_name>.log`. For example, "
+"running `my_script.yaml` produces `my_script.log` in the same directory."
+msgstr ""
+"スクリプト実行時（`--dry-run` モードでない場合）、CLI はスクリプトと同じディレクトリに `<スクリプト名>.log` "
+"というログファイルを自動的に作成します。例えば、`my_script.yaml` を実行すると、同じディレクトリに `my_script.log` "
+"が生成されます。"
+
+#: ../../004_cli_tool.md:597
+msgid "**Log level**: INFO and above (INFO, WARNING, ERROR)"
+msgstr "**ログレベル**：INFO 以上（INFO、WARNING、ERROR）"
+
+#: ../../004_cli_tool.md:598
+msgid "**Encoding**: UTF-8"
+msgstr "**エンコーディング**：UTF-8"
+
+#: ../../004_cli_tool.md:599
+msgid ""
+"**Lifecycle**: The log file is created when execution begins and the log "
+"sink is removed when execution completes (regardless of success or failure)."
+" If the log file already exists, it is overwritten."
+msgstr ""
+"**ライフサイクル**：実行開始時にログファイルが作成され、実行完了時（成功・失敗に関わらず）にログシンクが除去されます。既存のログファイルがある場合は上書きされます。"
+
+#: ../../004_cli_tool.md:601
+msgid ""
+"This log file captures the same structured messages shown in the console "
+"output, providing a persistent record of script execution for debugging and "
+"auditing."
+msgstr "このログファイルはコンソール出力と同じ構造化メッセージをキャプチャし、デバッグや監査のための永続的な実行記録を提供します。"
+
+#: ../../004_cli_tool.md:603
+msgid "Error Handling"
+msgstr "エラー処理"
+
+#: ../../004_cli_tool.md:605
+msgid "Error Codes"
+msgstr "エラーコード"
+
+#: ../../004_cli_tool.md:607
+msgid "The CLI uses structured error codes for programmatic error handling:"
+msgstr "CLI はプログラムによるエラー処理のため、構造化されたエラーコードを使用します："
+
+#: ../../004_cli_tool.md:0
+msgid "Code"
+msgstr "コード"
+
+#: ../../004_cli_tool.md:0
+msgid "`SESSION_NOT_FOUND`"
+msgstr "`SESSION_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Session file does not exist"
+msgstr "セッションファイルが存在しない"
+
+#: ../../004_cli_tool.md:0
+msgid "`SESSION_INVALID`"
+msgstr "`SESSION_INVALID`"
+
+#: ../../004_cli_tool.md:0
+msgid "Session file is invalid or corrupted"
+msgstr "セッションファイルが無効または破損している"
+
+#: ../../004_cli_tool.md:0
+msgid "`SESSION_LOAD_ERROR`"
+msgstr "`SESSION_LOAD_ERROR`"
+
+#: ../../004_cli_tool.md:0
+msgid "Error loading session (generic load failure)"
+msgstr "セッション読み込みエラー（一般的な読み込み失敗）"
+
+#: ../../004_cli_tool.md:0
+msgid "`NO_SESSION_LOADED`"
+msgstr "`NO_SESSION_LOADED`"
+
+#: ../../004_cli_tool.md:0
+msgid "Attempted operation without loading a session"
+msgstr "セッションを読み込まずに操作を試行した"
+
+#: ../../004_cli_tool.md:0
+msgid "`MISSING_RENAME_CONTROLLERS_PREFIX`"
+msgstr "`MISSING_RENAME_CONTROLLERS_PREFIX`"
+
+#: ../../004_cli_tool.md:0
+msgid "Missing prefix in `rename_controllers` context field"
+msgstr "`rename_controllers` コンテキストフィールドに prefix がない"
+
+#: ../../004_cli_tool.md:0
+msgid "`INVALID_RENAME_CONTROLLERS_PREFIX`"
+msgstr "`INVALID_RENAME_CONTROLLERS_PREFIX`"
+
+#: ../../004_cli_tool.md:0
+msgid "Invalid prefix value in `rename_controllers` context field"
+msgstr "`rename_controllers` コンテキストフィールドの prefix 値が無効"
+
+#: ../../004_cli_tool.md:0
+msgid "`INVALID_RENAME_CONTROLLERS_ACTION`"
+msgstr "`INVALID_RENAME_CONTROLLERS_ACTION`"
+
+#: ../../004_cli_tool.md:0
+msgid ""
+"Invalid action in `rename_controllers` context field (must be \"prepend\" or"
+" \"remove\")"
+msgstr ""
+"`rename_controllers` コンテキストフィールドの action が無効（\"prepend\" または \"remove\" "
+"である必要あり）"
+
+#: ../../004_cli_tool.md:0
+msgid "`PROFILES_INSUFFICIENT_MATCH`"
+msgstr "`PROFILES_INSUFFICIENT_MATCH`"
+
+#: ../../004_cli_tool.md:0
+msgid "`select: N` specified but fewer than N profiles matched the rule"
+msgstr "`select: N` が指定されたが、マッチしたプロファイルが N 未満"
+
+#: ../../004_cli_tool.md:0
+msgid "`VIDEO_NOT_FOUND`"
+msgstr "`VIDEO_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Video file does not exist"
+msgstr "動画ファイルが存在しない"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_NOT_REACHABLE`"
+msgstr "`MAYA_NOT_REACHABLE`"
+
+#: ../../004_cli_tool.md:0
+msgid "Maya commandPort is not reachable"
+msgstr "Maya commandPort に到達できない"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_SCENE_NOT_SET`"
+msgstr "`MAYA_SCENE_NOT_SET`"
+
+#: ../../004_cli_tool.md:0
+msgid "Maya scene path not set in session or overrides"
+msgstr "セッションまたはオーバーライドで Maya シーンパスが設定されていない"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_SCENE_NOT_FOUND`"
+msgstr "`MAYA_SCENE_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Maya scene file does not exist"
+msgstr "Maya シーンファイルが存在しない"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_SCENE_OPEN_ERROR`"
+msgstr "`MAYA_SCENE_OPEN_ERROR`"
+
+#: ../../004_cli_tool.md:0
+msgid "Failed to open Maya scene (raised when `reopen_maya_scene` is `true`)"
+msgstr "Maya シーンのオープンに失敗（`reopen_maya_scene` が `true` のとき発生）"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_BASE_NOT_SET`"
+msgstr "`MAYA_BASE_NOT_SET`"
+
+#: ../../004_cli_tool.md:0
+msgid "Maya base path not set in session"
+msgstr "セッションで Maya ベースパスが設定されていない"
+
+#: ../../004_cli_tool.md:0
+msgid "`MAYA_BASE_NOT_FOUND`"
+msgstr "`MAYA_BASE_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Maya base folder does not exist"
+msgstr "Maya ベースフォルダが存在しない"
+
+#: ../../004_cli_tool.md:0
+msgid "`PIPELINE_ERROR`"
+msgstr "`PIPELINE_ERROR`"
+
+#: ../../004_cli_tool.md:0
+msgid "Video processing pipeline failed (train/predict failure)"
+msgstr "動画処理パイプラインが失敗した（学習/推論の失敗）"
+
+#: ../../004_cli_tool.md:0
+msgid "`ANIMATION_NOT_FOUND`"
+msgstr "`ANIMATION_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Animation cache file not found after processing"
+msgstr "処理後にアニメーションキャッシュファイルが見つからない"
+
+#: ../../004_cli_tool.md:0
+msgid "`LM_FRAMES_UNSUPPORTED_PIPELINE`"
+msgstr "`LM_FRAMES_UNSUPPORTED_PIPELINE`"
+
+#: ../../004_cli_tool.md:0
+msgid "`lm_frames` upload requested with a `++` pipeline (not supported)"
+msgstr "`++` パイプラインで `lm_frames` アップロードが要求された（非対応）"
+
+#: ../../004_cli_tool.md:0
+msgid "`DENOISING_PROFILE_NOT_FOUND`"
+msgstr "`DENOISING_PROFILE_NOT_FOUND`"
+
+#: ../../004_cli_tool.md:0
+msgid "Denoising profile file not found at specified path"
+msgstr "指定パスにノイズ除去プロファイルファイルが見つからない"
+
+#: ../../004_cli_tool.md:0
+msgid "`DENOISING_PROFILE_LOAD_ERROR`"
+msgstr "`DENOISING_PROFILE_LOAD_ERROR`"
+
+#: ../../004_cli_tool.md:0
+msgid "Failed to load denoising profile file"
+msgstr "ノイズ除去プロファイルファイルの読み込みに失敗した"
+
+#: ../../004_cli_tool.md:0
+msgid "`OUTPUT_DIR_NOT_CREATED`"
+msgstr "`OUTPUT_DIR_NOT_CREATED`"
+
+#: ../../004_cli_tool.md:0
+msgid "Failed to create required output directory"
+msgstr "必要な出力ディレクトリの作成に失敗した"
+
+#: ../../004_cli_tool.md:0
+msgid "`OUTPUT_FILE_NOT_CREATED`"
+msgstr "`OUTPUT_FILE_NOT_CREATED`"
+
+#: ../../004_cli_tool.md:0
+msgid "Expected output file(s) were not created after processing"
+msgstr "処理後に期待される出力ファイルが作成されなかった"
+
+#: ../../004_cli_tool.md:0
+msgid "`PLAYBLAST_PATH_HAS_SUFFIX`"
+msgstr "`PLAYBLAST_PATH_HAS_SUFFIX`"
+
+#: ../../004_cli_tool.md:0
+msgid ""
+"`out_playblast_path` was provided with a file extension (`.mp4` is appended "
+"automatically)"
+msgstr "`out_playblast_path` にファイル拡張子が含まれていた（`.mp4` は自動で付加される）"
+
+#: ../../004_cli_tool.md:635
+msgid "Execution Behavior"
+msgstr "実行時の動作"
+
+#: ../../004_cli_tool.md:637
+msgid ""
+"**Validation Errors**: Script validation fails before any steps are executed"
+" (exit code 1)"
+msgstr "**検証エラー**：いずれのステップも実行される前にスクリプト検証が失敗（終了コード 1）"
+
+#: ../../004_cli_tool.md:638
+msgid ""
+"**Maya Errors**: Maya-related failures (not reachable, scene open failure, "
+"etc.) exit with code 2"
+msgstr "**Maya エラー**：Maya 関連の失敗（到達不可、シーンオープン失敗など）はコード 2 で終了"
+
+#: ../../004_cli_tool.md:639
+msgid ""
+"**Execution Errors**: Script stops at the first failed step (exit code 3)"
+msgstr "**実行エラー**：最初に失敗したステップでスクリプトが停止（終了コード 3）"
+
+#: ../../004_cli_tool.md:641
+msgid "Exit Codes"
+msgstr "終了コード"
+
+#: ../../004_cli_tool.md:643
+msgid "`0`: Success"
+msgstr "`0`：成功"
+
+#: ../../004_cli_tool.md:644
+msgid ""
+"`1`: Validation error (script schema validation, missing fields, invalid "
+"values)"
+msgstr "`1`：検証エラー（スクリプトスキーマ検証、必須フィールド欠落、無効な値）"
+
+#: ../../004_cli_tool.md:645
+msgid ""
+"`2`: Maya related error (Maya not reachable, scene open failure, Maya "
+"configuration issues)"
+msgstr "`2`：Maya 関連エラー（Maya に到達不可、シーンオープン失敗、Maya 設定の問題）"
+
+#: ../../004_cli_tool.md:646
+msgid ""
+"`3`: Execution failure (license check failed, session load error, pipeline "
+"error, step execution failure)"
+msgstr "`3`：実行失敗（ライセンスチェック失敗、セッション読み込みエラー、パイプラインエラー、ステップ実行失敗）"
+
+#: ../../004_cli_tool.md:648
+msgid "Maya Integration"
+msgstr "Maya 連携"
+
+#: ../../004_cli_tool.md:650
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: ../../004_cli_tool.md:652
+msgid "**Maya must be running** with commandPort enabled"
+msgstr "**Maya が起動している**こと（commandPort が有効）"
+
+#: ../../004_cli_tool.md:653
+msgid ""
+"**CommandPort** must be open (typically port 42069, or as specified in the "
+"script's `context.command_port`)"
+msgstr ""
+"**CommandPort** が開いていること（通常ポート 42069、またはスクリプトの `context.command_port` "
+"で指定したポート）"
+
+#: ../../004_cli_tool.md:655
+msgid "Maya Preflight and Scene Opening"
+msgstr "Maya プリフライトとシーンオープン"
+
+#: ../../004_cli_tool.md:657
+msgid "Before executing any steps, the CLI performs a preflight check:"
+msgstr "いずれのステップを実行する前に、CLI はプリフライトチェックを実行します："
+
+#: ../../004_cli_tool.md:659
+msgid "Tests Maya commandPort connectivity"
+msgstr "Maya commandPort の接続をテスト"
+
+#: ../../004_cli_tool.md:660
+msgid "If Maya is not reachable:"
+msgstr "Maya に到達できない場合："
+
+#: ../../004_cli_tool.md:661
+msgid "Logs error: `MAYA_NOT_REACHABLE`"
+msgstr "エラーをログ：`MAYA_NOT_REACHABLE`"
+
+#: ../../004_cli_tool.md:662
+msgid "Exits with code 2"
+msgstr "コード 2 で終了"
+
+#: ../../004_cli_tool.md:663
+msgid "No steps are executed"
+msgstr "ステップは実行されない"
+
+#: ../../004_cli_tool.md:664
+msgid "If Maya is reachable and `initial_scene_open` is `true` (the default):"
+msgstr "Maya に到達でき、`initial_scene_open` が `true`（デフォルト）の場合："
+
+#: ../../004_cli_tool.md:665
+msgid ""
+"Automatically opens the Maya scene specified in the session (`maya_scene` "
+"and `maya_base`)"
+msgstr "セッションで指定された Maya シーン（`maya_scene` と `maya_base`）を自動的に開く"
+
+#: ../../004_cli_tool.md:666
+msgid "Waits for `wait_seconds_after_scene_open` seconds if configured"
+msgstr "設定されていれば `wait_seconds_after_scene_open` 秒待機"
+
+#: ../../004_cli_tool.md:667
+msgid "This ensures the scene is ready before processing begins"
+msgstr "処理開始前にシーンが準備完了していることを保証"
+
+#: ../../004_cli_tool.md:669
+msgid "Upload Options"
+msgstr "アップロードオプション"
+
+#: ../../004_cli_tool.md:671
+msgid "When processing videos, you can upload:"
+msgstr "動画処理時に、次をアップロードできます："
+
+#: ../../004_cli_tool.md:673
+msgid "**Animation**: Facial animation curves (blendshapes, controllers)"
+msgstr "**Animation（アニメーション）**：フェイシャルアニメーションカーブ（ブレンドシェープ、コントローラ）"
+
+#: ../../004_cli_tool.md:674
+msgid "**Audio**: Audio track from video"
+msgstr "**Audio（オーディオ）**：動画からのオーディオトラック"
+
+#: ../../004_cli_tool.md:675
+msgid "**Frames**: Video frames as image sequence for reference"
+msgstr "**Frames（フレーム）**：参照用の動画フレームを画像シーケンスとして"
+
+#: ../../004_cli_tool.md:676
+msgid "**LM Frames**: Landmark-annotated frames for visualization"
+msgstr "**LM Frames**：可視化用のランドマーク付きフレーム"
+
+#: ../../004_cli_tool.md:678
+msgid "Scene Management"
+msgstr "シーン管理"
+
+#: ../../004_cli_tool.md:680
+msgid ""
+"**`reopen_maya_scene`**: Controls when the Maya scene is reopened before a "
+"process step. `true` = always, `false` = never, omitted = auto (when any "
+"override is present and at least one upload flag is true). When reopening, "
+"override values for `maya_scene`/`maya_base` take precedence over session "
+"values."
+msgstr ""
+"**`reopen_maya_scene`**：process ステップ前に Maya シーンを再オープンするかを制御。`true` = "
+"常に、`false` = しない、省略 = 自動（いずれかのオーバーライドが存在し、かつ少なくとも1つのアップロードフラグが true "
+"の場合）。再オープン時はオーバーライドの `maya_scene`/`maya_base` がセッション値より優先されます。"
+
+#: ../../004_cli_tool.md:681
+msgid ""
+"**`overrides.out_scene_path`**: Saves the Maya scene to a specific path "
+"after processing"
+msgstr "**`overrides.out_scene_path`**：処理後に Maya シーンを指定パスに保存"
+
+#: ../../004_cli_tool.md:682
+msgid ""
+"**`overrides.out_playblast_path`**: Saves a playblast video to a specific "
+"path after processing"
+msgstr "**`overrides.out_playblast_path`**：処理後にプレイブラスト動画を指定パスに保存"
+
+#: ../../004_cli_tool.md:683
+msgid ""
+"Scene paths are resolved from the session's `maya_base` and `maya_scene` "
+"properties"
+msgstr "シーンパスはセッションの `maya_base` と `maya_scene` プロパティから解決されます"
+
+#: ../../004_cli_tool.md:684
+msgid ""
+"**Process Step Preflight**: Before each process step, a connection is "
+"recreated with the effective port (from override or context), and a "
+"preflight check is performed to ensure Maya is reachable"
+msgstr ""
+"**Process ステップのプリフライト**：各 process "
+"ステップの前に、適切なポート（オーバーライドまたはコンテキストから）で接続を再作成し、Maya に到達可能か確認するプリフライトチェックを実行します"
+
+#: ../../004_cli_tool.md:686
+msgid "Time Offset"
+msgstr "タイムオフセット"
+
+#: ../../004_cli_tool.md:688
+msgid ""
+"The `time_offset_frames` parameter allows you to control where animation "
+"starts on the Maya timeline:"
+msgstr "`time_offset_frames` パラメータで、アニメーションが Maya タイムラインのどこから開始するかを制御できます："
+
+#: ../../004_cli_tool.md:690
+msgid ""
+"**Positive offset**: Animation starts later (e.g., `100` starts at frame "
+"100)"
+msgstr "**正のオフセット**：アニメーションが遅く開始（例：`100` でフレーム 100 から開始）"
+
+#: ../../004_cli_tool.md:691
+msgid "**Zero**: Animation starts at the default position (typically frame 0)"
+msgstr "**ゼロ**：アニメーションがデフォルト位置（通常フレーム 0）から開始"
+
+#: ../../004_cli_tool.md:692
+msgid "**Note**: Only non-negative values (>= 0) are allowed"
+msgstr "**注意**：0 以上の値のみ許可"
+
+#: ../../004_cli_tool.md:694
+msgid "This is useful for:"
+msgstr "次のような用途に便利です："
+
+#: ../../004_cli_tool.md:695
+msgid "Combining multiple takes in a single timeline"
+msgstr "複数テイクを1本のタイムラインにまとめる"
+
+#: ../../004_cli_tool.md:696
+msgid "Aligning animation with existing keyframes"
+msgstr "既存のキーフレームとアニメーションを合わせる"
+
+#: ../../004_cli_tool.md:697
+msgid "Creating animation sequences with gaps"
+msgstr "間隔を空けたアニメーションシーケンスを作成する"
+
+#: ../../004_cli_tool.md:699
+msgid "Troubleshooting"
+msgstr "トラブルシューティング"
+
+#: ../../004_cli_tool.md:701
+msgid "Script Validation Fails"
+msgstr "スクリプト検証が失敗する"
+
+#: ../../004_cli_tool.md:703
+msgid ""
+"**Problem**: Script fails validation with error about structure or types."
+msgstr "**問題**：構造や型に関するエラーでスクリプト検証が失敗する。"
+
+#: ../../004_cli_tool.md:705 ../../004_cli_tool.md:716
+#: ../../004_cli_tool.md:726 ../../004_cli_tool.md:736
+msgid "**Solutions**:"
+msgstr "**対処**："
+
+#: ../../004_cli_tool.md:706
+msgid "Ensure `version: 1` is present and exactly `1`"
+msgstr "`version: 1` が存在し、正確に `1` であることを確認"
+
+#: ../../004_cli_tool.md:707
+msgid "Check that `context.session` is a non-empty string"
+msgstr "`context.session` が空でない文字列であることを確認"
+
+#: ../../004_cli_tool.md:708
+msgid "Verify `steps` is a non-empty list"
+msgstr "`steps` が空でないリストであることを確認"
+
+#: ../../004_cli_tool.md:709
+msgid "Ensure each step has exactly one key (`process` or `sleep`)"
+msgstr "各ステップがちょうど1つのキー（`process` または `sleep`）を持つことを確認"
+
+#: ../../004_cli_tool.md:710
+msgid "Check field types match the schema (strings, booleans, integers)"
+msgstr "フィールドの型がスキーマと一致しているか確認（文字列、真偽値、整数）"
+
+#: ../../004_cli_tool.md:712
+msgid "Maya Not Reachable"
+msgstr "Maya に到達できない"
+
+#: ../../004_cli_tool.md:714
+msgid "**Problem**: Script exits with `MAYA_NOT_REACHABLE` error."
+msgstr "**問題**：`MAYA_NOT_REACHABLE` エラーでスクリプトが終了する。"
+
+#: ../../004_cli_tool.md:717
+msgid "Ensure Maya is running"
+msgstr "Maya が起動していることを確認"
+
+#: ../../004_cli_tool.md:718
+msgid ""
+"Verify commandPort is open: In Maya, run `cmds.commandPort(n=':42069', "
+"stp='python')` (or use the port specified in `context.command_port` if "
+"provided)"
+msgstr ""
+"commandPort が開いているか確認：Maya で `cmds.commandPort(n=':42069', stp='python')` "
+"を実行（または `context.command_port` で指定したポートを使用）"
+
+#: ../../004_cli_tool.md:719
+msgid "Verify firewall/network settings allow localhost connections"
+msgstr "ファイアウォール/ネットワーク設定で localhost 接続が許可されているか確認"
+
+#: ../../004_cli_tool.md:720
+msgid ""
+"If using a custom `command_port` in context, ensure Maya's commandPort "
+"matches the specified port number"
+msgstr ""
+"コンテキストでカスタム `command_port` を使っている場合、Maya の commandPort が指定ポート番号と一致しているか確認"
+
+#: ../../004_cli_tool.md:722
+msgid "Video Processing Fails"
+msgstr "動画処理が失敗する"
+
+#: ../../004_cli_tool.md:724
+msgid "**Problem**: `PIPELINE_ERROR` during video processing."
+msgstr "**問題**：動画処理中に `PIPELINE_ERROR` が発生する。"
+
+#: ../../004_cli_tool.md:727
+msgid "Verify video file exists and is readable"
+msgstr "動画ファイルが存在し読み取り可能か確認"
+
+#: ../../004_cli_tool.md:728
+msgid "Check session has valid solver configuration"
+msgstr "セッションに有効なソルバー設定があるか確認"
+
+#: ../../004_cli_tool.md:729
+msgid "Ensure sufficient disk space for cache"
+msgstr "キャッシュ用の十分なディスク容量があるか確認"
+
+#: ../../004_cli_tool.md:730
+msgid "Review logs for detailed error messages"
+msgstr "詳細なエラーメッセージはログを確認"
+
+#: ../../004_cli_tool.md:732
+msgid "Animation Not Uploading"
+msgstr "アニメーションがアップロードされない"
+
+#: ../../004_cli_tool.md:734
+msgid ""
+"**Problem**: Animation upload appears to succeed but nothing appears in "
+"Maya."
+msgstr "**問題**：アニメーションアップロードは成功するように見えるが、Maya に何も表示されない。"
+
+#: ../../004_cli_tool.md:737
+msgid "Verify Maya scene has the correct character rig loaded"
+msgstr "Maya シーンに正しいキャラクターリグが読み込まれているか確認"
+
+#: ../../004_cli_tool.md:738
+msgid "Check controller names match between session and Maya scene"
+msgstr "セッションと Maya シーンのコントローラ名が一致しているか確認"
+
+#: ../../004_cli_tool.md:739
+msgid "Ensure animation layer exists in Maya (default: \"BaseAnimation\")"
+msgstr "Maya にアニメーションレイヤーが存在するか確認（デフォルト：\"BaseAnimation\"）"
+
+#: ../../004_cli_tool.md:740
+msgid "Review Maya script editor for Python errors"
+msgstr "Maya スクリプトエディタで Python エラーを確認"
+
+#: ../../004_cli_tool.md:742
+msgid "Best Practices"
+msgstr "ベストプラクティス"
+
+#: ../../004_cli_tool.md:744
+msgid ""
+"**Always validate first**: Use `--dry-run` to validate scripts before "
+"execution"
+msgstr "**まず検証する**：実行前に `--dry-run` でスクリプトを検証する"
+
+#: ../../004_cli_tool.md:745
+msgid "**Use explicit paths**: Prefer absolute paths for reliability"
+msgstr "**明示的なパスを使う**：信頼性のため絶対パスを推奨"
+
+#: ../../004_cli_tool.md:746
+msgid ""
+"**Test incrementally**: Start with simple scripts, add complexity gradually"
+msgstr "**段階的にテストする**：簡単なスクリプトから始め、徐々に複雑にする"
+
+#: ../../004_cli_tool.md:747
+msgid ""
+"**Check Maya connection**: Ensure Maya is running before processing with "
+"upload"
+msgstr "**Maya 接続を確認する**：アップロード付き処理の前に Maya が起動していることを確認"
+
+#: ../../004_cli_tool.md:748
+msgid "**Use time offsets carefully**: Verify frame ranges to avoid overlaps"
+msgstr "**タイムオフセットに注意する**：重複を避けるためフレーム範囲を確認"
+
+#: ../../004_cli_tool.md:749
+msgid ""
+"**Version control scripts**: Keep scripts in version control for "
+"repeatability"
+msgstr "**スクリプトをバージョン管理する**：再現性のためスクリプトをバージョン管理に含める"
+
+#: ../../004_cli_tool.md:751
+msgid "Advanced Usage"
+msgstr "上級者向け"
+
+#: ../../004_cli_tool.md:753
+msgid "Batch Processing"
+msgstr "バッチ処理"
+
+#: ../../004_cli_tool.md:755
+msgid "Process multiple videos in sequence:"
+msgstr "複数動画を順番に処理する："
+
+#: ../../004_cli_tool.md:783
+msgid "Controller Prefix Management"
+msgstr "コントローラプレフィックス管理"
+
+#: ../../004_cli_tool.md:803
+msgid "Conditional Scene Switching"
+msgstr "条件付きシーン切り替え"
+
+#: ../../004_cli_tool.md:805
+msgid ""
+"Change Maya scene per step. Scene is reopened automatically because "
+"`maya_scene` is overridden and upload is requested:"
+msgstr "動画に応じて Maya シーンを切り替える："
+
+#: ../../004_cli_tool.md:829
+msgid "Support"
+msgstr "サポート"
+
+#: ../../004_cli_tool.md:831
+msgid ""
+"For issues, questions, or feature requests, please refer to the main FCS "
+"documentation or contact the development team."
+msgstr "問題、質問、機能リクエストについては、メインの FCS ドキュメントを参照するか、開発チームにお問い合わせください。"

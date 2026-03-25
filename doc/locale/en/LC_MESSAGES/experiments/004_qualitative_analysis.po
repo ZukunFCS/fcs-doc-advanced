@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 20:20+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../experiments/004_qualitative_analysis.md:1
+msgid "Qualitative Analysis for Effort vs Quality"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:3
+msgid ""
+"A critical production decision that many of us face is the trade-off "
+"between effort and quality.  How much time should I spend on creating "
+"profiles to achieve the desired animation quality? At what point should I"
+" stop creating profiles and start manually tweaking my animation in Maya?"
+" In the previous page [Pipeline Comparison++ "
+"(Quantitative)](003_pipeline_comparison_quantitative.md), we observe a "
+"saturation effect when the profile count is around 100. Beyond that, the "
+"quality of the animation does not improve significantly. This matches our"
+" observation in real production settings.  In this page, we will explore "
+"this trade-off in a more visual manner. We process the same video using a"
+" different number of profiles, and visualize the animation quality and "
+"the effort (number of profiles) required to achieve it."
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:10
+msgid "Profiles are seperated into three groups:"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:11
+msgid "ROM profiles: profiles from the Range-of-Motion video (50 Profiles)"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:12
+msgid ""
+"Same-Video profiles: profiles created by selecting frames from the video,"
+" this represents how much effort/time you need to spend on creating "
+"profiles from within the video."
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:13
+msgid ""
+"Other-Video profiles: profiles created by selecting frames from other "
+"videos, this represents different stages of the production."
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:18
+msgid ""
+"Use the widget below to compare animation results side by side. Each slot"
+" lets you choose a different profile configuration using the two sliders:"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:19
+msgid ""
+"**Production Cycle** — how many profiles from *other* videos are "
+"available (simulates early vs late production)"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:20
+msgid ""
+"**Effort per Video** — how many profiles you create from the *same* video"
+" (simulates time investment per shot)"
+msgstr ""
+
+#: ../../experiments/004_qualitative_analysis.md:22
+msgid ""
+"Add up to 3 slots and play them synchronized to visually compare quality "
+"differences."
+msgstr ""
+

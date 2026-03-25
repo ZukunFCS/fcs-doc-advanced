@@ -1,0 +1,1471 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 20:20+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../cli_tool_jp.md:1
+msgid "CLI ツール"
+msgstr ""
+
+#: ../../cli_tool_jp.md:3
+msgid ""
+"FCS CLI "
+"ツールは、フェイシャルキャプチャとアニメーション処理のワークフローを自動化するためのスクリプトベースのインターフェースを提供します。YAML "
+"スクリプト形式で、セッションの読み込み、セッション設定の変更、動画の処理、Maya へのアニメーションのアップロードを実行できます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:5
+msgid "目次"
+msgstr ""
+
+#: ../../cli_tool_jp.md:7
+msgid "[インストール](#インストール)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:8
+msgid "[クイックスタート](#クイックスタート)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:9
+msgid "[スクリプト形式](#スクリプト形式)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:10
+msgid "[検証の厳格さ](#検証の厳格さ)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:11
+msgid "[プロファイル](#プロファイル)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:12
+msgid "[実行モデル](#実行モデル)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:13
+msgid "[コマンド](#コマンド)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:14
+msgid "[ステップタイプ](#ステップタイプ)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:15
+msgid "[例](#例)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:16
+msgid "[ログ](#ログ)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:17
+msgid "[エラー処理](#エラー処理)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:18
+msgid "[Maya 連携](#maya-連携)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:19
+msgid "[トラブルシューティング](#トラブルシューティング)"
+msgstr ""
+
+#: ../../cli_tool_jp.md:21
+msgid "インストール"
+msgstr ""
+
+#: ../../cli_tool_jp.md:23
+msgid ""
+"CLI ツールは FCS（Facial Capture System）パッケージに含まれています。FCS "
+"環境のセットアップと依存関係のインストールが完了していることを確認してください。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:25
+msgid "クイックスタート"
+msgstr ""
+
+#: ../../cli_tool_jp.md:27
+msgid "YAML スクリプトファイル（例：`my_script.yaml`）を作成します："
+msgstr ""
+
+#: ../../cli_tool_jp.md:54
+msgid "スクリプトを実行します："
+msgstr ""
+
+#: ../../cli_tool_jp.md:60
+msgid "スクリプト形式"
+msgstr ""
+
+#: ../../cli_tool_jp.md:62
+msgid "トップレベル構造"
+msgstr ""
+
+#: ../../cli_tool_jp.md:64
+msgid "すべてのスクリプトには、次の3つの必須セクションが必要です："
+msgstr ""
+
+#: ../../cli_tool_jp.md:74
+msgid "バージョン"
+msgstr ""
+
+#: ../../cli_tool_jp.md:76
+msgid "現在サポートされているのはバージョン `1` のみです。このフィールドは、スクリプト形式の進化に伴う前方互換性を確保します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:78
+msgid "コンテキスト"
+msgstr ""
+
+#: ../../cli_tool_jp.md:80
+msgid "`context` セクションでは、スクリプト実行開始時に読み込むセッションファイルを定義します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:82
+msgid ""
+"**`session`**（必須、文字列）：FCS セッション YAML ファイルへのパス。ファイル名は `fcs_session.yaml` "
+"でなければならず、他のファイル名では検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:83
+msgid ""
+"**`wait_seconds_after_scene_open`**（任意、float）：Maya "
+"シーンを開いた後に待機するグローバルな秒数。スクリプト内のすべてのシーンオープン操作（`process` ステップの "
+"`reopen_maya_scene` や Maya 起動時のシーンを含む）に適用されます。デフォルト：`0.0`（待機なし）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:84
+msgid "**`fisheye`**（任意、bool）：動画処理の魚眼補正の有効/無効。指定した場合は UI 設定を上書き。デフォルト：`true`。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:85
+msgid ""
+"**`pipeline`**（任意、文字列）：動画処理に使用するパイプライン。次のいずれか：`\"Rich\"`、`\"Robust\"`、`\"RP\"`、`\"RP++\"`、`\"Robust++\"`、`\"Rich++\"`。指定した場合は"
+" UI 設定を上書き。デフォルト：`\"RP++\"`。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:86
+msgid ""
+"**`denoising`**（任意、文字列）：ノイズ除去/スムージングプロファイルファイルへのパス、またはスムージングプリセットディレクトリから読み込むファイル名。フルパスの場合は存在する必要があります。ファイル名のみ（フルパスでない）の場合は"
+" `FCS_TMP_DIR/smoothing_presets/filename.yaml` "
+"から読み込まれます。指定した場合は処理前にプロファイルを読み込み。デフォルト：スムージングなし。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:87
+msgid ""
+"**`command_port`**（任意、整数）：スクリプト内の全 Maya 操作で使用する Maya commandPort 番号。1 ～ "
+"65535 の整数である必要があります。指定した場合は指定ポートで接続を再作成し、すべての Maya "
+"プリフライトチェックとアップロードに使用します。デフォルト：42069。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:88
+msgid ""
+"**`initial_scene_open`**（任意、bool）：`true`（デフォルト）の場合、データ検証後、全ステップ実行前に Maya "
+"シーンを1回自動的に開きます。シーンはスクリプト実行開始時（プリフライトチェック後）に1回だけ開かれ、各ステップの前には開かれません。`false`"
+" の場合は初期シーンオープンをスキップします。デフォルト：`true`（セッションに `maya_scene` と `maya_base` "
+"が設定されている場合に自動でシーンを開く）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:89
+msgid ""
+"**`rename_controllers`**（任意、マッピング）：プレフィックスを付加または削除してコントローラ名を変更。セッション読み込み後、いずれのステップが実行される前に1回適用されます。Maya"
+" シーンの命名規則に合わせてコントローラ名を調整する際に便利です。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:90
+msgid "`prefix`（必須、文字列）：すべてのコントローラ名に付加または削除するプレフィックス"
+msgstr ""
+
+#: ../../cli_tool_jp.md:91
+msgid "`action`（任意、文字列）：実行する操作 — `\"prepend\"`（デフォルト）または `\"remove\"`"
+msgstr ""
+
+#: ../../cli_tool_jp.md:92
+msgid ""
+"**`playblast`**（任意、マッピング）：プレイブラストをエクスポートする process "
+"ステップで、プレイブラスト設定をアプリ設定の上書きとして適用します。指定しない場合はアプリ設定を使用します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:93
+msgid "`camera`（任意、文字列）：Maya カメラ名（例：`\"persp\"`）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:94
+msgid "`width`（任意、整数）：出力幅（ピクセル）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:95
+msgid "`height`（任意、整数）：出力高さ（ピクセル）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:96
+msgid "`percent`（任意、整数）：解像度パーセント（例：100、1～100）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:97
+msgid "`quality`（任意、整数）：プレイブラスト品質（例：100、1～100）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:98
+msgid ""
+"**`profiles`**（任意、リスト）：ステップ実行前に、読み込んだセッションの ROM "
+"プロファイルの有効/無効を設定するルール。詳細は[プロファイル](#プロファイル)を参照。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:100
+msgid "ステップ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:102
+msgid "ステップは記述順に順次実行されます。各ステップは次のいずれかのキーを持つ単一キーのマッピングである必要があります："
+msgstr ""
+
+#: ../../cli_tool_jp.md:103
+msgid "`process` — 動画を処理し、必要に応じて Maya にアップロード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:104
+msgid "`sleep` — 指定時間だけスクリプト実行を一時停止"
+msgstr ""
+
+#: ../../cli_tool_jp.md:106
+msgid "検証の厳格さ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:108
+msgid "スクリプト検証は**厳格なスキーマ契約**に従います。定義されたスキーマからの逸脱はすべて検証で拒否されます："
+msgstr ""
+
+#: ../../cli_tool_jp.md:110
+msgid ""
+"**未知のトップレベルフィールド → エラー**：トップレベルで許可されるのは `version`、`context`、`steps` "
+"のみ。他のフィールドがあると検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:112
+msgid ""
+"**未知の context フィールド → エラー**：文書化された context フィールドのみが許可されます。`context` "
+"セクションの未知のフィールドがあると検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:114
+msgid ""
+"**未知のステップタイプ → エラー**：有効なステップタイプは `process` と `sleep` "
+"のみ。他のステップタイプがあると検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:116
+msgid ""
+"**未知のステップフィールド → "
+"エラー**：各ステップタイプには許可されるフィールドの定義セットがあります。そのステップタイプで文書化されていないフィールドがあると検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:118
+msgid ""
+"**ネスト構造の余分なキー → エラー**：ネスト構造（`process` ステップの `upload` や `overrides` "
+"など）は文書化されたフィールドのみを受け付けます。未知のキーがあると検証が失敗します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:120
+msgid "**順序が重要**：ステップは `steps` リストに出現する正確な順序で順次実行されます。実行順序は意味を持ち、変更できません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:122
+msgid "**検証失敗の例：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:167
+msgid "プロファイル"
+msgstr ""
+
+#: ../../cli_tool_jp.md:169
+msgid ""
+"`profiles` コンテキストフィールドを使用すると、ステップ実行前にセッション内の "
+"プロファイルの有効/無効を設定できます。ルールは順次適用され、後のルールがマッチしたプロファイルについて先のルールを上書きします。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:171
+msgid "各ルールには3つのフィールドがあります："
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "フィールド"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "必須"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "値"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "説明"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`match`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "はい"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`\"all\"` またはクライテリアのリスト"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "対象とするプロファイル"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`select`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`\"all\"`、`\"none\"`、または 1 以上の整数"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "マッチしたプロファイルに対する操作"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`condition`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "いいえ"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`AND`（デフォルト）または `OR`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "複数クライテリアの結合方法"
+msgstr ""
+
+#: ../../cli_tool_jp.md:179
+msgid "**`match` クライテリア** — リスト内の各項目は単一キーのマッピングです："
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "キー"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "マッチ条件"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`video: \"<stem>\"`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "プロファイルのソース動画ファイル名（拡張子なし）が値と一致"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`not_video: \"<stem>\"`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "プロファイルにソース動画がない、またはステムが値と異なる"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`user_tag: \"<tag>\"`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "プロファイルにこのユーザータグがある"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`no_user_tag: \"<tag>\"`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "プロファイルにこのユーザータグがない"
+msgstr ""
+
+#: ../../cli_tool_jp.md:188
+msgid "**`select` の値：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:190
+msgid "`\"all\"` — マッチしたすべてのプロファイルを有効化"
+msgstr ""
+
+#: ../../cli_tool_jp.md:191
+msgid "`\"none\"` — マッチしたすべてのプロファイルを無効化"
+msgstr ""
+
+#: ../../cli_tool_jp.md:192
+msgid "整数 N — マッチしたプロファイルからランダムに N 個を有効化（N 未満のマッチではエラー）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:194 ../../cli_tool_jp.md:276 ../../cli_tool_jp.md:378
+#: ../../cli_tool_jp.md:413
+msgid "**例：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:222
+msgid ""
+"**注意**：`match` は YAML リスト（`-` 項目）である必要があります。プレーンなマッピングは YAML "
+"のサイレントな重複キーマージを防ぐため拒否されます（例：2つの `video:` キーは1つに統合されてしまう）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:224
+msgid "実行モデル"
+msgstr ""
+
+#: ../../cli_tool_jp.md:226
+msgid "スクリプトの実行の仕組みを理解すると、効果的な自動化ワークフローを記述できます。FCS CLI は予測可能な実行モデルに従います。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:228
+msgid "実行ライフサイクル"
+msgstr ""
+
+#: ../../cli_tool_jp.md:230
+msgid ""
+"**スクリプト初期化**：スクリプトを読み込み、スキーマに対して検証します。スキーマエラーがあればコード 1 で即座に終了し、セッションや "
+"Maya の操作は一切行われません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:232
+msgid "**ライセンスチェック**：ライセンスのチェックアウト/検証を行います。失敗するとコード 3 で終了します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:234
+msgid ""
+"**セッション読み込み**：`context.session` "
+"で指定されたセッションファイルが1回読み込まれます。セッションは実行中メモリに保持されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:236
+msgid ""
+"**コントローラリネーム**：`rename_controllers` "
+"が指定されている場合、ステップ実行前にコントローラ名のプレフィックスの付加または削除が1回適用されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:238
+msgid "**プロファイル選択**：`profiles` が指定されている場合、ルールが順次適用され、各 ROM プロファイルの有効状態が設定されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:240
+msgid "**Affogato 初期化**：Maya の commandPort への接続を確立します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:242
+msgid "**Maya プリフライト**：Maya の到達可能性を検証します。失敗するとコード 2 で終了し、ステップは実行されません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:244
+msgid ""
+"**初期シーンオープン**：`initial_scene_open` が `true`（デフォルト）で、セッションに `maya_scene` と"
+" `maya_base` が設定されている場合、ステップ実行前に Maya "
+"シーンが1回開かれます。失敗は非致命的（警告としてログ）です。`wait_seconds_after_scene_open` 秒待機します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:246
+msgid "**ステップ実行**：ステップは出現順に順次実行されます。最初のステップ以降、各ステップの前にライセンスが再チェックされます。ロールバック、分岐、並列実行はありません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:248
+msgid "コンテキストとオーバーライド"
+msgstr ""
+
+#: ../../cli_tool_jp.md:250
+msgid ""
+"**コンテキストフィールド**：`context` "
+"セクションで定義されたすべてのフィールドは、明示的にオーバーライドされない限り、すべてのステップにグローバルに適用されます。これには "
+"`fisheye`、`pipeline`、`denoising`、`command_port`、`playblast` などの設定が含まれます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:252
+msgid ""
+"**ステップオーバーライド**：`process` ステップの `overrides` "
+"セクションは、その特定のステップの期間中のみ適用されます。ステップ完了後、グローバルコンテキストの値が復元されます。個々の処理操作で設定（`command_port`、`maya_scene`、`maya_base`"
+" など）を一時的に変更できます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:254
+msgid "実行の保証"
+msgstr ""
+
+#: ../../cli_tool_jp.md:256
+msgid "**順次実行**：ステップは常に1つずつ、順序どおりに実行されます"
+msgstr ""
+
+#: ../../cli_tool_jp.md:257
+msgid "**ロールバックなし**：ステップが失敗した場合、実行は停止し、前のステップは元に戻されません"
+msgstr ""
+
+#: ../../cli_tool_jp.md:258
+msgid "**分岐なし**：条件分岐やループはサポートされません"
+msgstr ""
+
+#: ../../cli_tool_jp.md:259
+msgid "**並列実行なし**：複数のステップを同時に実行することはできません"
+msgstr ""
+
+#: ../../cli_tool_jp.md:260
+msgid "**セッション永続化**：セッションは実行中メモリに保持され、ディスクには保存されません"
+msgstr ""
+
+#: ../../cli_tool_jp.md:262
+msgid "コマンド"
+msgstr ""
+
+#: ../../cli_tool_jp.md:264
+msgid "スクリプト実行"
+msgstr ""
+
+#: ../../cli_tool_jp.md:266
+msgid "YAML スクリプトを実行します："
+msgstr ""
+
+#: ../../cli_tool_jp.md:272
+msgid "**オプション：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:273
+msgid "`--file`、`-f`：YAML スクリプトファイルへのパス（必須）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:274
+msgid "`--dry-run`：実行せずにスクリプトを検証する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:286
+msgid "ステップタイプ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:288
+msgid "`process` ステップ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:290
+msgid "単一の動画ファイルを処理し、必要に応じて結果を Maya にアップロードします。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:292 ../../cli_tool_jp.md:403
+msgid "**形式：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:315 ../../cli_tool_jp.md:409
+msgid "**フィールド：**"
+msgstr ""
+
+#: ../../cli_tool_jp.md:317
+msgid "**`video`**（必須、文字列）：処理する動画ファイルへのパス"
+msgstr ""
+
+#: ../../cli_tool_jp.md:318
+msgid "**`upload`**（任意、マッピング）：Maya へのアップロードオプション"
+msgstr ""
+
+#: ../../cli_tool_jp.md:319
+msgid "`animation`（bool）：アニメーションカーブをアップロード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:320
+msgid "`audio`（bool）：動画からオーディオトラックをアップロード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:321
+msgid "`frames`（bool）：動画フレームを画像シーケンスとしてアップロード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:322
+msgid ""
+"`lm_frames`（bool）：ランドマーク付きフレームをアップロード。**`++` "
+"パイプライン**（`RP++`、`Rich++`、`Robust++`）**では使用不可**。使用すると "
+"`LM_FRAMES_UNSUPPORTED_PIPELINE` エラーが発生します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:323
+msgid "**`export`**（任意、マッピング）：処理後のエクスポートオプション"
+msgstr ""
+
+#: ../../cli_tool_jp.md:324
+msgid "`scene`（bool）：Maya シーンファイルをエクスポート"
+msgstr ""
+
+#: ../../cli_tool_jp.md:325
+msgid "`playblast`（bool）：プレイブラスト動画をエクスポート"
+msgstr ""
+
+#: ../../cli_tool_jp.md:326
+msgid "**`force_reprocess`**（任意、bool）：キャッシュがあっても強制的に再処理。デフォルト：`true`"
+msgstr ""
+
+#: ../../cli_tool_jp.md:327
+msgid ""
+"**`time_offset_frames`**（任意、整数）：アニメーションアップロードのフレームオフセット。デフォルト：`0`、0 "
+"以上である必要あり。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:328
+msgid "正の値：Maya タイムラインの `time_offset_frames` フレーム目にアニメーションが開始する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:329
+msgid "ゼロ：オフセットなし"
+msgstr ""
+
+#: ../../cli_tool_jp.md:330
+msgid "**`reopen_maya_scene`**（任意、bool）：処理前に Maya シーンを再オープンするかを制御："
+msgstr ""
+
+#: ../../cli_tool_jp.md:331
+msgid "`true` — オーバーライドやアップロードフラグに関係なく、常に再オープン"
+msgstr ""
+
+#: ../../cli_tool_jp.md:332
+msgid "`false` — 再オープンしない（明示的なオプトアウト）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:333
+msgid ""
+"省略 — "
+"**自動**：いずれかのオーバーライド（`command_port`、`maya_scene`、`maya_base`）が存在し、かつ少なくとも1つの"
+" `upload.*` フラグが `true` の場合にのみ再オープン"
+msgstr ""
+
+#: ../../cli_tool_jp.md:334
+msgid "**`overrides`**（任意、マッピング）：この process ステップ専用のオーバーライド値"
+msgstr ""
+
+#: ../../cli_tool_jp.md:335
+msgid ""
+"`command_port`（任意、整数）：このステップで使用する Maya commandPort 番号。1 ～ 65535 "
+"の整数。指定した場合、このステップのみ指定ポートで接続を再作成し、`context.command_port` "
+"またはアプリケーション設定のポートを上書きします。再作成後にプリフライトチェックを実行し、Maya に到達可能か確認します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:336
+msgid ""
+"`maya_scene`（任意、文字列）：このステップで使用する Maya シーンファイルへのパス。`reopen_maya_scene` が "
+"`true` のときにセッションの `maya_scene` を上書きします。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:337
+msgid ""
+"`maya_base`（任意、文字列）：このステップで使用する Maya "
+"ワークスペースベースディレクトリへのパス。`reopen_maya_scene` が `true` のときにセッションの `maya_base` "
+"を上書きします。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:338
+msgid ""
+"`out_scene_path`（任意、文字列）：処理後に Maya シーンファイルを保存するパス（`.ma` または `.mb` "
+"拡張子が必要）。`export.scene` が `true` の場合に指定しないと、警告がログされ**シーンは保存されません**。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:339
+msgid ""
+"`out_playblast_path`（任意、文字列）：プレイブラスト動画を保存するパス。**ファイル拡張子なし**で指定する必要があります（`.mp4`"
+" が自動的に付加されます）。`export.playblast` が `true` "
+"の場合に指定しないと、セッションの出力フォルダとアプリ設定からデフォルトパスが生成されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:341
+msgid ""
+"**重要**：process ステップでは常に適切なポート（オーバーライドまたはコンテキストから）で Affogato "
+"接続を再作成し、処理前にプリフライトチェックを実行します。`reopen_maya_scene` "
+"が省略されオーバーライドが存在する場合、上記の自動ルールに従いシーンが再オープンされます（`reopen_maya_scene` 参照）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:343
+msgid ""
+"**Maya 内部ワークフロー**   process ステップでいずれかの `upload.*` オプションが有効な場合、CLI は "
+"commandPort 経由で Maya 内で以下の操作を厳密な順序で実行します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:346
+msgid "シーンタイミングの設定"
+msgstr ""
+
+#: ../../cli_tool_jp.md:347
+msgid "Maya シーンの FPS を入力動画に合わせて設定する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:348
+msgid "シーンの再生範囲を動画の総フレーム数に合わせて設定する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:349
+msgid "オーディオの設定（`upload.audio = true` の場合）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:350
+msgid "入力動画からオーディオトラックをインポートする。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:351
+msgid "オーディオを Maya タイムラインにアタッチする。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:352
+msgid "参照フレームの設定（`upload.frames = true` または `upload.lm_frames = true` の場合）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:353
+msgid "動画フレームを画像シーケンスとして抽出する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:354
+msgid "以下を使用して imagePlane を作成または更新する："
+msgstr ""
+
+#: ../../cli_tool_jp.md:355
+msgid "`upload.frames = true` の場合は生フレーム"
+msgstr ""
+
+#: ../../cli_tool_jp.md:356
+msgid "`upload.lm_frames = true` の場合はランドマーク付きフレーム"
+msgstr ""
+
+#: ../../cli_tool_jp.md:357
+msgid "アニメーションのリセット"
+msgstr ""
+
+#: ../../cli_tool_jp.md:358
+msgid "セッションで定義されたすべてのコントローラの既存アニメーションキーフレームを削除する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:359
+msgid "これによりアップロードが決定的になり、複数回の実行でキーフレームが蓄積しないようにする。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:360
+msgid "アニメーションのアップロード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:361
+msgid "新しく計算されたアニメーションカーブをすべてのセッションコントローラに適用する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:362
+msgid "`time_offset_frames > 0` の場合、挿入前にすべてのキーフレームが指定フレーム数だけ前方にシフトされる。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:363
+msgid "出力の保存"
+msgstr ""
+
+#: ../../cli_tool_jp.md:364
+msgid "プレイブラスト動画を保存する（`export.playblast = true` の場合）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:365
+msgid "Maya シーンファイルを保存する（`export.scene = true` の場合）。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:368
+msgid "注意"
+msgstr ""
+
+#: ../../cli_tool_jp.md:370
+msgid "すべての操作は process ステップごとにアトミックに実行され、部分的なアップロードはサポートされません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:372
+msgid "`reopen_maya_scene = true` の場合、このワークフロー開始前に Maya シーンが再オープンされます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:374
+msgid "コントローラのマッチングは名前ベースです。解決できないコントローラにはアニメーションは適用されず、ロールバックは行われません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:376
+msgid ""
+"少なくとも 1 つの `upload.*` オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya "
+"シーンは変更されません。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:399
+msgid "`sleep` ステップ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:401
+msgid "指定時間だけスクリプト実行を一時停止します。操作間の待機や外部プロセスの完了待ちに便利です。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:411
+msgid "**`seconds`**（必須、float）：実行を一時停止する秒数。0 以上の数である必要があります。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:422
+msgid "例"
+msgstr ""
+
+#: ../../cli_tool_jp.md:424
+msgid "例 1：基本的な処理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:426
+msgid "動画を処理して Maya にアニメーションをアップロードする："
+msgstr ""
+
+#: ../../cli_tool_jp.md:441
+msgid "例 2：シーン切り替えを伴う複数動画"
+msgstr ""
+
+#: ../../cli_tool_jp.md:443
+msgid "複数動画を処理し、動画ごとに Maya シーンを切り替える："
+msgstr ""
+
+#: ../../cli_tool_jp.md:470
+msgid "例 3：タイムオフセット付きアニメーション"
+msgstr ""
+
+#: ../../cli_tool_jp.md:472
+msgid "異なるタイムオフセットでアニメーションをアップロードする："
+msgstr ""
+
+#: ../../cli_tool_jp.md:494
+msgid "例 4：コントローラプレフィックス管理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:496 ../../cli_tool_jp.md:784
+msgid "処理前にコンテキストでコントローラプレフィックスを追加する："
+msgstr ""
+
+#: ../../cli_tool_jp.md:514
+msgid "例 5：フル処理パイプライン"
+msgstr ""
+
+#: ../../cli_tool_jp.md:516
+msgid ""
+"すべての機能を使った完全なワークフロー。注意：`lm_frames` は非 `++` "
+"パイプライン（例：`Rich`、`Robust`、`RP`）が必要なため、コンテキストで `pipeline: \"Rich\"` "
+"を設定しています："
+msgstr ""
+
+#: ../../cli_tool_jp.md:550
+msgid "例 6：シーンオープンのスキップ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:552
+msgid "自動シーンオープンをスキップし、シーンを開くタイミングを手動で制御する："
+msgstr ""
+
+#: ../../cli_tool_jp.md:569
+msgid "例 7：プロファイル選択"
+msgstr ""
+
+#: ../../cli_tool_jp.md:571
+msgid "すべてのプロファイルを無効化してから、特定の動画から10個をランダムに有効化する："
+msgstr ""
+
+#: ../../cli_tool_jp.md:592
+msgid "ログ"
+msgstr ""
+
+#: ../../cli_tool_jp.md:594
+msgid ""
+"スクリプト実行時（`--dry-run` モードでない場合）、CLI はスクリプトと同じディレクトリに `<スクリプト名>.log` "
+"というログファイルを自動的に作成します。例えば、`my_script.yaml` を実行すると、同じディレクトリに `my_script.log`"
+" が生成されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:596
+msgid "**ログレベル**：INFO 以上（INFO、WARNING、ERROR）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:597
+msgid "**エンコーディング**：UTF-8"
+msgstr ""
+
+#: ../../cli_tool_jp.md:598
+msgid "**ライフサイクル**：実行開始時にログファイルが作成され、実行完了時（成功・失敗に関わらず）にログシンクが除去されます。既存のログファイルがある場合は上書きされます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:600
+msgid "このログファイルはコンソール出力と同じ構造化メッセージをキャプチャし、デバッグや監査のための永続的な実行記録を提供します。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:602
+msgid "エラー処理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:604
+msgid "エラーコード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:606
+msgid "CLI はプログラムによるエラー処理のため、構造化されたエラーコードを使用します："
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "コード"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`SESSION_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッションファイルが存在しない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`SESSION_INVALID`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッションファイルが無効または破損している"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`SESSION_LOAD_ERROR`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッション読み込みエラー（一般的な読み込み失敗）"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`NO_SESSION_LOADED`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッションを読み込まずに操作を試行した"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MISSING_RENAME_CONTROLLERS_PREFIX`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`rename_controllers` コンテキストフィールドに prefix がない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`INVALID_RENAME_CONTROLLERS_PREFIX`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`rename_controllers` コンテキストフィールドの prefix 値が無効"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`INVALID_RENAME_CONTROLLERS_ACTION`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid ""
+"`rename_controllers` コンテキストフィールドの action が無効（\"prepend\" または \"remove\" "
+"である必要あり）"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`PROFILES_INSUFFICIENT_MATCH`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`select: N` が指定されたが、マッチしたプロファイルが N 未満"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`VIDEO_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "動画ファイルが存在しない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_NOT_REACHABLE`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "Maya commandPort に到達できない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_SCENE_NOT_SET`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッションまたはオーバーライドで Maya シーンパスが設定されていない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_SCENE_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "Maya シーンファイルが存在しない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_SCENE_OPEN_ERROR`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "Maya シーンのオープンに失敗（`reopen_maya_scene` が `true` のとき発生）"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_BASE_NOT_SET`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "セッションで Maya ベースパスが設定されていない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`MAYA_BASE_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "Maya ベースフォルダが存在しない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`PIPELINE_ERROR`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "動画処理パイプラインが失敗した（学習/推論の失敗）"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`ANIMATION_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "処理後にアニメーションキャッシュファイルが見つからない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`LM_FRAMES_UNSUPPORTED_PIPELINE`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`++` パイプラインで `lm_frames` アップロードが要求された（非対応）"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`DENOISING_PROFILE_NOT_FOUND`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "指定パスにノイズ除去プロファイルファイルが見つからない"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`DENOISING_PROFILE_LOAD_ERROR`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "ノイズ除去プロファイルファイルの読み込みに失敗した"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`OUTPUT_DIR_NOT_CREATED`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "必要な出力ディレクトリの作成に失敗した"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`OUTPUT_FILE_NOT_CREATED`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "処理後に期待される出力ファイルが作成されなかった"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`PLAYBLAST_PATH_HAS_SUFFIX`"
+msgstr ""
+
+#: ../../cli_tool_jp.md
+msgid "`out_playblast_path` にファイル拡張子が含まれていた（`.mp4` は自動で付加される）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:634
+msgid "実行時の動作"
+msgstr ""
+
+#: ../../cli_tool_jp.md:636
+msgid "**検証エラー**：いずれのステップも実行される前にスクリプト検証が失敗（終了コード 1）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:637
+msgid "**Maya エラー**：Maya 関連の失敗（到達不可、シーンオープン失敗など）はコード 2 で終了"
+msgstr ""
+
+#: ../../cli_tool_jp.md:638
+msgid "**実行エラー**：最初に失敗したステップでスクリプトが停止（終了コード 3）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:640
+msgid "終了コード"
+msgstr ""
+
+#: ../../cli_tool_jp.md:642
+msgid "`0`：成功"
+msgstr ""
+
+#: ../../cli_tool_jp.md:643
+msgid "`1`：検証エラー（スクリプトスキーマ検証、必須フィールド欠落、無効な値）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:644
+msgid "`2`：Maya 関連エラー（Maya に到達不可、シーンオープン失敗、Maya 設定の問題）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:645
+msgid "`3`：実行失敗（ライセンスチェック失敗、セッション読み込みエラー、パイプラインエラー、ステップ実行失敗）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:647
+msgid "Maya 連携"
+msgstr ""
+
+#: ../../cli_tool_jp.md:649
+msgid "前提条件"
+msgstr ""
+
+#: ../../cli_tool_jp.md:651
+msgid "**Maya が起動している**こと（commandPort が有効）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:652
+msgid ""
+"**CommandPort** が開いていること（通常ポート 42069、またはスクリプトの `context.command_port` "
+"で指定したポート）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:654
+msgid "Maya プリフライトとシーンオープン"
+msgstr ""
+
+#: ../../cli_tool_jp.md:656
+msgid "いずれのステップを実行する前に、CLI はプリフライトチェックを実行します："
+msgstr ""
+
+#: ../../cli_tool_jp.md:658
+msgid "Maya commandPort の接続をテスト"
+msgstr ""
+
+#: ../../cli_tool_jp.md:659
+msgid "Maya に到達できない場合："
+msgstr ""
+
+#: ../../cli_tool_jp.md:660
+msgid "エラーをログ：`MAYA_NOT_REACHABLE`"
+msgstr ""
+
+#: ../../cli_tool_jp.md:661
+msgid "コード 2 で終了"
+msgstr ""
+
+#: ../../cli_tool_jp.md:662
+msgid "ステップは実行されない"
+msgstr ""
+
+#: ../../cli_tool_jp.md:663
+msgid "Maya に到達でき、`initial_scene_open` が `true`（デフォルト）の場合："
+msgstr ""
+
+#: ../../cli_tool_jp.md:664
+msgid "セッションで指定された Maya シーン（`maya_scene` と `maya_base`）を自動的に開く"
+msgstr ""
+
+#: ../../cli_tool_jp.md:665
+msgid "設定されていれば `wait_seconds_after_scene_open` 秒待機"
+msgstr ""
+
+#: ../../cli_tool_jp.md:666
+msgid "処理開始前にシーンが準備完了していることを保証"
+msgstr ""
+
+#: ../../cli_tool_jp.md:668
+msgid "アップロードオプション"
+msgstr ""
+
+#: ../../cli_tool_jp.md:670
+msgid "動画処理時に、次をアップロードできます："
+msgstr ""
+
+#: ../../cli_tool_jp.md:672
+msgid "**Animation（アニメーション）**：フェイシャルアニメーションカーブ（ブレンドシェープ、コントローラ）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:673
+msgid "**Audio（オーディオ）**：動画からのオーディオトラック"
+msgstr ""
+
+#: ../../cli_tool_jp.md:674
+msgid "**Frames（フレーム）**：参照用の動画フレームを画像シーケンスとして"
+msgstr ""
+
+#: ../../cli_tool_jp.md:675
+msgid "**LM Frames**：可視化用のランドマーク付きフレーム"
+msgstr ""
+
+#: ../../cli_tool_jp.md:677
+msgid "シーン管理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:679
+msgid ""
+"**`reopen_maya_scene`**：process ステップ前に Maya シーンを再オープンするかを制御。`true` = "
+"常に、`false` = しない、省略 = 自動（いずれかのオーバーライドが存在し、かつ少なくとも1つのアップロードフラグが true "
+"の場合）。再オープン時はオーバーライドの `maya_scene`/`maya_base` がセッション値より優先されます。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:680
+msgid "**`overrides.out_scene_path`**：処理後に Maya シーンを指定パスに保存"
+msgstr ""
+
+#: ../../cli_tool_jp.md:681
+msgid "**`overrides.out_playblast_path`**：処理後にプレイブラスト動画を指定パスに保存"
+msgstr ""
+
+#: ../../cli_tool_jp.md:682
+msgid "シーンパスはセッションの `maya_base` と `maya_scene` プロパティから解決されます"
+msgstr ""
+
+#: ../../cli_tool_jp.md:683
+msgid ""
+"**Process ステップのプリフライト**：各 process "
+"ステップの前に、適切なポート（オーバーライドまたはコンテキストから）で接続を再作成し、Maya "
+"に到達可能か確認するプリフライトチェックを実行します"
+msgstr ""
+
+#: ../../cli_tool_jp.md:685
+msgid "タイムオフセット"
+msgstr ""
+
+#: ../../cli_tool_jp.md:687
+msgid "`time_offset_frames` パラメータで、アニメーションが Maya タイムラインのどこから開始するかを制御できます："
+msgstr ""
+
+#: ../../cli_tool_jp.md:689
+msgid "**正のオフセット**：アニメーションが遅く開始（例：`100` でフレーム 100 から開始）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:690
+msgid "**ゼロ**：アニメーションがデフォルト位置（通常フレーム 0）から開始"
+msgstr ""
+
+#: ../../cli_tool_jp.md:691
+msgid "**注意**：0 以上の値のみ許可"
+msgstr ""
+
+#: ../../cli_tool_jp.md:693
+msgid "次のような用途に便利です："
+msgstr ""
+
+#: ../../cli_tool_jp.md:694
+msgid "複数テイクを1本のタイムラインにまとめる"
+msgstr ""
+
+#: ../../cli_tool_jp.md:695
+msgid "既存のキーフレームとアニメーションを合わせる"
+msgstr ""
+
+#: ../../cli_tool_jp.md:696
+msgid "間隔を空けたアニメーションシーケンスを作成する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:698
+msgid "トラブルシューティング"
+msgstr ""
+
+#: ../../cli_tool_jp.md:700
+msgid "スクリプト検証が失敗する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:702
+msgid "**問題**：構造や型に関するエラーでスクリプト検証が失敗する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:704 ../../cli_tool_jp.md:715 ../../cli_tool_jp.md:725
+#: ../../cli_tool_jp.md:735
+msgid "**対処**："
+msgstr ""
+
+#: ../../cli_tool_jp.md:705
+msgid "`version: 1` が存在し、正確に `1` であることを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:706
+msgid "`context.session` が空でない文字列であることを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:707
+msgid "`steps` が空でないリストであることを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:708
+msgid "各ステップがちょうど1つのキー（`process` または `sleep`）を持つことを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:709
+msgid "フィールドの型がスキーマと一致しているか確認（文字列、真偽値、整数）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:711
+msgid "Maya に到達できない"
+msgstr ""
+
+#: ../../cli_tool_jp.md:713
+msgid "**問題**：`MAYA_NOT_REACHABLE` エラーでスクリプトが終了する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:716
+msgid "Maya が起動していることを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:717
+msgid ""
+"commandPort が開いているか確認：Maya で `cmds.commandPort(n=':42069', stp='python')`"
+" を実行（または `context.command_port` で指定したポートを使用）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:718
+msgid "ファイアウォール/ネットワーク設定で localhost 接続が許可されているか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:719
+msgid "コンテキストでカスタム `command_port` を使っている場合、Maya の commandPort が指定ポート番号と一致しているか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:721
+msgid "動画処理が失敗する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:723
+msgid "**問題**：動画処理中に `PIPELINE_ERROR` が発生する。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:726
+msgid "動画ファイルが存在し読み取り可能か確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:727
+msgid "セッションに有効なソルバー設定があるか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:728
+msgid "キャッシュ用の十分なディスク容量があるか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:729
+msgid "詳細なエラーメッセージはログを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:731
+msgid "アニメーションがアップロードされない"
+msgstr ""
+
+#: ../../cli_tool_jp.md:733
+msgid "**問題**：アニメーションアップロードは成功するように見えるが、Maya に何も表示されない。"
+msgstr ""
+
+#: ../../cli_tool_jp.md:736
+msgid "Maya シーンに正しいキャラクターリグが読み込まれているか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:737
+msgid "セッションと Maya シーンのコントローラ名が一致しているか確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:738
+msgid "Maya にアニメーションレイヤーが存在するか確認（デフォルト：\"BaseAnimation\"）"
+msgstr ""
+
+#: ../../cli_tool_jp.md:739
+msgid "Maya スクリプトエディタで Python エラーを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:741
+msgid "ベストプラクティス"
+msgstr ""
+
+#: ../../cli_tool_jp.md:743
+msgid "**まず検証する**：実行前に `--dry-run` でスクリプトを検証する"
+msgstr ""
+
+#: ../../cli_tool_jp.md:744
+msgid "**明示的なパスを使う**：信頼性のため絶対パスを推奨"
+msgstr ""
+
+#: ../../cli_tool_jp.md:745
+msgid "**段階的にテストする**：簡単なスクリプトから始め、徐々に複雑にする"
+msgstr ""
+
+#: ../../cli_tool_jp.md:746
+msgid "**Maya 接続を確認する**：アップロード付き処理の前に Maya が起動していることを確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:747
+msgid "**タイムオフセットに注意する**：重複を避けるためフレーム範囲を確認"
+msgstr ""
+
+#: ../../cli_tool_jp.md:748
+msgid "**スクリプトをバージョン管理する**：再現性のためスクリプトをバージョン管理に含める"
+msgstr ""
+
+#: ../../cli_tool_jp.md:750
+msgid "上級者向け"
+msgstr ""
+
+#: ../../cli_tool_jp.md:752
+msgid "バッチ処理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:754
+msgid "複数動画を順番に処理する："
+msgstr ""
+
+#: ../../cli_tool_jp.md:782
+msgid "コントローラプレフィックス管理"
+msgstr ""
+
+#: ../../cli_tool_jp.md:802
+msgid "条件付きシーン切り替え"
+msgstr ""
+
+#: ../../cli_tool_jp.md:804
+msgid "動画に応じて Maya シーンを切り替える："
+msgstr ""
+
+#: ../../cli_tool_jp.md:830
+msgid "サポート"
+msgstr ""
+
+#: ../../cli_tool_jp.md:832
+msgid "問題、質問、機能リクエストについては、メインの FCS ドキュメントを参照するか、開発チームにお問い合わせください。"
+msgstr ""
+
