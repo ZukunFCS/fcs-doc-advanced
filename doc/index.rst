@@ -13,3 +13,5 @@ FCS Doc Advanced
    001_preliminary.md
    002_processing.md
    experiments/index.md
+   004_cli_tool.md
+
