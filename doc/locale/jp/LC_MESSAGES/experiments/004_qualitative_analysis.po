@@ -1,0 +1,59 @@
+# Japanese translations for 004_qualitative_analysis.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 20:35+0900\n"
+"PO-Revision-Date: 2026-03-25 00:00+0900\n"
+"Last-Translator: \n"
+"Language: jp\n"
+"Language-Team: jp <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../experiments/004_qualitative_analysis.md:1
+msgid "Qualitative Analysis for Effort vs Quality"
+msgstr "工数と品質のトレードオフに関する定性分析"
+
+#: ../../experiments/004_qualitative_analysis.md:3
+msgid "A critical production decision that many of us face is the trade-off between effort and quality.  How much time should I spend on creating profiles to achieve the desired animation quality? At what point should I stop creating profiles and start manually tweaking my animation in Maya? In the previous page [Pipeline Comparison++ (Quantitative)](003_pipeline_comparison_quantitative.md), we observe a saturation effect when the profile count is around 100. Beyond that, the quality of the animation does not improve significantly. This matches our observation in real production settings.  In this page, we will explore this trade-off in a more visual manner. We process the same video using a different number of profiles, and visualize the animation quality and the effort (number of profiles) required to achieve it."
+msgstr "制作において多くの方が直面する重要な判断のひとつが、工数と品質のトレードオフです。目標とするアニメーション品質を達成するために、プロファイルの作成にどれだけの時間をかけるべきか？ どの時点でプロファイルの追加をやめて、Maya でアニメーションの手動調整に移るべきか？ 前ページの[パイプライン比較++（定量）](003_pipeline_comparison_quantitative.md)では、プロファイル数が約100に達するあたりで飽和効果が見られることを確認しました。それ以上プロファイルを追加しても、アニメーション品質は大きく向上しません。これは実際の制作現場での観察結果と一致しています。本ページでは、このトレードオフをより視覚的に検証します。異なるプロファイル数で同じ動画を処理し、アニメーション品質とそれに必要な工数（プロファイル数）を可視化します。"
+
+#: ../../experiments/004_qualitative_analysis.md:10
+msgid "Profiles are seperated into three groups:"
+msgstr "プロファイルは3つのグループに分類されます："
+
+#: ../../experiments/004_qualitative_analysis.md:11
+msgid "ROM profiles: profiles from the Range-of-Motion video (50 Profiles)"
+msgstr "ROM プロファイル：Range-of-Motion 動画から作成されたプロファイル（50個）"
+
+#: ../../experiments/004_qualitative_analysis.md:12
+msgid "Same-Video profiles: profiles created by selecting frames from the video, this represents how much effort/time you need to spend on creating profiles from within the video."
+msgstr "同一動画プロファイル：処理対象の動画からフレームを選択して作成したプロファイル。動画内からのプロファイル作成にどれだけの工数・時間が必要かを表します。"
+
+#: ../../experiments/004_qualitative_analysis.md:13
+msgid "Other-Video profiles: profiles created by selecting frames from other videos, this represents different stages of the production."
+msgstr "他動画プロファイル：他の動画からフレームを選択して作成したプロファイル。制作の進行段階を表します。"
+
+#: ../../experiments/004_qualitative_analysis.md:18
+msgid "Use the widget below to compare animation results side by side. Each slot lets you choose a different profile configuration using the two sliders:"
+msgstr "下のウィジェットを使用して、アニメーション結果を並べて比較できます。各スロットでは2つのスライダーを使って異なるプロファイル構成を選択できます："
+
+#: ../../experiments/004_qualitative_analysis.md:19
+msgid "**Production Cycle** — how many profiles from *other* videos are available (simulates early vs late production)"
+msgstr "**制作サイクル** — *他の*動画からのプロファイルがいくつ利用可能か（制作初期と後期をシミュレーション）"
+
+#: ../../experiments/004_qualitative_analysis.md:20
+msgid "**Effort per Video** — how many profiles you create from the *same* video (simulates time investment per shot)"
+msgstr "**動画あたりの工数** — *同じ*動画からプロファイルをいくつ作成するか（ショットごとの時間投資をシミュレーション）"
+
+#: ../../experiments/004_qualitative_analysis.md:22
+msgid "Add up to 3 slots and play them synchronized to visually compare quality differences."
+msgstr "最大3つのスロットを追加し、同期再生して品質の違いを視覚的に比較できます。"

@@ -121,7 +121,7 @@ msgstr "このパイプラインは頭​​部の回転（横を向いてしま
 
 #: ../../experiments/002_pipeline_comparison.md:35
 msgid "_RP+_ and _Robust+_"
-msgstr ""
+msgstr "_RP+_ と _Robust+_"
 
 #: ../../experiments/002_pipeline_comparison.md:37
 msgid ""
@@ -265,9 +265,8 @@ msgid "RPP"
 msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md
-#, fuzzy
 msgid "RobustP"
-msgstr "_Robust_"
+msgstr ""
 
 #: ../../experiments/002_pipeline_comparison.md
 msgid ""
