@@ -22,6 +22,7 @@ suppress_warnings = ["myst.header"]
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_parser', ]
+myst_enable_extensions = ["dollarmath"]
 if build_pdf:
     extensions.append('rst2pdf.pdfbuilder')
     extensions.append('sphinx.ext.autodoc')
