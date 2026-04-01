@@ -14,4 +14,5 @@ FCS Doc Advanced
    002_processing.md
    experiments/index.md
    004_cli_tool.md
+   fcs-doc ↗ <https://zukunfcs.github.io/fcs-doc>
 
