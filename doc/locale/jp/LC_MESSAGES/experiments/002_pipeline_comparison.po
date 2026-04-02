@@ -159,17 +159,15 @@ msgid ""
 msgstr "さまざまなパイプラインの特長を示すために、FCSを使用してプロファイルを作成する際に想定される4つの条件・状況で検証しました。"
 
 #: ../../experiments/002_pipeline_comparison.md:53
-#, fuzzy
 msgid ""
 "Baseline Only  Process videos using only the 50 baseline ROM profiles.  "
 "This scenario recreates the standard procedure of creating facial "
 "animation with minimal effort."
 msgstr ""
 "Baseline "
-"Only<br>50個のベースラインROMプロファイルのみを使用してビデオを処理しています。<br>こちらは最小限の労力でフェイシャルアニメーションを出力する標準的な手順となっております。"
+"Only<br>50個のベースラインROMプロファイルのみを使用して動画を処理しています。<br>こちらは最小限の労力でフェイシャルアニメーションを出力する標準的な手順となっております。"
 
 #: ../../experiments/002_pipeline_comparison.md:57
-#, fuzzy
 msgid ""
 "Baseline + Video Profile 10  Process videos using the 50 ROM profiles and"
 " the 10 profiles picked up from within the video.  This scenario shows "
@@ -177,20 +175,18 @@ msgid ""
 "the video."
 msgstr ""
 "aseline + Video Profile "
-"10<br>50個のROMプロファイルとビデオ内から抽出した10個のプロファイルを使用してビデオを処理します。<br>この項目では解析するビデオからプロファイルを追加することでアニメーションの品質がどのように向上するかを確認できます。"
+"10<br>50個のROMプロファイルと動画内から抽出した10個のプロファイルを使用して動画を処理します。<br>この項目では解析する動画からプロファイルを追加することでアニメーションの品質がどのように向上するかを確認できます。"
 
 #: ../../experiments/002_pipeline_comparison.md:61
-#, fuzzy
 msgid ""
 "Video Profile 10 Only  Process videos using only the 10 profiles picked "
 "up from within the video.  This scenario shows the performance of the "
 "pipelines if you skip creating the baseline ROM profiles."
 msgstr ""
 "Video Profile 10 "
-"Only<br>ビデオ内から抽出した10個のプロファイルのみを使用してビデオを処理します。<br>この項目ではベースラインROMプロファイルの作成をスキップした場合の各パイプラインのアニメーションクオリティを確認できます。"
+"Only<br>動画内から抽出した10個のプロファイルのみを使用して動画を処理します。<br>この項目ではベースラインROMプロファイルの作成をスキップした場合の各パイプラインのアニメーションクオリティを確認できます。"
 
 #: ../../experiments/002_pipeline_comparison.md:65
-#, fuzzy
 msgid ""
 "Another Actor  Process videos of another actor using only the 50 ROM "
 "profiles.  This scenario simulate when the person that you created the "
