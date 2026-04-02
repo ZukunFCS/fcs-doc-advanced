@@ -49,7 +49,6 @@ msgid "Scenario Detail"
 msgstr "検証内容について"
 
 #: ../../experiments/001_challenging_scenarios.md:8
-#, fuzzy
 msgid ""
 "In this showcase, we selected and rigged 50 profiles from the ROM video. "
 "Then, using only the 50 ROM profiles, we generate the results in "
