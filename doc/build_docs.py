@@ -20,6 +20,7 @@ def build_doc(version, language, tag=None):
 		subprocess.run("git checkout " + tag, shell=True)
 		for filename in ['conf.py', 'versions.yaml', '../.gitignore', 'build_docs.py']:
 			subprocess.run(f"git checkout master -- {filename}", shell=True)
+	subprocess.run("find locale -name '*.mo' -delete", shell=True)
 	os.environ['SPHINXOPTS'] = "-D language='{}'".format(language)
 	subprocess.run("make html", shell=True)
 	move('_build/html', f'pages/{version}/{language}')
