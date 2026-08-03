@@ -1,0 +1,1247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="jp" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-03-25T11:13:29+00:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI ツール &mdash; FCS Doc Advanced dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5a3f213f"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FCSをAIアシスタントと使用する（MCP）" href="005_mcp.html" />
+    <link rel="prev" title="工数と品質のトレードオフに関する定性分析" href="experiments/004_qualitative_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">コンテンツ</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="000_introduction.html">はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">FCSとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#who-is-this-page-for">このサイトについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="001_preliminary.html">予備知識</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#general-workflow">FCSの一般的なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#profiles">Profiles（プロファイル）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#baseline-profiles">Baseline profiles（ベースライン プロファイル）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="002_processing.html">FCS内部の処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id1">1. フェイシャルトラッキング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id2">2. 顔の向きを補正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id3">3. トラッキング情報の取捨選択</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="002_processing.html#id4">ブレンドシェイプの選択方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id5">4. キャラクターの表情に変換</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="experiments/index.html">検証</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="experiments/001_challenging_scenarios.html">様々な条件下での検証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#scenario-detail">検証内容について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#gallery">動画ギャラリー</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/002_pipeline_comparison.html">パイプラインの比較</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/002_pipeline_comparison.html#table-of-contents">目次</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#just-tell-me-which-pipeline-i-should-use">どのパイプラインを使用すべきか フローチャート</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#pipeline">パイプライン一覧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#experiment-scenarios">検証詳細</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#gallery">動画ギャラリー</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#conclusion">結論</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html">パイプライン比較++ (定量評価)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#tl-dr">要約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#methodology">評価方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#results">結果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#win-matrix">勝敗マトリクス</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#bradley-terry-model">Bradley-Terryモデル</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#performance-vs-profile-count">性能 vs. プロファイル数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#conclusion">結論</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/004_qualitative_analysis.html">工数と品質のトレードオフに関する定性分析</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">目次</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-format">スクリプト形式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#top-level-structure">トップレベル構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">バージョン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context">コンテキスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps">ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-strictness">検証の厳格さ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles">プロファイル</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-model">実行モデル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#execution-lifecycle">実行ライフサイクル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context-and-overrides">コンテキストとオーバーライド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-guarantees">実行の保証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">コマンド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-script">スクリプト実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-types">ステップタイプ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process-step"><code class="docutils literal notranslate"><span class="pre">process</span></code> ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-step">少なくとも 1 つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya シーンは変更されません。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-basic-processing">例 1：基本的な処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-multiple-videos-with-scene-changes">例 2：シーン切り替えを伴う複数動画</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3-animation-with-time-offset">例 3：タイムオフセット付きアニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-4-controller-prefix-management">例 4：コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-5-full-processing-pipeline">例 5：フル処理パイプライン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-6-skip-initial-scene-opening">例 6：シーンオープンのスキップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-7-profile-selection">例 7：プロファイル選択</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">ログ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">エラー処理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-codes">エラーコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-behavior">実行時の動作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exit-codes">終了コード</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#maya-integration">Maya 連携</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maya-preflight-and-scene-opening">Maya プリフライトとシーンオープン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-options">アップロードオプション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scene-management">シーン管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-offset">タイムオフセット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#script-validation-fails">スクリプト検証が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maya-not-reachable">Maya に到達できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-processing-fails">動画処理が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animation-not-uploading">アニメーションがアップロードされない</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">ベストプラクティス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">上級者向け</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#batch-processing">バッチ処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-prefix-management">コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-scene-switching">条件付きシーン切り替え</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#support">サポート</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="005_mcp.html">FCSをAIアシスタントと使用する（MCP）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#before-you-start">開始する前に</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#enable-the-mcp-server">MCPサーバーを有効にする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#connect-an-ai-assistant">AIアシスタントを接続する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#chatgpt-desktop-and-the-codex-app">ChatGPTデスクトップとCodexアプリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#codex-cli">Codex CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#claude-code">Claude Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#visual-studio-code-and-github-copilot">Visual Studio CodeとGitHub Copilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#opencode">OpenCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#claude-desktop">Claude Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#ask-fcs-to-perform-work">FCSに作業を依頼する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#available-workflows">利用可能なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#review-actions-before-approval">承認前に操作内容を確認する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#fcs-shows-disabled">FCSにDisabledと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#fcs-shows-waiting-for-a-valid-license">FCSにWaiting for a valid licenseと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#fcs-shows-an-error-or-the-port-is-already-in-use">FCSにエラーが表示される、またはポートが使用中である</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#the-assistant-cannot-connect">アシスタントが接続できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="005_mcp.html#the-assistant-connects-but-an-action-is-rejected">アシスタントは接続できるが操作が拒否される</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="005_mcp.html#client-documentation">クライアントのドキュメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://zukunfcs.github.io/fcs-doc">fcs-doc ↗</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CLI ツール</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/004_cli_tool.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="cli-tool">
+<h1>CLI ツール<a class="headerlink" href="#cli-tool" title="Link to this heading"></a></h1>
+<p>FCS CLI ツールは、フェイシャルキャプチャとアニメーション処理のワークフローを自動化するためのスクリプトベースのインターフェースを提供します。YAML スクリプト形式で、セッションの読み込み、セッション設定の変更、動画の処理、Maya へのアニメーションのアップロードを実行できます。</p>
+<section id="table-of-contents">
+<h2>目次<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="xref myst">インストール</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88"><span class="xref myst">クイックスタート</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%BD%A2%E5%BC%8F"><span class="xref myst">スクリプト形式</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#%E6%A4%9C%E8%A8%BC%E3%81%AE%E5%8E%B3%E6%A0%BC%E3%81%95"><span class="xref myst">検証の厳格さ</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="xref myst">プロファイル</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#%E5%AE%9F%E8%A1%8C%E3%83%A2%E3%83%87%E3%83%AB"><span class="xref myst">実行モデル</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="xref myst">コマンド</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%82%BF%E3%82%A4%E3%83%97"><span class="xref myst">ステップタイプ</span></a></p></li>
+<li><p><a class="reference internal" href="#%E4%BE%8B"><span class="xref myst">例</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%83%AD%E3%82%B0"><span class="xref myst">ログ</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%82%A8%E3%83%A9%E3%83%BC%E5%87%A6%E7%90%86"><span class="xref myst">エラー処理</span></a></p></li>
+<li><p><a class="reference internal" href="#maya-%E9%80%A3%E6%90%BA"><span class="xref myst">Maya 連携</span></a></p></li>
+<li><p><a class="reference internal" href="#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0"><span class="xref myst">トラブルシューティング</span></a></p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>インストール<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>CLI ツールは FCS（Facial Capture System）パッケージに含まれています。FCS 環境のセットアップと依存関係のインストールが完了していることを確認してください。</p>
+</section>
+<section id="quick-start">
+<h2>クイックスタート<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<p>YAML スクリプトファイル（例：<code class="docutils literal notranslate"><span class="pre">my_script.yaml</span></code>）を作成します：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">wait_seconds_after_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span><span class="w">  </span><span class="c1"># Optional: wait 2 seconds after scene opens</span>
+<span class="w">  </span><span class="nt">fisheye</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Optional: enable fisheye correction</span>
+<span class="w">  </span><span class="nt">pipeline</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Rich&quot;</span><span class="w">  </span><span class="c1"># Optional: use Rich pipeline</span>
+<span class="w">  </span><span class="nt">denoising</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_profile&quot;</span><span class="w">  </span><span class="c1"># Optional: load denoising profile from presets</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Optional: open scene after validation (default: true)</span>
+<span class="w">  </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42069</span><span class="w">  </span><span class="c1"># Optional: Maya commandPort for all operations</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span><span class="w">  </span><span class="c1"># Optional: modify controller name prefixes</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span><span class="w">  </span><span class="c1"># or &quot;remove&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span><span class="w">  </span><span class="c1"># Optional: use different port for this step</span>
+</pre></div>
+</div>
+<p>スクリプトを実行します：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml
+</pre></div>
+</div>
+</section>
+<section id="script-format">
+<h2>スクリプト形式<a class="headerlink" href="#script-format" title="Link to this heading"></a></h2>
+<section id="top-level-structure">
+<h3>トップレベル構造<a class="headerlink" href="#top-level-structure" title="Link to this heading"></a></h3>
+<p>すべてのスクリプトには、次の3つの必須セクションが必要です：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                    </span><span class="c1"># Required: Must be exactly 1</span>
+<span class="nt">context</span><span class="p">:</span><span class="w">                     </span><span class="c1"># Required: Script context</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">          </span><span class="c1"># Required: Path to fcs_session.yaml</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w">                       </span><span class="c1"># Required: List of steps to execute</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;step&gt;</span><span class="w">                   </span><span class="c1"># One or more steps</span>
+</pre></div>
+</div>
+</section>
+<section id="version">
+<h3>バージョン<a class="headerlink" href="#version" title="Link to this heading"></a></h3>
+<p>現在サポートされているのはバージョン <code class="docutils literal notranslate"><span class="pre">1</span></code> のみです。このフィールドは、スクリプト形式の進化に伴う前方互換性を確保します。</p>
+</section>
+<section id="context">
+<h3>コンテキスト<a class="headerlink" href="#context" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">context</span></code> セクションでは、スクリプト実行開始時に読み込むセッションファイルを定義します。</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">session</span></code></strong>（必須、文字列）：FCS セッション YAML ファイルへのパス。ファイル名は <code class="docutils literal notranslate"><span class="pre">fcs_session.yaml</span></code> でなければならず、他のファイル名では検証が失敗します。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code></strong>（任意、float）：Maya シーンを開いた後に待機するグローバルな秒数。スクリプト内のすべてのシーンオープン操作（<code class="docutils literal notranslate"><span class="pre">process</span></code> ステップの <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> や Maya 起動時のシーンを含む）に適用されます。デフォルト：<code class="docutils literal notranslate"><span class="pre">0.0</span></code>（待機なし）</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">fisheye</span></code></strong>（任意、bool）：動画処理の魚眼補正の有効/無効。指定した場合は UI 設定を上書き。デフォルト：<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pipeline</span></code></strong>（任意、文字列）：動画処理に使用するパイプライン。次のいずれか：<code class="docutils literal notranslate"><span class="pre">&quot;Rich&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;Robust&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;RP&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;RP++&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;Robust++&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;Rich++&quot;</span></code>。指定した場合は UI 設定を上書き。デフォルト：<code class="docutils literal notranslate"><span class="pre">&quot;RP++&quot;</span></code>。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">denoising</span></code></strong>（任意、文字列）：ノイズ除去/スムージングプロファイルファイルへのパス、またはスムージングプリセットディレクトリから読み込むファイル名。フルパスの場合は存在する必要があります。ファイル名のみ（フルパスでない）の場合は <code class="docutils literal notranslate"><span class="pre">FCS_TMP_DIR/smoothing_presets/filename.yaml</span></code> から読み込まれます。指定した場合は処理前にプロファイルを読み込み。デフォルト：スムージングなし。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">command_port</span></code></strong>（任意、整数）：スクリプト内の全 Maya 操作で使用する Maya commandPort 番号。1 ～ 65535 の整数である必要があります。指定した場合は指定ポートで接続を再作成し、すべての Maya プリフライトチェックとアップロードに使用します。デフォルト：42069。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code></strong>（任意、bool）：<code class="docutils literal notranslate"><span class="pre">true</span></code>（デフォルト）の場合、データ検証後、全ステップ実行前に Maya シーンを1回自動的に開きます。シーンはスクリプト実行開始時（プリフライトチェック後）に1回だけ開かれ、各ステップの前には開かれません。<code class="docutils literal notranslate"><span class="pre">false</span></code> の場合は初期シーンオープンをスキップします。デフォルト：<code class="docutils literal notranslate"><span class="pre">true</span></code>（セッションに <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> と <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> が設定されている場合に自動でシーンを開く）</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code></strong>（任意、マッピング）：プレフィックスを付加または削除してコントローラ名を変更。セッション読み込み後、いずれのステップが実行される前に1回適用されます。Maya シーンの命名規則に合わせてコントローラ名を調整する際に便利です。</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code>（必須、文字列）：すべてのコントローラ名に付加または削除するプレフィックス</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code>（任意、文字列）：実行する操作 — <code class="docutils literal notranslate"><span class="pre">&quot;prepend&quot;</span></code>（デフォルト）または <code class="docutils literal notranslate"><span class="pre">&quot;remove&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">playblast</span></code></strong>（任意、マッピング）：プレイブラストをエクスポートする process ステップで、プレイブラスト設定をアプリ設定の上書きとして適用します。指定しない場合はアプリ設定を使用します。</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera</span></code>（任意、文字列）：Maya カメラ名（例：<code class="docutils literal notranslate"><span class="pre">&quot;persp&quot;</span></code>）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>（任意、整数）：出力幅（ピクセル）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>（任意、整数）：出力高さ（ピクセル）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code>（任意、整数）：解像度パーセント（例：100、1～100）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quality</span></code>（任意、整数）：プレイブラスト品質（例：100、1～100）。</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">profiles</span></code></strong>（任意、リスト）：ステップ実行前に、読み込んだセッションの ROM プロファイルの有効/無効を設定するルール。詳細は<a class="reference internal" href="#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="xref myst">プロファイル</span></a>を参照。</p></li>
+</ul>
+</section>
+<section id="steps">
+<h3>ステップ<a class="headerlink" href="#steps" title="Link to this heading"></a></h3>
+<p>ステップは記述順に順次実行されます。各ステップは次のいずれかのキーを持つ単一キーのマッピングである必要があります：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">process</span></code> — 動画を処理し、必要に応じて Maya にアップロード</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sleep</span></code> — 指定時間だけスクリプト実行を一時停止</p></li>
+</ul>
+</section>
+<section id="validation-strictness">
+<h3>検証の厳格さ<a class="headerlink" href="#validation-strictness" title="Link to this heading"></a></h3>
+<p>スクリプト検証は<strong>厳格なスキーマ契約</strong>に従います。定義されたスキーマからの逸脱はすべて検証で拒否されます：</p>
+<ol class="arabic simple">
+<li><p><strong>未知のトップレベルフィールド → エラー</strong>：トップレベルで許可されるのは <code class="docutils literal notranslate"><span class="pre">version</span></code>、<code class="docutils literal notranslate"><span class="pre">context</span></code>、<code class="docutils literal notranslate"><span class="pre">steps</span></code> のみ。他のフィールドがあると検証が失敗します。</p></li>
+<li><p><strong>未知の context フィールド → エラー</strong>：文書化された context フィールドのみが許可されます。<code class="docutils literal notranslate"><span class="pre">context</span></code> セクションの未知のフィールドがあると検証が失敗します。</p></li>
+<li><p><strong>未知のステップタイプ → エラー</strong>：有効なステップタイプは <code class="docutils literal notranslate"><span class="pre">process</span></code> と <code class="docutils literal notranslate"><span class="pre">sleep</span></code> のみ。他のステップタイプがあると検証が失敗します。</p></li>
+<li><p><strong>未知のステップフィールド → エラー</strong>：各ステップタイプには許可されるフィールドの定義セットがあります。そのステップタイプで文書化されていないフィールドがあると検証が失敗します。</p></li>
+<li><p><strong>ネスト構造の余分なキー → エラー</strong>：ネスト構造（<code class="docutils literal notranslate"><span class="pre">process</span></code> ステップの <code class="docutils literal notranslate"><span class="pre">upload</span></code> や <code class="docutils literal notranslate"><span class="pre">overrides</span></code> など）は文書化されたフィールドのみを受け付けます。未知のキーがあると検証が失敗します。</p></li>
+<li><p><strong>順序が重要</strong>：ステップは <code class="docutils literal notranslate"><span class="pre">steps</span></code> リストに出現する正確な順序で順次実行されます。実行順序は意味を持ち、変更できません。</p></li>
+</ol>
+<p><strong>検証失敗の例：</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ Invalid: Unknown top-level field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="nt">unknown_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown top-level field</span>
+
+<span class="c1"># ❌ Invalid: Unknown context field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">unknown_context_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown context field</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+
+<span class="c1"># ❌ Invalid: Unknown step type</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unknown_step</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w">  </span><span class="c1"># Error: unknown step type</span>
+
+<span class="c1"># ❌ Invalid: Unknown step field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/video.mp4&quot;</span>
+<span class="w">      </span><span class="nt">unknown_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown field in process step</span>
+
+<span class="c1"># ❌ Invalid: Unknown nested field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/video.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">unknown_upload_field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Error: unknown field in upload</span>
+</pre></div>
+</div>
+</section>
+<section id="profiles">
+<h3>プロファイル<a class="headerlink" href="#profiles" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">profiles</span></code> コンテキストフィールドを使用すると、ステップ実行前にセッション内の プロファイルの有効/無効を設定できます。ルールは順次適用され、後のルールがマッチしたプロファイルについて先のルールを上書きします。</p>
+<p>各ルールには3つのフィールドがあります：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>フィールド</p></th>
+<th class="head"><p>必須</p></th>
+<th class="head"><p>値</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">match</span></code></p></td>
+<td><p>はい</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> またはクライテリアのリスト</p></td>
+<td><p>対象とするプロファイル</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">select</span></code></p></td>
+<td><p>はい</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>、または 1 以上の整数</p></td>
+<td><p>マッチしたプロファイルに対する操作</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">condition</span></code></p></td>
+<td><p>いいえ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AND</span></code>（デフォルト）または <code class="docutils literal notranslate"><span class="pre">OR</span></code></p></td>
+<td><p>複数クライテリアの結合方法</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code class="docutils literal notranslate"><span class="pre">match</span></code> クライテリア</strong> — リスト内の各項目は単一キーのマッピングです：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>キー</p></th>
+<th class="head"><p>マッチ条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">video:</span> <span class="pre">&quot;&lt;stem&gt;&quot;</span></code></p></td>
+<td><p>プロファイルのソース動画ファイル名（拡張子なし）が値と一致</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not_video:</span> <span class="pre">&quot;&lt;stem&gt;&quot;</span></code></p></td>
+<td><p>プロファイルにソース動画がない、またはステムが値と異なる</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_tag:</span> <span class="pre">&quot;&lt;tag&gt;&quot;</span></code></p></td>
+<td><p>プロファイルにこのユーザータグがある</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">no_user_tag:</span> <span class="pre">&quot;&lt;tag&gt;&quot;</span></code></p></td>
+<td><p>プロファイルにこのユーザータグがない</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code class="docutils literal notranslate"><span class="pre">select</span></code> の値：</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> — マッチしたすべてのプロファイルを有効化</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> — マッチしたすべてのプロファイルを無効化</p></li>
+<li><p>整数 N — マッチしたプロファイルからランダムに N 個を有効化（N 未満のマッチではエラー）</p></li>
+</ul>
+<p><strong>例：</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">profiles</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Disable everything first</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+
+<span class="w">  </span><span class="c1"># Then enable exactly 10 profiles whose source video is &quot;ROM_walk&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_walk&quot;</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="w">  </span><span class="c1"># Enable all profiles tagged &quot;hero&quot; OR tagged &quot;featured&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hero&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;featured&quot;</span>
+<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OR</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+
+<span class="w">  </span><span class="c1"># Enable profiles tagged &quot;validated&quot; AND whose video is NOT &quot;ROM_bad&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;validated&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">not_video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_bad&quot;</span>
+<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AND</span><span class="w">   </span><span class="c1"># default, can be omitted</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>注意</strong>：<code class="docutils literal notranslate"><span class="pre">match</span></code> は YAML リスト（<code class="docutils literal notranslate"><span class="pre">-</span></code> 項目）である必要があります。プレーンなマッピングは YAML のサイレントな重複キーマージを防ぐため拒否されます（例：2つの <code class="docutils literal notranslate"><span class="pre">video:</span></code> キーは1つに統合されてしまう）。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="execution-model">
+<h2>実行モデル<a class="headerlink" href="#execution-model" title="Link to this heading"></a></h2>
+<p>スクリプトの実行の仕組みを理解すると、効果的な自動化ワークフローを記述できます。FCS CLI は予測可能な実行モデルに従います。</p>
+<section id="execution-lifecycle">
+<h3>実行ライフサイクル<a class="headerlink" href="#execution-lifecycle" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>スクリプト初期化</strong>：スクリプトを読み込み、スキーマに対して検証します。スキーマエラーがあればコード 1 で即座に終了し、セッションや Maya の操作は一切行われません。</p></li>
+<li><p><strong>ライセンスチェック</strong>：ライセンスのチェックアウト/検証を行います。失敗するとコード 3 で終了します。</p></li>
+<li><p><strong>セッション読み込み</strong>：<code class="docutils literal notranslate"><span class="pre">context.session</span></code> で指定されたセッションファイルが1回読み込まれます。セッションは実行中メモリに保持されます。</p></li>
+<li><p><strong>コントローラリネーム</strong>：<code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> が指定されている場合、ステップ実行前にコントローラ名のプレフィックスの付加または削除が1回適用されます。</p></li>
+<li><p><strong>プロファイル選択</strong>：<code class="docutils literal notranslate"><span class="pre">profiles</span></code> が指定されている場合、ルールが順次適用され、各 ROM プロファイルの有効状態が設定されます。</p></li>
+<li><p><strong>Affogato 初期化</strong>：Maya の commandPort への接続を確立します。</p></li>
+<li><p><strong>Maya プリフライト</strong>：Maya の到達可能性を検証します。失敗するとコード 2 で終了し、ステップは実行されません。</p></li>
+<li><p><strong>初期シーンオープン</strong>：<code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code>（デフォルト）で、セッションに <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> と <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> が設定されている場合、ステップ実行前に Maya シーンが1回開かれます。失敗は非致命的（警告としてログ）です。<code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code> 秒待機します。</p></li>
+<li><p><strong>ステップ実行</strong>：ステップは出現順に順次実行されます。最初のステップ以降、各ステップの前にライセンスが再チェックされます。ロールバック、分岐、並列実行はありません。</p></li>
+</ol>
+</section>
+<section id="context-and-overrides">
+<h3>コンテキストとオーバーライド<a class="headerlink" href="#context-and-overrides" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>コンテキストフィールド</strong>：<code class="docutils literal notranslate"><span class="pre">context</span></code> セクションで定義されたすべてのフィールドは、明示的にオーバーライドされない限り、すべてのステップにグローバルに適用されます。これには <code class="docutils literal notranslate"><span class="pre">fisheye</span></code>、<code class="docutils literal notranslate"><span class="pre">pipeline</span></code>、<code class="docutils literal notranslate"><span class="pre">denoising</span></code>、<code class="docutils literal notranslate"><span class="pre">command_port</span></code>、<code class="docutils literal notranslate"><span class="pre">playblast</span></code> などの設定が含まれます。</p></li>
+<li><p><strong>ステップオーバーライド</strong>：<code class="docutils literal notranslate"><span class="pre">process</span></code> ステップの <code class="docutils literal notranslate"><span class="pre">overrides</span></code> セクションは、その特定のステップの期間中のみ適用されます。ステップ完了後、グローバルコンテキストの値が復元されます。個々の処理操作で設定（<code class="docutils literal notranslate"><span class="pre">command_port</span></code>、<code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>、<code class="docutils literal notranslate"><span class="pre">maya_base</span></code> など）を一時的に変更できます。</p></li>
+</ul>
+</section>
+<section id="execution-guarantees">
+<h3>実行の保証<a class="headerlink" href="#execution-guarantees" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>順次実行</strong>：ステップは常に1つずつ、順序どおりに実行されます</p></li>
+<li><p><strong>ロールバックなし</strong>：ステップが失敗した場合、実行は停止し、前のステップは元に戻されません</p></li>
+<li><p><strong>分岐なし</strong>：条件分岐やループはサポートされません</p></li>
+<li><p><strong>並列実行なし</strong>：複数のステップを同時に実行することはできません</p></li>
+<li><p><strong>セッション永続化</strong>：セッションは実行中メモリに保持され、ディスクには保存されません</p></li>
+</ul>
+</section>
+</section>
+<section id="commands">
+<h2>コマンド<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
+<section id="run-script">
+<h3>スクリプト実行<a class="headerlink" href="#run-script" title="Link to this heading"></a></h3>
+<p>YAML スクリプトを実行します：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>&lt;script_path&gt;
+</pre></div>
+</div>
+<p><strong>オプション：</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--file</span></code>、<code class="docutils literal notranslate"><span class="pre">-f</span></code>：YAML スクリプトファイルへのパス（必須）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code>：実行せずにスクリプトを検証する</p></li>
+</ul>
+<p><strong>例：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a script</span>
+FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml
+
+<span class="c1"># Validate without executing</span>
+FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml<span class="w"> </span>--dry-run
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-types">
+<h2>ステップタイプ<a class="headerlink" href="#step-types" title="Link to this heading"></a></h2>
+<section id="process-step">
+<h3><code class="docutils literal notranslate"><span class="pre">process</span></code> ステップ<a class="headerlink" href="#process-step" title="Link to this heading"></a></h3>
+<p>単一の動画ファイルを処理し、必要に応じて結果を Maya にアップロードします。</p>
+<p><strong>形式：</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">                    </span><span class="c1"># Required</span>
+<span class="w">    </span><span class="nt">upload</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                    </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                   </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">lm_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">    </span><span class="nt">export</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                    </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">    </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">            </span><span class="c1"># Optional, default: true</span>
+<span class="w">    </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;int&gt;</span><span class="w">          </span><span class="c1"># Optional, default: 0</span>
+<span class="w">    </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">          </span><span class="c1"># Optional, default: auto (see below)</span>
+<span class="w">    </span><span class="nt">overrides</span><span class="p">:</span><span class="w">                          </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;int&gt;</span><span class="w">              </span><span class="c1"># Optional, override commandPort for this step</span>
+<span class="w">      </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">             </span><span class="c1"># Optional, override maya_scene for this step</span>
+<span class="w">      </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">              </span><span class="c1"># Optional, override maya_base for this step</span>
+<span class="w">      </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">        </span><span class="c1"># Optional, path to save Maya scene file (.ma or .mb)</span>
+<span class="w">      </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">    </span><span class="c1"># Optional, path to save playblast video</span>
+</pre></div>
+</div>
+<p><strong>フィールド：</strong></p>
+<ul>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">video</span></code></strong>（必須、文字列）：処理する動画ファイルへのパス</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">upload</span></code></strong>（任意、マッピング）：Maya へのアップロードオプション</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation</span></code>（bool）：アニメーションカーブをアップロード</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio</span></code>（bool）：動画からオーディオトラックをアップロード</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frames</span></code>（bool）：動画フレームを画像シーケンスとしてアップロード</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lm_frames</span></code>（bool）：ランドマーク付きフレームをアップロード。<strong><code class="docutils literal notranslate"><span class="pre">++</span></code> パイプライン</strong>（<code class="docutils literal notranslate"><span class="pre">RP++</span></code>、<code class="docutils literal notranslate"><span class="pre">Rich++</span></code>、<code class="docutils literal notranslate"><span class="pre">Robust++</span></code>）<strong>では使用不可</strong>。使用すると <code class="docutils literal notranslate"><span class="pre">LM_FRAMES_UNSUPPORTED_PIPELINE</span></code> エラーが発生します。</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">export</span></code></strong>（任意、マッピング）：処理後のエクスポートオプション</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scene</span></code>（bool）：Maya シーンファイルをエクスポート</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playblast</span></code>（bool）：プレイブラスト動画をエクスポート</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">force_reprocess</span></code></strong>（任意、bool）：キャッシュがあっても強制的に再処理。デフォルト：<code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code></strong>（任意、整数）：アニメーションアップロードのフレームオフセット。デフォルト：<code class="docutils literal notranslate"><span class="pre">0</span></code>、0 以上である必要あり。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code></strong>（任意、bool）：処理前に Maya シーンを再オープンするかを制御：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code> — オーバーライドやアップロードフラグに関係なく、常に再オープン</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code> — 再オープンしない（明示的なオプトアウト）</p></li>
+<li><p>省略 — <strong>自動</strong>：いずれかのオーバーライド（<code class="docutils literal notranslate"><span class="pre">command_port</span></code>、<code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>、<code class="docutils literal notranslate"><span class="pre">maya_base</span></code>）が存在し、かつ少なくとも1つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> フラグが <code class="docutils literal notranslate"><span class="pre">true</span></code> の場合にのみ再オープン</p></li>
+<li><p>正の値：Maya タイムラインの <code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code> フレーム目にアニメーションが開始する</p></li>
+<li><p>ゼロ：オフセットなし</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides</span></code></strong>（任意、マッピング）：この process ステップ専用のオーバーライド値</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">command_port</span></code>（任意、整数）：このステップで使用する Maya commandPort 番号。1 ～ 65535 の整数。指定した場合、このステップのみ指定ポートで接続を再作成し、<code class="docutils literal notranslate"><span class="pre">context.command_port</span></code> またはアプリケーション設定のポートを上書きします。再作成後にプリフライトチェックを実行し、Maya に到達可能か確認します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>（任意、文字列）：このステップで使用する Maya シーンファイルへのパス。<code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code> のときにセッションの <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> を上書きします。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maya_base</span></code>（任意、文字列）：このステップで使用する Maya ワークスペースベースディレクトリへのパス。<code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code> のときにセッションの <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> を上書きします。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_scene_path</span></code>（任意、文字列）：処理後に Maya シーンファイルを保存するパス（<code class="docutils literal notranslate"><span class="pre">.ma</span></code> または <code class="docutils literal notranslate"><span class="pre">.mb</span></code> 拡張子が必要）。<code class="docutils literal notranslate"><span class="pre">export.scene</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code> の場合に指定しないと、警告がログされ<strong>シーンは保存されません</strong>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_playblast_path</span></code>（任意、文字列）：プレイブラスト動画を保存するパス。<strong>ファイル拡張子なし</strong>で指定する必要があります（<code class="docutils literal notranslate"><span class="pre">.mp4</span></code> が自動的に付加されます）。<code class="docutils literal notranslate"><span class="pre">export.playblast</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code> の場合に指定しないと、セッションの出力フォルダとアプリ設定からデフォルトパスが生成されます。</p></li>
+</ul>
+<p><strong>重要</strong>：process ステップでは常に適切なポート（オーバーライドまたはコンテキストから）で Affogato 接続を再作成し、処理前にプリフライトチェックを実行します。<code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> が省略されオーバーライドが存在する場合、上記の自動ルールに従いシーンが再オープンされます（<code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> 参照）。</p>
+</li>
+</ul>
+<p><strong>Maya 内部ワークフロー</strong>   process ステップでいずれかの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合、CLI は commandPort 経由で Maya 内で以下の操作を厳密な順序で実行します。</p>
+<ol class="arabic simple">
+<li><p>シーンタイミングの設定</p></li>
+</ol>
+<ul class="simple">
+<li><p>Maya シーンの FPS を入力動画に合わせて設定する。</p></li>
+<li><p>シーンの再生範囲を動画の総フレーム数に合わせて設定する。</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>オーディオの設定（<code class="docutils literal notranslate"><span class="pre">upload.audio</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合）</p></li>
+</ol>
+<ul class="simple">
+<li><p>入力動画からオーディオトラックをインポートする。</p></li>
+<li><p>オーディオを Maya タイムラインにアタッチする。</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>参照フレームの設定（<code class="docutils literal notranslate"><span class="pre">upload.frames</span> <span class="pre">=</span> <span class="pre">true</span></code> または <code class="docutils literal notranslate"><span class="pre">upload.lm_frames</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合）</p></li>
+</ol>
+<ul class="simple">
+<li><p>動画フレームを画像シーケンスとして抽出する。</p></li>
+<li><p>以下を使用して imagePlane を作成または更新する：</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p><code class="docutils literal notranslate"><span class="pre">upload.frames</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合は生フレーム</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">upload.lm_frames</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合はランドマーク付きフレーム</p></li>
+<li><p>アニメーションのリセット</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>セッションで定義されたすべてのコントローラの既存アニメーションキーフレームを削除する。</p></li>
+</ol>
+<ul class="simple">
+<li><p>これによりアップロードが決定的になり、複数回の実行でキーフレームが蓄積しないようにする。</p></li>
+<li><p>アニメーションのアップロード</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>新しく計算されたアニメーションカーブをすべてのセッションコントローラに適用する。</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time_offset_frames</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> の場合、挿入前にすべてのキーフレームが指定フレーム数だけ前方にシフトされる。</p></li>
+<li><p>出力の保存</p></li>
+</ul>
+<p>プレイブラスト動画を保存する（<code class="docutils literal notranslate"><span class="pre">export.playblast</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合）。</p>
+<p>Maya シーンファイルを保存する（<code class="docutils literal notranslate"><span class="pre">export.scene</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合）。</p>
+<p>注意</p>
+<p>すべての操作は process ステップごとにアトミックに実行され、部分的なアップロードはサポートされません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span> <span class="pre">=</span> <span class="pre">true</span></code> の場合、このワークフロー開始前に Maya シーンが再オープンされます。</p>
+<p>コントローラのマッチングは名前ベースです。解決できないコントローラにはアニメーションは適用されず、ロールバックは行われません。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">    </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">export</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span>
+<span class="w">      </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/alternate_scene.mb&quot;</span>
+<span class="w">      </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_workspace&quot;</span>
+<span class="w">      </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01.ma&quot;</span>
+<span class="w">      </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_playblast&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-step">
+<h3>少なくとも 1 つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya シーンは変更されません。<a class="headerlink" href="#sleep-step" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sleep</span></code> ステップ</p>
+<p><strong>形式：</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;float&gt;</span><span class="w">    </span><span class="c1"># Required: number of seconds to sleep</span>
+</pre></div>
+</div>
+<p><strong>フィールド：</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">seconds</span></code></strong>（必須、float）：実行を一時停止する秒数。0 以上の数である必要があります。</p></li>
+</ul>
+<p>コントローラのマッチングは名前ベースです。解決できないコントローラにはアニメーションは適用されず、ロールバックは行われません。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0</span><span class="w">  </span><span class="c1"># Wait 5 seconds</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5</span><span class="w">  </span><span class="c1"># Wait 2.5 seconds</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>例<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="example-1-basic-processing">
+<h3>例 1：基本的な処理<a class="headerlink" href="#example-1-basic-processing" title="Link to this heading"></a></h3>
+<p>動画を処理して Maya にアニメーションをアップロードする：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-multiple-videos-with-scene-changes">
+<h3>例 2：シーン切り替えを伴う複数動画<a class="headerlink" href="#example-2-multiple-videos-with-scene-changes" title="Link to this heading"></a></h3>
+<p>複数動画を処理し、動画ごとに Maya シーンを切り替える：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/scene_01.mb&quot;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/scene_02.mb&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-3-animation-with-time-offset">
+<h3>例 3：タイムオフセット付きアニメーション<a class="headerlink" href="#example-3-animation-with-time-offset" title="Link to this heading"></a></h3>
+<p>異なるタイムオフセットでアニメーションをアップロードする：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w">    </span><span class="c1"># Starts at frame 100 in Maya</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w">    </span><span class="c1"># Starts at frame 200 in Maya</span>
+</pre></div>
+</div>
+</section>
+<section id="example-4-controller-prefix-management">
+<h3>例 4：コントローラプレフィックス管理<a class="headerlink" href="#example-4-controller-prefix-management" title="Link to this heading"></a></h3>
+<p>処理前にコンテキストでコントローラプレフィックスを追加する：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="example-5-full-processing-pipeline">
+<h3>例 5：フル処理パイプライン<a class="headerlink" href="#example-5-full-processing-pipeline" title="Link to this heading"></a></h3>
+<p>すべての機能を使った完全なワークフロー。注意：<code class="docutils literal notranslate"><span class="pre">lm_frames</span></code> は非 <code class="docutils literal notranslate"><span class="pre">++</span></code> パイプライン（例：<code class="docutils literal notranslate"><span class="pre">Rich</span></code>、<code class="docutils literal notranslate"><span class="pre">Robust</span></code>、<code class="docutils literal notranslate"><span class="pre">RP</span></code>）が必要なため、コンテキストで <code class="docutils literal notranslate"><span class="pre">pipeline:</span> <span class="pre">&quot;Rich&quot;</span></code> を設定しています：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">wait_seconds_after_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42069</span>
+<span class="w">  </span><span class="nt">pipeline</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Rich&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">lm_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">export</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">      </span><span class="c1"># reopen_maya_scene omitted — auto-reopens because overrides are present and upload is requested</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/alternate_scene.mb&quot;</span>
+<span class="w">        </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_workspace&quot;</span>
+<span class="w">        </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_processed.ma&quot;</span>
+<span class="w">        </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_playblast&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-6-skip-initial-scene-opening">
+<h3>例 6：シーンオープンのスキップ<a class="headerlink" href="#example-6-skip-initial-scene-opening" title="Link to this heading"></a></h3>
+<p>自動シーンオープンをスキップし、シーンを開くタイミングを手動で制御する：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># Skip initial scene opening after validation</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Explicitly reopen before this step</span>
+</pre></div>
+</div>
+</section>
+<section id="example-7-profile-selection">
+<h3>例 7：プロファイル選択<a class="headerlink" href="#example-7-profile-selection" title="Link to this heading"></a></h3>
+<p>すべてのプロファイルを無効化してから、特定の動画から10個をランダムに有効化する：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">profiles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">      </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_walk&quot;</span>
+<span class="w">      </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="logging">
+<h2>ログ<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<p>スクリプト実行時（<code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> モードでない場合）、CLI はスクリプトと同じディレクトリに <code class="docutils literal notranslate"><span class="pre">&lt;スクリプト名&gt;.log</span></code> というログファイルを自動的に作成します。例えば、<code class="docutils literal notranslate"><span class="pre">my_script.yaml</span></code> を実行すると、同じディレクトリに <code class="docutils literal notranslate"><span class="pre">my_script.log</span></code> が生成されます。</p>
+<ul class="simple">
+<li><p><strong>ログレベル</strong>：INFO 以上（INFO、WARNING、ERROR）</p></li>
+<li><p><strong>エンコーディング</strong>：UTF-8</p></li>
+<li><p><strong>ライフサイクル</strong>：実行開始時にログファイルが作成され、実行完了時（成功・失敗に関わらず）にログシンクが除去されます。既存のログファイルがある場合は上書きされます。</p></li>
+</ul>
+<p>このログファイルはコンソール出力と同じ構造化メッセージをキャプチャし、デバッグや監査のための永続的な実行記録を提供します。</p>
+</section>
+<section id="error-handling">
+<h2>エラー処理<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<section id="error-codes">
+<h3>エラーコード<a class="headerlink" href="#error-codes" title="Link to this heading"></a></h3>
+<p>CLI はプログラムによるエラー処理のため、構造化されたエラーコードを使用します：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>コード</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_NOT_FOUND</span></code></p></td>
+<td><p>セッションファイルが存在しない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_INVALID</span></code></p></td>
+<td><p>セッションファイルが無効または破損している</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_LOAD_ERROR</span></code></p></td>
+<td><p>セッション読み込みエラー（一般的な読み込み失敗）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NO_SESSION_LOADED</span></code></p></td>
+<td><p>セッションを読み込まずに操作を試行した</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MISSING_RENAME_CONTROLLERS_PREFIX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> コンテキストフィールドに prefix がない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_RENAME_CONTROLLERS_PREFIX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> コンテキストフィールドの prefix 値が無効</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_RENAME_CONTROLLERS_ACTION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> コンテキストフィールドの action が無効（&quot;prepend&quot; または &quot;remove&quot; である必要あり）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PROFILES_INSUFFICIENT_MATCH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select:</span> <span class="pre">N</span></code> が指定されたが、マッチしたプロファイルが N 未満</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VIDEO_NOT_FOUND</span></code></p></td>
+<td><p>動画ファイルが存在しない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code></p></td>
+<td><p>Maya commandPort に到達できない</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_NOT_SET</span></code></p></td>
+<td><p>セッションまたはオーバーライドで Maya シーンパスが設定されていない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_NOT_FOUND</span></code></p></td>
+<td><p>Maya シーンファイルが存在しない</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_OPEN_ERROR</span></code></p></td>
+<td><p>Maya シーンのオープンに失敗（<code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code> のとき発生）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_BASE_NOT_SET</span></code></p></td>
+<td><p>セッションで Maya ベースパスが設定されていない</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_BASE_NOT_FOUND</span></code></p></td>
+<td><p>Maya ベースフォルダが存在しない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PIPELINE_ERROR</span></code></p></td>
+<td><p>動画処理パイプラインが失敗した（学習/推論の失敗）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ANIMATION_NOT_FOUND</span></code></p></td>
+<td><p>処理後にアニメーションキャッシュファイルが見つからない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LM_FRAMES_UNSUPPORTED_PIPELINE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">++</span></code> パイプラインで <code class="docutils literal notranslate"><span class="pre">lm_frames</span></code> アップロードが要求された（非対応）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DENOISING_PROFILE_NOT_FOUND</span></code></p></td>
+<td><p>指定パスにノイズ除去プロファイルファイルが見つからない</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DENOISING_PROFILE_LOAD_ERROR</span></code></p></td>
+<td><p>ノイズ除去プロファイルファイルの読み込みに失敗した</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR_NOT_CREATED</span></code></p></td>
+<td><p>必要な出力ディレクトリの作成に失敗した</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_FILE_NOT_CREATED</span></code></p></td>
+<td><p>処理後に期待される出力ファイルが作成されなかった</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PLAYBLAST_PATH_HAS_SUFFIX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">out_playblast_path</span></code> にファイル拡張子が含まれていた（<code class="docutils literal notranslate"><span class="pre">.mp4</span></code> は自動で付加される）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="execution-behavior">
+<h3>実行時の動作<a class="headerlink" href="#execution-behavior" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>検証エラー</strong>：いずれのステップも実行される前にスクリプト検証が失敗（終了コード 1）</p></li>
+<li><p><strong>Maya エラー</strong>：Maya 関連の失敗（到達不可、シーンオープン失敗など）はコード 2 で終了</p></li>
+<li><p><strong>実行エラー</strong>：最初に失敗したステップでスクリプトが停止（終了コード 3）</p></li>
+</ul>
+</section>
+<section id="exit-codes">
+<h3>終了コード<a class="headerlink" href="#exit-codes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>：成功</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>：検証エラー（スクリプトスキーマ検証、必須フィールド欠落、無効な値）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>：Maya 関連エラー（Maya に到達不可、シーンオープン失敗、Maya 設定の問題）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>：実行失敗（ライセンスチェック失敗、セッション読み込みエラー、パイプラインエラー、ステップ実行失敗）</p></li>
+</ul>
+</section>
+</section>
+<section id="maya-integration">
+<h2>Maya 連携<a class="headerlink" href="#maya-integration" title="Link to this heading"></a></h2>
+<section id="prerequisites">
+<h3>前提条件<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Maya が起動している</strong>こと（commandPort が有効）</p></li>
+<li><p><strong>CommandPort</strong> が開いていること（通常ポート 42069、またはスクリプトの <code class="docutils literal notranslate"><span class="pre">context.command_port</span></code> で指定したポート）</p></li>
+</ol>
+</section>
+<section id="maya-preflight-and-scene-opening">
+<h3>Maya プリフライトとシーンオープン<a class="headerlink" href="#maya-preflight-and-scene-opening" title="Link to this heading"></a></h3>
+<p>いずれのステップを実行する前に、CLI はプリフライトチェックを実行します：</p>
+<ol class="arabic simple">
+<li><p>Maya commandPort の接続をテスト</p></li>
+<li><p>Maya に到達できない場合：</p>
+<ul class="simple">
+<li><p>エラーをログ：<code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code></p></li>
+<li><p>コード 2 で終了</p></li>
+<li><p>ステップは実行されない</p></li>
+</ul>
+</li>
+<li><p>Maya に到達でき、<code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code> が <code class="docutils literal notranslate"><span class="pre">true</span></code>（デフォルト）の場合：</p>
+<ul class="simple">
+<li><p>セッションで指定された Maya シーン（<code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> と <code class="docutils literal notranslate"><span class="pre">maya_base</span></code>）を自動的に開く</p></li>
+<li><p>設定されていれば <code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code> 秒待機</p></li>
+<li><p>処理開始前にシーンが準備完了していることを保証</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="upload-options">
+<h3>アップロードオプション<a class="headerlink" href="#upload-options" title="Link to this heading"></a></h3>
+<p>動画処理時に、次をアップロードできます：</p>
+<ul class="simple">
+<li><p><strong>Animation（アニメーション）</strong>：フェイシャルアニメーションカーブ（ブレンドシェープ、コントローラ）</p></li>
+<li><p><strong>Audio（オーディオ）</strong>：動画からのオーディオトラック</p></li>
+<li><p><strong>Frames（フレーム）</strong>：参照用の動画フレームを画像シーケンスとして</p></li>
+<li><p><strong>LM Frames</strong>：可視化用のランドマーク付きフレーム</p></li>
+</ul>
+</section>
+<section id="scene-management">
+<h3>シーン管理<a class="headerlink" href="#scene-management" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code></strong>：process ステップ前に Maya シーンを再オープンするかを制御。<code class="docutils literal notranslate"><span class="pre">true</span></code> = 常に、<code class="docutils literal notranslate"><span class="pre">false</span></code> = しない、省略 = 自動（いずれかのオーバーライドが存在し、かつ少なくとも1つのアップロードフラグが true の場合）。再オープン時はオーバーライドの <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>/<code class="docutils literal notranslate"><span class="pre">maya_base</span></code> がセッション値より優先されます。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides.out_scene_path</span></code></strong>：処理後に Maya シーンを指定パスに保存</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides.out_playblast_path</span></code></strong>：処理後にプレイブラスト動画を指定パスに保存</p></li>
+<li><p>シーンパスはセッションの <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> と <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> プロパティから解決されます</p></li>
+<li><p><strong>Process ステップのプリフライト</strong>：各 process ステップの前に、適切なポート（オーバーライドまたはコンテキストから）で接続を再作成し、Maya に到達可能か確認するプリフライトチェックを実行します</p></li>
+</ul>
+</section>
+<section id="time-offset">
+<h3>タイムオフセット<a class="headerlink" href="#time-offset" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code> パラメータで、アニメーションが Maya タイムラインのどこから開始するかを制御できます：</p>
+<ul class="simple">
+<li><p><strong>正のオフセット</strong>：アニメーションが遅く開始（例：<code class="docutils literal notranslate"><span class="pre">100</span></code> でフレーム 100 から開始）</p></li>
+<li><p><strong>ゼロ</strong>：アニメーションがデフォルト位置（通常フレーム 0）から開始</p></li>
+<li><p><strong>注意</strong>：0 以上の値のみ許可</p></li>
+</ul>
+<p>次のような用途に便利です：</p>
+<ul class="simple">
+<li><p>複数テイクを1本のタイムラインにまとめる</p></li>
+<li><p>既存のキーフレームとアニメーションを合わせる</p></li>
+<li><p>間隔を空けたアニメーションシーケンスを作成する</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>トラブルシューティング<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="script-validation-fails">
+<h3>スクリプト検証が失敗する<a class="headerlink" href="#script-validation-fails" title="Link to this heading"></a></h3>
+<p><strong>問題</strong>：構造や型に関するエラーでスクリプト検証が失敗する。</p>
+<p><strong>対処</strong>：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">version:</span> <span class="pre">1</span></code> が存在し、正確に <code class="docutils literal notranslate"><span class="pre">1</span></code> であることを確認</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.session</span></code> が空でない文字列であることを確認</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code> が空でないリストであることを確認</p></li>
+<li><p>各ステップがちょうど1つのキー（<code class="docutils literal notranslate"><span class="pre">process</span></code> または <code class="docutils literal notranslate"><span class="pre">sleep</span></code>）を持つことを確認</p></li>
+<li><p>フィールドの型がスキーマと一致しているか確認（文字列、真偽値、整数）</p></li>
+</ul>
+</section>
+<section id="maya-not-reachable">
+<h3>Maya に到達できない<a class="headerlink" href="#maya-not-reachable" title="Link to this heading"></a></h3>
+<p><strong>問題</strong>：<code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code> エラーでスクリプトが終了する。</p>
+<p><strong>対処</strong>：</p>
+<ul class="simple">
+<li><p>Maya が起動していることを確認</p></li>
+<li><p>commandPort が開いているか確認：Maya で <code class="docutils literal notranslate"><span class="pre">cmds.commandPort(n=':42069',</span> <span class="pre">stp='python')</span></code> を実行（または <code class="docutils literal notranslate"><span class="pre">context.command_port</span></code> で指定したポートを使用）</p></li>
+<li><p>ファイアウォール/ネットワーク設定で localhost 接続が許可されているか確認</p></li>
+<li><p>コンテキストでカスタム <code class="docutils literal notranslate"><span class="pre">command_port</span></code> を使っている場合、Maya の commandPort が指定ポート番号と一致しているか確認</p></li>
+</ul>
+</section>
+<section id="video-processing-fails">
+<h3>動画処理が失敗する<a class="headerlink" href="#video-processing-fails" title="Link to this heading"></a></h3>
+<p><strong>問題</strong>：動画処理中に <code class="docutils literal notranslate"><span class="pre">PIPELINE_ERROR</span></code> が発生する。</p>
+<p><strong>対処</strong>：</p>
+<ul class="simple">
+<li><p>動画ファイルが存在し読み取り可能か確認</p></li>
+<li><p>セッションに有効なソルバー設定があるか確認</p></li>
+<li><p>キャッシュ用の十分なディスク容量があるか確認</p></li>
+<li><p>詳細なエラーメッセージはログを確認</p></li>
+</ul>
+</section>
+<section id="animation-not-uploading">
+<h3>アニメーションがアップロードされない<a class="headerlink" href="#animation-not-uploading" title="Link to this heading"></a></h3>
+<p><strong>問題</strong>：アニメーションアップロードは成功するように見えるが、Maya に何も表示されない。</p>
+<p><strong>対処</strong>：</p>
+<ul class="simple">
+<li><p>Maya シーンに正しいキャラクターリグが読み込まれているか確認</p></li>
+<li><p>セッションと Maya シーンのコントローラ名が一致しているか確認</p></li>
+<li><p>Maya にアニメーションレイヤーが存在するか確認（デフォルト：&quot;BaseAnimation&quot;）</p></li>
+<li><p>Maya スクリプトエディタで Python エラーを確認</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>ベストプラクティス<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>まず検証する</strong>：実行前に <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> でスクリプトを検証する</p></li>
+<li><p><strong>明示的なパスを使う</strong>：信頼性のため絶対パスを推奨</p></li>
+<li><p><strong>段階的にテストする</strong>：簡単なスクリプトから始め、徐々に複雑にする</p></li>
+<li><p><strong>Maya 接続を確認する</strong>：アップロード付き処理の前に Maya が起動していることを確認</p></li>
+<li><p><strong>タイムオフセットに注意する</strong>：重複を避けるためフレーム範囲を確認</p></li>
+<li><p><strong>スクリプトをバージョン管理する</strong>：再現性のためスクリプトをバージョン管理に含める</p></li>
+</ol>
+</section>
+<section id="advanced-usage">
+<h2>上級者向け<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
+<section id="batch-processing">
+<h3>バッチ処理<a class="headerlink" href="#batch-processing" title="Link to this heading"></a></h3>
+<p>複数動画を順番に処理する：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/take_03.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</section>
+<section id="controller-prefix-management">
+<h3>コントローラプレフィックス管理<a class="headerlink" href="#controller-prefix-management" title="Link to this heading"></a></h3>
+<p>処理前にコンテキストでコントローラプレフィックスを追加する：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-scene-switching">
+<h3>条件付きシーン切り替え<a class="headerlink" href="#conditional-scene-switching" title="Link to this heading"></a></h3>
+<p>動画に応じて Maya シーンを切り替える：</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/closeup_01.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/closeup_scene.mb&quot;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/wide_01.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/wide_scene.mb&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="support">
+<h2>サポート<a class="headerlink" href="#support" title="Link to this heading"></a></h2>
+<p>問題、質問、機能リクエストについては、メインの FCS ドキュメントを参照するか、開発チームにお問い合わせください。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="experiments/004_qualitative_analysis.html" class="btn btn-neutral float-left" title="工数と品質のトレードオフに関する定性分析" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="005_mcp.html" class="btn btn-neutral float-right" title="FCSをAIアシスタントと使用する（MCP）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.
+      <span class="lastupdated">Last updated on March 25, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: dev Lang: jp
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">dev (unreleased)</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/jp/index.html">26.04</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.10/jp/index.html">25.10</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.07/jp/index.html">25.07</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

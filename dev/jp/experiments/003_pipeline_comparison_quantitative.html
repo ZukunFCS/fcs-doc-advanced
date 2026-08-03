@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="jp" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-03-25T22:53:10+00:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>パイプライン比較++ (定量評価) &mdash; FCS Doc Advanced dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5a3f213f"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="工数と品質のトレードオフに関する定性分析" href="004_qualitative_analysis.html" />
+    <link rel="prev" title="パイプラインの比較" href="002_pipeline_comparison.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">コンテンツ</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../000_introduction.html">はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">FCSとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#who-is-this-page-for">このサイトについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../001_preliminary.html">予備知識</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#general-workflow">FCSの一般的なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#profiles">Profiles（プロファイル）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#baseline-profiles">Baseline profiles（ベースライン プロファイル）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../002_processing.html">FCS内部の処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id1">1. フェイシャルトラッキング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id2">2. 顔の向きを補正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id3">3. トラッキング情報の取捨選択</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../002_processing.html#id4">ブレンドシェイプの選択方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id5">4. キャラクターの表情に変換</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">検証</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="001_challenging_scenarios.html">様々な条件下での検証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#scenario-detail">検証内容について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="001_challenging_scenarios.html#gallery">動画ギャラリー</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="002_pipeline_comparison.html">パイプラインの比較</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="002_pipeline_comparison.html#table-of-contents">目次</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#just-tell-me-which-pipeline-i-should-use">どのパイプラインを使用すべきか フローチャート</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#pipeline">パイプライン一覧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#experiment-scenarios">検証詳細</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#gallery">動画ギャラリー</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#conclusion">結論</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">パイプライン比較++ (定量評価)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tl-dr">要約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methodology">評価方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">結果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#win-matrix">勝敗マトリクス</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bradley-terry-model">Bradley-Terryモデル</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-vs-profile-count">性能 vs. プロファイル数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">結論</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_qualitative_analysis.html">工数と品質のトレードオフに関する定性分析</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../004_cli_tool.html">CLI ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#table-of-contents">目次</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#quick-start">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#script-format">スクリプト形式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#top-level-structure">トップレベル構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#version">バージョン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#context">コンテキスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#steps">ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#validation-strictness">検証の厳格さ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#profiles">プロファイル</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#execution-model">実行モデル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-lifecycle">実行ライフサイクル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#context-and-overrides">コンテキストとオーバーライド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-guarantees">実行の保証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#commands">コマンド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#run-script">スクリプト実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#step-types">ステップタイプ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#process-step"><code class="docutils literal notranslate"><span class="pre">process</span></code> ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#sleep-step">少なくとも 1 つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya シーンは変更されません。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-1-basic-processing">例 1：基本的な処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-2-multiple-videos-with-scene-changes">例 2：シーン切り替えを伴う複数動画</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-3-animation-with-time-offset">例 3：タイムオフセット付きアニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-4-controller-prefix-management">例 4：コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-5-full-processing-pipeline">例 5：フル処理パイプライン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-6-skip-initial-scene-opening">例 6：シーンオープンのスキップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-7-profile-selection">例 7：プロファイル選択</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#logging">ログ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#error-handling">エラー処理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#error-codes">エラーコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-behavior">実行時の動作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#exit-codes">終了コード</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#maya-integration">Maya 連携</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#prerequisites">前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#maya-preflight-and-scene-opening">Maya プリフライトとシーンオープン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#upload-options">アップロードオプション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#scene-management">シーン管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#time-offset">タイムオフセット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#script-validation-fails">スクリプト検証が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#maya-not-reachable">Maya に到達できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#video-processing-fails">動画処理が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#animation-not-uploading">アニメーションがアップロードされない</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#best-practices">ベストプラクティス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#advanced-usage">上級者向け</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#batch-processing">バッチ処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#controller-prefix-management">コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#conditional-scene-switching">条件付きシーン切り替え</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#support">サポート</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../005_mcp.html">FCSをAIアシスタントと使用する（MCP）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#before-you-start">開始する前に</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#enable-the-mcp-server">MCPサーバーを有効にする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#connect-an-ai-assistant">AIアシスタントを接続する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#chatgpt-desktop-and-the-codex-app">ChatGPTデスクトップとCodexアプリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#codex-cli">Codex CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#claude-code">Claude Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#visual-studio-code-and-github-copilot">Visual Studio CodeとGitHub Copilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#opencode">OpenCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#claude-desktop">Claude Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#ask-fcs-to-perform-work">FCSに作業を依頼する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#available-workflows">利用可能なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#review-actions-before-approval">承認前に操作内容を確認する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-disabled">FCSにDisabledと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-waiting-for-a-valid-license">FCSにWaiting for a valid licenseと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-an-error-or-the-port-is-already-in-use">FCSにエラーが表示される、またはポートが使用中である</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#the-assistant-cannot-connect">アシスタントが接続できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#the-assistant-connects-but-an-action-is-rejected">アシスタントは接続できるが操作が拒否される</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#client-documentation">クライアントのドキュメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://zukunfcs.github.io/fcs-doc">fcs-doc ↗</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">検証</a></li>
+      <li class="breadcrumb-item active">パイプライン比較++ (定量評価)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/experiments/003_pipeline_comparison_quantitative.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="pipeline-comparison-quantitative">
+<h1>パイプライン比較++ (定量評価)<a class="headerlink" href="#pipeline-comparison-quantitative" title="Link to this heading"></a></h1>
+<section id="tl-dr">
+<h2>要約<a class="headerlink" href="#tl-dr" title="Link to this heading"></a></h2>
+<p>1000件のブラインドアニメーター比較において、RP++、Rich++、Robust++は従来のパイプラインに対して一貫した選好の向上を示しています。特にキャリブレーションプロファイルが20個以上ある場合に顕著です。改善はアクター固有のデータが増えるほど大きくなり、ベースラインのトラッキング変更ではなく、アイデンティティ適応の向上を示しています。</p>
+</section>
+<section id="background">
+<h2>背景<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
+<p>25.10で新しいパイプライン（<code class="docutils literal notranslate"><span class="pre">++</span></code>サフィックス付き）をリリースしました。ご興味のある方にお知らせすると、新しい顔トラッキングバックエンドに切り替えました。このバックエンドは、従来のバックエンドと比較して、特にクローズアップ画像（ヘッドマウントカメラなど）において、より安定的で正確な結果を提供します。26.04でパイプラインのいくつかのバグを修正し、新しいトラッキングパイプラインが従来のものをどのように上回るかを適切にテストしました。その結果をご紹介します。</p>
+<p>このページでは、リターゲットプロファイルを、アクターの個々の画像と、その画像のアクターと同じ表情を表現するようにリグされた対応するキャラクターとして定義します。</p>
+<p>アニメーションの品質は複雑な概念であり、まず第一に非常に主観的です。しかし一般的に、最終的なアニメーションの品質に影響を与える主な要素は以下の通りです：</p>
+<ol class="arabic simple">
+<li><p>フェイシャルトラッキングの品質（トラッキングがアクターの表情をどれだけ正確に捉えるか）、</p></li>
+<li><p>リターゲットプロファイルの品質（プロファイルが実際にアクターとどれだけ一致しているか）、</p></li>
+<li><p>フェイシャルリターゲットプロファイルの数量（アニメーションのリターゲットに使用されるプロファイルの数）、</p></li>
+<li><p>外挿方法の品質（アルゴリズムがリターゲットプロファイルを使用してアクターの顔の動きをどれだけ上手く説明できるか）。</p></li>
+</ol>
+<p>今回のアップデートはフェイシャルトラッキングの品質に焦点を当てています。フェイシャルトラッキングの品質を評価するために社内で使用している確立された決定論的メトリクスがありますが、それらが必ずしも最終的なアニメーションの品質の良い信頼できる指標を提供するとは限らないことがわかりました。そのため、プロのアニメーターによる主観的評価に頼ることが多く、本日はその評価結果を共有したいと思います。</p>
+</section>
+<section id="methodology">
+<h2>評価方法<a class="headerlink" href="#methodology" title="Link to this heading"></a></h2>
+<p>主観的評価は社内のプロのアニメーター（評価者）によって行われました。</p>
+<p>評価者には、異なるパイプラインで生成されたアニメーションのペアが、元のパフォーマンス映像とともに表示されます。評価者は、短いクリップにおいてアクターの表情をより忠実に再現しているアニメーションを選ぶよう求められます。評価者にはどのパイプラインが各アニメーションを生成したかは伝えられません。表示順序（左右）はランダム化されました。総データサイズは1000件の比較で、5名のプロの評価者が参加しました。</p>
+<p><strong>クリップの選択：</strong> ヘッドマウントカメラで撮影された、プロダクションデータを代表する社内コーパスから5秒のクリップがランダムに選択されました。</p>
+<p><strong>評価者への指示：</strong> アクターの表情をより忠実に再現しているアニメーションを選択してください。元のパフォーマンス映像が参照として表示されます。</p>
+<p><strong>リプレイ：</strong> 評価者は何度でもクリップを再生できます。</p>
+<p><strong>表示方法：</strong> クリップは並べて表示され、参照パフォーマンス映像は中央または両側に表示されます（評価者の選択）。</p>
+<p><strong>パイプラインの選択：</strong> パイプラインは以下のリストからランダムに選択されます： RP、Rich、Robust、RP++、Rich++、Robust++。ただし、Robustはプロダクションで広く使用されていないため、比較回数が少なくなっています。</p>
+<p><strong>プロファイルの選択：</strong> Range of Motion (ROM) セットから20個以上のプロファイル、他の映像から0～100個のプロファイル（プロダクションの初期段階から蓄積されたもの）、処理中の映像から0～5個のプロファイルを想定しています。これは、初期には少数のプロファイルのみが利用可能で、後期にはより多くのプロファイルが利用可能になるプロダクションの各段階を忠実に再現しています。</p>
+<p>各比較は1名の評価者によって評価されます。重複する割り当てを含む小規模なパイロットスタディでは、評価者間の一致率は高いものでした。</p>
+<p>本研究は主にレガシーパイプラインとその新しい++版の比較に焦点を当てています。また、より多くのプロファイルが利用可能な場合にどのパイプラインが最も性能が良いかについても検討しています。</p>
+<p>レガシーRobustはプロダクションで広く使用されていないため、比較回数が少なくなっています。</p>
+</section>
+<section id="results">
+<h2>結果<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<section id="win-matrix">
+<h3>勝敗マトリクス<a class="headerlink" href="#win-matrix" title="Link to this heading"></a></h3>
+<p><img alt="勝敗マトリクス" src="../_images/win_matrix.jpeg" /></p>
+<p>各パイプライン間の比較の生データを示します。全体として、新しいパイプラインであるRP++、Rich++、Robust++が従来のパイプラインを上回る傾向にあることが容易に確認できます。</p>
+<p>このマトリクスは全プロファイル数にわたる結果を集約していることに注意してください。以下のBradley-Terryモデルはプロファイル数がパイプライン性能に与える影響を分離しています。</p>
+</section>
+<section id="bradley-terry-model">
+<h3>Bradley-Terryモデル<a class="headerlink" href="#bradley-terry-model" title="Link to this heading"></a></h3>
+<p>さらに、<a class="reference external" href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bradley-Terryモデル</a>を用いて各パイプラインの性能を相互にモデリングしています。</p>
+<p>パイプラインの性能は以下のようにモデル化されます：</p>
+<div class="math notranslate nohighlight">
+\[
+logit(P(pipe_a &gt; pipe_b | s)) = (\beta_a - \beta_b) + (\phi+ (\delta_a - \delta_b)) log(1+s)
+\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(P(pipe_a &gt; pipe_b)\)</span>はパイプラインbと比較された際にパイプラインaが選択される確率、<span class="math notranslate nohighlight">\(\beta\)</span>はパイプラインの基本性能、<span class="math notranslate nohighlight">\(s\)</span>はプロファイル数、<span class="math notranslate nohighlight">\(\phi\)</span>は<span class="math notranslate nohighlight">\(s\)</span>に対する共有のグローバルな依存性、<span class="math notranslate nohighlight">\(\delta\)</span>はパイプラインの性能に対する追加データの限界効果を表します。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>項</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>β</p></td>
+<td><p>最小データでのソルバーの固有品質</p></td>
+</tr>
+<tr class="row-odd"><td><p>δ</p></td>
+<td><p>ソルバーが追加データを品質に変換する効率</p></td>
+</tr>
+<tr class="row-even"><td><p>φ</p></td>
+<td><p>グローバルな収穫逓減効果</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="performance-vs-profile-count">
+<h3>性能 vs. プロファイル数<a class="headerlink" href="#performance-vs-profile-count" title="Link to this heading"></a></h3>
+<p><span class="math notranslate nohighlight">\(\beta, \delta, \text{and } \phi\)</span>を求めた後、各アルゴリズムの異なるプロファイル数における性能を可視化できます。</p>
+<p><img alt="性能" src="../_images/performance_over_profiles.jpeg" /></p>
+<p>Y軸は推定Bradley-Terry強度を表し、レガシーRobustがベースラインとして0に固定されています。高い値は評価者の選好がより強いことを示します。この値はモデルの<span class="math notranslate nohighlight">\(\beta + \delta \cdot \log(1+s)\)</span>に対応します。</p>
+<p>グラフから、すべての新しいパイプラインの性能は従来のリファレンスパイプラインRPと同等です。セッションにプロファイルが追加されるにつれて、レガシーパイプラインと新しいパイプラインの性能差が拡大します。</p>
+<p>レガシーRobustはBradley-Terryモデルの基準ベースラインとして機能します（強度は0に固定）。これはマルチアクターセッション向けに設計されており、他のパイプラインが共有する単一アクターの前提に反するユースケースです。これが、この単一アクター評価における相対的に低い性能を説明しています。Robustが適切な場合の詳細は<a class="reference internal" href="002_pipeline_comparison.html"><span class="std std-doc">パイプラインの比較</span></a>を参照してください。</p>
+</section>
+</section>
+<section id="conclusion">
+<h2>結論<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>1000件のブラインドアニメーター比較において、新世代パイプライン（RP++、Rich++、Robust++）は従来のパイプラインに対して一貫した選好の向上を示し、利用可能なキャリブレーションプロファイルが増えるほど改善が大きくなります。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="002_pipeline_comparison.html" class="btn btn-neutral float-left" title="パイプラインの比較" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="004_qualitative_analysis.html" class="btn btn-neutral float-right" title="工数と品質のトレードオフに関する定性分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.
+      <span class="lastupdated">Last updated on March 25, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: dev Lang: jp
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">dev (unreleased)</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/jp/index.html">26.04</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.10/jp/index.html">25.10</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.07/jp/index.html">25.07</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

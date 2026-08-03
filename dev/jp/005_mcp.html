@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="jp" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-08-03T04:09:33+00:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCSをAIアシスタントと使用する（MCP） &mdash; FCS Doc Advanced dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5a3f213f"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="CLI ツール" href="004_cli_tool.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">コンテンツ</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="000_introduction.html">はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">FCSとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#who-is-this-page-for">このサイトについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="001_preliminary.html">予備知識</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#general-workflow">FCSの一般的なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#profiles">Profiles（プロファイル）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#baseline-profiles">Baseline profiles（ベースライン プロファイル）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="002_processing.html">FCS内部の処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id1">1. フェイシャルトラッキング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id2">2. 顔の向きを補正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id3">3. トラッキング情報の取捨選択</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="002_processing.html#id4">ブレンドシェイプの選択方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id5">4. キャラクターの表情に変換</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="experiments/index.html">検証</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="experiments/001_challenging_scenarios.html">様々な条件下での検証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#scenario-detail">検証内容について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#gallery">動画ギャラリー</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/002_pipeline_comparison.html">パイプラインの比較</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/002_pipeline_comparison.html#table-of-contents">目次</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#just-tell-me-which-pipeline-i-should-use">どのパイプラインを使用すべきか フローチャート</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#pipeline">パイプライン一覧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#experiment-scenarios">検証詳細</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#gallery">動画ギャラリー</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#conclusion">結論</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html">パイプライン比較++ (定量評価)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#tl-dr">要約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#methodology">評価方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#results">結果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#win-matrix">勝敗マトリクス</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#bradley-terry-model">Bradley-Terryモデル</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#performance-vs-profile-count">性能 vs. プロファイル数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#conclusion">結論</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/004_qualitative_analysis.html">工数と品質のトレードオフに関する定性分析</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="004_cli_tool.html">CLI ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#table-of-contents">目次</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#quick-start">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#script-format">スクリプト形式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#top-level-structure">トップレベル構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#version">バージョン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#context">コンテキスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#steps">ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#validation-strictness">検証の厳格さ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#profiles">プロファイル</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#execution-model">実行モデル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#execution-lifecycle">実行ライフサイクル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#context-and-overrides">コンテキストとオーバーライド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#execution-guarantees">実行の保証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#commands">コマンド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#run-script">スクリプト実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#step-types">ステップタイプ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#process-step"><code class="docutils literal notranslate"><span class="pre">process</span></code> ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#sleep-step">少なくとも 1 つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya シーンは変更されません。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-1-basic-processing">例 1：基本的な処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-2-multiple-videos-with-scene-changes">例 2：シーン切り替えを伴う複数動画</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-3-animation-with-time-offset">例 3：タイムオフセット付きアニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-4-controller-prefix-management">例 4：コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-5-full-processing-pipeline">例 5：フル処理パイプライン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-6-skip-initial-scene-opening">例 6：シーンオープンのスキップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#example-7-profile-selection">例 7：プロファイル選択</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#logging">ログ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#error-handling">エラー処理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#error-codes">エラーコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#execution-behavior">実行時の動作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#exit-codes">終了コード</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#maya-integration">Maya 連携</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#prerequisites">前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#maya-preflight-and-scene-opening">Maya プリフライトとシーンオープン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#upload-options">アップロードオプション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#scene-management">シーン管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#time-offset">タイムオフセット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#script-validation-fails">スクリプト検証が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#maya-not-reachable">Maya に到達できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#video-processing-fails">動画処理が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#animation-not-uploading">アニメーションがアップロードされない</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#best-practices">ベストプラクティス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#advanced-usage">上級者向け</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#batch-processing">バッチ処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#controller-prefix-management">コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="004_cli_tool.html#conditional-scene-switching">条件付きシーン切り替え</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_cli_tool.html#support">サポート</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FCSをAIアシスタントと使用する（MCP）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">開始する前に</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-the-mcp-server">MCPサーバーを有効にする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-an-ai-assistant">AIアシスタントを接続する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chatgpt-desktop-and-the-codex-app">ChatGPTデスクトップとCodexアプリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#codex-cli">Codex CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claude-code">Claude Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-studio-code-and-github-copilot">Visual Studio CodeとGitHub Copilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opencode">OpenCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claude-desktop">Claude Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ask-fcs-to-perform-work">FCSに作業を依頼する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-workflows">利用可能なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-actions-before-approval">承認前に操作内容を確認する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fcs-shows-disabled">FCSにDisabledと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fcs-shows-waiting-for-a-valid-license">FCSにWaiting for a valid licenseと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fcs-shows-an-error-or-the-port-is-already-in-use">FCSにエラーが表示される、またはポートが使用中である</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-assistant-cannot-connect">アシスタントが接続できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-assistant-connects-but-an-action-is-rejected">アシスタントは接続できるが操作が拒否される</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#client-documentation">クライアントのドキュメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://zukunfcs.github.io/fcs-doc">fcs-doc ↗</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FCSをAIアシスタントと使用する（MCP）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/005_mcp.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-fcs-with-ai-assistants-mcp">
+<h1>FCSをAIアシスタントと使用する（MCP）<a class="headerlink" href="#using-fcs-with-ai-assistants-mcp" title="Link to this heading"></a></h1>
+<p>FCS 26.10以降では、FCSからローカルのModel Context Protocol（MCP）サーバーを利用できます。MCP対応のAIアシスタントは、現在のFCSセッションを確認し、対応するワークフローを操作し、同梱のFCS操作ガイドを読むことができます。AIアシスタントは、時間のかかる作業を直接支援できます。</p>
+<section id="before-you-start">
+<h2>開始する前に<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<p>必要なもの：</p>
+<ul class="simple">
+<li><p>有効なライセンスが設定され、AIアシスタントと同じコンピューターで実行中のFCS 26.10以降。</p></li>
+<li><p>ローカルコンピューター上のStreamable HTTPサーバーに対応するMCPクライアント。</p></li>
+</ul>
+<p>アシスタントがFCSで作業している間は、FCSを起動したままにし、有効なライセンスを維持する必要があります。MCPサーバーは<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>でのみ待ち受けるため、別のコンピューターやクラウド専用のアシスタントからは利用できません。</p>
+</section>
+<section id="enable-the-mcp-server">
+<h2>MCPサーバーを有効にする<a class="headerlink" href="#enable-the-mcp-server" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>通常どおりFCSを起動します。インストールされたFCS実行ファイルから起動する場合も、Python／スクリプトから起動する場合も手順は同じです。</p></li>
+<li><p><strong>Settings</strong>を開き、<strong>MCP Server</strong>を展開します。</p></li>
+<li><p><strong>Enable MCP Server</strong>を有効にします。</p></li>
+<li><p>他のローカルプログラムと競合しない限り、既定のポート<code class="docutils literal notranslate"><span class="pre">19877</span></code>を使用します。</p></li>
+<li><p>設定を保存します。</p></li>
+<li><p>ステータスに<strong>Listening at http://127.0.0.1:19877/mcp</strong>と表示されることを確認します。</p></li>
+</ol>
+<p>クライアントを設定するときは、FCSに表示された完全なURLを使用します。ポートを変更した場合は、すべてのクライアント設定で変更後のURLを使用してください。ポート<code class="docutils literal notranslate"><span class="pre">19876</span></code>はFCSによって予約されているため、MCPには使用できません。</p>
+</section>
+<section id="connect-an-ai-assistant">
+<h2>AIアシスタントを接続する<a class="headerlink" href="#connect-an-ai-assistant" title="Link to this heading"></a></h2>
+<p>設定はアシスタントごとに一度だけ行います。サーバー名を<code class="docutils literal notranslate"><span class="pre">fcs</span></code>または<code class="docutils literal notranslate"><span class="pre">FCS</span></code>とし、FCSに表示されたURLを使用します。</p>
+<section id="chatgpt-desktop-and-the-codex-app">
+<h3>ChatGPTデスクトップとCodexアプリ<a class="headerlink" href="#chatgpt-desktop-and-the-codex-app" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Settings &gt; Plugins &gt; MCP</strong>を開きます。</p></li>
+<li><p><strong>Add server</strong>を選択します。</p></li>
+<li><p>名前に<code class="docutils literal notranslate"><span class="pre">FCS</span></code>と入力し、<strong>Streamable HTTP</strong>を選択します。</p></li>
+<li><p>URLに<code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:19877/mcp</span></code>と入力します。</p></li>
+<li><p>サーバーを保存し、指示が表示された場合はアプリを再起動します。</p></li>
+</ol>
+<p>この手順は、カスタムMCPサーバーに対応するローカルのChatGPT／Codexクライアント向けです。Webブラウザー版のChatGPTは、FCSのループバックアドレスへ直接接続できません。</p>
+</section>
+<section id="codex-cli">
+<h3>Codex CLI<a class="headerlink" href="#codex-cli" title="Link to this heading"></a></h3>
+<p>次のコマンドを実行します：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">codex</span> <span class="n">mcp</span> <span class="n">add</span> <span class="n">fcs</span> <span class="p">-</span><span class="n">-url</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">19877</span><span class="p">/</span><span class="n">mcp</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">codex</span> <span class="pre">mcp</span> <span class="pre">list</span></code>で接続を確認します。Codex内では<code class="docutils literal notranslate"><span class="pre">/mcp</span></code>を使用して、接続済みサーバーとそのツールを表示できます。</p>
+</section>
+<section id="claude-code">
+<h3>Claude Code<a class="headerlink" href="#claude-code" title="Link to this heading"></a></h3>
+<p>次のコマンドを実行します：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">claude</span> <span class="n">mcp</span> <span class="n">add</span> <span class="p">-</span><span class="n">-transport</span> <span class="n">http</span> <span class="p">-</span><span class="n">-scope</span> <span class="n">user</span> <span class="n">fcs</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">19877</span><span class="p">/</span><span class="n">mcp</span>
+</pre></div>
+</div>
+<p>ユーザースコープに設定すると、このコンピューター上の今後のClaude CodeセッションでもFCSを利用できます。<code class="docutils literal notranslate"><span class="pre">claude</span> <span class="pre">mcp</span> <span class="pre">list</span></code>で接続を確認します。</p>
+</section>
+<section id="visual-studio-code-and-github-copilot">
+<h3>Visual Studio CodeとGitHub Copilot<a class="headerlink" href="#visual-studio-code-and-github-copilot" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Ctrl+Shift+P</strong>でコマンドパレットを開きます。</p></li>
+<li><p><strong>MCP: Add Server</strong>を実行します。</p></li>
+<li><p><strong>HTTP</strong>を選択し、FCSのURLを入力して、サーバー名を<code class="docutils literal notranslate"><span class="pre">FCS</span></code>にします。</p></li>
+<li><p>1つのワークスペース以外でも接続を利用できるように、グローバル／ユーザープロファイルの保存先を選択します。</p></li>
+<li><p>Chatを開き、<strong>Configure Tools</strong>でFCSツールが利用可能であることを確認します。</p></li>
+</ol>
+</section>
+<section id="opencode">
+<h3>OpenCode<a class="headerlink" href="#opencode" title="Link to this heading"></a></h3>
+<p>OpenCodeの設定にリモートMCPサーバーを追加します：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://opencode.ai/config.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;fcs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;remote&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:19877/mcp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;oauth&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>エンドポイントがローカルコンピューターに限定されているため、FCSではOAuthは不要です。設定を保存した後、OpenCodeのMCPサーバー一覧を確認します。</p>
+</section>
+<section id="claude-desktop">
+<h3>Claude Desktop<a class="headerlink" href="#claude-desktop" title="Link to this heading"></a></h3>
+<p>Claude Desktopのカスタムコネクターは、リモートから到達可能なサーバーを対象としており、<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>上のFCSへ接続できるとは限りません。現在のFCSには、Claude Desktopの従来のローカルMCP設定で必要となる個別のstdioブリッジは含まれていません。代わりにClaude Codeまたは別のローカルStreamable HTTPクライアントを使用してください。</p>
+</section>
+</section>
+<section id="ask-fcs-to-perform-work">
+<h2>FCSに作業を依頼する<a class="headerlink" href="#ask-fcs-to-perform-work" title="Link to this heading"></a></h2>
+<p>接続後は、通常どおりアシスタントに話しかけます。MCPツール名を覚える必要はありません。例：</p>
+<ul class="simple">
+<li><p>「FCSに、開いているセッションを確認して要約してもらってください。」</p></li>
+<li><p>「現在のセッションにある動画を一覧表示し、それぞれの処理状態を示してください。」</p></li>
+<li><p>「選択中の動画を現在のFCS設定で処理し、完了するまで進捗を報告してください。」</p></li>
+<li><p>「現在のセッションをエクスポート用に検証し、エクスポート前に問題点を説明してください。」</p></li>
+<li><p>「現在のコントローラーテーブルを表示して標準プリセットを適用してください。ただし、まだ保存しないでください。」</p></li>
+<li><p>「FCS操作ガイドを読み、ROMの編集方法を説明してください。」</p></li>
+</ul>
+<p>アシスタントはFCSがMCP経由で公開するガイドを読めるため、操作前にFCS固有の手順を確認できます。</p>
+</section>
+<section id="available-workflows">
+<h2>利用可能なワークフロー<a class="headerlink" href="#available-workflows" title="Link to this heading"></a></h2>
+<p>公開MCPツールは次の領域に対応しています：</p>
+<ul class="simple">
+<li><p>アプリケーションとセッションの状態、セッションの作成、オープン、確認、保存。</p></li>
+<li><p>動画のインポート、ライブラリとシーケンスの参照、動画の選択。</p></li>
+<li><p>単体処理とバッチ処理、ジョブの進捗、状態、キャンセル。</p></li>
+<li><p>エクスポートの検証、既定値、セッションのエクスポート。</p></li>
+<li><p>レンダラーの状態、接続テスト、起動、シーンのオープン。</p></li>
+<li><p>処理プロファイルと設定の確認または更新。</p></li>
+<li><p>ROMギャラリーの照会、更新、予測、削除、タイムライン操作。</p></li>
+<li><p>コントローラーの確認、編集、プリセット、並べ替え、同期、明示的な保存。</p></li>
+</ul>
+<p>FCSは、選定された名前付きツールのみを意図的に公開しています。ライセンス管理やアプリケーションの内部コマンドはMCPから利用できません。正確なツール一覧は、接続時にクライアントが自動的に検出します。</p>
+</section>
+<section id="review-actions-before-approval">
+<h2>承認前に操作内容を確認する<a class="headerlink" href="#review-actions-before-approval" title="Link to this heading"></a></h2>
+<p>ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、アシスタントに次の操作を許可する前は、提案された内容を注意深く確認してください：</p>
+<ul class="simple">
+<li><p>ROMを削除する、または処理ジョブをキャンセルする。</p></li>
+<li><p>アプリケーション設定を変更して保存する。</p></li>
+<li><p>セッションまたはコントローラーテーブルを保存する。</p></li>
+<li><p>処理を開始する、またはファイルをエクスポートする。</p></li>
+</ul>
+<p>まず確認または検証を行い、予定している変更を要約するようアシスタントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、アシスタントが明示的に保存するまで作業中のドラフトとして保持されます。</p>
+</section>
+<section id="troubleshooting">
+<h2>トラブルシューティング<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="fcs-shows-disabled">
+<h3>FCSにDisabledと表示される<a class="headerlink" href="#fcs-shows-disabled" title="Link to this heading"></a></h3>
+<p>Settingsで<strong>MCP Server</strong>を有効にして保存します。チェックボックスを変更しただけでは設定は適用されません。</p>
+</section>
+<section id="fcs-shows-waiting-for-a-valid-license">
+<h3>FCSにWaiting for a valid licenseと表示される<a class="headerlink" href="#fcs-shows-waiting-for-a-valid-license" title="Link to this heading"></a></h3>
+<p>FCSのライセンス認証を完了してください。エンドポイントはライセンスが有効な間だけ起動します。</p>
+</section>
+<section id="fcs-shows-an-error-or-the-port-is-already-in-use">
+<h3>FCSにエラーが表示される、またはポートが使用中である<a class="headerlink" href="#fcs-shows-an-error-or-the-port-is-already-in-use" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">19876</span></code>を除く<code class="docutils literal notranslate"><span class="pre">1024</span></code>から<code class="docutils literal notranslate"><span class="pre">65535</span></code>の別のポートを選択して設定を保存し、AIアシスタントのURLを更新します。</p>
+</section>
+<section id="the-assistant-cannot-connect">
+<h3>アシスタントが接続できない<a class="headerlink" href="#the-assistant-cannot-connect" title="Link to this heading"></a></h3>
+<p>FCSが起動中で、ステータスに<strong>Listening</strong>と表示され、クライアントのURLが<code class="docutils literal notranslate"><span class="pre">/mcp</span></code>を含めてステータスのURLと完全に一致していることを確認します。別のコンピューター、リモート開発環境、またはクラウドのみで動作するクライアントは、FCSの<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>エンドポイントに到達できません。</p>
+</section>
+<section id="the-assistant-connects-but-an-action-is-rejected">
+<h3>アシスタントは接続できるが操作が拒否される<a class="headerlink" href="#the-assistant-connects-but-an-action-is-rejected" title="Link to this heading"></a></h3>
+<p>FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようアシスタントに依頼してください。</p>
+</section>
+</section>
+<section id="client-documentation">
+<h2>クライアントのドキュメント<a class="headerlink" href="#client-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.chatgpt.com/docs/extend/mcp.md">ChatGPTとCodexのMCP</a></p></li>
+<li><p><a class="reference external" href="https://code.claude.com/docs/en/mcp">Claude CodeのMCP</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/agent-customization/mcp-servers">Visual Studio CodeのMCPサーバー</a></p></li>
+<li><p><a class="reference external" href="https://opencode.ai/v2/docs/mcp-servers">OpenCodeのMCPサーバー</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="004_cli_tool.html" class="btn btn-neutral float-left" title="CLI ツール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.
+      <span class="lastupdated">Last updated on August 03, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: dev Lang: jp
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">dev (unreleased)</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/jp/index.html">26.04</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.10/jp/index.html">25.10</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.07/jp/index.html">25.07</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

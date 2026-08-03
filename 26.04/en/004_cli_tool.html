@@ -1,0 +1,1221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-03-25T11:13:29+00:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI Tool &mdash; FCS Doc Advanced 26.04 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=90b66612"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Qualitative Analysis for Effort vs Quality" href="experiments/004_qualitative_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="000_introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">What is FCS and what does it do for me?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="000_introduction.html#who-is-this-page-for">Who is this page for?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="001_preliminary.html">Preliminary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#general-workflow">General Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#profiles">Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="001_preliminary.html#baseline-profiles">Baseline profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="002_processing.html">FCS Internal Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id1">1．Facial Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id2">2．Correct Face Orientation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id3">3．Select / Filter Tracking Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="002_processing.html#id4">How to use blendshapes settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="002_processing.html#id5">4．Convert To Character Facial Expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="experiments/index.html">Experiments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="experiments/001_challenging_scenarios.html">Challenging scenarions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#scenario-detail">Scenario Detail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/001_challenging_scenarios.html#gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/002_pipeline_comparison.html">Pipeline Comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/002_pipeline_comparison.html#table-of-contents">Table of Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#just-tell-me-which-pipeline-i-should-use">Just tell me which pipeline I should use.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#pipeline">Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#experiment-scenarios">Experiment scenarios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#gallery">Gallery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/002_pipeline_comparison.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html">Pipeline Comparison++ (Quantitative)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#tl-dr">TL;DR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#methodology">Methodology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#results">Results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#win-matrix">Win Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#bradley-terry-model">Bradley-Terry Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#performance-vs-profile-count">Performance vs. Profile Count</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="experiments/003_pipeline_comparison_quantitative.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiments/004_qualitative_analysis.html">Qualitative Analysis for Effort vs Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-format">Script Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#top-level-structure">Top-Level Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context">Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-strictness">Validation Strictness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles">Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-model">Execution Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#execution-lifecycle">Execution Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context-and-overrides">Context and Overrides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-guarantees">Execution Guarantees</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-script">Run Script</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-types">Step Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process-step"><code class="docutils literal notranslate"><span class="pre">process</span></code> Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sleep-step"><code class="docutils literal notranslate"><span class="pre">sleep</span></code> Step</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-basic-processing">Example 1: Basic Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-multiple-videos-with-scene-changes">Example 2: Multiple Videos with Scene Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3-animation-with-time-offset">Example 3: Animation with Time Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-4-controller-prefix-management">Example 4: Controller Prefix Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-5-full-processing-pipeline">Example 5: Full Processing Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-6-skip-initial-scene-opening">Example 6: Skip Initial Scene Opening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-7-profile-selection">Example 7: Profile Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-codes">Error Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-behavior">Execution Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exit-codes">Exit Codes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#maya-integration">Maya Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maya-preflight-and-scene-opening">Maya Preflight and Scene Opening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-options">Upload Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scene-management">Scene Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-offset">Time Offset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#script-validation-fails">Script Validation Fails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maya-not-reachable">Maya Not Reachable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-processing-fails">Video Processing Fails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animation-not-uploading">Animation Not Uploading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#batch-processing">Batch Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-prefix-management">Controller Prefix Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-scene-switching">Conditional Scene Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://zukunfcs.github.io/fcs-doc">fcs-doc ↗</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CLI Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/004_cli_tool.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="cli-tool">
+<h1>CLI Tool<a class="headerlink" href="#cli-tool" title="Link to this heading"></a></h1>
+<p>FCS CLI tool provides a script-based interface for automating facial capture and animation processing workflows. It allows you to load sessions, modify session properties, process videos, and upload animations to Maya—all through a simple YAML script format.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation"><span class="xref myst">Installation</span></a></p></li>
+<li><p><a class="reference internal" href="#quick-start"><span class="xref myst">Quick Start</span></a></p></li>
+<li><p><a class="reference internal" href="#script-format"><span class="xref myst">Script Format</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#validation-strictness"><span class="xref myst">Validation Strictness</span></a></p></li>
+<li><p><a class="reference internal" href="#profiles"><span class="xref myst">Profiles</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#execution-model"><span class="xref myst">Execution Model</span></a></p></li>
+<li><p><a class="reference internal" href="#commands"><span class="xref myst">Commands</span></a></p></li>
+<li><p><a class="reference internal" href="#step-types"><span class="xref myst">Step Types</span></a></p></li>
+<li><p><a class="reference internal" href="#examples"><span class="xref myst">Examples</span></a></p></li>
+<li><p><a class="reference internal" href="#logging"><span class="xref myst">Logging</span></a></p></li>
+<li><p><a class="reference internal" href="#error-handling"><span class="xref myst">Error Handling</span></a></p></li>
+<li><p><a class="reference internal" href="#maya-integration"><span class="xref myst">Maya Integration</span></a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting"><span class="xref myst">Troubleshooting</span></a></p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>The CLI tool is part of the FCS (Facial Capture System) package starting from FCS 26.04.
+It is automatically installed when you install FCS.</p>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<p>Create a YAML script file (e.g., <code class="docutils literal notranslate"><span class="pre">my_script.yaml</span></code>):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">wait_seconds_after_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span><span class="w">  </span><span class="c1"># Optional: wait 2 seconds after scene opens</span>
+<span class="w">  </span><span class="nt">fisheye</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Optional: enable fisheye correction</span>
+<span class="w">  </span><span class="nt">pipeline</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Rich&quot;</span><span class="w">  </span><span class="c1"># Optional: use Rich pipeline</span>
+<span class="w">  </span><span class="nt">denoising</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_profile&quot;</span><span class="w">  </span><span class="c1"># Optional: load denoising profile from presets</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Optional: open scene after validation (default: true)</span>
+<span class="w">  </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42069</span><span class="w">  </span><span class="c1"># Optional: Maya commandPort for all operations</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span><span class="w">  </span><span class="c1"># Optional: modify controller name prefixes</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span><span class="w">  </span><span class="c1"># or &quot;remove&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span><span class="w">  </span><span class="c1"># Optional: use different port for this step</span>
+</pre></div>
+</div>
+<p>Run the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml
+</pre></div>
+</div>
+</section>
+<section id="script-format">
+<h2>Script Format<a class="headerlink" href="#script-format" title="Link to this heading"></a></h2>
+<section id="top-level-structure">
+<h3>Top-Level Structure<a class="headerlink" href="#top-level-structure" title="Link to this heading"></a></h3>
+<p>Every script must have three required sections:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                    </span><span class="c1"># Required: Must be exactly 1</span>
+<span class="nt">context</span><span class="p">:</span><span class="w">                     </span><span class="c1"># Required: Script context</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">          </span><span class="c1"># Required: Path to fcs_session.yaml</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w">                       </span><span class="c1"># Required: List of steps to execute</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;step&gt;</span><span class="w">                   </span><span class="c1"># One or more steps</span>
+</pre></div>
+</div>
+</section>
+<section id="version">
+<h3>Version<a class="headerlink" href="#version" title="Link to this heading"></a></h3>
+<p>Currently, only version <code class="docutils literal notranslate"><span class="pre">1</span></code> is supported. This field ensures forward compatibility as the script format evolves.</p>
+</section>
+<section id="context">
+<h3>Context<a class="headerlink" href="#context" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">context</span></code> section defines the session file to load at the start of script execution.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">session</span></code></strong> (required, string): Path to the FCS session YAML file. Must point to a file named exactly <code class="docutils literal notranslate"><span class="pre">fcs_session.yaml</span></code>; any other filename will fail validation.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code></strong> (optional, float): Global sleep time in seconds to wait after a Maya scene is opened. This applies to all scene opening operations in the script, including when scenes are opened via <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> in <code class="docutils literal notranslate"><span class="pre">process</span></code> steps or when Maya launches with a scene. Default: <code class="docutils literal notranslate"><span class="pre">0.0</span></code> (no wait)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">fisheye</span></code></strong> (optional, bool): Enable or disable fisheye correction for video processing. If provided, overrides the UI setting. Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pipeline</span></code></strong> (optional, string): Processing pipeline to use for video processing. Must be one of: <code class="docutils literal notranslate"><span class="pre">&quot;Rich&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Robust&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;RP&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;RP++&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Robust++&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Rich++&quot;</span></code>. If provided, overrides the UI setting. Default: <code class="docutils literal notranslate"><span class="pre">&quot;RP++&quot;</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">denoising</span></code></strong> (optional, string): Path to a denoising/smoothing profile file, or a filename to load from the smoothing presets directory. If it’s a full path, it must exist. If it’s just a filename (not a full path), it will be loaded from <code class="docutils literal notranslate"><span class="pre">FCS_TMP_DIR/smoothing_presets/filename.yaml</span></code>. If provided, loads the profile before processing. Default: No Smoothing</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">command_port</span></code></strong> (optional, integer): Maya commandPort number to use for all Maya operations in the script. Must be an integer between 1 and 65535. If provided, recreates the connection with the specified port and uses it for all Maya preflight checks and uploads. Default: 42069.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code></strong> (optional, bool): If <code class="docutils literal notranslate"><span class="pre">true</span></code> (the default), automatically opens the Maya scene once after data validation and before running all steps. The scene is opened only once at the start of script execution (after the preflight check), not before each step. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, skips the initial scene opening. Default: <code class="docutils literal notranslate"><span class="pre">true</span></code> (scene will be opened automatically if <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> and <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> are set in the session).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code></strong> (optional, mapping): Modify controller names by prepending or removing a prefix. This is applied once after the session is loaded, before any steps execute. Useful for adapting controller names to match Maya scene naming conventions.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> (required, string): The prefix to prepend or remove from all controller names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code> (optional, string): Operation to perform - <code class="docutils literal notranslate"><span class="pre">&quot;prepend&quot;</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">&quot;remove&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">playblast</span></code></strong> (optional, mapping): Override playblast settings for all process steps that export playblast. If not set, application settings are used.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera</span></code> (optional, string): Maya camera name (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;persp&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code> (optional, integer): Output width in pixels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code> (optional, integer): Output height in pixels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code> (optional, integer): Resolution percent (e.g. 100, must be 1–100).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quality</span></code> (optional, integer): Playblast quality (e.g. 100, must be 1–100).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">profiles</span></code></strong> (optional, list): Rules to enable/disable ROM profiles in the loaded session before any steps run. See <a class="reference internal" href="#profiles"><span class="xref myst">Profiles</span></a> for full details.</p></li>
+</ul>
+</section>
+<section id="steps">
+<h3>Steps<a class="headerlink" href="#steps" title="Link to this heading"></a></h3>
+<p>Steps are executed sequentially in the order they appear. Each step must be a single-key mapping with one of these keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">process</span></code> - Process a video and optionally upload to Maya</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sleep</span></code> - Pause script execution for a specified duration</p></li>
+</ul>
+</section>
+<section id="validation-strictness">
+<h3>Validation Strictness<a class="headerlink" href="#validation-strictness" title="Link to this heading"></a></h3>
+<p>Script validation follows a <strong>strict schema contract</strong>. The validator rejects any deviation from the defined schema:</p>
+<ol class="arabic simple">
+<li><p><strong>Unknown top-level fields → error</strong>: Only <code class="docutils literal notranslate"><span class="pre">version</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code>, and <code class="docutils literal notranslate"><span class="pre">steps</span></code> are allowed at the top level. Any other field will cause validation to fail.</p></li>
+<li><p><strong>Unknown context fields → error</strong>: Only the documented context fields are allowed. Unknown fields in the <code class="docutils literal notranslate"><span class="pre">context</span></code> section will cause validation to fail.</p></li>
+<li><p><strong>Unknown step types → error</strong>: Only <code class="docutils literal notranslate"><span class="pre">process</span></code> and <code class="docutils literal notranslate"><span class="pre">sleep</span></code> are valid step types. Any other step type will cause validation to fail.</p></li>
+<li><p><strong>Unknown step fields → error</strong>: Each step type has a defined set of allowed fields. Any field not explicitly documented for that step type will cause validation to fail.</p></li>
+<li><p><strong>Extra keys in nested structures → error</strong>: Nested structures (like <code class="docutils literal notranslate"><span class="pre">upload</span></code> in <code class="docutils literal notranslate"><span class="pre">process</span></code> steps, or <code class="docutils literal notranslate"><span class="pre">overrides</span></code>) only accept their documented fields. Unknown keys will cause validation to fail.</p></li>
+<li><p><strong>Order matters</strong>: Steps are executed sequentially in the exact order they appear in the <code class="docutils literal notranslate"><span class="pre">steps</span></code> list. The execution order is significant and cannot be changed.</p></li>
+</ol>
+<p><strong>Examples of validation failures:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌ Invalid: Unknown top-level field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="nt">unknown_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown top-level field</span>
+
+<span class="c1"># ❌ Invalid: Unknown context field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">unknown_context_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown context field</span>
+<span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+
+<span class="c1"># ❌ Invalid: Unknown step type</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unknown_step</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w">  </span><span class="c1"># Error: unknown step type</span>
+
+<span class="c1"># ❌ Invalid: Unknown step field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/video.mp4&quot;</span>
+<span class="w">      </span><span class="nt">unknown_field</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w">  </span><span class="c1"># Error: unknown field in process step</span>
+
+<span class="c1"># ❌ Invalid: Unknown nested field</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/session.yaml&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;path/to/video.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">unknown_upload_field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Error: unknown field in upload</span>
+</pre></div>
+</div>
+</section>
+<section id="profiles">
+<h3>Profiles<a class="headerlink" href="#profiles" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">profiles</span></code> context field lets you enable or disable profiles in the session before any steps run. Rules are applied sequentially — later rules override earlier ones for the profiles they match.</p>
+<p>Each rule has three fields:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">match</span></code></p></td>
+<td><p>yes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> or a list of criteria</p></td>
+<td><p>Which profiles to target</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">select</span></code></p></td>
+<td><p>yes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, or integer ≥ 1</p></td>
+<td><p>What to do with matched profiles</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">condition</span></code></p></td>
+<td><p>no</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AND</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">OR</span></code></p></td>
+<td><p>How to combine multiple criteria</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code class="docutils literal notranslate"><span class="pre">match</span></code> criteria</strong> — each item in the list is a single-key mapping:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Matches when…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">video:</span> <span class="pre">&quot;&lt;stem&gt;&quot;</span></code></p></td>
+<td><p>Profile’s source video filename (without extension) equals value</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not_video:</span> <span class="pre">&quot;&lt;stem&gt;&quot;</span></code></p></td>
+<td><p>Profile has no source video, or its stem differs from value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_tag:</span> <span class="pre">&quot;&lt;tag&gt;&quot;</span></code></p></td>
+<td><p>Profile has this user tag</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">no_user_tag:</span> <span class="pre">&quot;&lt;tag&gt;&quot;</span></code></p></td>
+<td><p>Profile does NOT have this user tag</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code class="docutils literal notranslate"><span class="pre">select</span></code> values:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> — enable all matched profiles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> — disable all matched profiles</p></li>
+<li><p>integer N — randomly enable N of the matched profiles (error if fewer than N matched)</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">profiles</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Disable everything first</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+
+<span class="w">  </span><span class="c1"># Then enable exactly 10 profiles whose source video is &quot;ROM_walk&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_walk&quot;</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="w">  </span><span class="c1"># Enable all profiles tagged &quot;hero&quot; OR tagged &quot;featured&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hero&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;featured&quot;</span>
+<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OR</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+
+<span class="w">  </span><span class="c1"># Enable profiles tagged &quot;validated&quot; AND whose video is NOT &quot;ROM_bad&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;validated&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">not_video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_bad&quot;</span>
+<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AND</span><span class="w">   </span><span class="c1"># default, can be omitted</span>
+<span class="w">    </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">match</span></code> must be a YAML list (using <code class="docutils literal notranslate"><span class="pre">-</span></code> items). A plain mapping is rejected to prevent YAML’s silent duplicate-key merging (e.g. two <code class="docutils literal notranslate"><span class="pre">video:</span></code> keys would collapse into one).</p>
+</div></blockquote>
+</section>
+</section>
+<section id="execution-model">
+<h2>Execution Model<a class="headerlink" href="#execution-model" title="Link to this heading"></a></h2>
+<p>Understanding how scripts execute helps you write effective automation workflows. The FCS CLI follows a predictable execution model:</p>
+<section id="execution-lifecycle">
+<h3>Execution Lifecycle<a class="headerlink" href="#execution-lifecycle" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Script Initialization</strong>: The script is loaded and validated against the schema. Any schema error exits immediately with code 1 before any session or Maya operations occur.</p></li>
+<li><p><strong>License Check</strong>: License is checked out/validated. Failure exits with code 3.</p></li>
+<li><p><strong>Session Loading</strong>: The session file specified in <code class="docutils literal notranslate"><span class="pre">context.session</span></code> is loaded once. The session remains in memory throughout execution.</p></li>
+<li><p><strong>Controller Renaming</strong>: If <code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> is specified, controller name prefixes are prepended or removed once before any steps run.</p></li>
+<li><p><strong>Profile Selection</strong>: If <code class="docutils literal notranslate"><span class="pre">profiles</span></code> is specified, the rules are applied sequentially to set each ROM profile’s enabled state.</p></li>
+<li><p><strong>Affogato Initialization</strong>: A connection to Maya’s commandPort is established.</p></li>
+<li><p><strong>Maya Preflight</strong>: Maya reachability is verified. Failure exits with code 2 — no steps execute.</p></li>
+<li><p><strong>Initial Scene Opening</strong>: If <code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> (the default) and the session has <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> and <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> configured, the Maya scene is opened once before any steps run. Failures are non-fatal (logged as warnings). The script waits for <code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code> seconds after opening.</p></li>
+<li><p><strong>Step Execution</strong>: Steps execute sequentially in the order they appear. The license is re-checked before each step after the first. There is no rollback, branching, or parallelism.</p></li>
+</ol>
+</section>
+<section id="context-and-overrides">
+<h3>Context and Overrides<a class="headerlink" href="#context-and-overrides" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Context Fields</strong>: All fields defined in the <code class="docutils literal notranslate"><span class="pre">context</span></code> section apply globally to all steps unless explicitly overridden. This includes settings like <code class="docutils literal notranslate"><span class="pre">fisheye</span></code>, <code class="docutils literal notranslate"><span class="pre">pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">denoising</span></code>, <code class="docutils literal notranslate"><span class="pre">command_port</span></code>, and <code class="docutils literal notranslate"><span class="pre">playblast</span></code>.</p></li>
+<li><p><strong>Step Overrides</strong>: The <code class="docutils literal notranslate"><span class="pre">overrides</span></code> section in a <code class="docutils literal notranslate"><span class="pre">process</span></code> step applies only for the duration of that specific step. After the step completes, the global context values are restored. This allows you to temporarily change settings (like <code class="docutils literal notranslate"><span class="pre">command_port</span></code>, <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>, or <code class="docutils literal notranslate"><span class="pre">maya_base</span></code>) for individual processing operations.</p></li>
+</ul>
+</section>
+<section id="execution-guarantees">
+<h3>Execution Guarantees<a class="headerlink" href="#execution-guarantees" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Sequential Execution</strong>: Steps always execute one at a time, in order</p></li>
+<li><p><strong>No Rollback</strong>: If a step fails, execution stops; previous steps are not undone</p></li>
+<li><p><strong>No Branching</strong>: Conditional logic or loops are not supported</p></li>
+<li><p><strong>No Parallelism</strong>: Multiple steps cannot run simultaneously</p></li>
+<li><p><strong>Session Persistence</strong>: The session remains in memory throughout execution; changes are not persisted to disk</p></li>
+</ul>
+</section>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
+<section id="run-script">
+<h3>Run Script<a class="headerlink" href="#run-script" title="Link to this heading"></a></h3>
+<p>Execute a YAML script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>&lt;script_path&gt;
+</pre></div>
+</div>
+<p><strong>Options:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--file</span></code>, <code class="docutils literal notranslate"><span class="pre">-f</span></code>: Path to the YAML script file (required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code>: Validate the script without executing it</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a script</span>
+FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml
+
+<span class="c1"># Validate without executing</span>
+FCS_CLI.exe<span class="w"> </span>--file<span class="w"> </span>my_script.yaml<span class="w"> </span>--dry-run
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-types">
+<h2>Step Types<a class="headerlink" href="#step-types" title="Link to this heading"></a></h2>
+<section id="process-step">
+<h3><code class="docutils literal notranslate"><span class="pre">process</span></code> Step<a class="headerlink" href="#process-step" title="Link to this heading"></a></h3>
+<p>Processes a single video file and optionally uploads results to Maya.</p>
+<p><strong>Format:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">                    </span><span class="c1"># Required</span>
+<span class="w">    </span><span class="nt">upload</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                    </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                   </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">lm_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">    </span><span class="nt">export</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                    </span><span class="c1"># Default: false</span>
+<span class="w">      </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">                </span><span class="c1"># Default: false</span>
+<span class="w">    </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">            </span><span class="c1"># Optional, default: true</span>
+<span class="w">    </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;int&gt;</span><span class="w">          </span><span class="c1"># Optional, default: 0</span>
+<span class="w">    </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bool&gt;</span><span class="w">          </span><span class="c1"># Optional, default: auto (see below)</span>
+<span class="w">    </span><span class="nt">overrides</span><span class="p">:</span><span class="w">                          </span><span class="c1"># Optional</span>
+<span class="w">      </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;int&gt;</span><span class="w">              </span><span class="c1"># Optional, override commandPort for this step</span>
+<span class="w">      </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">             </span><span class="c1"># Optional, override maya_scene for this step</span>
+<span class="w">      </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">              </span><span class="c1"># Optional, override maya_base for this step</span>
+<span class="w">      </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">        </span><span class="c1"># Optional, path to save Maya scene file (.ma or .mb)</span>
+<span class="w">      </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w">    </span><span class="c1"># Optional, path to save playblast video</span>
+</pre></div>
+</div>
+<p><strong>Fields:</strong></p>
+<ul>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">video</span></code></strong> (required, string): Path to the video file to process</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">upload</span></code></strong> (optional, mapping): Upload options to Maya</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation</span></code> (bool): Upload animation curves</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio</span></code> (bool): Upload audio track</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frames</span></code> (bool): Upload video frames as image sequence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lm_frames</span></code> (bool): Upload landmark-annotated frames. <strong>Not supported with <code class="docutils literal notranslate"><span class="pre">++</span></code> pipelines</strong> (<code class="docutils literal notranslate"><span class="pre">RP++</span></code>, <code class="docutils literal notranslate"><span class="pre">Rich++</span></code>, <code class="docutils literal notranslate"><span class="pre">Robust++</span></code>); raises <code class="docutils literal notranslate"><span class="pre">LM_FRAMES_UNSUPPORTED_PIPELINE</span></code> if used with one.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">export</span></code></strong> (optional, mapping): Export options after processing</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scene</span></code> (bool): Export Maya scene file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playblast</span></code> (bool): Export playblast video</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">force_reprocess</span></code></strong> (optional, bool): Force reprocessing even if cache exists. Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code></strong> (optional, integer): Frame offset for animation upload. Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>, must be &gt;= 0.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code></strong> (optional, bool): Controls whether the Maya scene is reopened before processing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code> — always reopen, regardless of overrides or upload flags</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code> — never reopen (explicit opt-out)</p></li>
+<li><p>omitted — <strong>auto</strong>: reopen only when any override (<code class="docutils literal notranslate"><span class="pre">command_port</span></code>, <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>, or <code class="docutils literal notranslate"><span class="pre">maya_base</span></code>) is present AND at least one <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> flag is <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>Positive values: Animation starts at the <code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code>th frame on Maya</p></li>
+<li><p>Zero: No offset</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides</span></code></strong> (optional, mapping): Override values for this specific process step</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">command_port</span></code> (optional, integer): Maya commandPort number to use for this step. Must be an integer between 1 and 65535. If provided, recreates the connection with the specified port for this step only, overriding the port from <code class="docutils literal notranslate"><span class="pre">context.command_port</span></code> or application settings. A preflight check is performed after to ensure Maya is reachable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> (optional, string): Path to Maya scene file to use for this step. Overrides the session’s <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> when <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maya_base</span></code> (optional, string): Path to Maya workspace base directory to use for this step. Overrides the session’s <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> when <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_scene_path</span></code> (optional, string): Path to save Maya scene file (must have <code class="docutils literal notranslate"><span class="pre">.ma</span></code> or <code class="docutils literal notranslate"><span class="pre">.mb</span></code> extension). If not provided when <code class="docutils literal notranslate"><span class="pre">export.scene</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, a warning is logged and the scene is <strong>not saved</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_playblast_path</span></code> (optional, string): Path to save playblast video, <strong>without a file extension</strong> (<code class="docutils literal notranslate"><span class="pre">.mp4</span></code> is appended automatically). If not provided when <code class="docutils literal notranslate"><span class="pre">export.playblast</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, a default path is derived from the session’s output folder and app settings.</p></li>
+</ul>
+<p><strong>Note</strong>: The process step always recreates the Affogato connection with the effective port (override or context) and performs a preflight check before processing. When <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> is omitted and overrides are present, the scene is reopened automatically (see <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> above).</p>
+</li>
+</ul>
+<p><strong>Internal Maya Workflow</strong><br />
+When any upload.* option is enabled in a process step, the CLI performs the following operations in Maya via commandPort, in strict sequence:</p>
+<ol class="arabic simple">
+<li><p>Scene timing setup</p></li>
+</ol>
+<ul class="simple">
+<li><p>Set the Maya scene FPS to match the input video.</p></li>
+<li><p>Set the scene playback range to match the total frame count of the video.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Audio setup (if <code class="docutils literal notranslate"><span class="pre">upload.audio</span> <span class="pre">=</span> <span class="pre">true</span></code>)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Import the audio track from the input video.</p></li>
+<li><p>Attach the audio to the Maya timeline.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Reference frame setup (if <code class="docutils literal notranslate"><span class="pre">upload.frames</span> <span class="pre">=</span> <span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">upload.lm_frames</span> <span class="pre">=</span> <span class="pre">true</span></code>)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Extract video frames as an image sequence.</p></li>
+<li><p>Create or update an imagePlane using:
+raw frames if upload.frames = true
+landmark-annotated frames if upload.lm_frames = true</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Animation reset</p></li>
+</ol>
+<ul class="simple">
+<li><p>Remove all existing animation keyframes for every controller defined in the session.</p></li>
+<li><p>This guarantees deterministic uploads and prevents keyframe accumulation across runs.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Animation upload</p></li>
+</ol>
+<ul class="simple">
+<li><p>Apply newly computed animation curves to all session controllers.</p></li>
+<li><p>If time_offset_frames &gt; 0, all keyframes are shifted forward by the specified number of frames prior to insertion.</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>Output saving</p></li>
+</ol>
+<ul class="simple">
+<li><p>Save the playblast video (if export.playblast = true).</p></li>
+<li><p>Save the Maya scene file (if export.scene = true).</p></li>
+</ul>
+<p>Notes</p>
+<p>All operations are executed atomically per process step; partial uploads are not supported.</p>
+<p>If reopen_maya_scene = true, the Maya scene is reopened before this workflow begins.</p>
+<p>Controller matching is name-based. Controllers that cannot be resolved will silently receive no animation; no rollback is performed.</p>
+<p>This workflow is executed only when at least one upload.* option is enabled. Processing without uploads does not modify the Maya scene.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">    </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">export</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span>
+<span class="w">      </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/alternate_scene.mb&quot;</span>
+<span class="w">      </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_workspace&quot;</span>
+<span class="w">      </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01.ma&quot;</span>
+<span class="w">      </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_playblast&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="sleep-step">
+<h3><code class="docutils literal notranslate"><span class="pre">sleep</span></code> Step<a class="headerlink" href="#sleep-step" title="Link to this heading"></a></h3>
+<p>Pauses script execution for a specified duration. Useful for waiting between operations or allowing external processes to complete.</p>
+<p><strong>Format:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;float&gt;</span><span class="w">    </span><span class="c1"># Required: number of seconds to sleep</span>
+</pre></div>
+</div>
+<p><strong>Fields:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">seconds</span></code></strong> (required, float): Number of seconds to pause execution. Must be a non-negative number.</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0</span><span class="w">  </span><span class="c1"># Wait 5 seconds</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sleep</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5</span><span class="w">  </span><span class="c1"># Wait 2.5 seconds</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="example-1-basic-processing">
+<h3>Example 1: Basic Processing<a class="headerlink" href="#example-1-basic-processing" title="Link to this heading"></a></h3>
+<p>Process a video and upload animation to Maya:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-multiple-videos-with-scene-changes">
+<h3>Example 2: Multiple Videos with Scene Changes<a class="headerlink" href="#example-2-multiple-videos-with-scene-changes" title="Link to this heading"></a></h3>
+<p>Process multiple videos, changing Maya scene between them. Because <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> is overridden and <code class="docutils literal notranslate"><span class="pre">upload.animation</span></code> is true, the scene is reopened automatically:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/scene_01.mb&quot;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/scene_02.mb&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-3-animation-with-time-offset">
+<h3>Example 3: Animation with Time Offset<a class="headerlink" href="#example-3-animation-with-time-offset" title="Link to this heading"></a></h3>
+<p>Upload animations with different time offsets:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w">    </span><span class="c1"># Starts at frame 100 in Maya</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w">    </span><span class="c1"># Starts at frame 200 in Maya</span>
+</pre></div>
+</div>
+</section>
+<section id="example-4-controller-prefix-management">
+<h3>Example 4: Controller Prefix Management<a class="headerlink" href="#example-4-controller-prefix-management" title="Link to this heading"></a></h3>
+<p>Add controller prefix in context before processing:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="example-5-full-processing-pipeline">
+<h3>Example 5: Full Processing Pipeline<a class="headerlink" href="#example-5-full-processing-pipeline" title="Link to this heading"></a></h3>
+<p>Complete workflow with all features. Note: <code class="docutils literal notranslate"><span class="pre">lm_frames</span></code> requires a non-<code class="docutils literal notranslate"><span class="pre">++</span></code> pipeline (e.g. <code class="docutils literal notranslate"><span class="pre">Rich</span></code>, <code class="docutils literal notranslate"><span class="pre">Robust</span></code>, <code class="docutils literal notranslate"><span class="pre">RP</span></code>), so the context sets <code class="docutils literal notranslate"><span class="pre">pipeline:</span> <span class="pre">&quot;Rich&quot;</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">wait_seconds_after_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42069</span>
+<span class="w">  </span><span class="nt">pipeline</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Rich&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">lm_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">export</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">playblast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">force_reprocess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">      </span><span class="c1"># reopen_maya_scene omitted — auto-reopens because overrides are present and upload is requested</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">command_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42070</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/alternate_scene.mb&quot;</span>
+<span class="w">        </span><span class="nt">maya_base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_workspace&quot;</span>
+<span class="w">        </span><span class="nt">out_scene_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_processed.ma&quot;</span>
+<span class="w">        </span><span class="nt">out_playblast_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/output/take_01_playblast&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-6-skip-initial-scene-opening">
+<h3>Example 6: Skip Initial Scene Opening<a class="headerlink" href="#example-6-skip-initial-scene-opening" title="Link to this heading"></a></h3>
+<p>Disable the automatic scene open at startup, then explicitly reopen per-step:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">initial_scene_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># Skip initial scene opening after validation</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">reopen_maya_scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Explicitly reopen before this step</span>
+</pre></div>
+</div>
+</section>
+<section id="example-7-profile-selection">
+<h3>Example 7: Profile Selection<a class="headerlink" href="#example-7-profile-selection" title="Link to this heading"></a></h3>
+<p>Disable all profiles then randomly enable 10 from a specific video:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">profiles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">      </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ROM_walk&quot;</span>
+<span class="w">      </span><span class="nt">select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<p>When a script is executed (not in <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> mode), the CLI automatically creates a log file next to the script at <code class="docutils literal notranslate"><span class="pre">&lt;script_name&gt;.log</span></code>. For example, running <code class="docutils literal notranslate"><span class="pre">my_script.yaml</span></code> produces <code class="docutils literal notranslate"><span class="pre">my_script.log</span></code> in the same directory.</p>
+<ul class="simple">
+<li><p><strong>Log level</strong>: INFO and above (INFO, WARNING, ERROR)</p></li>
+<li><p><strong>Encoding</strong>: UTF-8</p></li>
+<li><p><strong>Lifecycle</strong>: The log file is created when execution begins and the log sink is removed when execution completes (regardless of success or failure). If the log file already exists, it is overwritten.</p></li>
+</ul>
+<p>This log file captures the same structured messages shown in the console output, providing a persistent record of script execution for debugging and auditing.</p>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<section id="error-codes">
+<h3>Error Codes<a class="headerlink" href="#error-codes" title="Link to this heading"></a></h3>
+<p>The CLI uses structured error codes for programmatic error handling:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_NOT_FOUND</span></code></p></td>
+<td><p>Session file does not exist</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_INVALID</span></code></p></td>
+<td><p>Session file is invalid or corrupted</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SESSION_LOAD_ERROR</span></code></p></td>
+<td><p>Error loading session (generic load failure)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NO_SESSION_LOADED</span></code></p></td>
+<td><p>Attempted operation without loading a session</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MISSING_RENAME_CONTROLLERS_PREFIX</span></code></p></td>
+<td><p>Missing prefix in <code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> context field</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_RENAME_CONTROLLERS_PREFIX</span></code></p></td>
+<td><p>Invalid prefix value in <code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> context field</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INVALID_RENAME_CONTROLLERS_ACTION</span></code></p></td>
+<td><p>Invalid action in <code class="docutils literal notranslate"><span class="pre">rename_controllers</span></code> context field (must be “prepend” or “remove”)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PROFILES_INSUFFICIENT_MATCH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select:</span> <span class="pre">N</span></code> specified but fewer than N profiles matched the rule</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VIDEO_NOT_FOUND</span></code></p></td>
+<td><p>Video file does not exist</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code></p></td>
+<td><p>Maya commandPort is not reachable</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_NOT_SET</span></code></p></td>
+<td><p>Maya scene path not set in session or overrides</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_NOT_FOUND</span></code></p></td>
+<td><p>Maya scene file does not exist</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_SCENE_OPEN_ERROR</span></code></p></td>
+<td><p>Failed to open Maya scene (raised when <code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_BASE_NOT_SET</span></code></p></td>
+<td><p>Maya base path not set in session</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAYA_BASE_NOT_FOUND</span></code></p></td>
+<td><p>Maya base folder does not exist</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PIPELINE_ERROR</span></code></p></td>
+<td><p>Video processing pipeline failed (train/predict failure)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ANIMATION_NOT_FOUND</span></code></p></td>
+<td><p>Animation cache file not found after processing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LM_FRAMES_UNSUPPORTED_PIPELINE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lm_frames</span></code> upload requested with a <code class="docutils literal notranslate"><span class="pre">++</span></code> pipeline (not supported)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DENOISING_PROFILE_NOT_FOUND</span></code></p></td>
+<td><p>Denoising profile file not found at specified path</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DENOISING_PROFILE_LOAD_ERROR</span></code></p></td>
+<td><p>Failed to load denoising profile file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR_NOT_CREATED</span></code></p></td>
+<td><p>Failed to create required output directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_FILE_NOT_CREATED</span></code></p></td>
+<td><p>Expected output file(s) were not created after processing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PLAYBLAST_PATH_HAS_SUFFIX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">out_playblast_path</span></code> was provided with a file extension (<code class="docutils literal notranslate"><span class="pre">.mp4</span></code> is appended automatically)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="execution-behavior">
+<h3>Execution Behavior<a class="headerlink" href="#execution-behavior" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Validation Errors</strong>: Script validation fails before any steps are executed (exit code 1)</p></li>
+<li><p><strong>Maya Errors</strong>: Maya-related failures (not reachable, scene open failure, etc.) exit with code 2</p></li>
+<li><p><strong>Execution Errors</strong>: Script stops at the first failed step (exit code 3)</p></li>
+</ul>
+</section>
+<section id="exit-codes">
+<h3>Exit Codes<a class="headerlink" href="#exit-codes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Success</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Validation error (script schema validation, missing fields, invalid values)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>: Maya related error (Maya not reachable, scene open failure, Maya configuration issues)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>: Execution failure (license check failed, session load error, pipeline error, step execution failure)</p></li>
+</ul>
+</section>
+</section>
+<section id="maya-integration">
+<h2>Maya Integration<a class="headerlink" href="#maya-integration" title="Link to this heading"></a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Maya must be running</strong> with commandPort enabled</p></li>
+<li><p><strong>CommandPort</strong> must be open (typically port 42069, or as specified in the script’s <code class="docutils literal notranslate"><span class="pre">context.command_port</span></code>)</p></li>
+</ol>
+</section>
+<section id="maya-preflight-and-scene-opening">
+<h3>Maya Preflight and Scene Opening<a class="headerlink" href="#maya-preflight-and-scene-opening" title="Link to this heading"></a></h3>
+<p>Before executing any steps, the CLI performs a preflight check:</p>
+<ol class="arabic simple">
+<li><p>Tests Maya commandPort connectivity</p></li>
+<li><p>If Maya is not reachable:</p>
+<ul class="simple">
+<li><p>Logs error: <code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code></p></li>
+<li><p>Exits with code 2</p></li>
+<li><p>No steps are executed</p></li>
+</ul>
+</li>
+<li><p>If Maya is reachable and <code class="docutils literal notranslate"><span class="pre">initial_scene_open</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> (the default):</p>
+<ul class="simple">
+<li><p>Automatically opens the Maya scene specified in the session (<code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> and <code class="docutils literal notranslate"><span class="pre">maya_base</span></code>)</p></li>
+<li><p>Waits for <code class="docutils literal notranslate"><span class="pre">wait_seconds_after_scene_open</span></code> seconds if configured</p></li>
+<li><p>This ensures the scene is ready before processing begins</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="upload-options">
+<h3>Upload Options<a class="headerlink" href="#upload-options" title="Link to this heading"></a></h3>
+<p>When processing videos, you can upload:</p>
+<ul class="simple">
+<li><p><strong>Animation</strong>: Facial animation curves (blendshapes, controllers)</p></li>
+<li><p><strong>Audio</strong>: Audio track from video</p></li>
+<li><p><strong>Frames</strong>: Video frames as image sequence for reference</p></li>
+<li><p><strong>LM Frames</strong>: Landmark-annotated frames for visualization</p></li>
+</ul>
+</section>
+<section id="scene-management">
+<h3>Scene Management<a class="headerlink" href="#scene-management" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">reopen_maya_scene</span></code></strong>: Controls when the Maya scene is reopened before a process step. <code class="docutils literal notranslate"><span class="pre">true</span></code> = always, <code class="docutils literal notranslate"><span class="pre">false</span></code> = never, omitted = auto (when any override is present and at least one upload flag is true). When reopening, override values for <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code>/<code class="docutils literal notranslate"><span class="pre">maya_base</span></code> take precedence over session values.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides.out_scene_path</span></code></strong>: Saves the Maya scene to a specific path after processing</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">overrides.out_playblast_path</span></code></strong>: Saves a playblast video to a specific path after processing</p></li>
+<li><p>Scene paths are resolved from the session’s <code class="docutils literal notranslate"><span class="pre">maya_base</span></code> and <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> properties</p></li>
+<li><p><strong>Process Step Preflight</strong>: Before each process step, a connection is recreated with the effective port (from override or context), and a preflight check is performed to ensure Maya is reachable</p></li>
+</ul>
+</section>
+<section id="time-offset">
+<h3>Time Offset<a class="headerlink" href="#time-offset" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">time_offset_frames</span></code> parameter allows you to control where animation starts on the Maya timeline:</p>
+<ul class="simple">
+<li><p><strong>Positive offset</strong>: Animation starts later (e.g., <code class="docutils literal notranslate"><span class="pre">100</span></code> starts at frame 100)</p></li>
+<li><p><strong>Zero</strong>: Animation starts at the default position (typically frame 0)</p></li>
+<li><p><strong>Note</strong>: Only non-negative values (&gt;= 0) are allowed</p></li>
+</ul>
+<p>This is useful for:</p>
+<ul class="simple">
+<li><p>Combining multiple takes in a single timeline</p></li>
+<li><p>Aligning animation with existing keyframes</p></li>
+<li><p>Creating animation sequences with gaps</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="script-validation-fails">
+<h3>Script Validation Fails<a class="headerlink" href="#script-validation-fails" title="Link to this heading"></a></h3>
+<p><strong>Problem</strong>: Script fails validation with error about structure or types.</p>
+<p><strong>Solutions</strong>:</p>
+<ul class="simple">
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">version:</span> <span class="pre">1</span></code> is present and exactly <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>Check that <code class="docutils literal notranslate"><span class="pre">context.session</span></code> is a non-empty string</p></li>
+<li><p>Verify <code class="docutils literal notranslate"><span class="pre">steps</span></code> is a non-empty list</p></li>
+<li><p>Ensure each step has exactly one key (<code class="docutils literal notranslate"><span class="pre">process</span></code> or <code class="docutils literal notranslate"><span class="pre">sleep</span></code>)</p></li>
+<li><p>Check field types match the schema (strings, booleans, integers)</p></li>
+</ul>
+</section>
+<section id="maya-not-reachable">
+<h3>Maya Not Reachable<a class="headerlink" href="#maya-not-reachable" title="Link to this heading"></a></h3>
+<p><strong>Problem</strong>: Script exits with <code class="docutils literal notranslate"><span class="pre">MAYA_NOT_REACHABLE</span></code> error.</p>
+<p><strong>Solutions</strong>:</p>
+<ul class="simple">
+<li><p>Ensure Maya is running</p></li>
+<li><p>Verify commandPort is open: In Maya, run <code class="docutils literal notranslate"><span class="pre">cmds.commandPort(n=':42069',</span> <span class="pre">stp='python')</span></code> (or use the port specified in <code class="docutils literal notranslate"><span class="pre">context.command_port</span></code> if provided)</p></li>
+<li><p>Verify firewall/network settings allow localhost connections</p></li>
+<li><p>If using a custom <code class="docutils literal notranslate"><span class="pre">command_port</span></code> in context, ensure Maya’s commandPort matches the specified port number</p></li>
+</ul>
+</section>
+<section id="video-processing-fails">
+<h3>Video Processing Fails<a class="headerlink" href="#video-processing-fails" title="Link to this heading"></a></h3>
+<p><strong>Problem</strong>: <code class="docutils literal notranslate"><span class="pre">PIPELINE_ERROR</span></code> during video processing.</p>
+<p><strong>Solutions</strong>:</p>
+<ul class="simple">
+<li><p>Verify video file exists and is readable</p></li>
+<li><p>Check session has valid solver configuration</p></li>
+<li><p>Ensure sufficient disk space for cache</p></li>
+<li><p>Review logs for detailed error messages</p></li>
+</ul>
+</section>
+<section id="animation-not-uploading">
+<h3>Animation Not Uploading<a class="headerlink" href="#animation-not-uploading" title="Link to this heading"></a></h3>
+<p><strong>Problem</strong>: Animation upload appears to succeed but nothing appears in Maya.</p>
+<p><strong>Solutions</strong>:</p>
+<ul class="simple">
+<li><p>Verify Maya scene has the correct character rig loaded</p></li>
+<li><p>Check controller names match between session and Maya scene</p></li>
+<li><p>Ensure animation layer exists in Maya (default: “BaseAnimation”)</p></li>
+<li><p>Review Maya script editor for Python errors</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Always validate first</strong>: Use <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> to validate scripts before execution</p></li>
+<li><p><strong>Use explicit paths</strong>: Prefer absolute paths for reliability</p></li>
+<li><p><strong>Test incrementally</strong>: Start with simple scripts, add complexity gradually</p></li>
+<li><p><strong>Check Maya connection</strong>: Ensure Maya is running before processing with upload</p></li>
+<li><p><strong>Use time offsets carefully</strong>: Verify frame ranges to avoid overlaps</p></li>
+<li><p><strong>Version control scripts</strong>: Keep scripts in version control for repeatability</p></li>
+</ol>
+</section>
+<section id="advanced-usage">
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
+<section id="batch-processing">
+<h3>Batch Processing<a class="headerlink" href="#batch-processing" title="Link to this heading"></a></h3>
+<p>Process multiple videos in sequence:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_01_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/take_03.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">time_offset_frames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</section>
+<section id="controller-prefix-management">
+<h3>Controller Prefix Management<a class="headerlink" href="#controller-prefix-management" title="Link to this heading"></a></h3>
+<p>Add controller prefix in context before processing:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+<span class="w">  </span><span class="nt">rename_controllers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;char_face_&quot;</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepend&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook/Facial/RecData/000_00_t00.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-scene-switching">
+<h3>Conditional Scene Switching<a class="headerlink" href="#conditional-scene-switching" title="Link to this heading"></a></h3>
+<p>Change Maya scene per step. Scene is reopened automatically because <code class="docutils literal notranslate"><span class="pre">maya_scene</span></code> is overridden and upload is requested:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">context</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">session</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/Expo/Celllook2/FCS/Mao/Nike2/fcs_session.yaml&quot;</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/closeup_01.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/closeup_scene.mb&quot;</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">video</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/shots/wide_01.mp4&quot;</span>
+<span class="w">      </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">animation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">overrides</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">maya_scene</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;D:/maya_scenes/wide_scene.mb&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="support">
+<h2>Support<a class="headerlink" href="#support" title="Link to this heading"></a></h2>
+<p>For issues, questions, or feature requests, please refer to the main FCS documentation or contact the development team.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="experiments/004_qualitative_analysis.html" class="btn btn-neutral float-left" title="Qualitative Analysis for Effort vs Quality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.
+      <span class="lastupdated">Last updated on March 25, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: 26.04 Lang: en
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/en/index.html">26.04</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.10/en/index.html">25.10</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.07/en/index.html">25.07</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

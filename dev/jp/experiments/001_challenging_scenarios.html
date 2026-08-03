@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="jp" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-03-24T10:31:27+00:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>様々な条件下での検証 &mdash; FCS Doc Advanced dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5a3f213f"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="パイプラインの比較" href="002_pipeline_comparison.html" />
+    <link rel="prev" title="検証" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FCS Doc Advanced
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">コンテンツ</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../000_introduction.html">はじめに</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#what-is-fcs-and-what-does-it-do-for-me">FCSとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../000_introduction.html#who-is-this-page-for">このサイトについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../001_preliminary.html">予備知識</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#general-workflow">FCSの一般的なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#profiles">Profiles（プロファイル）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#rom">ROM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../001_preliminary.html#baseline-profiles">Baseline profiles（ベースライン プロファイル）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../002_processing.html">FCS内部の処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id1">1. フェイシャルトラッキング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id2">2. 顔の向きを補正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id3">3. トラッキング情報の取捨選択</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../002_processing.html#id4">ブレンドシェイプの選択方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../002_processing.html#id5">4. キャラクターの表情に変換</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">検証</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">様々な条件下での検証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scenario-detail">検証内容について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gallery">動画ギャラリー</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="002_pipeline_comparison.html">パイプラインの比較</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="002_pipeline_comparison.html#table-of-contents">目次</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#just-tell-me-which-pipeline-i-should-use">どのパイプラインを使用すべきか フローチャート</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#pipeline">パイプライン一覧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#experiment-scenarios">検証詳細</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#gallery">動画ギャラリー</a></li>
+<li class="toctree-l4"><a class="reference internal" href="002_pipeline_comparison.html#conclusion">結論</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="003_pipeline_comparison_quantitative.html">パイプライン比較++ (定量評価)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#tl-dr">要約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#background">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#methodology">評価方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#results">結果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#win-matrix">勝敗マトリクス</a></li>
+<li class="toctree-l4"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#bradley-terry-model">Bradley-Terryモデル</a></li>
+<li class="toctree-l4"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#performance-vs-profile-count">性能 vs. プロファイル数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="003_pipeline_comparison_quantitative.html#conclusion">結論</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="004_qualitative_analysis.html">工数と品質のトレードオフに関する定性分析</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../004_cli_tool.html">CLI ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#table-of-contents">目次</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#installation">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#quick-start">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#script-format">スクリプト形式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#top-level-structure">トップレベル構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#version">バージョン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#context">コンテキスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#steps">ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#validation-strictness">検証の厳格さ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#profiles">プロファイル</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#execution-model">実行モデル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-lifecycle">実行ライフサイクル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#context-and-overrides">コンテキストとオーバーライド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-guarantees">実行の保証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#commands">コマンド</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#run-script">スクリプト実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#step-types">ステップタイプ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#process-step"><code class="docutils literal notranslate"><span class="pre">process</span></code> ステップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#sleep-step">少なくとも 1 つの <code class="docutils literal notranslate"><span class="pre">upload.*</span></code> オプションが有効な場合にのみこのワークフローが実行されます。アップロードなしの処理では Maya シーンは変更されません。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#examples">例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-1-basic-processing">例 1：基本的な処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-2-multiple-videos-with-scene-changes">例 2：シーン切り替えを伴う複数動画</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-3-animation-with-time-offset">例 3：タイムオフセット付きアニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-4-controller-prefix-management">例 4：コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-5-full-processing-pipeline">例 5：フル処理パイプライン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-6-skip-initial-scene-opening">例 6：シーンオープンのスキップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#example-7-profile-selection">例 7：プロファイル選択</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#logging">ログ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#error-handling">エラー処理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#error-codes">エラーコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#execution-behavior">実行時の動作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#exit-codes">終了コード</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#maya-integration">Maya 連携</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#prerequisites">前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#maya-preflight-and-scene-opening">Maya プリフライトとシーンオープン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#upload-options">アップロードオプション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#scene-management">シーン管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#time-offset">タイムオフセット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#script-validation-fails">スクリプト検証が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#maya-not-reachable">Maya に到達できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#video-processing-fails">動画処理が失敗する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#animation-not-uploading">アニメーションがアップロードされない</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#best-practices">ベストプラクティス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#advanced-usage">上級者向け</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#batch-processing">バッチ処理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#controller-prefix-management">コントローラプレフィックス管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../004_cli_tool.html#conditional-scene-switching">条件付きシーン切り替え</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../004_cli_tool.html#support">サポート</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../005_mcp.html">FCSをAIアシスタントと使用する（MCP）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#before-you-start">開始する前に</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#enable-the-mcp-server">MCPサーバーを有効にする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#connect-an-ai-assistant">AIアシスタントを接続する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#chatgpt-desktop-and-the-codex-app">ChatGPTデスクトップとCodexアプリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#codex-cli">Codex CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#claude-code">Claude Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#visual-studio-code-and-github-copilot">Visual Studio CodeとGitHub Copilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#opencode">OpenCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#claude-desktop">Claude Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#ask-fcs-to-perform-work">FCSに作業を依頼する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#available-workflows">利用可能なワークフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#review-actions-before-approval">承認前に操作内容を確認する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#troubleshooting">トラブルシューティング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-disabled">FCSにDisabledと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-waiting-for-a-valid-license">FCSにWaiting for a valid licenseと表示される</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#fcs-shows-an-error-or-the-port-is-already-in-use">FCSにエラーが表示される、またはポートが使用中である</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#the-assistant-cannot-connect">アシスタントが接続できない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../005_mcp.html#the-assistant-connects-but-an-action-is-rejected">アシスタントは接続できるが操作が拒否される</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../005_mcp.html#client-documentation">クライアントのドキュメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://zukunfcs.github.io/fcs-doc">fcs-doc ↗</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FCS Doc Advanced</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">検証</a></li>
+      <li class="breadcrumb-item active">様々な条件下での検証</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/experiments/001_challenging_scenarios.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="challenging-scenarions">
+<h1>様々な条件下での検証<a class="headerlink" href="#challenging-scenarions" title="Link to this heading"></a></h1>
+<p>このページでは、ひげやその他外的要因によって大きく遮られたビデオの処理など、困難な状況の解析結果を掲載しています。</p>
+<section id="background">
+<h2>背景<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
+<p>大きく遮られたビデオを処理する場合、FCSのトラッキング機能は通常時ほどうまく機能しません。<br>これは私たちが積極的に研究に取り組んでいる分野ですが、Galleryにプロファイルを追加するだけで、出力するアニメーションのクオリティを上げることができます。<br>ビデオ自体からプロファイルを追加することで、最も効果的に特定のビデオ（遮蔽物が入ってしまったビデオなど）のアニメーションの出力結果を改善することが可能です。</p>
+</section>
+<section id="scenario-detail">
+<h2>検証内容について<a class="headerlink" href="#scenario-detail" title="Link to this heading"></a></h2>
+<p>このショーケースでは、ROMビデオから50個のプロファイルを選択してリターゲットを行いました。<br>50個のROMプロファイルのみを使用して、ベースラインでアニメーションを出力します。※Baseline（ROM 50Profilesのみ）<br>遮蔽物によって遮られた範囲はアニメーションが破綻する可能性が高くなっています。<br><br>この破綻は該当のビデオ内からプロファイルを追加することで軽減できます。<br>プロファイルを追加するとパフォーマンスが向上し、アニメーションのクオリティが上がる傾向が見られます。<br>(50+2 Profiles、50+5 Profiles、50+10 Profiles：それぞれベースラインに加えて該当のビデオから2個、5個、10個プロファイルを追加した結果）<br><br>さらに、ビデオ内のプロファイルのみを使用して（つまり、ROMプロファイルなしで）処理した結果を掲載しています。※0+10 Profiles（ROMなしで該当ビデオから10個プロファイルを追加したもの）</p>
+</section>
+<section id="gallery">
+<h2>動画ギャラリー<a class="headerlink" href="#gallery" title="Link to this heading"></a></h2>
+<details>
+  <summary >Display gallery</summary>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>演技動画</p></th>
+<th class="head"><p>Baseline（ROM 50Profilesのみ）</p></th>
+<th class="head"><p>50+2 Profiles</p></th>
+<th class="head"><p>50+5 Profiles</p></th>
+<th class="head"><p>50+10 Profiles</p></th>
+<th class="head"><p>0+10 Profiles</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/cheek_pull_both_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/cheek_pull_right_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/down_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/down_silence_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/eye_scratch_both_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/eye_scratch_left_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/eyemask_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/eyepatch_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/Gendou_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/glasses_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/hide_right_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/kurohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/mask_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/shirohige_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/tobacco_disgyst_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-odd"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/tobacco_normal_t03.mp4" type="video/mp4"></video></p></td>
+</tr>
+<tr class="row-even"><td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/common/challenging_reference_set/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/baseline/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_2/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_5/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/p_10/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+<td><p><video height="300" controls><source src="https://zukunfcs.github.io/artifacts/benchmarks/profile_counts/v_10/yubibue_normal_t01.mp4" type="video/mp4"></video></p></td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="検証" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="002_pipeline_comparison.html" class="btn btn-neutral float-right" title="パイプラインの比較" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright TOEI Zukun.
+      <span class="lastupdated">Last updated on March 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    Version: dev Lang: jp
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+    <dl>
+      <dt>Languages</dt>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">jp</a></dd>
+        
+          <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/en/index.html">en</a></dd>
+        
+    </dl>
+    
+    
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/dev/jp/index.html">dev (unreleased)</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/26.04/jp/index.html">26.04</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.10/jp/index.html">25.10</a></dd>
+      
+        <dd><a href="https://zukunfcs.github.io/fcs-doc-advanced/25.07/jp/index.html">25.07</a></dd>
+      
+    </dl>
+    
+    <br>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
