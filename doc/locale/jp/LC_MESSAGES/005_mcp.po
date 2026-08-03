@@ -1,0 +1,453 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 11:48+0900\n"
+"PO-Revision-Date: 2026-07-31 00:00+0900\n"
+"Last-Translator: TOEI Zukun\n"
+"Language-Team: jp\n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../005_mcp.md:1
+msgid "Using FCS with AI Assistants (MCP)"
+msgstr "FCSをAIアシスタントと使用する（MCP）"
+
+#: ../../005_mcp.md:6
+msgid "Before You Start"
+msgstr "開始する前に"
+
+#: ../../005_mcp.md:8
+msgid "You need:"
+msgstr "必要なもの："
+
+#: ../../005_mcp.md:11
+msgid ""
+"An MCP client that supports Streamable HTTP servers on the local computer."
+msgstr "ローカルコンピューター上のStreamable HTTPサーバーに対応するMCPクライアント。"
+
+#: ../../005_mcp.md:15
+msgid "Enable the MCP Server"
+msgstr "MCPサーバーを有効にする"
+
+#: ../../005_mcp.md:19
+msgid "Open **Settings** and expand **MCP Server**."
+msgstr "**Settings**を開き、**MCP Server**を展開します。"
+
+#: ../../005_mcp.md:20
+msgid "Enable **Enable MCP Server**."
+msgstr "**Enable MCP Server**を有効にします。"
+
+#: ../../005_mcp.md:21
+msgid ""
+"Keep the default port, `19877`, unless it conflicts with another local "
+"program."
+msgstr "他のローカルプログラムと競合しない限り、既定のポート`19877`を使用します。"
+
+#: ../../005_mcp.md:23
+msgid "Save the settings."
+msgstr "設定を保存します。"
+
+#: ../../005_mcp.md:24
+msgid ""
+"Confirm that the status displays **Listening at "
+"http://127.0.0.1:19877/mcp**."
+msgstr "ステータスに**Listening at http://127.0.0.1:19877/mcp**と表示されることを確認します。"
+
+#: ../../005_mcp.md:31
+msgid "Connect an AI Assistant"
+msgstr "AIアシスタントを接続する"
+
+#: ../../005_mcp.md:36
+msgid "ChatGPT Desktop and the Codex App"
+msgstr "ChatGPTデスクトップとCodexアプリ"
+
+#: ../../005_mcp.md:39
+msgid "Select **Add server**."
+msgstr "**Add server**を選択します。"
+
+#: ../../005_mcp.md:41
+msgid "Enter `http://127.0.0.1:19877/mcp` as the URL."
+msgstr "URLに`http://127.0.0.1:19877/mcp`と入力します。"
+
+#: ../../005_mcp.md:42
+msgid "Save the server and restart the app when prompted."
+msgstr "サーバーを保存し、指示が表示された場合はアプリを再起動します。"
+
+#: ../../005_mcp.md:47
+msgid "Codex CLI"
+msgstr "Codex CLI"
+
+#: ../../005_mcp.md:49 ../../005_mcp.md:60
+msgid "Run:"
+msgstr "次のコマンドを実行します："
+
+#: ../../005_mcp.md:55
+msgid ""
+"Use `codex mcp list` to check the connection. Inside Codex, use `/mcp` to "
+"view the connected server and its tools."
+msgstr "`codex mcp list`で接続を確認します。Codex内では`/mcp`を使用して、接続済みサーバーとそのツールを表示できます。"
+
+#: ../../005_mcp.md:58
+msgid "Claude Code"
+msgstr "Claude Code"
+
+#: ../../005_mcp.md:69
+msgid "Visual Studio Code and GitHub Copilot"
+msgstr "Visual Studio CodeとGitHub Copilot"
+
+#: ../../005_mcp.md:71
+msgid "Open the Command Palette with **Ctrl+Shift+P**."
+msgstr "**Ctrl+Shift+P**でコマンドパレットを開きます。"
+
+#: ../../005_mcp.md:72
+msgid "Run **MCP: Add Server**."
+msgstr "**MCP: Add Server**を実行します。"
+
+#: ../../005_mcp.md:74
+msgid ""
+"Choose the global/user profile location so that the connection is available "
+"outside one workspace."
+msgstr "1つのワークスペース以外でも接続を利用できるように、グローバル／ユーザープロファイルの保存先を選択します。"
+
+#: ../../005_mcp.md:76
+msgid ""
+"Open Chat and use **Configure Tools** to confirm that the FCS tools are "
+"available."
+msgstr "Chatを開き、**Configure Tools**でFCSツールが利用可能であることを確認します。"
+
+#: ../../005_mcp.md:79
+msgid "OpenCode"
+msgstr "OpenCode"
+
+#: ../../005_mcp.md:81
+msgid "Add a remote MCP server to the OpenCode configuration:"
+msgstr "OpenCodeの設定にリモートMCPサーバーを追加します："
+
+#: ../../005_mcp.md:101
+msgid "Claude Desktop"
+msgstr "Claude Desktop"
+
+#: ../../005_mcp.md:109
+msgid "Ask FCS to Perform Work"
+msgstr "FCSに作業を依頼する"
+
+#: ../../005_mcp.md:111
+msgid ""
+"After connecting, speak to the assistant normally. You do not need to "
+"memorize MCP tool names. For example:"
+msgstr "接続後は、通常どおりアシスタントに話しかけます。MCPツール名を覚える必要はありません。例："
+
+#: ../../005_mcp.md:115
+msgid ""
+"“List the videos in the current session and show their processing state.”"
+msgstr "「現在のセッションにある動画を一覧表示し、それぞれの処理状態を示してください。」"
+
+#: ../../005_mcp.md:116
+msgid ""
+"“Process the selected video with the current FCS settings, then report "
+"progress until it finishes.”"
+msgstr "「選択中の動画を現在のFCS設定で処理し、完了するまで進捗を報告してください。」"
+
+#: ../../005_mcp.md:118
+msgid ""
+"“Validate the current session for export and explain any problems before "
+"exporting it.”"
+msgstr "「現在のセッションをエクスポート用に検証し、エクスポート前に問題点を説明してください。」"
+
+#: ../../005_mcp.md:120
+msgid ""
+"“Show the current controller table and apply the standard preset, but do not"
+" save it yet.”"
+msgstr "「現在のコントローラーテーブルを表示して標準プリセットを適用してください。ただし、まだ保存しないでください。」"
+
+#: ../../005_mcp.md:122
+msgid "“Read the FCS operating guide and explain how to edit ROMs.”"
+msgstr "「FCS操作ガイドを読み、ROMの編集方法を説明してください。」"
+
+#: ../../005_mcp.md:127
+msgid "Available Workflows"
+msgstr "利用可能なワークフロー"
+
+#: ../../005_mcp.md:129
+msgid "The public MCP tools cover these areas:"
+msgstr "公開MCPツールは次の領域に対応しています："
+
+#: ../../005_mcp.md:131
+msgid ""
+"Application and session status, session creation, opening, inspection, and "
+"saving."
+msgstr "アプリケーションとセッションの状態、セッションの作成、オープン、確認、保存。"
+
+#: ../../005_mcp.md:133
+msgid "Video import, library and sequence browsing, and video selection."
+msgstr "動画のインポート、ライブラリとシーケンスの参照、動画の選択。"
+
+#: ../../005_mcp.md:134
+msgid "Single and batch processing, job progress, status, and cancellation."
+msgstr "単体処理とバッチ処理、ジョブの進捗、状態、キャンセル。"
+
+#: ../../005_mcp.md:135
+msgid "Export validation, export defaults, and session export."
+msgstr "エクスポートの検証、既定値、セッションのエクスポート。"
+
+#: ../../005_mcp.md:136
+msgid "Renderer status, connection testing, launch, and scene opening."
+msgstr "レンダラーの状態、接続テスト、起動、シーンのオープン。"
+
+#: ../../005_mcp.md:137
+msgid "Processing profiles and settings inspection or updates."
+msgstr "処理プロファイルと設定の確認または更新。"
+
+#: ../../005_mcp.md:138
+msgid ""
+"ROM gallery queries, updates, prediction, deletion, and timeline navigation."
+msgstr "ROMギャラリーの照会、更新、予測、削除、タイムライン操作。"
+
+#: ../../005_mcp.md:139
+msgid ""
+"Controller inspection, editing, presets, reordering, synchronization, and "
+"explicit saving."
+msgstr "コントローラーの確認、編集、プリセット、並べ替え、同期、明示的な保存。"
+
+#: ../../005_mcp.md:142
+msgid ""
+"FCS intentionally exposes a curated set of named tools. License management "
+"and internal application commands are not available through MCP. The exact "
+"tool list is discovered automatically by the client when it connects."
+msgstr ""
+"FCSは、選定された名前付きツールのみを意図的に公開しています。ライセンス管理やアプリケーションの内部コマンドはMCPから利用できません。正確なツール一覧は、接続時にクライアントが自動的に検出します。"
+
+#: ../../005_mcp.md:146
+msgid "Review Actions Before Approval"
+msgstr "承認前に操作内容を確認する"
+
+#: ../../005_mcp.md:148
+msgid ""
+"Your MCP client may request approval before a tool runs. Read the proposed "
+"action carefully, particularly before allowing an assistant to:"
+msgstr ""
+"ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、アシスタントに次の操作を許可する前は、提案された内容を注意深く確認してください："
+
+#: ../../005_mcp.md:151
+msgid "Delete ROMs or cancel processing jobs."
+msgstr "ROMを削除する、または処理ジョブをキャンセルする。"
+
+#: ../../005_mcp.md:152
+msgid "Change and save application settings."
+msgstr "アプリケーション設定を変更して保存する。"
+
+#: ../../005_mcp.md:153
+msgid "Save a session or controller table."
+msgstr "セッションまたはコントローラーテーブルを保存する。"
+
+#: ../../005_mcp.md:154
+msgid "Start processing or export files."
+msgstr "処理を開始する、またはファイルをエクスポートする。"
+
+#: ../../005_mcp.md:156
+msgid ""
+"Prefer asking the assistant to inspect or validate first, summarize the "
+"planned changes, and perform the mutation only after you approve it. "
+"Controller edits remain a working draft until the assistant explicitly saves"
+" them."
+msgstr ""
+"まず確認または検証を行い、予定している変更を要約するようアシスタントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、アシスタントが明示的に保存するまで作業中のドラフトとして保持されます。"
+
+#: ../../005_mcp.md:160
+msgid "Troubleshooting"
+msgstr "トラブルシューティング"
+
+#: ../../005_mcp.md:164
+msgid ""
+"Enable **MCP Server** in Settings and save. Merely changing the checkbox "
+"without saving does not apply the setting."
+msgstr "Settingsで**MCP Server**を有効にして保存します。チェックボックスを変更しただけでは設定は適用されません。"
+
+#: ../../005_mcp.md:169
+msgid ""
+"Complete FCS license activation. The endpoint starts only while the license "
+"is valid."
+msgstr "FCSのライセンス認証を完了してください。エンドポイントはライセンスが有効な間だけ起動します。"
+
+#: ../../005_mcp.md:174
+msgid ""
+"Choose another port from `1024` through `65535`, except `19876`, save the "
+"settings, and update the URL in the AI assistant."
+msgstr "`19876`を除く`1024`から`65535`の別のポートを選択して設定を保存し、AIアシスタントのURLを更新します。"
+
+#: ../../005_mcp.md:177
+msgid "The assistant cannot connect"
+msgstr "アシスタントが接続できない"
+
+#: ../../005_mcp.md:184
+msgid "The assistant connects but an action is rejected"
+msgstr "アシスタントは接続できるが操作が拒否される"
+
+#: ../../005_mcp.md:186
+msgid ""
+"Check that the FCS license is still valid. The requested operation may also "
+"be outside the curated public tool set or may require an open session, "
+"selected video, renderer connection, or other FCS state. Ask the assistant "
+"to inspect the application and session status before retrying."
+msgstr ""
+"FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようアシスタントに依頼してください。"
+
+#: ../../005_mcp.md:191
+msgid "Client Documentation"
+msgstr "クライアントのドキュメント"
+
+#: ../../005_mcp.md:193
+msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
+msgstr "[ChatGPTとCodexのMCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
+
+#: ../../005_mcp.md:194
+msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
+msgstr "[Claude CodeのMCP](https://code.claude.com/docs/en/mcp)"
+
+#: ../../005_mcp.md:195
+msgid ""
+"[Visual Studio Code MCP servers](https://code.visualstudio.com/docs/agent-"
+"customization/mcp-servers)"
+msgstr ""
+"[Visual Studio CodeのMCPサーバー](https://code.visualstudio.com/docs/agent-"
+"customization/mcp-servers)"
+
+#: ../../005_mcp.md:196
+msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
+msgstr "[OpenCodeのMCPサーバー](https://opencode.ai/v2/docs/mcp-servers)"
+
+#: ../../005_mcp.md:3
+msgid ""
+"Starting with FCS 26.10, FCS can provide a local Model Context Protocol "
+"(MCP) server. An MCP-compatible AI assistant can inspect the current FCS "
+"session, operate supported workflows, and read the bundled FCS operating "
+"guide. AI assistants can directly help you the time consuming part of your "
+"tasks."
+msgstr ""
+"FCS 26.10以降では、FCSからローカルのModel Context "
+"Protocol（MCP）サーバーを利用できます。MCP対応のAIアシスタントは、現在のFCSセッションを確認し、対応するワークフローを操作し、同梱のFCS操作ガイドを読むことができます。AIアシスタントは、時間のかかる作業を直接支援できます。"
+
+#: ../../005_mcp.md:10
+msgid ""
+"FCS 26.10 or later with a valid license, running on the same computer as the"
+" AI assistant."
+msgstr "有効なライセンスが設定され、AIアシスタントと同じコンピューターで実行中のFCS 26.10以降。"
+
+#: ../../005_mcp.md:13
+msgid ""
+"FCS must remain open and licensed while the assistant working on it. The MCP"
+" server listens only on `127.0.0.1`, so it is not available to other "
+"computers or to cloud-only assistants."
+msgstr ""
+"アシスタントがFCSで作業している間は、FCSを起動したままにし、有効なライセンスを維持する必要があります。MCPサーバーは`127.0.0.1`でのみ待ち受けるため、別のコンピューターやクラウド専用のアシスタントからは利用できません。"
+
+#: ../../005_mcp.md:17
+msgid ""
+"Launch FCS normally. The procedure is the same for the installed FCS "
+"executable and for a Python/script launch."
+msgstr ""
+"通常どおりFCSを起動します。インストールされたFCS実行ファイルから起動する場合も、Python／スクリプトから起動する場合も手順は同じです。"
+
+#: ../../005_mcp.md:27
+msgid ""
+"Use the complete URL shown by FCS when configuring a client. If you change "
+"the port, use the updated URL in every client configuration. Port `19876` is"
+" reserved by FCS and cannot be used for MCP."
+msgstr ""
+"クライアントを設定するときは、FCSに表示された完全なURLを使用します。ポートを変更した場合は、すべてのクライアント設定で変更後のURLを使用してください。ポート`19876`はFCSによって予約されているため、MCPには使用できません。"
+
+#: ../../005_mcp.md:33
+msgid ""
+"The setup is performed once for each assistant. Name the server `fcs` or "
+"`FCS` and use the URL displayed in FCS."
+msgstr "設定はアシスタントごとに一度だけ行います。サーバー名を`fcs`または`FCS`とし、FCSに表示されたURLを使用します。"
+
+#: ../../005_mcp.md:38
+msgid "Open **Settings > Plugins > MCP**."
+msgstr "**Settings > Plugins > MCP**を開きます。"
+
+#: ../../005_mcp.md:40
+msgid "Enter `FCS` as the name and select **Streamable HTTP**."
+msgstr "名前に`FCS`と入力し、**Streamable HTTP**を選択します。"
+
+#: ../../005_mcp.md:44
+msgid ""
+"This applies to local ChatGPT/Codex clients that support custom MCP servers."
+" ChatGPT in a web browser cannot connect directly to the FCS loopback "
+"address."
+msgstr ""
+"この手順は、カスタムMCPサーバーに対応するローカルのChatGPT／Codexクライアント向けです。Webブラウザー版のChatGPTは、FCSのループバックアドレスへ直接接続できません。"
+
+#: ../../005_mcp.md:66
+msgid ""
+"The user scope makes FCS available in future Claude Code sessions on this "
+"computer. Run `claude mcp list` to check the connection."
+msgstr ""
+"ユーザースコープに設定すると、このコンピューター上の今後のClaude CodeセッションでもFCSを利用できます。`claude mcp "
+"list`で接続を確認します。"
+
+#: ../../005_mcp.md:73
+msgid "Select **HTTP**, enter the FCS URL, and name the server `FCS`."
+msgstr "**HTTP**を選択し、FCSのURLを入力して、サーバー名を`FCS`にします。"
+
+#: ../../005_mcp.md:98
+msgid ""
+"FCS does not require OAuth because the endpoint is restricted to the local "
+"computer. Check the MCP server list in OpenCode after saving the "
+"configuration."
+msgstr ""
+"エンドポイントがローカルコンピューターに限定されているため、FCSではOAuthは不要です。設定を保存した後、OpenCodeのMCPサーバー一覧を確認します。"
+
+#: ../../005_mcp.md:103
+msgid ""
+"Claude Desktop custom connectors are intended for remotely reachable servers"
+" and cannot be assumed to reach FCS at `127.0.0.1`. FCS currently does not "
+"ship the separate stdio bridge required by Claude Desktop's traditional "
+"local MCP configuration. Use Claude Code or another local Streamable HTTP "
+"client instead."
+msgstr ""
+"Claude "
+"Desktopのカスタムコネクターは、リモートから到達可能なサーバーを対象としており、`127.0.0.1`上のFCSへ接続できるとは限りません。現在のFCSには、Claude"
+" Desktopの従来のローカルMCP設定で必要となる個別のstdioブリッジは含まれていません。代わりにClaude "
+"Codeまたは別のローカルStreamable HTTPクライアントを使用してください。"
+
+#: ../../005_mcp.md:114
+msgid "“Ask FCS which session is open and summarize it.”"
+msgstr "「FCSに、開いているセッションを確認して要約してもらってください。」"
+
+#: ../../005_mcp.md:124
+msgid ""
+"The assistant can read the guide exposed by FCS through MCP, so it can look "
+"up FCS-specific procedures before acting."
+msgstr "アシスタントはFCSがMCP経由で公開するガイドを読めるため、操作前にFCS固有の手順を確認できます。"
+
+#: ../../005_mcp.md:162
+msgid "FCS shows Disabled"
+msgstr "FCSにDisabledと表示される"
+
+#: ../../005_mcp.md:167
+msgid "FCS shows Waiting for a valid license"
+msgstr "FCSにWaiting for a valid licenseと表示される"
+
+#: ../../005_mcp.md:172
+msgid "FCS shows an error or the port is already in use"
+msgstr "FCSにエラーが表示される、またはポートが使用中である"
+
+#: ../../005_mcp.md:179
+msgid ""
+"Confirm that FCS is still open, its status says **Listening**, and the "
+"client URL exactly matches the status URL, including `/mcp`. A client "
+"running on another computer, in a remote development environment, or only in"
+" the cloud cannot reach the FCS `127.0.0.1` endpoint."
+msgstr ""
+"FCSが起動中で、ステータスに**Listening**と表示され、クライアントのURLが`/mcp`を含めてステータスのURLと完全に一致していることを確認します。別のコンピューター、リモート開発環境、またはクラウドのみで動作するクライアントは、FCSの`127.0.0.1`エンドポイントに到達できません。"

@@ -1,0 +1,434 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) TOEI Zukun
+# This file is distributed under the same license as the FCS Doc Advanced
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FCS Doc Advanced latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-31 11:48+0900\n"
+"PO-Revision-Date: 2026-07-31 00:00+0900\n"
+"Last-Translator: TOEI Zukun\n"
+"Language-Team: en\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../005_mcp.md:1
+msgid "Using FCS with AI Assistants (MCP)"
+msgstr ""
+
+#: ../../005_mcp.md:6
+msgid "Before You Start"
+msgstr ""
+
+#: ../../005_mcp.md:8
+msgid "You need:"
+msgstr ""
+
+#: ../../005_mcp.md:11
+msgid ""
+"An MCP client that supports Streamable HTTP servers on the local computer."
+msgstr ""
+
+#: ../../005_mcp.md:15
+msgid "Enable the MCP Server"
+msgstr ""
+
+#: ../../005_mcp.md:19
+msgid "Open **Settings** and expand **MCP Server**."
+msgstr ""
+
+#: ../../005_mcp.md:20
+msgid "Enable **Enable MCP Server**."
+msgstr ""
+
+#: ../../005_mcp.md:21
+msgid ""
+"Keep the default port, `19877`, unless it conflicts with another local "
+"program."
+msgstr ""
+
+#: ../../005_mcp.md:23
+msgid "Save the settings."
+msgstr ""
+
+#: ../../005_mcp.md:24
+msgid ""
+"Confirm that the status displays **Listening at "
+"http://127.0.0.1:19877/mcp**."
+msgstr ""
+
+#: ../../005_mcp.md:31
+msgid "Connect an AI Assistant"
+msgstr ""
+
+#: ../../005_mcp.md:36
+msgid "ChatGPT Desktop and the Codex App"
+msgstr ""
+
+#: ../../005_mcp.md:39
+msgid "Select **Add server**."
+msgstr ""
+
+#: ../../005_mcp.md:41
+msgid "Enter `http://127.0.0.1:19877/mcp` as the URL."
+msgstr ""
+
+#: ../../005_mcp.md:42
+msgid "Save the server and restart the app when prompted."
+msgstr ""
+
+#: ../../005_mcp.md:47
+msgid "Codex CLI"
+msgstr ""
+
+#: ../../005_mcp.md:49 ../../005_mcp.md:60
+msgid "Run:"
+msgstr ""
+
+#: ../../005_mcp.md:55
+msgid ""
+"Use `codex mcp list` to check the connection. Inside Codex, use `/mcp` to "
+"view the connected server and its tools."
+msgstr ""
+
+#: ../../005_mcp.md:58
+msgid "Claude Code"
+msgstr ""
+
+#: ../../005_mcp.md:69
+msgid "Visual Studio Code and GitHub Copilot"
+msgstr ""
+
+#: ../../005_mcp.md:71
+msgid "Open the Command Palette with **Ctrl+Shift+P**."
+msgstr ""
+
+#: ../../005_mcp.md:72
+msgid "Run **MCP: Add Server**."
+msgstr ""
+
+#: ../../005_mcp.md:74
+msgid ""
+"Choose the global/user profile location so that the connection is available "
+"outside one workspace."
+msgstr ""
+
+#: ../../005_mcp.md:76
+msgid ""
+"Open Chat and use **Configure Tools** to confirm that the FCS tools are "
+"available."
+msgstr ""
+
+#: ../../005_mcp.md:79
+msgid "OpenCode"
+msgstr ""
+
+#: ../../005_mcp.md:81
+msgid "Add a remote MCP server to the OpenCode configuration:"
+msgstr ""
+
+#: ../../005_mcp.md:101
+msgid "Claude Desktop"
+msgstr ""
+
+#: ../../005_mcp.md:109
+msgid "Ask FCS to Perform Work"
+msgstr ""
+
+#: ../../005_mcp.md:111
+msgid ""
+"After connecting, speak to the assistant normally. You do not need to "
+"memorize MCP tool names. For example:"
+msgstr ""
+
+#: ../../005_mcp.md:115
+msgid ""
+"“List the videos in the current session and show their processing state.”"
+msgstr ""
+
+#: ../../005_mcp.md:116
+msgid ""
+"“Process the selected video with the current FCS settings, then report "
+"progress until it finishes.”"
+msgstr ""
+
+#: ../../005_mcp.md:118
+msgid ""
+"“Validate the current session for export and explain any problems before "
+"exporting it.”"
+msgstr ""
+
+#: ../../005_mcp.md:120
+msgid ""
+"“Show the current controller table and apply the standard preset, but do not"
+" save it yet.”"
+msgstr ""
+
+#: ../../005_mcp.md:122
+msgid "“Read the FCS operating guide and explain how to edit ROMs.”"
+msgstr ""
+
+#: ../../005_mcp.md:127
+msgid "Available Workflows"
+msgstr ""
+
+#: ../../005_mcp.md:129
+msgid "The public MCP tools cover these areas:"
+msgstr ""
+
+#: ../../005_mcp.md:131
+msgid ""
+"Application and session status, session creation, opening, inspection, and "
+"saving."
+msgstr ""
+
+#: ../../005_mcp.md:133
+msgid "Video import, library and sequence browsing, and video selection."
+msgstr ""
+
+#: ../../005_mcp.md:134
+msgid "Single and batch processing, job progress, status, and cancellation."
+msgstr ""
+
+#: ../../005_mcp.md:135
+msgid "Export validation, export defaults, and session export."
+msgstr ""
+
+#: ../../005_mcp.md:136
+msgid "Renderer status, connection testing, launch, and scene opening."
+msgstr ""
+
+#: ../../005_mcp.md:137
+msgid "Processing profiles and settings inspection or updates."
+msgstr ""
+
+#: ../../005_mcp.md:138
+msgid ""
+"ROM gallery queries, updates, prediction, deletion, and timeline navigation."
+msgstr ""
+
+#: ../../005_mcp.md:139
+msgid ""
+"Controller inspection, editing, presets, reordering, synchronization, and "
+"explicit saving."
+msgstr ""
+
+#: ../../005_mcp.md:142
+msgid ""
+"FCS intentionally exposes a curated set of named tools. License management "
+"and internal application commands are not available through MCP. The exact "
+"tool list is discovered automatically by the client when it connects."
+msgstr ""
+
+#: ../../005_mcp.md:146
+msgid "Review Actions Before Approval"
+msgstr ""
+
+#: ../../005_mcp.md:148
+msgid ""
+"Your MCP client may request approval before a tool runs. Read the proposed "
+"action carefully, particularly before allowing an assistant to:"
+msgstr ""
+
+#: ../../005_mcp.md:151
+msgid "Delete ROMs or cancel processing jobs."
+msgstr ""
+
+#: ../../005_mcp.md:152
+msgid "Change and save application settings."
+msgstr ""
+
+#: ../../005_mcp.md:153
+msgid "Save a session or controller table."
+msgstr ""
+
+#: ../../005_mcp.md:154
+msgid "Start processing or export files."
+msgstr ""
+
+#: ../../005_mcp.md:156
+msgid ""
+"Prefer asking the assistant to inspect or validate first, summarize the "
+"planned changes, and perform the mutation only after you approve it. "
+"Controller edits remain a working draft until the assistant explicitly saves"
+" them."
+msgstr ""
+
+#: ../../005_mcp.md:160
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../005_mcp.md:164
+msgid ""
+"Enable **MCP Server** in Settings and save. Merely changing the checkbox "
+"without saving does not apply the setting."
+msgstr ""
+
+#: ../../005_mcp.md:169
+msgid ""
+"Complete FCS license activation. The endpoint starts only while the license "
+"is valid."
+msgstr ""
+
+#: ../../005_mcp.md:174
+msgid ""
+"Choose another port from `1024` through `65535`, except `19876`, save the "
+"settings, and update the URL in the AI assistant."
+msgstr ""
+
+#: ../../005_mcp.md:177
+msgid "The assistant cannot connect"
+msgstr ""
+
+#: ../../005_mcp.md:184
+msgid "The assistant connects but an action is rejected"
+msgstr ""
+
+#: ../../005_mcp.md:186
+msgid ""
+"Check that the FCS license is still valid. The requested operation may also "
+"be outside the curated public tool set or may require an open session, "
+"selected video, renderer connection, or other FCS state. Ask the assistant "
+"to inspect the application and session status before retrying."
+msgstr ""
+
+#: ../../005_mcp.md:191
+msgid "Client Documentation"
+msgstr ""
+
+#: ../../005_mcp.md:193
+msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
+msgstr ""
+
+#: ../../005_mcp.md:194
+msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
+msgstr ""
+
+#: ../../005_mcp.md:195
+msgid ""
+"[Visual Studio Code MCP servers](https://code.visualstudio.com/docs/agent-"
+"customization/mcp-servers)"
+msgstr ""
+
+#: ../../005_mcp.md:196
+msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
+msgstr ""
+
+#: ../../005_mcp.md:3
+msgid ""
+"Starting with FCS 26.10, FCS can provide a local Model Context Protocol "
+"(MCP) server. An MCP-compatible AI assistant can inspect the current FCS "
+"session, operate supported workflows, and read the bundled FCS operating "
+"guide. AI assistants can directly help you the time consuming part of your "
+"tasks."
+msgstr ""
+
+#: ../../005_mcp.md:10
+msgid ""
+"FCS 26.10 or later with a valid license, running on the same computer as the"
+" AI assistant."
+msgstr ""
+
+#: ../../005_mcp.md:13
+msgid ""
+"FCS must remain open and licensed while the assistant working on it. The MCP"
+" server listens only on `127.0.0.1`, so it is not available to other "
+"computers or to cloud-only assistants."
+msgstr ""
+
+#: ../../005_mcp.md:17
+msgid ""
+"Launch FCS normally. The procedure is the same for the installed FCS "
+"executable and for a Python/script launch."
+msgstr ""
+
+#: ../../005_mcp.md:27
+msgid ""
+"Use the complete URL shown by FCS when configuring a client. If you change "
+"the port, use the updated URL in every client configuration. Port `19876` is"
+" reserved by FCS and cannot be used for MCP."
+msgstr ""
+
+#: ../../005_mcp.md:33
+msgid ""
+"The setup is performed once for each assistant. Name the server `fcs` or "
+"`FCS` and use the URL displayed in FCS."
+msgstr ""
+
+#: ../../005_mcp.md:38
+msgid "Open **Settings > Plugins > MCP**."
+msgstr ""
+
+#: ../../005_mcp.md:40
+msgid "Enter `FCS` as the name and select **Streamable HTTP**."
+msgstr ""
+
+#: ../../005_mcp.md:44
+msgid ""
+"This applies to local ChatGPT/Codex clients that support custom MCP servers."
+" ChatGPT in a web browser cannot connect directly to the FCS loopback "
+"address."
+msgstr ""
+
+#: ../../005_mcp.md:66
+msgid ""
+"The user scope makes FCS available in future Claude Code sessions on this "
+"computer. Run `claude mcp list` to check the connection."
+msgstr ""
+
+#: ../../005_mcp.md:73
+msgid "Select **HTTP**, enter the FCS URL, and name the server `FCS`."
+msgstr ""
+
+#: ../../005_mcp.md:98
+msgid ""
+"FCS does not require OAuth because the endpoint is restricted to the local "
+"computer. Check the MCP server list in OpenCode after saving the "
+"configuration."
+msgstr ""
+
+#: ../../005_mcp.md:103
+msgid ""
+"Claude Desktop custom connectors are intended for remotely reachable servers"
+" and cannot be assumed to reach FCS at `127.0.0.1`. FCS currently does not "
+"ship the separate stdio bridge required by Claude Desktop's traditional "
+"local MCP configuration. Use Claude Code or another local Streamable HTTP "
+"client instead."
+msgstr ""
+
+#: ../../005_mcp.md:114
+msgid "“Ask FCS which session is open and summarize it.”"
+msgstr ""
+
+#: ../../005_mcp.md:124
+msgid ""
+"The assistant can read the guide exposed by FCS through MCP, so it can look "
+"up FCS-specific procedures before acting."
+msgstr ""
+
+#: ../../005_mcp.md:162
+msgid "FCS shows Disabled"
+msgstr ""
+
+#: ../../005_mcp.md:167
+msgid "FCS shows Waiting for a valid license"
+msgstr ""
+
+#: ../../005_mcp.md:172
+msgid "FCS shows an error or the port is already in use"
+msgstr ""
+
+#: ../../005_mcp.md:179
+msgid ""
+"Confirm that FCS is still open, its status says **Listening**, and the "
+"client URL exactly matches the status URL, including `/mcp`. A client "
+"running on another computer, in a remote development environment, or only in"
+" the cloud cannot reach the FCS `127.0.0.1` endpoint."
+msgstr ""
