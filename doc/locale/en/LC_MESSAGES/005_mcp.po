@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-14 19:22+0900\n"
+"POT-Creation-Date: 2026-09-14 19:50+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: en\n"
@@ -284,45 +284,45 @@ msgid ""
 "guide exposed through MCP before acting. Representative exchanges:"
 msgstr ""
 
-#: ../../005_mcp.md:135 ../../005_mcp.md:156
+#: ../../005_mcp.md:139 ../../005_mcp.md:165
 msgid "**User**"
 msgstr "**User**"
 
-#: ../../005_mcp.md:137
+#: ../../005_mcp.md:141
 msgid "セッションを作成したいです．どのような情報を提示すればよいですか？"
 msgstr "I want to create a session. What information should I provide?"
 
-#: ../../005_mcp.md:139 ../../005_mcp.md:171
+#: ../../005_mcp.md:146 ../../005_mcp.md:183
 msgid "**Assistant**"
 msgstr "**Assistant**"
 
-#: ../../005_mcp.md:141
+#: ../../005_mcp.md:148
 msgid "セッション作成には以下の6点が必要です："
 msgstr "Session creation requires the following six items:"
 
-#: ../../005_mcp.md:143
+#: ../../005_mcp.md:150
 msgid "**project_folder**: プロジェクトフォルダの絶対パス"
 msgstr "**project_folder**: Absolute path to the project folder"
 
-#: ../../005_mcp.md:144
+#: ../../005_mcp.md:151
 msgid "例: `D:/FacialCapture/MyProject`"
 msgstr "Example: `D:/FacialCapture/MyProject`"
 
-#: ../../005_mcp.md:145
+#: ../../005_mcp.md:152
 msgid "**actor**: アクター名（撮影対象人物、スペースなし推奨）"
 msgstr "**actor**: Actor name (the captured person; spaces not recommended)"
 
-#: ../../005_mcp.md:146
+#: ../../005_mcp.md:153
 msgid "**character**: キャラクター名（動かす3Dリグ名）"
 msgstr "**character**: Character name (the 3D rig to drive)"
 
-#: ../../005_mcp.md:147
+#: ../../005_mcp.md:154
 msgid "**maya_scene**: Mayaシーンファイルの絶対パス（`.ma` / `.mb`、実在必須）"
 msgstr ""
 "**maya_scene**: Absolute path to the Maya scene file (`.ma` / `.mb`; must"
 " exist)"
 
-#: ../../005_mcp.md:148
+#: ../../005_mcp.md:155
 msgid ""
 "**maya_base**: "
 "Mayaワークスペースフォルダの絶対パス（`workspace.mel`があるフォルダ、通常はscene選択で自動検出）"
@@ -331,37 +331,37 @@ msgstr ""
 "that contains `workspace.mel`; usually detected automatically when a "
 "scene is selected)"
 
-#: ../../005_mcp.md:149
+#: ../../005_mcp.md:156
 msgid "**maya_version**: Mayaバージョン（`2020, 2022, 2023, 2024, 2025`から選択）"
 msgstr ""
 "**maya_version**: Maya version (choose from `2020, 2022, 2023, 2024, "
 "2025`)"
 
-#: ../../005_mcp.md:151
+#: ../../005_mcp.md:158
 msgid "既存プロジェクトフォルダを指定いただければ、利用可能なactor/character一覧もこちらで確認できます。"
 msgstr ""
 "If you specify an existing project folder, I can also check the available"
 " actor/character list for you."
 
-#: ../../005_mcp.md:153
+#: ../../005_mcp.md:160
 msgid "上記6点を教えていただけますか？"
 msgstr "Could you provide those six items?"
 
-#: ../../005_mcp.md:158
+#: ../../005_mcp.md:167
 msgid "以下の情報で複数のセッションを作成し動画をインポートしてください。"
 msgstr ""
 "Please create multiple sessions with the following information and import"
 " the videos."
 
-#: ../../005_mcp.md:160
+#: ../../005_mcp.md:169
 msgid "**project_folder**: `D:/FacialCapture/SampleProject/Sessions`"
 msgstr "**project_folder**: `D:/FacialCapture/SampleProject/Sessions`"
 
-#: ../../005_mcp.md:161
+#: ../../005_mcp.md:170
 msgid "**actor** / **character** / **maya_scene**:"
 msgstr "**actor** / **character** / **maya_scene**:"
 
-#: ../../005_mcp.md:162
+#: ../../005_mcp.md:171
 msgid ""
 "撮影動画は `D:/FacialCapture/SampleCapture/RecData` に、アクターごとに "
 "キャラクター名を含んだ名前で動画が格納されている"
@@ -370,21 +370,21 @@ msgstr ""
 "`D:/FacialCapture/SampleCapture/RecData`, organized by actor, with "
 "filenames that include the character name"
 
-#: ../../005_mcp.md:164
+#: ../../005_mcp.md:173
 msgid "Maya シーンは `D:/FacialCapture/SampleCapture/Scenes` に、キャラクターごとに格納されている"
 msgstr ""
 "Maya scenes are stored under `D:/FacialCapture/SampleCapture/Scenes`, "
 "organized by character"
 
-#: ../../005_mcp.md:165
+#: ../../005_mcp.md:174
 msgid "対応関係が取れる組み合わせのみでセッションを作成すること"
 msgstr "Create sessions only for combinations that match"
 
-#: ../../005_mcp.md:166
+#: ../../005_mcp.md:175
 msgid "**maya_base**: `D:/FacialCapture/SampleCapture/Scenes`"
 msgstr "**maya_base**: `D:/FacialCapture/SampleCapture/Scenes`"
 
-#: ../../005_mcp.md:167
+#: ../../005_mcp.md:176
 msgid ""
 "**maya_version**: `2024` のはずだが、可能であれば各 `maya_scene` "
 "をテキストとして開き、1行目の記述を確認すること"
@@ -392,7 +392,7 @@ msgstr ""
 "**maya_version**: should be `2024`, but if possible open each "
 "`maya_scene` as text and confirm the first line"
 
-#: ../../005_mcp.md:169
+#: ../../005_mcp.md:178
 msgid ""
 "その後、対応する動画をインポートする。各アクターの動画フォルダに `ROM` "
 "と名の付く動画があれば、それをそのアクターのセッションすべてにインポートする。"
@@ -401,57 +401,13 @@ msgstr ""
 "video with `ROM` in the name, import that video into every session for "
 "that actor."
 
-#: ../../005_mcp.md:173
+#: ../../005_mcp.md:185
 msgid "完了しました。3つの FCS セッションを作成し、対応動画と ROM 動画をインポート済みです。"
 msgstr ""
 "Done. Created three FCS sessions and imported the matching videos and ROM"
 " videos."
 
-#: ../../005_mcp.md
-msgid "Actor"
-msgstr "Actor"
-
-#: ../../005_mcp.md
-msgid "Character"
-msgstr "Character"
-
-#: ../../005_mcp.md
-msgid "動画数"
-msgstr "Videos"
-
-#: ../../005_mcp.md
-msgid "Alice"
-msgstr "Alice"
-
-#: ../../005_mcp.md
-msgid "Hero_001"
-msgstr "Hero_001"
-
-#: ../../005_mcp.md
-msgid "31（ROM 1本を含む）"
-msgstr "31 (including 1 ROM)"
-
-#: ../../005_mcp.md
-msgid "Bob"
-msgstr "Bob"
-
-#: ../../005_mcp.md
-msgid "Side_001"
-msgstr "Side_001"
-
-#: ../../005_mcp.md
-msgid "44（ROM 1本を含む）"
-msgstr "44 (including 1 ROM)"
-
-#: ../../005_mcp.md
-msgid "Extra_001"
-msgstr "Extra_001"
-
-#: ../../005_mcp.md
-msgid "6（ROM 1本を含む）"
-msgstr "6 (including 1 ROM)"
-
-#: ../../005_mcp.md:181
+#: ../../005_mcp.md:193
 msgid ""
 "各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
 "は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
@@ -460,7 +416,7 @@ msgstr ""
 "the sessions were created as Maya 2024. Carol was skipped because no "
 "matching scene/character was found."
 
-#: ../../005_mcp.md:183
+#: ../../005_mcp.md:195
 msgid ""
 "作成先は `D:/FacialCapture/SampleProject/Sessions/FCS/` です。現在は `Bob / "
 "Extra_001` セッションを開いた状態です。"
@@ -468,33 +424,33 @@ msgstr ""
 "They were created under `D:/FacialCapture/SampleProject/Sessions/FCS/`. "
 "The `Bob / Extra_001` session is currently open."
 
-#: ../../005_mcp.md:186
+#: ../../005_mcp.md:199
 msgid "Review Actions Before Approval"
 msgstr ""
 
-#: ../../005_mcp.md:188
+#: ../../005_mcp.md:201
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
 "proposed action carefully, particularly before allowing an assistant to:"
 msgstr ""
 
-#: ../../005_mcp.md:191
+#: ../../005_mcp.md:204
 msgid "Delete ROMs or cancel processing jobs."
 msgstr ""
 
-#: ../../005_mcp.md:192
+#: ../../005_mcp.md:205
 msgid "Change and save application settings."
 msgstr ""
 
-#: ../../005_mcp.md:193
+#: ../../005_mcp.md:206
 msgid "Save a session or controller table."
 msgstr ""
 
-#: ../../005_mcp.md:194
+#: ../../005_mcp.md:207
 msgid "Start processing or export files."
 msgstr ""
 
-#: ../../005_mcp.md:196
+#: ../../005_mcp.md:209
 msgid ""
 "Prefer asking the assistant to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
@@ -502,45 +458,45 @@ msgid ""
 "saves them."
 msgstr ""
 
-#: ../../005_mcp.md:200
+#: ../../005_mcp.md:213
 msgid "Troubleshooting"
 msgstr ""
 
-#: ../../005_mcp.md:202
+#: ../../005_mcp.md:215
 msgid "FCS shows Disabled"
 msgstr ""
 
-#: ../../005_mcp.md:204
+#: ../../005_mcp.md:217
 msgid ""
 "Enable **MCP Server** in Settings and save. Merely changing the checkbox "
 "without saving does not apply the setting."
 msgstr ""
 
-#: ../../005_mcp.md:207
+#: ../../005_mcp.md:220
 msgid "FCS shows Waiting for a valid license"
 msgstr ""
 
-#: ../../005_mcp.md:209
+#: ../../005_mcp.md:222
 msgid ""
 "Complete FCS license activation. The endpoint starts only while the "
 "license is valid."
 msgstr ""
 
-#: ../../005_mcp.md:212
+#: ../../005_mcp.md:225
 msgid "FCS shows an error or the port is already in use"
 msgstr ""
 
-#: ../../005_mcp.md:214
+#: ../../005_mcp.md:227
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
 " settings, and update the URL in the AI assistant."
 msgstr ""
 
-#: ../../005_mcp.md:217
+#: ../../005_mcp.md:230
 msgid "The assistant cannot connect"
 msgstr ""
 
-#: ../../005_mcp.md:219
+#: ../../005_mcp.md:232
 msgid ""
 "Confirm that FCS is still open, its status says **Listening**, and the "
 "client URL exactly matches the status URL, including `/mcp`. A client "
@@ -548,11 +504,11 @@ msgid ""
 " in the cloud cannot reach the FCS `127.0.0.1` endpoint."
 msgstr ""
 
-#: ../../005_mcp.md:224
+#: ../../005_mcp.md:237
 msgid "The assistant connects but an action is rejected"
 msgstr ""
 
-#: ../../005_mcp.md:226
+#: ../../005_mcp.md:239
 msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
@@ -560,25 +516,58 @@ msgid ""
 " assistant to inspect the application and session status before retrying."
 msgstr ""
 
-#: ../../005_mcp.md:231
+#: ../../005_mcp.md:244
 msgid "Client Documentation"
 msgstr ""
 
-#: ../../005_mcp.md:233
+#: ../../005_mcp.md:246
 msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 msgstr ""
 
-#: ../../005_mcp.md:234
+#: ../../005_mcp.md:247
 msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
 msgstr ""
 
-#: ../../005_mcp.md:235
+#: ../../005_mcp.md:248
 msgid ""
 "[Visual Studio Code MCP servers](https://code.visualstudio.com/docs"
 "/agent-customization/mcp-servers)"
 msgstr ""
 
-#: ../../005_mcp.md:236
+#: ../../005_mcp.md:249
 msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
 msgstr ""
+
+#~ msgid "Actor"
+#~ msgstr "Actor"
+
+#~ msgid "Character"
+#~ msgstr "Character"
+
+#~ msgid "動画数"
+#~ msgstr "Videos"
+
+#~ msgid "Alice"
+#~ msgstr "Alice"
+
+#~ msgid "Hero_001"
+#~ msgstr "Hero_001"
+
+#~ msgid "31（ROM 1本を含む）"
+#~ msgstr "31 (including 1 ROM)"
+
+#~ msgid "Bob"
+#~ msgstr "Bob"
+
+#~ msgid "Side_001"
+#~ msgstr "Side_001"
+
+#~ msgid "44（ROM 1本を含む）"
+#~ msgstr "44 (including 1 ROM)"
+
+#~ msgid "Extra_001"
+#~ msgstr "Extra_001"
+
+#~ msgid "6（ROM 1本を含む）"
+#~ msgstr "6 (including 1 ROM)"
 

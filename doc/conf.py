@@ -22,7 +22,7 @@ suppress_warnings = ["myst.header"]
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_parser', 'sphinx_last_updated_by_git']
-myst_enable_extensions = ["dollarmath"]
+myst_enable_extensions = ["dollarmath", "colon_fence"]
 if build_pdf:
     extensions.append('rst2pdf.pdfbuilder')
     extensions.append('sphinx.ext.autodoc')
@@ -48,6 +48,7 @@ html_theme_options = {
 
 html_last_updated_fmt = '%B %d, %Y'
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 # -- Options for PDF output -------------------------------------------------
 latex_engine = 'pdflatex'
