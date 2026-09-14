@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-14 19:50+0900\n"
+"POT-Creation-Date: 2026-09-14 20:01+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: en\n"
@@ -407,7 +407,51 @@ msgstr ""
 "Done. Created three FCS sessions and imported the matching videos and ROM"
 " videos."
 
+#: ../../005_mcp.md:192
+msgid "Actor"
+msgstr "Actor"
+
 #: ../../005_mcp.md:193
+msgid "Character"
+msgstr "Character"
+
+#: ../../005_mcp.md:194
+msgid "動画数"
+msgstr "Videos"
+
+#: ../../005_mcp.md:195
+msgid "Alice"
+msgstr "Alice"
+
+#: ../../005_mcp.md:196
+msgid "Hero_001"
+msgstr "Hero_001"
+
+#: ../../005_mcp.md:197
+msgid "31（ROM 1本を含む）"
+msgstr "31 (including 1 ROM)"
+
+#: ../../005_mcp.md:198 ../../005_mcp.md:201
+msgid "Bob"
+msgstr "Bob"
+
+#: ../../005_mcp.md:199
+msgid "Side_001"
+msgstr "Side_001"
+
+#: ../../005_mcp.md:200
+msgid "44（ROM 1本を含む）"
+msgstr "44 (including 1 ROM)"
+
+#: ../../005_mcp.md:202
+msgid "Extra_001"
+msgstr "Extra_001"
+
+#: ../../005_mcp.md:203
+msgid "6（ROM 1本を含む）"
+msgstr "6 (including 1 ROM)"
+
+#: ../../005_mcp.md:206
 msgid ""
 "各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
 "は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
@@ -416,7 +460,7 @@ msgstr ""
 "the sessions were created as Maya 2024. Carol was skipped because no "
 "matching scene/character was found."
 
-#: ../../005_mcp.md:195
+#: ../../005_mcp.md:208
 msgid ""
 "作成先は `D:/FacialCapture/SampleProject/Sessions/FCS/` です。現在は `Bob / "
 "Extra_001` セッションを開いた状態です。"
@@ -424,33 +468,33 @@ msgstr ""
 "They were created under `D:/FacialCapture/SampleProject/Sessions/FCS/`. "
 "The `Bob / Extra_001` session is currently open."
 
-#: ../../005_mcp.md:199
+#: ../../005_mcp.md:212
 msgid "Review Actions Before Approval"
 msgstr ""
 
-#: ../../005_mcp.md:201
+#: ../../005_mcp.md:214
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
 "proposed action carefully, particularly before allowing an assistant to:"
 msgstr ""
 
-#: ../../005_mcp.md:204
+#: ../../005_mcp.md:217
 msgid "Delete ROMs or cancel processing jobs."
 msgstr ""
 
-#: ../../005_mcp.md:205
+#: ../../005_mcp.md:218
 msgid "Change and save application settings."
 msgstr ""
 
-#: ../../005_mcp.md:206
+#: ../../005_mcp.md:219
 msgid "Save a session or controller table."
 msgstr ""
 
-#: ../../005_mcp.md:207
+#: ../../005_mcp.md:220
 msgid "Start processing or export files."
 msgstr ""
 
-#: ../../005_mcp.md:209
+#: ../../005_mcp.md:222
 msgid ""
 "Prefer asking the assistant to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
@@ -458,45 +502,45 @@ msgid ""
 "saves them."
 msgstr ""
 
-#: ../../005_mcp.md:213
+#: ../../005_mcp.md:226
 msgid "Troubleshooting"
 msgstr ""
 
-#: ../../005_mcp.md:215
+#: ../../005_mcp.md:228
 msgid "FCS shows Disabled"
 msgstr ""
 
-#: ../../005_mcp.md:217
+#: ../../005_mcp.md:230
 msgid ""
 "Enable **MCP Server** in Settings and save. Merely changing the checkbox "
 "without saving does not apply the setting."
 msgstr ""
 
-#: ../../005_mcp.md:220
+#: ../../005_mcp.md:233
 msgid "FCS shows Waiting for a valid license"
 msgstr ""
 
-#: ../../005_mcp.md:222
+#: ../../005_mcp.md:235
 msgid ""
 "Complete FCS license activation. The endpoint starts only while the "
 "license is valid."
 msgstr ""
 
-#: ../../005_mcp.md:225
+#: ../../005_mcp.md:238
 msgid "FCS shows an error or the port is already in use"
 msgstr ""
 
-#: ../../005_mcp.md:227
+#: ../../005_mcp.md:240
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
 " settings, and update the URL in the AI assistant."
 msgstr ""
 
-#: ../../005_mcp.md:230
+#: ../../005_mcp.md:243
 msgid "The assistant cannot connect"
 msgstr ""
 
-#: ../../005_mcp.md:232
+#: ../../005_mcp.md:245
 msgid ""
 "Confirm that FCS is still open, its status says **Listening**, and the "
 "client URL exactly matches the status URL, including `/mcp`. A client "
@@ -504,11 +548,11 @@ msgid ""
 " in the cloud cannot reach the FCS `127.0.0.1` endpoint."
 msgstr ""
 
-#: ../../005_mcp.md:237
+#: ../../005_mcp.md:250
 msgid "The assistant connects but an action is rejected"
 msgstr ""
 
-#: ../../005_mcp.md:239
+#: ../../005_mcp.md:252
 msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
@@ -516,58 +560,25 @@ msgid ""
 " assistant to inspect the application and session status before retrying."
 msgstr ""
 
-#: ../../005_mcp.md:244
+#: ../../005_mcp.md:257
 msgid "Client Documentation"
 msgstr ""
 
-#: ../../005_mcp.md:246
+#: ../../005_mcp.md:259
 msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 msgstr ""
 
-#: ../../005_mcp.md:247
+#: ../../005_mcp.md:260
 msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
 msgstr ""
 
-#: ../../005_mcp.md:248
+#: ../../005_mcp.md:261
 msgid ""
 "[Visual Studio Code MCP servers](https://code.visualstudio.com/docs"
 "/agent-customization/mcp-servers)"
 msgstr ""
 
-#: ../../005_mcp.md:249
+#: ../../005_mcp.md:262
 msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
 msgstr ""
-
-#~ msgid "Actor"
-#~ msgstr "Actor"
-
-#~ msgid "Character"
-#~ msgstr "Character"
-
-#~ msgid "動画数"
-#~ msgstr "Videos"
-
-#~ msgid "Alice"
-#~ msgstr "Alice"
-
-#~ msgid "Hero_001"
-#~ msgstr "Hero_001"
-
-#~ msgid "31（ROM 1本を含む）"
-#~ msgstr "31 (including 1 ROM)"
-
-#~ msgid "Bob"
-#~ msgstr "Bob"
-
-#~ msgid "Side_001"
-#~ msgstr "Side_001"
-
-#~ msgid "44（ROM 1本を含む）"
-#~ msgstr "44 (including 1 ROM)"
-
-#~ msgid "Extra_001"
-#~ msgstr "Extra_001"
-
-#~ msgid "6（ROM 1本を含む）"
-#~ msgstr "6 (including 1 ROM)"
 

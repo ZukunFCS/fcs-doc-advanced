@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-14 19:50+0900\n"
+"POT-Creation-Date: 2026-09-14 20:01+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: jp\n"
@@ -399,15 +399,59 @@ msgstr ""
 msgid "完了しました。3つの FCS セッションを作成し、対応動画と ROM 動画をインポート済みです。"
 msgstr "完了しました。3つの FCS セッションを作成し、対応動画と ROM 動画をインポート済みです。"
 
+#: ../../005_mcp.md:192
+msgid "Actor"
+msgstr "Actor"
+
 #: ../../005_mcp.md:193
-msgid ""
-"各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
-"は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
-msgstr ""
-"各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
-"は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
+msgid "Character"
+msgstr "Character"
+
+#: ../../005_mcp.md:194
+msgid "動画数"
+msgstr "動画数"
 
 #: ../../005_mcp.md:195
+msgid "Alice"
+msgstr "Alice"
+
+#: ../../005_mcp.md:196
+msgid "Hero_001"
+msgstr "Hero_001"
+
+#: ../../005_mcp.md:197
+msgid "31（ROM 1本を含む）"
+msgstr "31（ROM 1本を含む）"
+
+#: ../../005_mcp.md:198 ../../005_mcp.md:201
+msgid "Bob"
+msgstr "Bob"
+
+#: ../../005_mcp.md:199
+msgid "Side_001"
+msgstr "Side_001"
+
+#: ../../005_mcp.md:200
+msgid "44（ROM 1本を含む）"
+msgstr "44（ROM 1本を含む）"
+
+#: ../../005_mcp.md:202
+msgid "Extra_001"
+msgstr "Extra_001"
+
+#: ../../005_mcp.md:203
+msgid "6（ROM 1本を含む）"
+msgstr "6（ROM 1本を含む）"
+
+#: ../../005_mcp.md:206
+msgid ""
+"各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
+"は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
+msgstr ""
+"各メイン Maya シーンの先頭行は `//Maya ASCII 2024 scene` で、Maya 2024 として作成しました。Carol "
+"は対応するシーン/キャラクターが見つからなかったため、セッションを作成していません。"
+
+#: ../../005_mcp.md:208
 msgid ""
 "作成先は `D:/FacialCapture/SampleProject/Sessions/FCS/` です。現在は `Bob / "
 "Extra_001` セッションを開いた状態です。"
@@ -415,33 +459,33 @@ msgstr ""
 "作成先は `D:/FacialCapture/SampleProject/Sessions/FCS/` です。現在は `Bob / "
 "Extra_001` セッションを開いた状態です。"
 
-#: ../../005_mcp.md:199
+#: ../../005_mcp.md:212
 msgid "Review Actions Before Approval"
 msgstr "承認前に操作内容を確認する"
 
-#: ../../005_mcp.md:201
+#: ../../005_mcp.md:214
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
 "proposed action carefully, particularly before allowing an assistant to:"
 msgstr "ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、アシスタントに次の操作を許可する前は、提案された内容を注意深く確認してください："
 
-#: ../../005_mcp.md:204
+#: ../../005_mcp.md:217
 msgid "Delete ROMs or cancel processing jobs."
 msgstr "ROMを削除する、または処理ジョブをキャンセルする。"
 
-#: ../../005_mcp.md:205
+#: ../../005_mcp.md:218
 msgid "Change and save application settings."
 msgstr "アプリケーション設定を変更して保存する。"
 
-#: ../../005_mcp.md:206
+#: ../../005_mcp.md:219
 msgid "Save a session or controller table."
 msgstr "セッションまたはコントローラーテーブルを保存する。"
 
-#: ../../005_mcp.md:207
+#: ../../005_mcp.md:220
 msgid "Start processing or export files."
 msgstr "処理を開始する、またはファイルをエクスポートする。"
 
-#: ../../005_mcp.md:209
+#: ../../005_mcp.md:222
 msgid ""
 "Prefer asking the assistant to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
@@ -449,45 +493,45 @@ msgid ""
 "saves them."
 msgstr "まず確認または検証を行い、予定している変更を要約するようアシスタントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、アシスタントが明示的に保存するまで作業中のドラフトとして保持されます。"
 
-#: ../../005_mcp.md:213
+#: ../../005_mcp.md:226
 msgid "Troubleshooting"
 msgstr "トラブルシューティング"
 
-#: ../../005_mcp.md:215
+#: ../../005_mcp.md:228
 msgid "FCS shows Disabled"
 msgstr "FCSにDisabledと表示される"
 
-#: ../../005_mcp.md:217
+#: ../../005_mcp.md:230
 msgid ""
 "Enable **MCP Server** in Settings and save. Merely changing the checkbox "
 "without saving does not apply the setting."
 msgstr "Settingsで**MCP Server**を有効にして保存します。チェックボックスを変更しただけでは設定は適用されません。"
 
-#: ../../005_mcp.md:220
+#: ../../005_mcp.md:233
 msgid "FCS shows Waiting for a valid license"
 msgstr "FCSにWaiting for a valid licenseと表示される"
 
-#: ../../005_mcp.md:222
+#: ../../005_mcp.md:235
 msgid ""
 "Complete FCS license activation. The endpoint starts only while the "
 "license is valid."
 msgstr "FCSのライセンス認証を完了してください。エンドポイントはライセンスが有効な間だけ起動します。"
 
-#: ../../005_mcp.md:225
+#: ../../005_mcp.md:238
 msgid "FCS shows an error or the port is already in use"
 msgstr "FCSにエラーが表示される、またはポートが使用中である"
 
-#: ../../005_mcp.md:227
+#: ../../005_mcp.md:240
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
 " settings, and update the URL in the AI assistant."
 msgstr "`19876`を除く`1024`から`65535`の別のポートを選択して設定を保存し、AIアシスタントのURLを更新します。"
 
-#: ../../005_mcp.md:230
+#: ../../005_mcp.md:243
 msgid "The assistant cannot connect"
 msgstr "アシスタントが接続できない"
 
-#: ../../005_mcp.md:232
+#: ../../005_mcp.md:245
 msgid ""
 "Confirm that FCS is still open, its status says **Listening**, and the "
 "client URL exactly matches the status URL, including `/mcp`. A client "
@@ -495,11 +539,11 @@ msgid ""
 " in the cloud cannot reach the FCS `127.0.0.1` endpoint."
 msgstr "FCSが起動中で、ステータスに**Listening**と表示され、クライアントのURLが`/mcp`を含めてステータスのURLと完全に一致していることを確認します。別のコンピューター、リモート開発環境、またはクラウドのみで動作するクライアントは、FCSの`127.0.0.1`エンドポイントに到達できません。"
 
-#: ../../005_mcp.md:237
+#: ../../005_mcp.md:250
 msgid "The assistant connects but an action is rejected"
 msgstr "アシスタントは接続できるが操作が拒否される"
 
-#: ../../005_mcp.md:239
+#: ../../005_mcp.md:252
 msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
@@ -507,19 +551,19 @@ msgid ""
 " assistant to inspect the application and session status before retrying."
 msgstr "FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようアシスタントに依頼してください。"
 
-#: ../../005_mcp.md:244
+#: ../../005_mcp.md:257
 msgid "Client Documentation"
 msgstr "クライアントのドキュメント"
 
-#: ../../005_mcp.md:246
+#: ../../005_mcp.md:259
 msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 msgstr "[ChatGPTとCodexのMCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 
-#: ../../005_mcp.md:247
+#: ../../005_mcp.md:260
 msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
 msgstr "[Claude CodeのMCP](https://code.claude.com/docs/en/mcp)"
 
-#: ../../005_mcp.md:248
+#: ../../005_mcp.md:261
 msgid ""
 "[Visual Studio Code MCP servers](https://code.visualstudio.com/docs"
 "/agent-customization/mcp-servers)"
@@ -527,40 +571,7 @@ msgstr ""
 "[Visual Studio CodeのMCPサーバー](https://code.visualstudio.com/docs/agent-"
 "customization/mcp-servers)"
 
-#: ../../005_mcp.md:249
+#: ../../005_mcp.md:262
 msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
 msgstr "[OpenCodeのMCPサーバー](https://opencode.ai/v2/docs/mcp-servers)"
-
-#~ msgid "Actor"
-#~ msgstr "Actor"
-
-#~ msgid "Character"
-#~ msgstr "Character"
-
-#~ msgid "動画数"
-#~ msgstr "動画数"
-
-#~ msgid "Alice"
-#~ msgstr "Alice"
-
-#~ msgid "Hero_001"
-#~ msgstr "Hero_001"
-
-#~ msgid "31（ROM 1本を含む）"
-#~ msgstr "31（ROM 1本を含む）"
-
-#~ msgid "Bob"
-#~ msgstr "Bob"
-
-#~ msgid "Side_001"
-#~ msgstr "Side_001"
-
-#~ msgid "44（ROM 1本を含む）"
-#~ msgstr "44（ROM 1本を含む）"
-
-#~ msgid "Extra_001"
-#~ msgstr "Extra_001"
-
-#~ msgid "6（ROM 1本を含む）"
-#~ msgstr "6（ROM 1本を含む）"
 
