@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 14:23+0900\n"
+"POT-Creation-Date: 2026-09-16 15:02+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: en\n"
@@ -20,16 +20,16 @@ msgstr ""
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../005_mcp.md:1
-msgid "Using FCS with AI Assistants (MCP)"
+msgid "Using FCS with AI Agents (MCP)"
 msgstr ""
 
 #: ../../005_mcp.md:3
 msgid ""
 "Starting with FCS 26.10, FCS can provide a local Model Context Protocol "
-"(MCP) server. An MCP-compatible AI assistant can inspect the current FCS "
+"(MCP) server. An MCP-compatible AI agent can inspect the current FCS "
 "session, operate supported workflows, and read the bundled FCS operating "
-"guide. AI assistants can directly help you the time consuming part of "
-"your tasks."
+"guide. AI agents can directly help you the time consuming part of your "
+"tasks."
 msgstr ""
 
 #: ../../005_mcp.md:6
@@ -43,7 +43,7 @@ msgstr ""
 #: ../../005_mcp.md:10
 msgid ""
 "FCS 26.10 or later with a valid license, running on the same computer as "
-"the AI assistant."
+"the AI agent."
 msgstr ""
 
 #: ../../005_mcp.md:11
@@ -52,9 +52,9 @@ msgstr ""
 
 #: ../../005_mcp.md:13
 msgid ""
-"FCS must remain open and licensed while the assistant working on it. The "
+"FCS must remain open and licensed while the agent is working on it. The "
 "MCP server listens only on `127.0.0.1`, so it is not available to other "
-"computers or to cloud-only assistants."
+"computers or to cloud-only agents."
 msgstr ""
 
 #: ../../005_mcp.md:15
@@ -99,12 +99,12 @@ msgid ""
 msgstr ""
 
 #: ../../005_mcp.md:31
-msgid "Connect an AI Assistant"
+msgid "Connect an AI Agent"
 msgstr ""
 
 #: ../../005_mcp.md:33
 msgid ""
-"The setup is performed once for each assistant. Name the server `fcs` or "
+"The setup is performed once for each agent. Name the server `fcs` or "
 "`FCS` and use the URL displayed in FCS."
 msgstr ""
 
@@ -279,9 +279,9 @@ msgstr ""
 
 #: ../../005_mcp.md:132
 msgid ""
-"After connecting, speak to the assistant normally. You do not need to "
-"memorize MCP tool names. The assistant can also read the FCS operating "
-"guide exposed through MCP before acting. Representative exchanges:"
+"After connecting, speak to the agent normally. You do not need to "
+"memorize MCP tool names. The agent can also read the FCS operating guide "
+"exposed through MCP before acting. Representative exchanges:"
 msgstr ""
 
 #: ../../005_mcp.md:141 ../../005_mcp.md:182 ../../005_mcp.md:223
@@ -302,8 +302,8 @@ msgstr ""
 
 #: ../../005_mcp.md:150 ../../005_mcp.md:193 ../../005_mcp.md:231
 #: ../../005_mcp.md:260
-msgid "**Assistant**"
-msgstr "**Assistant**"
+msgid "**Agent**"
+msgstr "**Agent**"
 
 #: ../../005_mcp.md:152
 msgid ""
@@ -343,10 +343,8 @@ msgstr ""
 msgid "`Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
 msgstr ""
 "`Hero_001` **only** — Create only Alice→`Hero_001` and import only that "
-"video"
-
-"**`Hero_001` only** — Create only Alice→`Hero_001` and import only that "
-"video"
+"video**`Hero_001` only** — Create only Alice→`Hero_001` and import only "
+"that video"
 
 #: ../../005_mcp.md:161 ../../005_mcp.md:166 ../../005_mcp.md:171
 #: ../../005_mcp.md:176
@@ -371,7 +369,6 @@ msgstr ""
 #: ../../005_mcp.md:164
 msgid "`Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
 msgstr "`Extra_001` **scene** — Use `Extra_001_setup_FacialBase.ma`"
-
 
 #: ../../005_mcp.md:165
 msgid "**シーンを指定する** — 自分でシーンと `maya_base` を指定する"
@@ -410,10 +407,8 @@ msgstr ""
 msgid "`01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
 msgstr ""
 "`01_HMC` **only** — Only mp4 files from the `01_Alice` / `Bob` / `Carol` "
-"folders into each session"
-
-"**`01_HMC` only** — Only mp4 files from the `01_Alice` / `Bob` / `Carol` "
-"folders into each session"
+"folders into each session**`01_HMC` only** — Only mp4 files from the "
+"`01_Alice` / `Bob` / `Carol` folders into each session"
 
 #: ../../005_mcp.md:175
 msgid ""
@@ -633,7 +628,7 @@ msgstr ""
 #: ../../005_mcp.md:282
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
-"proposed action carefully, particularly before allowing an assistant to:"
+"proposed action carefully, particularly before allowing an agent to:"
 msgstr ""
 
 #: ../../005_mcp.md:285
@@ -654,10 +649,10 @@ msgstr ""
 
 #: ../../005_mcp.md:290
 msgid ""
-"Prefer asking the assistant to inspect or validate first, summarize the "
+"Prefer asking the agent to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
-"Controller edits remain a working draft until the assistant explicitly "
-"saves them."
+"Controller edits remain a working draft until the agent explicitly saves "
+"them."
 msgstr ""
 
 #: ../../005_mcp.md:294
@@ -691,11 +686,11 @@ msgstr ""
 #: ../../005_mcp.md:310
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
-" settings, and update the URL in the AI assistant."
+" settings, and update the URL in the AI agent."
 msgstr ""
 
 #: ../../005_mcp.md:313
-msgid "The assistant cannot connect"
+msgid "The agent cannot connect"
 msgstr ""
 
 #: ../../005_mcp.md:315
@@ -707,7 +702,7 @@ msgid ""
 msgstr ""
 
 #: ../../005_mcp.md:320
-msgid "The assistant connects but an action is rejected"
+msgid "The agent connects but an action is rejected"
 msgstr ""
 
 #: ../../005_mcp.md:322
@@ -715,7 +710,7 @@ msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
 "session, selected video, renderer connection, or other FCS state. Ask the"
-" assistant to inspect the application and session status before retrying."
+" agent to inspect the application and session status before retrying."
 msgstr ""
 
 #: ../../005_mcp.md:327
@@ -739,4 +734,3 @@ msgstr ""
 #: ../../005_mcp.md:332
 msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
 msgstr ""
-

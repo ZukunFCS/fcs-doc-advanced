@@ -62,7 +62,7 @@ table.list-table > tbody > tr:last-child > td {
     background: #d0e4f5;
 }
 
-.mcp-chat-assistant {
+.mcp-chat-agent {
     align-self: flex-start;
     margin-right: auto;
     max-width: min(96%, 42rem);
@@ -71,7 +71,7 @@ table.list-table > tbody > tr:last-child > td {
     border-bottom-left-radius: 6px;
 }
 
-.mcp-chat-assistant > p:first-child {
+.mcp-chat-agent > p:first-child {
     color: #3d4a52;
     background: #e7ebef;
 }

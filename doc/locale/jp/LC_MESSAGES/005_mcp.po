@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 14:23+0900\n"
+"POT-Creation-Date: 2026-09-16 15:02+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: jp\n"
@@ -19,19 +19,20 @@ msgstr ""
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../005_mcp.md:1
-msgid "Using FCS with AI Assistants (MCP)"
-msgstr "FCSをAIアシスタントと使用する（MCP）"
+msgid "Using FCS with AI Agents (MCP)"
+msgstr "FCSをAIエージェントと使用する（MCP）"
+
 
 #: ../../005_mcp.md:3
 msgid ""
 "Starting with FCS 26.10, FCS can provide a local Model Context Protocol "
-"(MCP) server. An MCP-compatible AI assistant can inspect the current FCS "
+"(MCP) server. An MCP-compatible AI agent can inspect the current FCS "
 "session, operate supported workflows, and read the bundled FCS operating "
-"guide. AI assistants can directly help you the time consuming part of "
-"your tasks."
+"guide. AI agents can directly help you the time consuming part of your "
+"tasks."
 msgstr ""
 "FCS 26.10以降では、FCSからローカルのModel Context "
-"Protocol（MCP）サーバーを利用できます。MCP対応のAIアシスタントは、現在のFCSセッションを確認し、対応するワークフローを操作し、同梱のFCS操作ガイドを読むことができます。AIアシスタントは、時間のかかる作業を直接支援できます。"
+"Protocol（MCP）サーバーを利用できます。MCP対応のAIエージェントは、現在のFCSセッションを確認し、対応するワークフローを操作し、同梱のFCS操作ガイドを読むことができます。AIエージェントは、時間のかかる作業を直接支援できます。"
 
 #: ../../005_mcp.md:6
 msgid "Before You Start"
@@ -44,8 +45,8 @@ msgstr "必要なもの："
 #: ../../005_mcp.md:10
 msgid ""
 "FCS 26.10 or later with a valid license, running on the same computer as "
-"the AI assistant."
-msgstr "有効なライセンスが設定され、AIアシスタントと同じコンピューターで実行中のFCS 26.10以降。"
+"the AI agent."
+msgstr "有効なライセンスが設定され、AIエージェントと同じコンピューターで実行中のFCS 26.10以降。"
 
 #: ../../005_mcp.md:11
 msgid "An MCP client that supports Streamable HTTP servers on the local computer."
@@ -53,10 +54,10 @@ msgstr "ローカルコンピューター上のStreamable HTTPサーバーに対
 
 #: ../../005_mcp.md:13
 msgid ""
-"FCS must remain open and licensed while the assistant working on it. The "
+"FCS must remain open and licensed while the agent is working on it. The "
 "MCP server listens only on `127.0.0.1`, so it is not available to other "
-"computers or to cloud-only assistants."
-msgstr "アシスタントがFCSで作業している間は、FCSを起動したままにし、有効なライセンスを維持する必要があります。MCPサーバーは`127.0.0.1`でのみ待ち受けるため、別のコンピューターやクラウド専用のアシスタントからは利用できません。"
+"computers or to cloud-only agents."
+msgstr "エージェントがFCSで作業している間は、FCSを起動したままにし、有効なライセンスを維持する必要があります。MCPサーバーは`127.0.0.1`でのみ待ち受けるため、別のコンピューターやクラウド専用のエージェントからは利用できません。"
 
 #: ../../005_mcp.md:15
 msgid "Enable the MCP Server"
@@ -100,14 +101,15 @@ msgid ""
 msgstr "クライアントを設定するときは、FCSに表示された完全なURLを使用します。ポートを変更した場合は、すべてのクライアント設定で変更後のURLを使用してください。ポート`19876`はFCSによって予約されているため、MCPには使用できません。"
 
 #: ../../005_mcp.md:31
-msgid "Connect an AI Assistant"
-msgstr "AIアシスタントを接続する"
+msgid "Connect an AI Agent"
+msgstr "AIエージェントを接続する"
+
 
 #: ../../005_mcp.md:33
 msgid ""
-"The setup is performed once for each assistant. Name the server `fcs` or "
+"The setup is performed once for each agent. Name the server `fcs` or "
 "`FCS` and use the URL displayed in FCS."
-msgstr "設定はアシスタントごとに一度だけ行います。サーバー名を`fcs`または`FCS`とし、FCSに表示されたURLを使用します。"
+msgstr "設定はエージェントごとに一度だけ行います。サーバー名を`fcs`または`FCS`とし、FCSに表示されたURLを使用します。"
 
 #: ../../005_mcp.md:36
 msgid "ChatGPT Desktop and the Codex App"
@@ -286,10 +288,10 @@ msgstr "会話例"
 
 #: ../../005_mcp.md:132
 msgid ""
-"After connecting, speak to the assistant normally. You do not need to "
-"memorize MCP tool names. The assistant can also read the FCS operating "
-"guide exposed through MCP before acting. Representative exchanges:"
-msgstr "接続後は、通常どおりアシスタントに話しかけます。MCPツール名を覚える必要はありません。アシスタントは操作前に、MCP経由で公開されているFCS操作ガイドを読むこともできます。代表的なやり取り："
+"After connecting, speak to the agent normally. You do not need to "
+"memorize MCP tool names. The agent can also read the FCS operating guide "
+"exposed through MCP before acting. Representative exchanges:"
+msgstr "接続後は、通常どおりエージェントに話しかけます。MCPツール名を覚える必要はありません。エージェントは操作前に、MCP経由で公開されているFCS操作ガイドを読むこともできます。代表的なやり取り："
 
 #: ../../005_mcp.md:141 ../../005_mcp.md:182 ../../005_mcp.md:223
 #: ../../005_mcp.md:253
@@ -308,8 +310,9 @@ msgstr ""
 
 #: ../../005_mcp.md:150 ../../005_mcp.md:193 ../../005_mcp.md:231
 #: ../../005_mcp.md:260
-msgid "**Assistant**"
-msgstr "**Assistant**"
+msgid "**Agent**"
+msgstr "**Agent**"
+
 
 #: ../../005_mcp.md:152
 msgid ""
@@ -349,7 +352,6 @@ msgstr ""
 msgid "`Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
 msgstr "`Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
 
-
 #: ../../005_mcp.md:161 ../../005_mcp.md:166 ../../005_mcp.md:171
 #: ../../005_mcp.md:176
 msgid "**自分の回答を入力** — 自由記入"
@@ -370,7 +372,6 @@ msgstr ""
 #: ../../005_mcp.md:164
 msgid "`Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
 msgstr "`Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
-
 
 #: ../../005_mcp.md:165
 msgid "**シーンを指定する** — 自分でシーンと `maya_base` を指定する"
@@ -407,7 +408,6 @@ msgstr ""
 #: ../../005_mcp.md:174
 msgid "`01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
 msgstr "`01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
-
 
 #: ../../005_mcp.md:175
 msgid ""
@@ -612,8 +612,8 @@ msgstr "承認前に操作内容を確認する"
 #: ../../005_mcp.md:282
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
-"proposed action carefully, particularly before allowing an assistant to:"
-msgstr "ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、アシスタントに次の操作を許可する前は、提案された内容を注意深く確認してください："
+"proposed action carefully, particularly before allowing an agent to:"
+msgstr "ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、エージェントに次の操作を許可する前は、提案された内容を注意深く確認してください："
 
 #: ../../005_mcp.md:285
 msgid "Delete ROMs or cancel processing jobs."
@@ -633,11 +633,11 @@ msgstr "処理を開始する、またはファイルをエクスポートする
 
 #: ../../005_mcp.md:290
 msgid ""
-"Prefer asking the assistant to inspect or validate first, summarize the "
+"Prefer asking the agent to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
-"Controller edits remain a working draft until the assistant explicitly "
-"saves them."
-msgstr "まず確認または検証を行い、予定している変更を要約するようアシスタントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、アシスタントが明示的に保存するまで作業中のドラフトとして保持されます。"
+"Controller edits remain a working draft until the agent explicitly saves "
+"them."
+msgstr "まず確認または検証を行い、予定している変更を要約するようエージェントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、エージェントが明示的に保存するまで作業中のドラフトとして保持されます。"
 
 #: ../../005_mcp.md:294
 msgid "Troubleshooting"
@@ -670,12 +670,13 @@ msgstr "FCSにエラーが表示される、またはポートが使用中であ
 #: ../../005_mcp.md:310
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
-" settings, and update the URL in the AI assistant."
-msgstr "`19876`を除く`1024`から`65535`の別のポートを選択して設定を保存し、AIアシスタントのURLを更新します。"
+" settings, and update the URL in the AI agent."
+msgstr "`19876`を除く`1024`から`65535`の別のポートを選択して設定を保存し、AIエージェントのURLを更新します。"
 
 #: ../../005_mcp.md:313
-msgid "The assistant cannot connect"
-msgstr "アシスタントが接続できない"
+msgid "The agent cannot connect"
+msgstr "エージェントが接続できない"
+
 
 #: ../../005_mcp.md:315
 msgid ""
@@ -686,16 +687,17 @@ msgid ""
 msgstr "FCSが起動中で、ステータスに**Listening**と表示され、クライアントのURLが`/mcp`を含めてステータスのURLと完全に一致していることを確認します。別のコンピューター、リモート開発環境、またはクラウドのみで動作するクライアントは、FCSの`127.0.0.1`エンドポイントに到達できません。"
 
 #: ../../005_mcp.md:320
-msgid "The assistant connects but an action is rejected"
-msgstr "アシスタントは接続できるが操作が拒否される"
+msgid "The agent connects but an action is rejected"
+msgstr "エージェントは接続できるが操作が拒否される"
+
 
 #: ../../005_mcp.md:322
 msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
 "session, selected video, renderer connection, or other FCS state. Ask the"
-" assistant to inspect the application and session status before retrying."
-msgstr "FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようアシスタントに依頼してください。"
+" agent to inspect the application and session status before retrying."
+msgstr "FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようエージェントに依頼してください。"
 
 #: ../../005_mcp.md:327
 msgid "Client Documentation"
