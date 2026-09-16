@@ -86,46 +86,74 @@ table.list-table > tbody > tr:last-child > td {
 }
 
 /* MCP confirmation questions: checkbox-style options */
-.mcp-chat-q-title {
+.mcp-chat-turn .mcp-chat-q-title {
     margin: 0.85rem 0 0.35rem;
 }
 
-.mcp-chat-q-title:first-of-type {
+.mcp-chat-turn .mcp-chat-q-title:first-of-type {
     margin-top: 0.55rem;
 }
 
-.mcp-chat-turn div.mcp-chat-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    margin: 0 0 0.65rem;
+.mcp-chat-turn .mcp-chat-q-title > p {
+    margin: 0;
 }
 
-.mcp-chat-turn div.mcp-choice {
-    margin: 0;
+.mcp-chat-turn .mcp-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    margin: 0.3rem 0;
     padding: 0.35rem 0.5rem;
+    border: 1px solid transparent;
     border-radius: 8px;
     line-height: 1.45;
 }
 
-.mcp-chat-turn div.mcp-choice > p {
+.mcp-chat-turn .mcp-choice > p {
     margin: 0;
+    flex: 1;
+    min-width: 0;
 }
 
-.mcp-chat-turn div.mcp-choice.is-selected {
+.mcp-chat-turn .mcp-choice::before {
+    content: "";
+    flex: 0 0 1em;
+    width: 1em;
+    height: 1em;
+    margin-top: calc((1.45em - 1em) / 2);
+    border: 1.5px solid #8a9aa8;
+    border-radius: 3px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.mcp-chat-turn .mcp-choice.is-selected {
     background: #f0f7ff;
-    border: 1px solid #c5dbf0;
+    border-color: #c5dbf0;
 }
 
-.mcp-chat-turn div.mcp-choice code {
+.mcp-chat-turn .mcp-choice.is-selected::before {
+    border-color: #2b6cb0;
+    background: #2b6cb0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.75em 0.75em;
+}
+
+.mcp-chat-turn .mcp-choice code {
     line-height: inherit;
     vertical-align: baseline;
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.mcp-chat-answers-done {
+.mcp-chat-turn .mcp-chat-answers-done {
     margin-top: 0.85rem;
     padding-top: 0.75rem;
     border-top: 1px dashed #d0d7de;
+}
+
+.mcp-chat-turn .mcp-chat-answers-done > p {
+    margin: 0;
 }

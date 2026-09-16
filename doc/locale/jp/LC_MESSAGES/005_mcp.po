@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FCS Doc Advanced latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 15:55+0900\n"
+"POT-Creation-Date: 2026-09-16 16:07+0900\n"
 "PO-Revision-Date: 2026-07-31 00:00+0900\n"
 "Last-Translator: TOEI Zukun\n"
 "Language: jp\n"
@@ -291,7 +291,7 @@ msgid ""
 "exposed through MCP before acting. Representative exchanges:"
 msgstr "接続後は、通常どおりエージェントに話しかけます。MCPツール名を覚える必要はありません。エージェントは操作前に、MCP経由で公開されているFCS操作ガイドを読むこともできます。代表的なやり取り："
 
-#: ../../005_mcp.md:141 ../../005_mcp.md:293 ../../005_mcp.md:323
+#: ../../005_mcp.md:141 ../../005_mcp.md:309 ../../005_mcp.md:339
 msgid "**User**"
 msgstr "**User**"
 
@@ -305,7 +305,7 @@ msgstr ""
 "`D:/FacialCapture/SampleProject/Sessions` に作業に必要なセッションをすべて作成し、 "
 "動画のインポートも実行してください。"
 
-#: ../../005_mcp.md:150 ../../005_mcp.md:301 ../../005_mcp.md:330
+#: ../../005_mcp.md:150 ../../005_mcp.md:317 ../../005_mcp.md:346
 msgid "**Agent**"
 msgstr "**Agent**"
 
@@ -325,145 +325,145 @@ msgstr ""
 msgid "**1. セッションはどのように作成しますか？（1つ選択）**"
 msgstr ""
 
-#: ../../005_mcp.md:166
+#: ../../005_mcp.md:165
 msgid ""
-"☑ **アクター別セッション（推奨）** — "
+"**アクター別セッション（推奨）** — "
 "Alice→`Hero_001`、Bob→`Side_A`+`Side_B`、Carol→`Extra_A` "
 "の計4セッション。存在しないシーンは後で差し替え"
 msgstr ""
 
-#: ../../005_mcp.md:170
+#: ../../005_mcp.md:171
 msgid ""
-"☐ **3セッション（actor=performer）** — Alice/Bob/Carol "
-"の各アクターにキャラは先行文字（`Hero_001` 等）を指定"
+"**3セッション（actor=performer）** — Alice/Bob/Carol の各アクターにキャラは先行文字（`Hero_001` "
+"等）を指定"
 msgstr ""
 
-#: ../../005_mcp.md:174
-msgid "☐ `Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
+#: ../../005_mcp.md:177
+msgid "`Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
 msgstr ""
 
-#: ../../005_mcp.md:178 ../../005_mcp.md:256
-msgid "☐ **自分の回答を入力** — 自由記入"
+#: ../../005_mcp.md:183 ../../005_mcp.md:273
+msgid "**自分の回答を入力** — 自由記入"
 msgstr ""
 
-#: ../../005_mcp.md:185
+#: ../../005_mcp.md:189
 msgid "**2. シーンが存在しないキャラ（`Side_A`、`Side_B`、`Extra_A`）のセッションはどのシーンを指定しますか？（1つ選択）**"
 msgstr ""
 
-#: ../../005_mcp.md:192
+#: ../../005_mcp.md:195
 msgid ""
-"☐ `Hero_001` **のシーンで代用（推奨）** — 試験環境なので `Hero_001` のシーンを流用し、`maya_base` は "
+"`Hero_001` **のシーンで代用（推奨）** — 試験環境なので `Hero_001` のシーンを流用し、`maya_base` は "
 "`D:/FacialCapture/SampleCapture/Assets` を指定"
 msgstr ""
 
-#: ../../005_mcp.md:196
+#: ../../005_mcp.md:201
 #, fuzzy
-msgid "☐ `Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
+msgid "`Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
 msgstr "`Extra_001_setup_FacialBase.ma`"
 
-#: ../../005_mcp.md:200
-msgid "☐ **シーンを指定する** — 自分でシーンと `maya_base` を指定する"
+#: ../../005_mcp.md:207
+msgid "**シーンを指定する** — 自分でシーンと `maya_base` を指定する"
 msgstr ""
 
-#: ../../005_mcp.md:204
+#: ../../005_mcp.md:213
 msgid ""
-"☑ **自分の回答を入力** — `Side_A` と `Side_B` は `Side_001` に、`Extra_A` は "
-"`Extra_001` にまとめて進めて"
+"**自分の回答を入力** — `Side_A` と `Side_B` は `Side_001` に、`Extra_A` は `Extra_001`"
+" にまとめて進めて"
 msgstr ""
 
-#: ../../005_mcp.md:211
+#: ../../005_mcp.md:219
 msgid "**3. Maya バージョンは何を指定しますか？（1つ選択）**"
 msgstr ""
 
-#: ../../005_mcp.md:218
-msgid "☐ **2023（推奨）** — 既存セッションと同じ設定"
+#: ../../005_mcp.md:225
+msgid "**2023（推奨）** — 既存セッションと同じ設定"
 msgstr ""
 
-#: ../../005_mcp.md:222
-msgid "☐ **2022** — 2022 を指定"
-msgstr ""
-
-#: ../../005_mcp.md:226
-msgid "☐ **2024** — 2024 を指定"
-msgstr ""
-
-#: ../../005_mcp.md:230
-msgid "☑ **自分の回答を入力** — 対応する Maya シーンから読み取って"
+#: ../../005_mcp.md:231
+msgid "**2022** — 2022 を指定"
 msgstr ""
 
 #: ../../005_mcp.md:237
+msgid "**2024** — 2024 を指定"
+msgstr ""
+
+#: ../../005_mcp.md:243
+msgid "**自分の回答を入力** — 対応する Maya シーンから読み取って"
+msgstr ""
+
+#: ../../005_mcp.md:249
 msgid "**4. インポートする動画はどのセットですか？（1つ選択）**"
 msgstr ""
 
-#: ../../005_mcp.md:244
+#: ../../005_mcp.md:255
 msgid ""
-"☑ `01_HMC` + `04_ROM` **（推奨）** — `01_HMC\\01_Alice`、`02_Bob`、`03_Carol` "
-"の動画 + `04_ROM` の ROM 動画を各セッションへ。`02_Reference` / `03_4view` は除外"
+"`01_HMC` + `04_ROM` **（推奨）** — `01_HMC\\01_Alice`、`02_Bob`、`03_Carol` の動画"
+" + `04_ROM` の ROM 動画を各セッションへ。`02_Reference` / `03_4view` は除外"
 msgstr ""
 
-#: ../../005_mcp.md:248
-msgid "☐ `01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
+#: ../../005_mcp.md:261
+msgid "`01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
 msgstr ""
 
-#: ../../005_mcp.md:252
+#: ../../005_mcp.md:267
 msgid ""
-"☐ **すべて（Reference 含む）** — 01～04 の全 mp4（`02_Reference`、`03_4view_Ref` "
+"**すべて（Reference 含む）** — 01～04 の全 mp4（`02_Reference`、`03_4view_Ref` "
 "も含む）を該当セッションへインポート"
 msgstr ""
 
-#: ../../005_mcp.md:263
+#: ../../005_mcp.md:279
 msgid "完了しました。3つの FCS セッションを作成し、対応動画と ROM をインポート済みです。"
 msgstr ""
 
-#: ../../005_mcp.md:272
+#: ../../005_mcp.md:288
 msgid "Actor / Character"
 msgstr "Actor / Character"
 
-#: ../../005_mcp.md:273
+#: ../../005_mcp.md:289
 msgid "Maya scene"
 msgstr "Maya scene"
 
-#: ../../005_mcp.md:274
+#: ../../005_mcp.md:290
 msgid "インポート動画"
 msgstr "インポート動画"
 
-#: ../../005_mcp.md:275
+#: ../../005_mcp.md:291
 msgid "Alice / Hero_001"
 msgstr "Alice / Hero_001"
 
-#: ../../005_mcp.md:276
+#: ../../005_mcp.md:292
 msgid "`Hero_001_setup_FacialBase.ma`"
 msgstr "`Hero_001_setup_FacialBase.ma`"
 
-#: ../../005_mcp.md:277
+#: ../../005_mcp.md:293
 msgid "19本 + ROM 1本"
 msgstr "19本 + ROM 1本"
 
-#: ../../005_mcp.md:278
+#: ../../005_mcp.md:294
 msgid "Bob / Side_001"
 msgstr "Bob / Side_001"
 
-#: ../../005_mcp.md:279
+#: ../../005_mcp.md:295
 msgid "`Side_001_setup_FacialBase.ma`"
 msgstr "`Side_001_setup_FacialBase.ma`"
 
-#: ../../005_mcp.md:280
+#: ../../005_mcp.md:296
 msgid "16本 + ROM 1本"
 msgstr "16本 + ROM 1本"
 
-#: ../../005_mcp.md:281
+#: ../../005_mcp.md:297
 msgid "Carol / Extra_001"
 msgstr "Carol / Extra_001"
 
-#: ../../005_mcp.md:282
+#: ../../005_mcp.md:298
 msgid "`Extra_001_setup_FacialBase.ma`"
 msgstr "`Extra_001_setup_FacialBase.ma`"
 
-#: ../../005_mcp.md:283
+#: ../../005_mcp.md:299
 msgid "13本 + ROM 1本"
 msgstr "13本 + ROM 1本"
 
-#: ../../005_mcp.md:286
+#: ../../005_mcp.md:302
 msgid ""
 "シーンは `D:/FacialCapture/SampleCapture/Assets`、Maya 2025 で作成しました。 作成先は "
 "`D:/FacialCapture/SampleProject/Sessions/FCS/` です。 現在は `Bob / Side_001` "
@@ -473,7 +473,7 @@ msgstr ""
 "`D:/FacialCapture/SampleProject/Sessions/FCS/` です。 現在は `Bob / Side_001` "
 "セッションを開いた状態です。"
 
-#: ../../005_mcp.md:295
+#: ../../005_mcp.md:311
 msgid ""
 "`Alice / Hero_001` のセッションに切り替えて、Mayaを開いたりシーンを解析したりして、コントローラの登録を行ってほしい。 "
 "適切な region と min/max/default も含めて登録して。"
@@ -481,19 +481,19 @@ msgstr ""
 "`Alice / Hero_001` のセッションに切り替えて、Mayaを開いたりシーンを解析したりして、コントローラの登録を行ってほしい。 "
 "適切な region と min/max/default も含めて登録して。"
 
-#: ../../005_mcp.md:303
+#: ../../005_mcp.md:319
 msgid "完了しました。"
 msgstr "完了しました。"
 
-#: ../../005_mcp.md:305
+#: ../../005_mcp.md:321
 msgid "**実施内容 (**`Alice / Hero_001` **セッション)**:"
 msgstr "**実施内容 (**`Alice / Hero_001` **セッション)**:"
 
-#: ../../005_mcp.md:307
+#: ../../005_mcp.md:323
 msgid "**セッション切替** — `Alice / Hero_001` を開きました（動画20本、controller_count 0 からスタート）"
 msgstr "**セッション切替** — `Alice / Hero_001` を開きました（動画20本、controller_count 0 からスタート）"
 
-#: ../../005_mcp.md:308
+#: ../../005_mcp.md:324
 msgid ""
 "**Maya シーンからパース** — `Hero_001_setup_FacialBase.ma` から `CTRL_`* ノードを抽出し、 "
 "Metahuman プリセットの命名（例: `CTRL_L_brow_down.ty`）と一致することを確認"
@@ -501,75 +501,75 @@ msgstr ""
 "**Maya シーンからパース** — `Hero_001_setup_FacialBase.ma` から `CTRL_`* ノードを抽出し、 "
 "Metahuman プリセットの命名（例: `CTRL_L_brow_down.ty`）と一致することを確認"
 
-#: ../../005_mcp.md:310
+#: ../../005_mcp.md:326
 msgid "**登録・保存** — Metahuman プリセット経由で 174 コントローラをリージョン付きで登録し保存"
 msgstr "**登録・保存** — Metahuman プリセット経由で 174 コントローラをリージョン付きで登録し保存"
 
-#: ../../005_mcp.md:312
+#: ../../005_mcp.md:328
 msgid "**登録結果**:"
 msgstr "**登録結果**:"
 
-#: ../../005_mcp.md:314
+#: ../../005_mcp.md:330
 msgid "upper: 28行（眉・鼻・首など）"
 msgstr "upper: 28行（眉・鼻・首など）"
 
-#: ../../005_mcp.md:315
+#: ../../005_mcp.md:331
 msgid "eyelid: 18行（瞬き・まぶたなど）"
 msgstr "eyelid: 18行（瞬き・まぶたなど）"
 
-#: ../../005_mcp.md:316
+#: ../../005_mcp.md:332
 msgid "gaze: 5行"
 msgstr "gaze: 5行"
 
-#: ../../005_mcp.md:317
+#: ../../005_mcp.md:333
 msgid "lower: 123行（口・舌・顎・歯）"
 msgstr "lower: 123行（口・舌・顎・歯）"
 
-#: ../../005_mcp.md:318
+#: ../../005_mcp.md:334
 msgid "合計 **174行** — すべて min=0.0 / max=1.0 / default=0.0 で保存済み"
 msgstr "合計 **174行** — すべて min=0.0 / max=1.0 / default=0.0 で保存済み"
 
-#: ../../005_mcp.md:325
+#: ../../005_mcp.md:341
 msgid "一部のコントローラは min が -1 だったと思う。確認して修正してほしい。"
 msgstr "一部のコントローラは min が -1 だったと思う。確認して修正してほしい。"
 
-#: ../../005_mcp.md:332
+#: ../../005_mcp.md:348
 msgid "確認・修正完了です。"
 msgstr "確認・修正完了です。"
 
-#: ../../005_mcp.md:334
+#: ../../005_mcp.md:350
 msgid "**調査結果** — Mayaシーン内の各CTRLノードをcommadPortで解析し、各チャンネルの接続先を判定しました:"
 msgstr "**調査結果** — Mayaシーン内の各CTRLノードをcommadPortで解析し、各チャンネルの接続先を判定しました:"
 
-#: ../../005_mcp.md:336
+#: ../../005_mcp.md:352
 msgid "双方向に動くチャンネル（`tx`、または Up/Down のような逆向きペアに接続される `ty`）はレンジ -1..1 が正しい"
 msgstr "双方向に動くチャンネル（`tx`、または Up/Down のような逆向きペアに接続される `ty`）はレンジ -1..1 が正しい"
 
-#: ../../005_mcp.md:337
+#: ../../005_mcp.md:353
 msgid "単一の表情（例: `brow_down` → `browDownL`）に繋がる `ty` は 0..1 のまま"
 msgstr "単一の表情（例: `brow_down` → `browDownL`）に繋がる `ty` は 0..1 のまま"
 
-#: ../../005_mcp.md:339
+#: ../../005_mcp.md:355
 msgid "**修正内容** — 双方向駆動の 77 コントローラの `min_value` を `-1.0` に更新して保存しました:"
 msgstr "**修正内容** — 双方向駆動の 77 コントローラの `min_value` を `-1.0` に更新して保存しました:"
 
-#: ../../005_mcp.md:341
+#: ../../005_mcp.md:357
 msgid "upper: nose、neck 系など"
 msgstr "upper: nose、neck 系など"
 
-#: ../../005_mcp.md:342
+#: ../../005_mcp.md:358
 msgid "eyelid: blink、eyelid 系など"
 msgstr "eyelid: blink、eyelid 系など"
 
-#: ../../005_mcp.md:343
+#: ../../005_mcp.md:359
 msgid "gaze: `CTRL_L/R_eye.tx/.ty`"
 msgstr "gaze: `CTRL_L/R_eye.tx/.ty`"
 
-#: ../../005_mcp.md:344
+#: ../../005_mcp.md:360
 msgid "lower: mouth、lips、jaw、teeth、tongue 系など"
 msgstr "lower: mouth、lips、jaw、teeth、tongue 系など"
 
-#: ../../005_mcp.md:346
+#: ../../005_mcp.md:362
 msgid ""
 "**検証済み** — `ControllerInfo.yaml`に min_value: "
 "-1.0が77行反映、全174行の登録が維持されています。シングル方向のコントローラ（`brow_down`、`jawOpen` など）は適切に "
@@ -579,33 +579,33 @@ msgstr ""
 "-1.0が77行反映、全174行の登録が維持されています。シングル方向のコントローラ（`brow_down`、`jawOpen` など）は適切に "
 "0..1 のままです。"
 
-#: ../../005_mcp.md:350
+#: ../../005_mcp.md:366
 msgid "Review Actions Before Approval"
 msgstr "承認前に操作内容を確認する"
 
-#: ../../005_mcp.md:352
+#: ../../005_mcp.md:368
 msgid ""
 "Your MCP client may request approval before a tool runs. Read the "
 "proposed action carefully, particularly before allowing an agent to:"
 msgstr "ツールの実行前に、MCPクライアントから承認を求められる場合があります。特に、エージェントに次の操作を許可する前は、提案された内容を注意深く確認してください："
 
-#: ../../005_mcp.md:355
+#: ../../005_mcp.md:371
 msgid "Delete ROMs or cancel processing jobs."
 msgstr "ROMを削除する、または処理ジョブをキャンセルする。"
 
-#: ../../005_mcp.md:356
+#: ../../005_mcp.md:372
 msgid "Change and save application settings."
 msgstr "アプリケーション設定を変更して保存する。"
 
-#: ../../005_mcp.md:357
+#: ../../005_mcp.md:373
 msgid "Save a session or controller table."
 msgstr "セッションまたはコントローラーテーブルを保存する。"
 
-#: ../../005_mcp.md:358
+#: ../../005_mcp.md:374
 msgid "Start processing or export files."
 msgstr "処理を開始する、またはファイルをエクスポートする。"
 
-#: ../../005_mcp.md:360
+#: ../../005_mcp.md:376
 msgid ""
 "Prefer asking the agent to inspect or validate first, summarize the "
 "planned changes, and perform the mutation only after you approve it. "
@@ -613,45 +613,45 @@ msgid ""
 "them."
 msgstr "まず確認または検証を行い、予定している変更を要約するようエージェントに依頼し、承認後にのみ変更を実行させることを推奨します。コントローラーの編集内容は、エージェントが明示的に保存するまで作業中のドラフトとして保持されます。"
 
-#: ../../005_mcp.md:364
+#: ../../005_mcp.md:380
 msgid "Troubleshooting"
 msgstr "トラブルシューティング"
 
-#: ../../005_mcp.md:368
+#: ../../005_mcp.md:384
 msgid "FCS shows Disabled"
 msgstr "FCSにDisabledと表示される"
 
-#: ../../005_mcp.md:370
+#: ../../005_mcp.md:386
 msgid ""
 "Enable **MCP Server** in Settings and save. Merely changing the checkbox "
 "without saving does not apply the setting."
 msgstr "Settingsで**MCP Server**を有効にして保存します。チェックボックスを変更しただけでは設定は適用されません。"
 
-#: ../../005_mcp.md:373
+#: ../../005_mcp.md:389
 msgid "FCS shows Waiting for a valid license"
 msgstr "FCSにWaiting for a valid licenseと表示される"
 
-#: ../../005_mcp.md:375
+#: ../../005_mcp.md:391
 msgid ""
 "Complete FCS license activation. The endpoint starts only while the "
 "license is valid."
 msgstr "FCSのライセンス認証を完了してください。エンドポイントはライセンスが有効な間だけ起動します。"
 
-#: ../../005_mcp.md:378
+#: ../../005_mcp.md:394
 msgid "FCS shows an error or the port is already in use"
 msgstr "FCSにエラーが表示される、またはポートが使用中である"
 
-#: ../../005_mcp.md:380
+#: ../../005_mcp.md:396
 msgid ""
 "Choose another port from `1024` through `65535`, except `19876`, save the"
 " settings, and update the URL in the AI agent."
 msgstr "`19876`を除く`1024`から`65535`の別のポートを選択して設定を保存し、AIエージェントのURLを更新します。"
 
-#: ../../005_mcp.md:383
+#: ../../005_mcp.md:399
 msgid "The agent cannot connect"
 msgstr "エージェントが接続できない"
 
-#: ../../005_mcp.md:385
+#: ../../005_mcp.md:401
 msgid ""
 "Confirm that FCS is still open, its status says **Listening**, and the "
 "client URL exactly matches the status URL, including `/mcp`. A client "
@@ -659,11 +659,11 @@ msgid ""
 " in the cloud cannot reach the FCS `127.0.0.1` endpoint."
 msgstr "FCSが起動中で、ステータスに**Listening**と表示され、クライアントのURLが`/mcp`を含めてステータスのURLと完全に一致していることを確認します。別のコンピューター、リモート開発環境、またはクラウドのみで動作するクライアントは、FCSの`127.0.0.1`エンドポイントに到達できません。"
 
-#: ../../005_mcp.md:390
+#: ../../005_mcp.md:406
 msgid "The agent connects but an action is rejected"
 msgstr "エージェントは接続できるが操作が拒否される"
 
-#: ../../005_mcp.md:392
+#: ../../005_mcp.md:408
 msgid ""
 "Check that the FCS license is still valid. The requested operation may "
 "also be outside the curated public tool set or may require an open "
@@ -671,19 +671,19 @@ msgid ""
 " agent to inspect the application and session status before retrying."
 msgstr "FCSライセンスが引き続き有効であることを確認します。要求した操作が公開ツールの対象外であるか、開いているセッション、選択中の動画、レンダラー接続、その他のFCS状態を必要としている場合もあります。再試行する前に、アプリケーションとセッションの状態を確認するようエージェントに依頼してください。"
 
-#: ../../005_mcp.md:397
+#: ../../005_mcp.md:413
 msgid "Client Documentation"
 msgstr "クライアントのドキュメント"
 
-#: ../../005_mcp.md:399
+#: ../../005_mcp.md:415
 msgid "[ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 msgstr "[ChatGPTとCodexのMCP](https://learn.chatgpt.com/docs/extend/mcp.md)"
 
-#: ../../005_mcp.md:400
+#: ../../005_mcp.md:416
 msgid "[Claude Code MCP](https://code.claude.com/docs/en/mcp)"
 msgstr "[Claude CodeのMCP](https://code.claude.com/docs/en/mcp)"
 
-#: ../../005_mcp.md:401
+#: ../../005_mcp.md:417
 msgid ""
 "[Visual Studio Code MCP servers](https://code.visualstudio.com/docs"
 "/agent-customization/mcp-servers)"
@@ -691,7 +691,7 @@ msgstr ""
 "[Visual Studio CodeのMCPサーバー](https://code.visualstudio.com/docs/agent-"
 "customization/mcp-servers)"
 
-#: ../../005_mcp.md:402
+#: ../../005_mcp.md:418
 msgid "[OpenCode MCP servers](https://opencode.ai/v2/docs/mcp-servers)"
 msgstr "[OpenCodeのMCPサーバー](https://opencode.ai/v2/docs/mcp-servers)"
 
@@ -796,5 +796,64 @@ msgstr "[OpenCodeのMCPサーバー](https://opencode.ai/v2/docs/mcp-servers)"
 #~ "`01_HMC\\01_Alice`、`02_Bob`、`03_Carol` の動画 + "
 #~ "`04_ROM` の ROM 動画を各セッションへ。`02_Reference` / "
 #~ "`03_4view` は除外"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☑ **アクター別セッション（推奨）** — "
+#~ "Alice→`Hero_001`、Bob→`Side_A`+`Side_B`、Carol→`Extra_A` "
+#~ "の計4セッション。存在しないシーンは後で差し替え"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☐ **3セッション（actor=performer）** — Alice/Bob/Carol "
+#~ "の各アクターにキャラは先行文字（`Hero_001` 等）を指定"
+#~ msgstr ""
+
+#~ msgid "☐ `Hero_001` **のみ** — Alice→`Hero_001` のみ作成し動画もそれだけインポート"
+#~ msgstr ""
+
+#~ msgid "☐ **自分の回答を入力** — 自由記入"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☐ `Hero_001` **のシーンで代用（推奨）** — 試験環境なので "
+#~ "`Hero_001` のシーンを流用し、`maya_base` は "
+#~ "`D:/FacialCapture/SampleCapture/Assets` を指定"
+#~ msgstr ""
+
+#~ msgid "☐ **シーンを指定する** — 自分でシーンと `maya_base` を指定する"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☑ **自分の回答を入力** — `Side_A` と `Side_B` "
+#~ "は `Side_001` に、`Extra_A` は `Extra_001` "
+#~ "にまとめて進めて"
+#~ msgstr ""
+
+#~ msgid "☐ **2023（推奨）** — 既存セッションと同じ設定"
+#~ msgstr ""
+
+#~ msgid "☐ **2022** — 2022 を指定"
+#~ msgstr ""
+
+#~ msgid "☐ **2024** — 2024 を指定"
+#~ msgstr ""
+
+#~ msgid "☑ **自分の回答を入力** — 対応する Maya シーンから読み取って"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☑ `01_HMC` + `04_ROM` **（推奨）** — "
+#~ "`01_HMC\\01_Alice`、`02_Bob`、`03_Carol` の動画 + "
+#~ "`04_ROM` の ROM 動画を各セッションへ。`02_Reference` / "
+#~ "`03_4view` は除外"
+#~ msgstr ""
+
+#~ msgid "☐ `01_HMC` **のみ** — `01_Alice` / `Bob` / `Carol` フォルダの mp4 のみ各セッションへ"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "☐ **すべて（Reference 含む）** — 01～04 の全 "
+#~ "mp4（`02_Reference`、`03_4view_Ref` も含む）を該当セッションへインポート"
 #~ msgstr ""
 
