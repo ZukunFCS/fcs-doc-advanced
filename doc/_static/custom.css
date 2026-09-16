@@ -86,15 +86,37 @@ table.list-table > tbody > tr:last-child > td {
 }
 
 /* MCP confirmation questions: checkbox-style options */
-.mcp-chat-turn .mcp-chat-q-title {
-    margin: 0.85rem 0 0.35rem;
+.mcp-chat-turn .mcp-chat-sep {
+    margin: 0.75rem 0;
+    border-top: 1px solid #d0d7de;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.mcp-chat-turn .mcp-chat-q-title:first-of-type {
-    margin-top: 0.55rem;
+.mcp-chat-turn .mcp-chat-sep > p {
+    margin: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.mcp-chat-turn .mcp-chat-q-title {
+    margin: 0.35rem 0 0.35rem;
 }
 
 .mcp-chat-turn .mcp-chat-q-title > p {
+    margin: 0;
+}
+
+.mcp-chat-turn .mcp-chat-status {
+    margin: 0.15rem 0;
+    color: #5b6b76;
+    font-style: italic;
+}
+
+.mcp-chat-turn .mcp-chat-status > p {
     margin: 0;
 }
 
@@ -149,9 +171,7 @@ table.list-table > tbody > tr:last-child > td {
 }
 
 .mcp-chat-turn .mcp-chat-answers-done {
-    margin-top: 0.85rem;
-    padding-top: 0.75rem;
-    border-top: 1px dashed #d0d7de;
+    margin: 0.15rem 0 0;
 }
 
 .mcp-chat-turn .mcp-chat-answers-done > p {
