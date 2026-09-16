@@ -282,7 +282,7 @@ msgstr "FCSは、選定された名前付きツールのみを意図的に公開
 
 #: ../../005_mcp.md:130
 msgid "Sample Interactions"
-msgstr "対話例"
+msgstr "利用例"
 
 #: ../../005_mcp.md:132
 msgid ""
