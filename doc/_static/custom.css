@@ -84,3 +84,72 @@ table.list-table > tbody > tr:last-child > td {
 .mcp-chat-turn ol {
     margin-bottom: 0.55rem;
 }
+
+/* MCP confirmation questions: checkbox-style options */
+.mcp-chat-q-title {
+    margin: 0.85rem 0 0.35rem;
+}
+
+.mcp-chat-q-title:first-of-type {
+    margin-top: 0.55rem;
+}
+
+.mcp-chat-options {
+    list-style: none;
+    margin: 0 0 0.65rem;
+    padding: 0;
+}
+
+.mcp-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    margin: 0.3rem 0;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    line-height: 1.45;
+}
+
+.mcp-choice.is-selected {
+    background: #f0f7ff;
+    border: 1px solid #c5dbf0;
+}
+
+.mcp-choice-mark {
+    flex-shrink: 0;
+    width: 1.05em;
+    height: 1.05em;
+    margin-top: 0.15em;
+    border: 1.5px solid #8a9aa8;
+    border-radius: 3px;
+    background: #fff;
+    position: relative;
+}
+
+.mcp-choice.is-selected .mcp-choice-mark {
+    border-color: #2b6cb0;
+    background: #2b6cb0;
+}
+
+.mcp-choice.is-selected .mcp-choice-mark::after {
+    content: "";
+    position: absolute;
+    left: 0.2em;
+    top: 0.05em;
+    width: 0.28em;
+    height: 0.55em;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.mcp-choice-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.mcp-chat-answers-done {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #d0d7de;
+}
