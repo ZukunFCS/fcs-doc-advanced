@@ -274,14 +274,15 @@ msgid ""
 msgstr ""
 
 #: ../../005_mcp.md:130
-msgid "Example conversations"
+msgid "Sample Interactions"
 msgstr ""
 
 #: ../../005_mcp.md:132
 msgid ""
-"After connecting, speak to the agent normally. You do not need to "
-"memorize MCP tool names. The agent can also read the FCS operating guide "
-"exposed through MCP before acting. Representative exchanges:"
+"Once connected, you can request status checks, operational tasks, "
+"or workflow execution directly through the agent. "
+"The agent handles the necessary steps based on integrated FCS rules. "
+"Below are examples of how you can interact with the agent:"
 msgstr ""
 
 #: ../../005_mcp.md:141 ../../005_mcp.md:351 ../../005_mcp.md:381

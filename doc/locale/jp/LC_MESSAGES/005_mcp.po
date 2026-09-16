@@ -232,13 +232,13 @@ msgstr "利用可能なワークフロー"
 
 #: ../../005_mcp.md:113
 msgid "The public MCP tools cover these areas:"
-msgstr "公開MCPツールは次の領域に対応しています："
+msgstr "公開MCPツールは次の機能に対応しています："
 
 #: ../../005_mcp.md:115
 msgid ""
 "Application and session status, session creation, opening, inspection, "
 "and saving."
-msgstr "アプリケーションとセッションの状態、セッションの作成、オープン、確認、保存。"
+msgstr "アプリケーションとセッションの状態、セッションの作成や読み込み、検査や保存。"
 
 #: ../../005_mcp.md:117
 msgid "Video import, library and sequence browsing, and video selection."
@@ -281,15 +281,16 @@ msgid ""
 msgstr "FCSは、選定された名前付きツールのみを意図的に公開しています。ライセンス管理やアプリケーションの内部コマンドはMCPから利用できません。正確なツール一覧は、接続時にクライアントが自動的に検出します。"
 
 #: ../../005_mcp.md:130
-msgid "Example conversations"
-msgstr "会話例"
+msgid "Sample Interactions"
+msgstr "対話例"
 
 #: ../../005_mcp.md:132
 msgid ""
-"After connecting, speak to the agent normally. You do not need to "
-"memorize MCP tool names. The agent can also read the FCS operating guide "
-"exposed through MCP before acting. Representative exchanges:"
-msgstr "接続後は、通常どおりエージェントに話しかけます。MCPツール名を覚える必要はありません。エージェントは操作前に、MCP経由で公開されているFCS操作ガイドを読むこともできます。代表的なやり取り："
+"Once connected, you can request status checks, operational tasks, "
+"or workflow execution directly through the agent. "
+"The agent handles the necessary steps based on integrated FCS rules. "
+"Below are examples of how you can interact with the agent:"
+msgstr "接続後は、FCSの状況確認や各種操作、手続きの実行などをチャット上で直接リクエストできます。エージェントが運用仕様を踏まえて適切な処理を行います。以下のように指示を出してみてください。"
 
 #: ../../005_mcp.md:141 ../../005_mcp.md:351 ../../005_mcp.md:381
 msgid "**User**"
@@ -362,9 +363,8 @@ msgid ""
 msgstr ""
 
 #: ../../005_mcp.md:213
-#, fuzzy
 msgid "`Extra_001` **シーンを指定** — `Extra_001_setup_FacialBase.ma` を指定"
-msgstr "`Extra_001_setup_FacialBase.ma`"
+msgstr ""
 
 #: ../../005_mcp.md:219
 msgid "**シーンを指定する** — 自分でシーンと `maya_base` を指定する"
