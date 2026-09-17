@@ -237,7 +237,7 @@ msgstr "公開MCPツールは次の機能に対応しています："
 msgid ""
 "Application and session status checks, session creation, opening, "
 "inspection, and saving."
-msgstr "アプリケーションとセッションの状態確認、およびセッションの作成・読み込み・検査・保存。"
+msgstr "アプリケーションとセッションの状態確認、およびセッションの作成・読み込み・事前検査・保存。"
 
 #: ../../005_mcp.md:117
 msgid "Video importing and selection, along with browsing video libraries."
@@ -271,13 +271,13 @@ msgstr "処理プロファイルおよびアプリケーション設定の確認
 msgid ""
 "Profile / Gallery operations, including searching and filtering, "
 "updating, predicting, and deleting, alongside timeline navigation."
-msgstr "Profile / Gallery の検索・フィルタリング・更新・予測・削除、およびタイムライン操作。"
+msgstr "Profile / Gallery の検索・更新・予測・削除、およびタイムライン操作。"
 
 #: ../../005_mcp.md:123
 msgid ""
 "Controller management, including data retrieval, editing, reordering, "
 "preset application, renderer synchronization, and explicit saving."
-msgstr "コントローラー管理（データ取得、編集、並べ替え、プリセット適用、レンダラ同期、明示的な保存）。"
+msgstr "コントローラーの確認・編集・並べ替え、プリセット適用、レンダラ同期、および明示的な保存。"
 
 #: ../../005_mcp.md:126
 msgid ""
