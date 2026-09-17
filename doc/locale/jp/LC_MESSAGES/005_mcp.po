@@ -241,7 +241,7 @@ msgstr "アプリケーションとセッションの状態確認、およびセ
 
 #: ../../005_mcp.md:117
 msgid "Video importing and selection, along with browsing video libraries."
-msgstr "動画のインポートや選択、およびビデオライブラリの参照。"
+msgstr "動画のインポートや選択、ビデオライブラリの参照。"
 
 #: ../../005_mcp.md:118
 msgid ""
@@ -265,7 +265,7 @@ msgstr "DCCツールとの連携（状態確認、接続テスト、起動、シ
 msgid ""
 "Processing profiles and application settings, including checks and "
 "updates."
-msgstr "処理プロファイルおよびアプリケーション設定の確認や更新。"
+msgstr "処理プロファイルとアプリケーション設定の確認や更新。"
 
 #: ../../005_mcp.md:122
 msgid ""
