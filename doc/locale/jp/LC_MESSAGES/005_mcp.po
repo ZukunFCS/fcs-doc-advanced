@@ -236,41 +236,49 @@ msgstr "公開MCPツールは次の機能に対応しています："
 
 #: ../../005_mcp.md:115
 msgid ""
-"Application and session status, session creation, opening, inspection, "
-"and saving."
-msgstr "アプリケーションとセッションの状態、セッションの作成や読み込み、検査や保存。"
+"Application and session status checks, session creation, opening, "
+"inspection, and saving."
+msgstr "アプリケーションとセッションの状態確認、およびセッションの作成・読み込み・検査・保存。"
 
 #: ../../005_mcp.md:117
-msgid "Video import, library and sequence browsing, and video selection."
-msgstr "動画のインポート、ライブラリとシーケンスの参照、動画の選択。"
+msgid "Video importing and selection, along with browsing video libraries."
+msgstr "動画のインポートや選択、およびビデオライブラリの参照。"
 
 #: ../../005_mcp.md:118
-msgid "Single and batch processing, job progress, status, and cancellation."
-msgstr "単体処理とバッチ処理、ジョブの進捗、状態、キャンセル。"
+msgid ""
+"Single and batch processing, including job status checks, progress "
+"monitoring, and cancellation."
+msgstr "単体およびバッチ処理の実行、ジョブの状態確認・進捗監視・キャンセル。"
 
 #: ../../005_mcp.md:119
-msgid "Export validation, export defaults, and session export."
-msgstr "エクスポートの検証、既定値、セッションのエクスポート。"
+msgid ""
+"Session exporting, export path validation, and retrieval of default "
+"export settings."
+msgstr "セッションのエクスポート、出力先の検証、およびエクスポート既定値の取得。"
 
 #: ../../005_mcp.md:120
-msgid "Renderer status, connection testing, launch, and scene opening."
-msgstr "レンダラーの状態、接続テスト、起動、シーンのオープン。"
+msgid ""
+"DCC integration, including status checks, connection testing, launching, "
+"and scene opening."
+msgstr "DCCツールとの連携（状態確認、接続テスト、起動、シーンの読み込み）。"
 
 #: ../../005_mcp.md:121
-msgid "Processing profiles and settings inspection or updates."
-msgstr "処理プロファイルと設定の確認または更新。"
+msgid ""
+"Processing profiles and application settings, including checks and "
+"updates."
+msgstr "処理プロファイルおよびアプリケーション設定の確認や更新。"
 
 #: ../../005_mcp.md:122
 msgid ""
-"ROM gallery queries, updates, prediction, deletion, and timeline "
-"navigation."
-msgstr "ROMギャラリーの照会、更新、予測、削除、タイムライン操作。"
+"Profile / Gallery operations, including searching and filtering, "
+"updating, predicting, and deleting, alongside timeline navigation."
+msgstr "Profile / Gallery の検索・フィルタリング・更新・予測・削除、およびタイムライン操作。"
 
 #: ../../005_mcp.md:123
 msgid ""
-"Controller inspection, editing, presets, reordering, synchronization, and"
-" explicit saving."
-msgstr "コントローラーの確認、編集、プリセット、並べ替え、同期、明示的な保存。"
+"Controller management, including data retrieval, editing, reordering, "
+"preset application, renderer synchronization, and explicit saving."
+msgstr "コントローラー管理（データ取得、編集、並べ替え、プリセット適用、レンダラ同期、明示的な保存）。"
 
 #: ../../005_mcp.md:126
 msgid ""
