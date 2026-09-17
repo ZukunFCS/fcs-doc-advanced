@@ -297,7 +297,7 @@ msgid ""
 "or workflow execution directly through the agent. "
 "The agent handles the necessary steps based on integrated FCS rules. "
 "Below are examples of how you can interact with the agent:"
-msgstr "接続後は、FCSの状況確認や各種操作、手続きの実行などをチャット上で直接リクエストできます。エージェントが運用仕様を踏まえて適切な処理を行います。以下のように指示を出してみてください。"
+msgstr "接続後は、FCSの状況確認や各種操作、ワークフローの実行などをチャット上で直接リクエストできます。エージェントがFCSの仕様を踏まえて適切な処理を行います。以下のように指示を出してみてください。"
 
 #: ../../005_mcp.md:141 ../../005_mcp.md:351 ../../005_mcp.md:381
 msgid "**User**"
