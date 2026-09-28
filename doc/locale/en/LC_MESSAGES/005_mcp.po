@@ -31,6 +31,34 @@ msgid ""
 "guide to directly assist you with time-consuming, mechanical tasks."
 msgstr ""
 
+#: ../../005_mcp.md:7
+msgid "**Enable MCP Server**"
+msgstr ""
+
+#: ../../005_mcp.md:9
+msgid "The MCP interface allows compatible AI applications to access FCS features and perform actions on your behalf."
+msgstr ""
+
+#: ../../005_mcp.md:11
+msgid ""
+"Only connect FCS to MCP clients and AI applications that you trust. "
+"Depending on the tools you enable, the connected application may be able "
+"to read project information, modify data, execute operations, or transmit "
+"information to third-party services."
+msgstr ""
+
+#: ../../005_mcp.md:13
+msgid ""
+"Data sent through MCP is subject to the privacy practices and terms of the "
+"application or service you connect to. AI-generated tool requests may be "
+"incorrect or influenced by malicious content. Backup your files and review "
+"important or destructive actions before allowing them to execute."
+msgstr ""
+
+#: ../../005_mcp.md:15
+msgid "You are responsible for configuring and using third-party MCP clients appropriately."
+msgstr ""
+
 #: ../../005_mcp.md:6
 msgid "Before You Start"
 msgstr ""
@@ -72,6 +100,10 @@ msgstr ""
 
 #: ../../005_mcp.md:20
 msgid "Enable **Enable MCP Server**."
+msgstr ""
+
+#: ../../005_mcp.md:33
+msgid "Review the warning and select **I understand and accept**."
 msgstr ""
 
 #: ../../005_mcp.md:21
